@@ -1,6 +1,8 @@
 .classifier
   background $white
+  border-radius 5px
   box-shadow 0 5px 10px $gray
+  color $black
   width 650px
 
   img
@@ -31,6 +33,21 @@
       &.selected
         border 3px solid $greenish
 
+  .text
+    border 1px solid $gray-light
+    border-width 1px 0
+    padding 0 20px
+
+    p
+      margin 20px 0
+
+      &.heading
+        font 30px "Open Sans Condensed", sans-serif
+        margin 15px 0 -20px
+
+    &.followup
+      text-align center
+
   .categories,
   .selections
     clearfix()
@@ -48,6 +65,10 @@
         img
           height 110px
           width 110px
+
+        &:hover
+          border 1px solid $gray-dark
+          margin -1px 14px -1px -1px
 
         &.selected img
           border 3px solid $greenish
@@ -71,3 +92,77 @@
   .selections
     background $gray-light
     box-shadow 0 0 3px $gray inset
+
+  .footer
+    clearfix()
+    padding 20px
+
+    .progress
+      float left
+      width 33%
+
+      .subject
+        li
+          background $gray
+          border-radius 3px
+          box-shadow 0 1px 1px $gray-dark inset
+          display inline-block
+          height 5px
+          width 5px
+
+          &.filled
+            background $orange
+            box-shadow none
+
+      .series
+        .track
+          background $gray
+          border-radius 3px
+          box-shadow 0 1px 1px $gray-dark inset
+          height 5px
+          overflow hidden
+          position relative
+
+          .fill
+            background $orange
+            height 100%
+            left 0
+            position absolute
+            top 0
+            width 50%
+
+    .action
+      float right
+
+      button
+        background $gray
+        border 1px solid rgba($black, 0.25)
+        border-radius 3px
+        box-shadow 0 7px 7px rgba($white, 0.5) inset, 0 -2px 7px rgba($black, 0.25) inset, 0 2px 3px rgba($gray-dark, 0.5)
+        font-size 12px
+        margin-left 10px
+        padding 3px 20px
+        text-shadow 0 1px $white
+
+        &:hover
+          border-color rgba($black, 0.5)
+
+        &[name="favorite"],
+        &[name="unfavorite"]
+          padding 3px 10px
+
+        &[name="unfavorite"]
+          color $blue
+
+        &[name="choose"],
+        &[name="next"]
+          background $blue
+          color $white
+          text-shadow 0 1px rgba($black, 0.5)
+
+          &:hover
+            border-color rgba($black, 0.67)
+
+        &:active,
+        &[name="unfavorite"]
+          box-shadow 0 2px 5px rgba($black, 0.33) inset
