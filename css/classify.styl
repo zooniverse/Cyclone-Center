@@ -14,6 +14,7 @@
     background transparent
     border 0
     cursor pointer
+    margin 0
     padding 0
 
     &::-moz-focus-inner
@@ -151,37 +152,4 @@
       float right
 
       button
-        background $gray-light
-        border 1px solid rgba($black, 0.33)
-        border-radius 3px
-        box-shadow 0 10px 10px rgba($white, 0.25) inset, 0 -5px 5px rgba($black, 0.125) inset, 0 2px 3px rgba($gray-dark, 0.5)
-        font-size 13px
-        margin-left 10px
-        padding 3px 20px
-        text-shadow 0 1px $white
-
-        &:hover
-          border-color rgba($black, 0.5)
-
-        &[name="favorite"],
-        &[name="unfavorite"]
-          border-radius 50%
-          height 22px
-          padding 0
-          width 22px
-
-        &[name="unfavorite"]
-          box-shadow 0 2px 3px rgba($black, 0.33) inset, 0 0 5px rgba($orange, 0.67) inset
-          color $orange
-
-        &[name="choose"],
-        &[name="next"]
-          background $blue
-          color $white
-          text-shadow 0 1px rgba($black, 0.5)
-
-          &:hover
-            border-color rgba($black, 0.67)
-
-        &:active
-          box-shadow 0 1px 3px rgba($black, 0.33) inset
+        standard-button()
