@@ -1,155 +1,157 @@
-.classifier
-  background $white
-  border-radius 5px
-  box-shadow 0 5px 10px $gray
-  color $black
-  width 650px
-
-  img
-    box-sizing border-box
-    display block
-
-  button
-    appearance(none)
-    background transparent
-    border 0
-    cursor pointer
-    margin 0
-    padding 0
-
-    &::-moz-focus-inner
-      border 0
-      padding 0
-
-  .main-pair
-    clearfix()
-    padding 20px 0 20px 20px
-    position relative
+#classify
+  .classifier
+    background $white
+    border-radius 5px
+    box-shadow 0 5px 10px $gray
+    color $black
+    width 650px
 
     img
-      float left
-      height 300px
-      margin-right 10px
-      width 300px
-
-      &.selected
-        border 3px solid $greenish
-
-    .chosen
-      background $white
-      border-radius 50%
-      color $greenish
-      font-size 100px
-      font-weight bold
-      height 150px
-      left 50%
-      line-height 150px
-      margin -75px 0 0 -75px
-      position absolute
-      text-align center
-      top 50%
-      width 150px
-
-  .text
-    border 1px solid $gray-light
-    border-width 1px 0
-    padding 0 20px
-
-    p
-      margin 20px 0
-
-      &.heading
-        font 30px "Open Sans Condensed", sans-serif
-        margin 15px 0 -20px
-
-    &.followup
-      text-align center
-
-  .categories,
-  .selections
-    clearfix()
-    padding 20px 0 20px 20px
-
-    li
+      box-sizing border-box
       display block
-      float left
 
-      button
-        display block
-        margin-right 15px
-        position relative
+    button
+      appearance(none)
+      background transparent
+      border 0
+      cursor pointer
+      margin 0
+      padding 0
 
-        img
-          height 110px
-          width 110px
+      &::-moz-focus-inner
+        border 0
+        padding 0
 
-        &:hover
-          border 1px solid $gray-dark
-          margin -1px 14px -1px -1px
+    .main-pair
+      clearfix()
+      padding 20px 0 20px 20px
+      position relative
 
-        &.selected img
+      img
+        float left
+        height 300px
+        margin-right 10px
+        width 300px
+
+        &.selected
           border 3px solid $greenish
 
-  .categories button
-    &.selected:before,
-    &.selected:after
-      border 10px solid transparent
-      border-top 10px solid $white
-      content " "
-      left 50%
-      margin 20px 0 0 -10px
-      position absolute
-      top 100%
+      .chosen
+        background $white
+        border-radius 50%
+        color $greenish
+        font-size 100px
+        font-weight bold
+        height 150px
+        left 50%
+        line-height 150px
+        margin -75px 0 0 -75px
+        position absolute
+        text-align center
+        top 50%
+        width 150px
 
-    &.selected:before
-      border-top-color $gray
-      margin-top 21px
-      opacity 0.5
+    .text
+      border 1px solid $gray-light
+      border-width 1px 0
+      padding 0 20px
 
-  .selections
-    background $gray-light
-    box-shadow 0 0 3px $gray inset
+      p
+        margin 20px 0
 
-  .footer
-    clearfix()
-    padding 20px
+        &.heading
+          font 30px "Open Sans Condensed", sans-serif
+          margin 15px 0 -20px
 
-    .progress
-      float left
-      width 33%
+      &.followup
+        text-align center
 
-      .subject
-        li
-          background $gray
-          border-radius 3px
-          box-shadow 0 1px 1px $gray-dark inset
-          display inline-block
-          height 5px
-          width 5px
+    .categories,
+    .selections
+      clearfix()
+      padding 20px 0 20px 20px
 
-          &.filled
-            background $orange
-            box-shadow none
+      li
+        display block
+        float left
 
-      .series
-        .track
-          background $gray
-          border-radius 3px
-          box-shadow 0 1px 1px $gray-dark inset
-          height 5px
-          overflow hidden
+        button
+          display block
+          margin-right 15px
           position relative
 
-          .fill
-            background $orange
-            height 100%
-            left 0
-            position absolute
-            top 0
-            width 50%
+          img
+            height 110px
+            width 110px
 
-    .action
-      float right
+          &:hover
+            border 1px solid $gray-dark
+            margin -1px 14px -1px -1px
 
-      button
-        standard-button()
+          &.selected img
+            border 3px solid $greenish
+
+    .categories button
+      &.selected:before,
+      &.selected:after
+        border 10px solid transparent
+        border-top 10px solid $white
+        content " "
+        left 50%
+        margin 20px 0 0 -10px
+        position absolute
+        top 100%
+
+      &.selected:before
+        border-top-color $gray
+        margin-top 21px
+        opacity 0.5
+
+    .selections
+      background $gray-light
+      box-shadow 0 0 3px $gray inset
+
+    .footer
+      clearfix()
+      padding 20px
+
+      .progress
+        float left
+        width 33%
+
+        .subject
+          li
+            background $gray
+            border-radius 3px
+            box-shadow 0 1px 1px $gray-dark inset
+            display inline-block
+            height 5px
+            width 5px
+
+            &.filled
+              background $orange
+              box-shadow none
+
+        .series
+          .track
+            background $gray
+            border-radius 3px
+            box-shadow 0 1px 1px $gray-dark inset
+            height 5px
+            overflow hidden
+            position relative
+
+            .fill
+              background $orange
+              height 100%
+              left 0
+              position absolute
+              top 0
+              width 50%
+
+      .action
+        float right
+        font-size: 13px
+
+        button
+          standard-button()
