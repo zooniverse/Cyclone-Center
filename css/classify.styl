@@ -135,11 +135,11 @@
       float right
 
       button
-        background $gray
-        border 1px solid rgba($black, 0.25)
+        background $gray-light
+        border 1px solid rgba($black, 0.33)
         border-radius 3px
-        box-shadow 0 7px 7px rgba($white, 0.5) inset, 0 -2px 7px rgba($black, 0.25) inset, 0 2px 3px rgba($gray-dark, 0.5)
-        font-size 12px
+        box-shadow 0 10px 10px rgba($white, 0.25) inset, 0 -5px 5px rgba($black, 0.125) inset, 0 2px 3px rgba($gray-dark, 0.5)
+        font-size 13px
         margin-left 10px
         padding 3px 20px
         text-shadow 0 1px $white
@@ -149,10 +149,14 @@
 
         &[name="favorite"],
         &[name="unfavorite"]
-          padding 3px 10px
+          border-radius 50%
+          height 22px
+          padding 0
+          width 22px
 
         &[name="unfavorite"]
-          color $blue
+          box-shadow 0 2px 3px rgba($black, 0.33) inset, 0 0 5px rgba($orange, 0.67) inset
+          color $orange
 
         &[name="choose"],
         &[name="next"]
@@ -163,6 +167,5 @@
           &:hover
             border-color rgba($black, 0.67)
 
-        &:active,
-        &[name="unfavorite"]
-          box-shadow 0 2px 5px rgba($black, 0.33) inset
+        &:active
+          box-shadow 0 1px 3px rgba($black, 0.33) inset
