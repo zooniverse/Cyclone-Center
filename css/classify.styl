@@ -23,6 +23,7 @@
   .main-pair
     clearfix()
     padding 20px 0 20px 20px
+    position relative
 
     img
       float left
@@ -32,6 +33,21 @@
 
       &.selected
         border 3px solid $greenish
+
+    .chosen
+      background $white
+      border-radius 50%
+      color $greenish
+      font-size 100px
+      font-weight bold
+      height 150px
+      left 50%
+      line-height 150px
+      margin -75px 0 0 -75px
+      position absolute
+      text-align center
+      top 50%
+      width 150px
 
   .text
     border 1px solid $gray-light
