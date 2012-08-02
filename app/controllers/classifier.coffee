@@ -1,4 +1,5 @@
 Spine = require('spine')
+Map = require('Zooniverse/lib/map')
 
 class Classifier extends Spine.Controller
   events:
@@ -21,10 +22,21 @@ class Classifier extends Spine.Controller
     'button[name="match"]': 'matchButtons'
     'button[name="choose"]': 'chooseButton'
 
+  map: null
   defaultImageSrc: ''
 
   constructor: ->
     super
+
+    @map ?= new Map
+      apiKey: '21a5504123984624a5e1a856fc00e238'
+      latitude: 33
+      longitude: -60
+      zoom: 5
+
+    @map.el.prependTo @el.parent()
+    @map.resize()
+
     @defaultImageSrc = @matchImage.attr 'src'
     @nextSubjects()
 

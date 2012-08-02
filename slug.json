@@ -4,8 +4,11 @@
     "jqueryify",
     "spine",
     "spine/lib/manager",
-    "spine/lib/route"
+    "spine/lib/route",
+    "Zooniverse/lib/map"
   ],
 
-  "libs": []
+  "libs": [
+    "node_modules/Zooniverse/vendor/leaflet/leaflet.js"
+  ]
 }
