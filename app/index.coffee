@@ -1,8 +1,9 @@
 require 'lib/setup'
 
-Spine = require 'spine'
-Manager = require 'spine/lib/manager'
-Route = require 'spine/lib/route'
+Spine = require('spine')
+Manager = require('spine/lib/manager')
+Route = require('spine/lib/route')
+Classifier = require('controllers/classifier')
 
 class App extends Manager.Stack
   controllers:
@@ -20,5 +21,7 @@ class App extends Manager.Stack
   constructor: ->
     super
     Route.setup()
+
+    window.classifier = new Classifier el: '#classify .classifier'
 
 module.exports = App

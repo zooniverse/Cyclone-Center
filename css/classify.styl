@@ -4,23 +4,14 @@
     border-radius 5px
     box-shadow 0 5px 10px $gray
     color $black
+    position absolute
+    right 10%
+    top 3%
     width 650px
 
     img
       box-sizing border-box
       display block
-
-    button
-      appearance(none)
-      background transparent
-      border 0
-      cursor pointer
-      margin 0
-      padding 0
-
-      &::-moz-focus-inner
-        border 0
-        padding 0
 
     .main-pair
       clearfix()
@@ -40,6 +31,7 @@
         background $white
         border-radius 50%
         color $greenish
+        display none
         font-size 100px
         font-weight bold
         height 150px
@@ -52,7 +44,7 @@
         width 150px
 
     .text
-      border 1px solid $gray-light
+      border-top 1px solid $gray-light
       border-width 1px 0
       padding 0 20px
 
@@ -64,62 +56,85 @@
           margin 15px 0 -20px
 
       &.followup
+        display none
         text-align center
 
     .categories,
-    .selections
-      clearfix()
-      padding 20px 0 20px 20px
+    .matches
+      ol
+        clearfix()
+        padding 20px 0 20px 20px
 
-      li
-        display block
-        float left
-
-        button
+        li
           display block
-          margin-right 15px
-          position relative
+          float left
 
-          img
-            height 110px
-            width 110px
+          button
+            display block
+            margin-right 15px
+            position relative
 
-          &:hover
-            border 1px solid $gray-dark
-            margin -1px 14px -1px -1px
+            img
+              height 110px
+              width 110px
 
-          &.selected img
-            border 3px solid $greenish
+            &:hover
+              border 1px solid $gray-dark
+              margin -1px 14px -1px -1px
 
-    .categories button
-      &.selected:before,
-      &.selected:after
-        border 10px solid transparent
-        border-top 10px solid $white
-        content " "
-        left 50%
-        margin 20px 0 0 -10px
-        position absolute
-        top 100%
+            &.selected img
+              border 3px solid $greenish
 
-      &.selected:before
-        border-top-color $gray
-        margin-top 21px
-        opacity 0.5
+    .categories
+      margin-top -20px
 
-    .selections
+      button
+        &.selected:before,
+        &.selected:after
+          border 10px solid transparent
+          border-top 10px solid $white
+          content " "
+          left 50%
+          margin 20px 0 0 -10px
+          position absolute
+          top 100%
+
+        &.selected:before
+          border-top-color $gray
+          margin-top 21px
+          opacity 0.5
+
+    .matches
+      transition height 0.25s ease-in-out
       background $gray-light
       box-shadow 0 0 3px $gray inset
+      // Height is set in the script.
+      overflow hidden
+      position relative
+
+      ol
+        transition opacity 0.25s ease-in-out
+        opacity 0
+        position absolute
+
+        &.selected
+          opacity 1
+          z-index 1
 
     .footer
       clearfix()
+      border-top 1px solid $gray-light
       padding 20px
 
       .progress
         float left
+        height 26px
         width 33%
 
         .subject
+          line-height 0
+          margin 5px 0
+
           li
             background $gray
             border-radius 3px
@@ -153,5 +168,43 @@
         float right
         font-size: 13px
 
+        .during
+          display none
+
+        .post
+          display none
+
+          .favorite
+            display none
+
         button
           standard-button()
+
+          &[name="unfavorite"]
+            display none
+
+    &.during-classify
+      .footer .action .during
+        display block
+
+    &.post-classify
+      .main-pair .chosen,
+      .followup.text,
+      .footer .action .post
+        display block
+
+      .categories,
+      .matches
+        display none
+
+    &.can-favorite
+      .footer .action .post .favorite
+        display inline
+
+    &.is-favorited
+      .footer .action button
+        &[name="favorite"]
+          display none
+
+        &[name="unfavorite"]
+          display inline-block
