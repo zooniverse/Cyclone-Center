@@ -5,7 +5,8 @@
     "spine",
     "spine/lib/manager",
     "spine/lib/route",
-    "Zooniverse/lib/map"
+    "Zooniverse/lib/map",
+    "Zooniverse/lib/dialog"
   ],
 
   "libs": [
