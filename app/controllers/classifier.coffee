@@ -1,5 +1,6 @@
 Spine = require('spine')
 Map = require('Zooniverse/lib/map')
+StatsDialog = require('./stats_dialog')
 
 TEST =
   selection: []
@@ -160,14 +161,17 @@ class Classifier extends Spine.Controller
     @el.removeClass 'is-favorited'
 
   showStats: =>
-    alert 'Stats!'
+    dialog = new StatsDialog storm: TEST.selection[0].metadata.storm
+    dialog.open()
 
   goToTalk: =>
     # TODO
 
   keys: 49: 1, 50: 2, 51: 3, 52: 4, 53: 5, 13: 'ENTER', 27: 'ESCAPE'
+
   onKeyDown: ({which}) ->
     return unless which of @keys
+
     key = @keys[which]
     category = @categoryButtons.filter '.selected'
     matches = @matchLists.filter('.selected').find 'button'
