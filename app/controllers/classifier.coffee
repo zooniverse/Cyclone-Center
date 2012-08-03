@@ -4,12 +4,13 @@ Map = require('Zooniverse/lib/map')
 TEST =
   selection: []
   subjects: [
-    {id: 0, group: 0, location: {standard: 'http://placehold.it/300/f00.png'}, coords: [24, -70], metadata: {index: 0}}
-    {id: 1, group: 0, location: {standard: 'http://placehold.it/300/ff0.png'}, coords: [26, -70], metadata: {index: 1}}
-    {id: 2, group: 1, location: {standard: 'http://placehold.it/300/0f0.png'}, coords: [28, -70], metadata: {index: 2}}
-    {id: 3, group: 1, location: {standard: 'http://placehold.it/300/0ff.png'}, coords: [30, -70], metadata: {index: 3}}
-    {id: 4, group: 2, location: {standard: 'http://placehold.it/300/00f.png'}, coords: [32, -70], metadata: {index: 4}}
-    {id: 5, group: 2, location: {standard: 'http://placehold.it/300/f0f.png'}, coords: [34, -70], metadata: {index: 5}}
+    {id: 0, group: 0, location: {standard: 'http://placehold.it/300/f00.png'}, coords: [24, -70], metadata: {index: 0, remaining: 2}}
+    {id: 1, group: 0, location: {standard: 'http://placehold.it/300/ff0.png'}, coords: [26, -70], metadata: {index: 1, remaining: 1}}
+    {id: 2, group: 0, location: {standard: 'http://placehold.it/300/0f0.png'}, coords: [28, -70], metadata: {index: 2, remaining: 0, storm: 'Katrina'}}
+
+    {id: 3, group: 1, location: {standard: 'http://placehold.it/300/0ff.png'}, coords: [30, -70], metadata: {index: 0, remaining: 2}}
+    {id: 4, group: 1, location: {standard: 'http://placehold.it/300/00f.png'}, coords: [32, -70], metadata: {index: 1, remaining: 1}}
+    {id: 5, group: 1, location: {standard: 'http://placehold.it/300/f0f.png'}, coords: [34, -70], metadata: {index: 2, remaining: 0, storm: 'Ivan'}}
   ]
 
 class Classifier extends Spine.Controller
@@ -18,6 +19,7 @@ class Classifier extends Spine.Controller
     'click button[name="match"]': 'onClickMatch'
     'click button[name="restart"]': 'restart'
     'click button[name="choose"]': 'choose'
+    'click button[name="stats"]': 'showStats'
     'click button[name="favorite"]': 'createFavorite'
     'click button[name="unfavorite"]': 'destroyFavorite'
     'click button[name="talk"]': 'goToTalk'
@@ -31,11 +33,15 @@ class Classifier extends Spine.Controller
     '.matches': 'matchListsContainer'
     '.matches > ol': 'matchLists'
     '.footer .progress .subject li': 'subjectProgressBullets'
+    '.footer .progress .series .fill': 'seriesProgressFill'
     'button[name="match"]': 'matchButtons'
     'button[name="choose"]': 'chooseButton'
+    '.remaining': 'remaining'
+    '.storm': 'storm'
     'button[name="next"]': 'nextButton'
 
   map: null
+  labels: null
   defaultImageSrc: ''
 
   constructor: ->
@@ -51,6 +57,8 @@ class Classifier extends Spine.Controller
 
     @map.el.prependTo @el.parent()
     @map.resize()
+
+    @labels ?= []
 
     @defaultImageSrc = @matchImage.attr 'src'
     @nextSubjects()
@@ -70,8 +78,17 @@ class Classifier extends Spine.Controller
     @el.removeClass 'is-favorited'
     @el.toggleClass 'can-favorite', true # User is signed in and subjects are not tutorial subjects
 
-    @map.addLabel subjects[0].coords..., subjects[0].coords.join ', '
+    if subjects[0].metadata.index is 0
+      @map.removeLabel label for label in @labels
+      @labels.splice 0
+      @seriesProgressFill.css width: 0
+
+    @labels.push @map.addLabel subjects[0].coords..., subjects[0].coords.join ', '
+
     @subjectImage.attr src: subjects[0].location.standard
+
+    @remaining.html subjects[0].metadata.remaining
+    @storm.html subjects[0].metadata.storm
 
   restart: (subjects) =>
     @selectCategory null
@@ -128,13 +145,22 @@ class Classifier extends Spine.Controller
   choose: =>
     @el.removeClass 'during-classify'
     @el.addClass 'post-classify'
+    @el.toggleClass 'reveal', TEST.selection[0].metadata.remaining is 0
     @subjectProgressBullets.eq(3).addClass 'filled'
+
+    meta = TEST.selection[0].metadata
+    total = meta.remaining + meta.index + 1
+    @seriesProgressFill.css
+      width: "#{100 * ((meta.index + 1) / total)}%"
 
   createFavorite: =>
     @el.addClass 'is-favorited'
 
   destroyFavorite: =>
     @el.removeClass 'is-favorited'
+
+  showStats: =>
+    alert 'Stats!'
 
   goToTalk: =>
     # TODO
@@ -145,6 +171,7 @@ class Classifier extends Spine.Controller
     key = @keys[which]
     category = @categoryButtons.filter '.selected'
     matches = @matchLists.filter('.selected').find 'button'
+    postClassify = @el.hasClass 'post-classify'
 
     if key in [1..5]
       if category.length is 0
@@ -153,12 +180,13 @@ class Classifier extends Spine.Controller
         matches.eq(key - 1).click()
 
     if key is 'ENTER'
-      if @el.hasClass 'post-classify'
+      if postClassify
         @nextButton.click()
       else
         @chooseButton.click()
 
     if key is 'ESCAPE'
+      return if postClassify
       if matches.filter('.selected').length > 0
         @selectMatch null
       else if category.length > 0
