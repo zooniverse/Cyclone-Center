@@ -12,6 +12,24 @@
     right 0
     top 0
 
+    .map-label
+      color $white
+      display inline-block
+      font-size 12px
+      position relative
+      white-space nowrap
+
+      &:before
+        background $black
+        border-radius 50%
+        content: " "
+        height 10px
+        margin -5px 5px 0 0
+        position absolute
+        right 100%
+        top 50%
+        width 10px
+
   .classifier
     background $white
     border-radius 5px

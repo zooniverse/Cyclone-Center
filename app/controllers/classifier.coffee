@@ -1,6 +1,17 @@
 Spine = require('spine')
 Map = require('Zooniverse/lib/map')
 
+TEST =
+  selection: []
+  subjects: [
+    {id: 0, group: 0, location: {standard: 'http://placehold.it/300/f00.png'}, coords: [24, -70], metadata: {index: 0}}
+    {id: 1, group: 0, location: {standard: 'http://placehold.it/300/ff0.png'}, coords: [26, -70], metadata: {index: 1}}
+    {id: 2, group: 1, location: {standard: 'http://placehold.it/300/0f0.png'}, coords: [28, -70], metadata: {index: 2}}
+    {id: 3, group: 1, location: {standard: 'http://placehold.it/300/0ff.png'}, coords: [30, -70], metadata: {index: 3}}
+    {id: 4, group: 2, location: {standard: 'http://placehold.it/300/00f.png'}, coords: [32, -70], metadata: {index: 4}}
+    {id: 5, group: 2, location: {standard: 'http://placehold.it/300/f0f.png'}, coords: [34, -70], metadata: {index: 5}}
+  ]
+
 class Classifier extends Spine.Controller
   events:
     'click button[name="category"]': 'onClickCategory'
@@ -11,6 +22,7 @@ class Classifier extends Spine.Controller
     'click button[name="unfavorite"]': 'destroyFavorite'
     'click button[name="talk"]': 'goToTalk'
     'click button[name="next"]': 'nextSubjects'
+    'keydown': 'onKeyDown'
 
   elements:
     '.main-pair .subject': 'subjectImage'
@@ -21,12 +33,15 @@ class Classifier extends Spine.Controller
     '.footer .progress .subject li': 'subjectProgressBullets'
     'button[name="match"]': 'matchButtons'
     'button[name="choose"]': 'chooseButton'
+    'button[name="next"]': 'nextButton'
 
   map: null
   defaultImageSrc: ''
 
   constructor: ->
     super
+
+    @el.attr tabindex: 0
 
     @map ?= new Map
       apiKey: '21a5504123984624a5e1a856fc00e238'
@@ -41,26 +56,35 @@ class Classifier extends Spine.Controller
     @nextSubjects()
 
   nextSubjects: =>
-    @onChangeSubjects [location: standard: 'http://placehold.it/300.png']
+    TEST.selection.splice 0
+    TEST.selection.push TEST.subjects.splice(0, 1)...
+    if TEST.selection.length > 0
+      @onChangeSubjects TEST.selection
+    else
+      alert 'No more subjects!'
+      setTimeout => @restart()
 
   onChangeSubjects: (subjects) =>
+    @restart()
     @el.removeClass 'post-classify'
     @el.removeClass 'is-favorited'
     @el.toggleClass 'can-favorite', true # User is signed in and subjects are not tutorial subjects
-    @restart()
 
-  restart: =>
+    @map.addLabel subjects[0].coords..., subjects[0].coords.join ', '
+    @subjectImage.attr src: subjects[0].location.standard
+
+  restart: (subjects) =>
     @selectCategory null
     @selectMatch null
     @subjectProgressBullets.removeClass 'filled'
     @subjectProgressBullets.eq(0).addClass 'filled'
 
-  onClickCategory: ({target}) =>
+  onClickCategory: ({currentTarget}) =>
     return if @el.hasClass 'post-classify'
-    if $(target).hasClass 'selected'
+    if $(currentTarget).hasClass 'selected'
       @selectCategory null
     else
-      @selectCategory target.value
+      @selectCategory currentTarget.value
 
   selectCategory: (category) =>
     @el.toggleClass 'during-classify', category?
@@ -79,12 +103,12 @@ class Classifier extends Spine.Controller
 
     @selectMatch null
 
-  onClickMatch: ({target}) =>
+  onClickMatch: ({currentTarget}) =>
     return if @el.hasClass 'post-classify'
-    if $(target).hasClass 'selected'
+    if $(currentTarget).hasClass 'selected'
       @selectMatch null
     else
-      @selectMatch target.value
+      @selectMatch currentTarget.value
 
   selectMatch: (match) =>
     @matchImage.toggleClass 'selected', match?
@@ -113,5 +137,31 @@ class Classifier extends Spine.Controller
     @el.removeClass 'is-favorited'
 
   goToTalk: =>
+    # TODO
+
+  keys: 49: 1, 50: 2, 51: 3, 52: 4, 53: 5, 13: 'ENTER', 27: 'ESCAPE'
+  onKeyDown: ({which}) ->
+    return unless which of @keys
+    key = @keys[which]
+    category = @categoryButtons.filter '.selected'
+    matches = @matchLists.filter('.selected').find 'button'
+
+    if key in [1..5]
+      if category.length is 0
+        @categoryButtons.eq(key - 1).click()
+      else
+        matches.eq(key - 1).click()
+
+    if key is 'ENTER'
+      if @el.hasClass 'post-classify'
+        @nextButton.click()
+      else
+        @chooseButton.click()
+
+    if key is 'ESCAPE'
+      if matches.filter('.selected').length > 0
+        @selectMatch null
+      else if category.length > 0
+        @selectCategory null
 
 module.exports = Classifier
