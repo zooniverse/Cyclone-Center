@@ -37,15 +37,9 @@ standard-button()
   &:hover
     border-color rgba($black, 0.5)
 
-  &.toggle
-    border-radius 50%
-    height 22px
-    padding 0
-    width 22px
-
-    &.on
-      box-shadow 0 2px 3px rgba($black, 0.33) inset, 0 0 5px rgba($orange, 0.67) inset
-      color $orange
+  &.toggle.on
+    box-shadow 0 2px 3px rgba($black, 0.33) inset, 0 0 5px rgba($orange, 0.67) inset
+    color $orange
 
   &.default
     background $blue

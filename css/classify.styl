@@ -110,6 +110,7 @@
         li
           display block
           float left
+          position relative
 
           button
             display block
@@ -222,6 +223,10 @@
 
         button
           standard-button()
+
+          &.toggle
+            padding-left 10px
+            padding-right 10px
 
           &[name="unfavorite"]
             display none
