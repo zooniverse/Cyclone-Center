@@ -5,13 +5,13 @@ StatsDialog = require('./stats_dialog')
 TEST =
   selection: []
   subjects: [
-    {id: 0, group: 0, location: {standard: 'http://placehold.it/300/f00.png'}, coords: [24, -70], metadata: {index: 0, remaining: 2}}
-    {id: 1, group: 0, location: {standard: 'http://placehold.it/300/ff0.png'}, coords: [26, -70], metadata: {index: 1, remaining: 1}}
-    {id: 2, group: 0, location: {standard: 'http://placehold.it/300/0f0.png'}, coords: [28, -70], metadata: {index: 2, remaining: 0, storm: 'Katrina'}}
+    {id: 0, group: 0, location: {standard: 'http://placehold.it/1/f00.png'}, coords: [24, -70], metadata: {index: 0, remaining: 2}}
+    {id: 1, group: 0, location: {standard: 'http://placehold.it/1/ff0.png'}, coords: [26, -70], metadata: {index: 1, remaining: 1}}
+    {id: 2, group: 0, location: {standard: 'http://placehold.it/1/0f0.png'}, coords: [28, -70], metadata: {index: 2, remaining: 0, storm: 'Katrina'}}
 
-    {id: 3, group: 1, location: {standard: 'http://placehold.it/300/0ff.png'}, coords: [30, -70], metadata: {index: 0, remaining: 2}}
-    {id: 4, group: 1, location: {standard: 'http://placehold.it/300/00f.png'}, coords: [32, -70], metadata: {index: 1, remaining: 1}}
-    {id: 5, group: 1, location: {standard: 'http://placehold.it/300/f0f.png'}, coords: [34, -70], metadata: {index: 2, remaining: 0, storm: 'Ivan'}}
+    {id: 3, group: 1, location: {standard: 'http://placehold.it/1/0ff.png'}, coords: [30, -70], metadata: {index: 0, remaining: 2}}
+    {id: 4, group: 1, location: {standard: 'http://placehold.it/1/00f.png'}, coords: [32, -70], metadata: {index: 1, remaining: 1}}
+    {id: 5, group: 1, location: {standard: 'http://placehold.it/1/f0f.png'}, coords: [34, -70], metadata: {index: 2, remaining: 0, storm: 'Ivan'}}
   ]
 
 class Classifier extends Spine.Controller
