@@ -7,11 +7,11 @@ TEST =
   subjects: [
     {id: 0, group: 0, location: {standard: 'http://placehold.it/1/f00.png'}, coords: [24, -70], metadata: {index: 0, remaining: 2}}
     {id: 1, group: 0, location: {standard: 'http://placehold.it/1/ff0.png'}, coords: [26, -70], metadata: {index: 1, remaining: 1}}
-    {id: 2, group: 0, location: {standard: 'http://placehold.it/1/0f0.png'}, coords: [28, -70], metadata: {index: 2, remaining: 0, storm: 'Katrina'}}
+    {id: 2, group: 0, location: {standard: 'http://placehold.it/1/0f0.png'}, coords: [28, -70], metadata: {index: 2, remaining: 0, type: 'Hurricane', name: 'Katrina', year: 2005}}
 
     {id: 3, group: 1, location: {standard: 'http://placehold.it/1/0ff.png'}, coords: [30, -70], metadata: {index: 0, remaining: 2}}
     {id: 4, group: 1, location: {standard: 'http://placehold.it/1/00f.png'}, coords: [32, -70], metadata: {index: 1, remaining: 1}}
-    {id: 5, group: 1, location: {standard: 'http://placehold.it/1/f0f.png'}, coords: [34, -70], metadata: {index: 2, remaining: 0, storm: 'Ivan'}}
+    {id: 5, group: 1, location: {standard: 'http://placehold.it/1/f0f.png'}, coords: [34, -70], metadata: {index: 2, remaining: 0, type: 'Hurricane', name: 'Andrew', year: 1992}}
   ]
 
 class Classifier extends Spine.Controller
@@ -85,11 +85,13 @@ class Classifier extends Spine.Controller
       @seriesProgressFill.css width: 0
 
     @labels.push @map.addLabel subjects[0].coords..., subjects[0].coords.join ', '
+    @map.setCenter subjects[0].coords..., center: [0.25, 0.5]
 
     @subjectImage.attr src: subjects[0].location.standard
 
-    @remaining.html subjects[0].metadata.remaining
-    @storm.html subjects[0].metadata.storm
+    meta = subjects[0].metadata
+    @remaining.html meta.remaining
+    @storm.html "#{meta.type} #{meta.name} (#{meta.year})"
 
   restart: (subjects) =>
     @selectCategory null
