@@ -12,24 +12,25 @@ button
     padding 0
 
   &:disabled
+    cursor default
     pointer-events none
 
 standard-button()
   // Note: .toggle, .toggle.on, .default
   background $gray-light
-  border 1px solid rgba($black, 0.33)
-  border-radius 3px
-  box-shadow 0 10px 10px rgba($white, 0.25) inset, 0 -5px 5px rgba($black, 0.125) inset, 0 2px 3px rgba($gray-dark, 0.5)
+  border 0.1ex solid rgba($blacker, 0.33)
+  border-radius 0.33em
+  box-shadow 0 0.67em 0.67em rgba($white, 0.33) inset, 0 -0.5em 0.5em rgba($blacker, 0.125) inset, 0 0.125ex 0.25ex rgba($blacker, 0.33)
   color $black
   display inline-block
   font-family "Open Sans", sans-serif
   font-size inherit
   line-height 1
-  margin-left 10px
+  margin-left 0.75em
   padding 0.5em 2em
   text-decoration none
-  text-shadow 0 1px $white
-  vertical-align: middle
+  text-shadow 0 0.125ex $white
+  vertical-align middle
 
   &:first-child
     margin-left 0
@@ -38,20 +39,20 @@ standard-button()
     border-color rgba($black, 0.5)
 
   &.toggle.on
-    box-shadow 0 2px 3px rgba($black, 0.33) inset, 0 0 5px rgba($orange, 0.67) inset
     color $orange
 
   &.default
     background $blue
     color $white
-    text-shadow 0 1px rgba($black, 0.5)
+    text-shadow 0 0.125ex rgba($black, 0.5)
 
     &:hover
-      border-color rgba($black, 0.67)
+      border-color rgba($black, 0.75)
 
+  &.toggle.on,
   &:active
-    box-shadow 0 1px 3px rgba($black, 0.33) inset
+    box-shadow 0 0.125ex 0.25ex rgba($blacker, 0.5) inset
 
   &:disabled
     box-shadow none
-    opacity: 0.5
+    opacity 0.5
