@@ -124,11 +124,39 @@
                 <button name="favorite" title="Add favorite" class="toggle">&hearts;</button>
                 <button name="unfavorite" title="Remove favorite" class="toggle on">&hearts;</button>
               </span>
-              <!--<button name="talk">Pro classify</button>-->
+              <button name="talk">Pro classify</button>
               <button name="next" class="default">Next Image</button>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="profile">
+      <h2>Welcome, <span class="current-user"></span></h2>
+
+      <div class="favorites">
+        <h3>Favorite images</h3>
+        <p class="none">You haven't favorited any images.</p>
+        <ul>
+          <li data-bind="template">
+            <h4><span class="type"></span> <span class="name"></span> (<span class="year"></span>)</h4>
+            <p><span class="latitude"></span>, <span class="longitude"></span></p>
+            <p><a href="#talk"></a></p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="recents">
+        <h3>Recent classifications</h3>
+        <p class="none">You haven't classified anything recently.</p>
+        <ul>
+          <li data-bind="template">
+            <h4><span class="type"></span> <span class="name"></span> (<span class="year"></span>)</h4>
+            <p><span class="latitude"></span>, <span class="longitude"></span></p>
+            <p><a href="#talk"></a></p>
+          </li>
+        </ul>
       </div>
     </section>
   </body>
