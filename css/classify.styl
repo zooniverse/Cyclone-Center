@@ -57,26 +57,11 @@
         &.selected
           border 3px solid $greenish
 
-      .chosen
-        background $white
-        border-radius 50%
-        color $greenish
-        display none
-        font-size 100px
-        font-weight bold
-        height 150px
-        left 50%
-        line-height 150px
-        margin -75px 0 0 -75px
-        position absolute
-        text-align center
-        top 50%
-        width 150px
-
     .text
       border-top 1px solid $gray-light
       border-width 1px 0
       padding 0 20px
+      text-align center
 
       p
         margin 20px 0
@@ -94,11 +79,6 @@
         standard-button()
         font-size 12px
         position absolute
-
-      &.followup,
-      &.reveal
-        display none
-        text-align center
 
     .categories,
     .matches
@@ -229,39 +209,6 @@
 
           &[name="unfavorite"]
             display none
-
-    &.during-classify
-      .footer .action .during
-        display block
-
-    &.post-classify
-      .main-pair .chosen,
-      .followup.text,
-      .footer .action .post
-        display block
-
-      .categories,
-      .matches
-        display none
-
-      &.reveal
-        .followup
-          display none
-
-        .reveal
-          display block
-
-    &.can-favorite
-      .footer .action .post .favorite
-        display inline
-
-    &.is-favorited
-      .footer .action button
-        &[name="favorite"]
-          display none
-
-        &[name="unfavorite"]
-          display inline-block
 
 .dialog-underlay
   background vendor-value(radial-gradient(rgba($black, 0.5), rgba($black, 0.75)))

@@ -19,12 +19,13 @@ class Classifier extends Spine.Controller
     'click button[name="category"]': 'onClickCategory'
     'click button[name="match"]': 'onClickMatch'
     'click button[name="restart"]': 'restart'
-    'click button[name="choose"]': 'choose'
+    'click button[name="choose-match"]': 'chooseMatch'
     'click button[name="stats"]': 'showStats'
+    'click button[name="pro-classify"]': 'goToTalk'
+    'click button[name="choose"]': 'onClickChoose'
     'click button[name="favorite"]': 'createFavorite'
     'click button[name="unfavorite"]': 'destroyFavorite'
-    'click button[name="talk"]': 'goToTalk'
-    'click button[name="next"]': 'nextSubjects'
+    'click button[name="next-image"]': 'nextSubjects'
     'keydown': 'onKeyDown'
 
   elements:
@@ -42,13 +43,16 @@ class Classifier extends Spine.Controller
     'button[name="next"]': 'nextButton'
 
   map: null
-  labels: null
+  labels: null # Labelled points on the map
+
   defaultImageSrc: ''
+
+  previousSubject: null
 
   constructor: ->
     super
 
-    @el.attr tabindex: 0
+    @el.attr tabindex: 0 # Make this focusable.
 
     @map ?= new Map
       apiKey: '21a5504123984624a5e1a856fc00e238'
@@ -56,17 +60,22 @@ class Classifier extends Spine.Controller
       longitude: -60
       zoom: 5
 
-    @map.el.prependTo @el.parent()
-    @map.resize()
+    @map.el.prependTo @el.parent() # Is it a little sloppy to modify outside nodes?
 
     @labels ?= []
 
     @defaultImageSrc = @matchImage.attr 'src'
     @nextSubjects()
 
+  annotate: =>
+    console.log 'Annotation:', arguments...
+
   nextSubjects: =>
+    @previousSubject = TEST.selection[0]
+
     TEST.selection.splice 0
     TEST.selection.push TEST.subjects.splice(0, 1)...
+
     if TEST.selection.length > 0
       @onChangeSubjects TEST.selection
     else
@@ -75,11 +84,9 @@ class Classifier extends Spine.Controller
 
   onChangeSubjects: (subjects) =>
     @restart()
-    @el.removeClass 'post-classify'
-    @el.removeClass 'is-favorited'
-    @el.toggleClass 'can-favorite', true # User is signed in and subjects are not tutorial subjects
 
     if subjects[0].metadata.index is 0
+      # First subject in a set, so clear out old labels.
       @map.removeLabel label for label in @labels
       @labels.splice 0
       @seriesProgressFill.css width: 0
@@ -90,7 +97,6 @@ class Classifier extends Spine.Controller
     @subjectImage.attr src: subjects[0].location.standard
 
     meta = subjects[0].metadata
-    @remaining.html meta.remaining
     @storm.html "#{meta.type} #{meta.name} (#{meta.year})"
 
   restart: (subjects) =>
@@ -98,6 +104,12 @@ class Classifier extends Spine.Controller
     @selectMatch null
     @subjectProgressBullets.removeClass 'filled'
     @subjectProgressBullets.eq(0).addClass 'filled'
+
+  setupComparison: =>
+
+  onClickChoose: =>
+
+  setupCategories: =>
 
   onClickCategory: ({currentTarget}) =>
     return if @el.hasClass 'post-classify'
@@ -123,6 +135,8 @@ class Classifier extends Spine.Controller
 
     @selectMatch null
 
+  setupMatches: =>
+
   onClickMatch: ({currentTarget}) =>
     return if @el.hasClass 'post-classify'
     if $(currentTarget).hasClass 'selected'
@@ -145,7 +159,7 @@ class Classifier extends Spine.Controller
 
     @chooseButton.attr disabled: not match?
 
-  choose: =>
+  chooseMatch: =>
     @el.removeClass 'during-classify'
     @el.addClass 'post-classify'
     @el.toggleClass 'reveal', TEST.selection[0].metadata.remaining is 0
@@ -156,15 +170,17 @@ class Classifier extends Spine.Controller
     @seriesProgressFill.css
       width: "#{100 * ((meta.index + 1) / total)}%"
 
+  setupReveal: =>
+
+  showStats: =>
+    dialog = new StatsDialog storm: TEST.selection[0].metadata.storm
+    dialog.open()
+
   createFavorite: =>
     @el.addClass 'is-favorited'
 
   destroyFavorite: =>
     @el.removeClass 'is-favorited'
-
-  showStats: =>
-    dialog = new StatsDialog storm: TEST.selection[0].metadata.storm
-    dialog.open()
 
   goToTalk: =>
     # TODO

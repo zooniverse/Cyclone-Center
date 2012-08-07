@@ -30,9 +30,9 @@
     <section id="classify">
       <div class="classifier">
         <div class="main-pair">
+          <img class="previous" />
           <img class="subject" />
           <img src="http://placehold.it/1.png" class="match" />
-          <div class="chosen">&check;</div>
         </div>
 
         <div class="categories">
@@ -87,14 +87,57 @@
           </ol>
         </div>
 
-        <div class="followup text">
-          <p class="heading">Curious what storm this is?</p>
-          <p>Classify <strong class="remaining">X</strong> more images to find out!</p>
+        <div class="mark-center">
+          <p>Click the center of the storm.</p>
+        </div>
+
+        <div class="coldest-surrounding">
+          <p>
+            Which is the coldest color completely surrounding the eye?
+            <label><input type="radio" name="coldest-surrounding" value="1" /> 1</label>
+            <label><input type="radio" name="coldest-surrounding" value="2" /> 2</label>
+            <label><input type="radio" name="coldest-surrounding" value="3" /> 3</label>
+            <label><input type="radio" name="coldest-surrounding" value="4" /> 4</label>
+            <label><input type="radio" name="coldest-surrounding" value="5" /> 5</label>
+        </p>
+        </div>
+
+        <div class="coldest-exceeding-width">
+          <p>
+            What color surrounds the eye and is at least this thick?
+            <label><input type="radio" name="coldest-exceeding" value="1" /> 1</label>
+            <label><input type="radio" name="coldest-exceeding" value="2" /> 2</label>
+            <label><input type="radio" name="coldest-exceeding" value="3" /> 3</label>
+            <label><input type="radio" name="coldest-exceeding" value="4" /> 4</label>
+            <label><input type="radio" name="coldest-exceeding" value="5" /> 5</label>
+          </p>
+        </div>
+
+        <div class="major-feature">
+          <p>
+            Choose the image that matches the major feature.
+            <label><input type="radio" name="major-feature" value="1" /> [IMG 1]</label>
+            <label><input type="radio" name="major-feature" value="2" /> [IMG 2]</label>
+            <label><input type="radio" name="major-feature" value="3" /> [IMG 3]</label>
+          </p>
+        </div>
+
+        <div class="major-blue">
+          <p>
+            Is the major band blue?
+            <label><input type="radio" name="major-blue" value="true" /> Yes</label>
+            <label><input type="radio" name="major-blue" value="false" /> No</label>
+          </p>
+        </div>
+
+        <div class="closest-red">
+          <p>Click the closest point to the center in the red band.</p>
         </div>
 
         <div class="reveal text">
-          <p>You've just classified</p>
-          <p class="heading"><span class="storm">X</span>! <button name="stats">View stats</button></p>
+          <p>You've just classified...</p>
+          <p class="heading"><span class="storm"></span>!</p>
+          <p><button name="stats">View stats</button></p>
         </div>
 
         <div class="footer">
@@ -108,25 +151,15 @@
 
             <div class="series" title="Series progress">
               <div class="track">
-                <div class="fill"></div>
+                <div class="fill" style="width: 50%;"></div>
               </div>
             </div>
           </div>
 
           <div class="action">
-            <div class="during">
-              <button name="restart">Restart</button>
-              <button name="choose" class="default">Choose</button>
-            </div>
-
-            <div class="post">
-              <span class="favorite">
-                <button name="favorite" title="Add favorite" class="toggle">&hearts;</button>
-                <button name="unfavorite" title="Remove favorite" class="toggle on">&hearts;</button>
-              </span>
-              <button name="talk">Pro classify</button>
-              <button name="next" class="default">Next Image</button>
-            </div>
+            <button name="restart">Restart</button>
+            <button name="choose" class="default">Choose</button>
+            <button name="next-image" class="default">Next image</button>
           </div>
         </div>
       </div>
