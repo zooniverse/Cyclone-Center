@@ -4,6 +4,7 @@ StatsDialog = require('./stats_dialog')
 
 TEST =
   selection: []
+
   subjects: [
     {id: 0, group: 0, location: {standard: 'http://placehold.it/1/f00.png'}, coords: [24, -70], metadata: {index: 0, remaining: 2}}
     {id: 1, group: 0, location: {standard: 'http://placehold.it/1/ff0.png'}, coords: [26, -70], metadata: {index: 1, remaining: 1}}
@@ -14,6 +15,7 @@ TEST =
     {id: 5, group: 1, location: {standard: 'http://placehold.it/1/f0f.png'}, coords: [34, -70], metadata: {index: 2, remaining: 0, type: 'Hurricane', name: 'Andrew', year: 1992}}
   ]
 
+# Only temporary!
 class Classification
   constructor: ->
     @values = {}
@@ -31,6 +33,7 @@ class Classification
     @emitter.on 'change', (e, key, val) ->
       callback key, val
 
+# Sizes for use in animations
 NORMAL_SIZE = 250
 PRO_SIZE = 485
 
@@ -44,7 +47,7 @@ PRO_RIGHT = 150
 
 class Classifier extends Spine.Controller
   events:
-    'click .main-pair .subject': 'onClickSubject'
+    'mousedown .main-pair .subject': 'onMouseDownSubject'
 
     'click button[name="stronger"]': 'onClickButton'
     'click button[name="category"]': 'onClickButton'
@@ -62,6 +65,8 @@ class Classifier extends Spine.Controller
     '.main-pair .previous': 'previousImage'
     '.main-pair .subject': 'subjectImage'
     '.main-pair .match': 'matchImage'
+    '.center.point': 'centerPoint'
+    '.red.point': 'redPoint'
 
     'button[name="stronger"]': 'strongerButtons'
     'button[name="category"]': 'categoryButtons'
@@ -70,8 +75,8 @@ class Classifier extends Spine.Controller
     'button[name="match"]': 'matchButtons'
     'button[name="surrounding"]': 'surroundingButtons'
     'button[name="exceeding"]': 'exceedingButtons'
-    'button[name="major-feature"]': 'featureButtons'
-    'button[name="major-blue"]': 'blueButtons'
+    'button[name="feature"]': 'featureButtons'
+    'button[name="blue"]': 'blueButtons'
 
     '.footer .progress .subject li': 'subjectProgressBullets'
     '.footer .progress .series .fill': 'seriesProgressFill'
@@ -109,6 +114,10 @@ class Classifier extends Spine.Controller
     @defaultImageSrc = @matchImage.attr 'src'
     @nextSubjects()
 
+    doc = $(document)
+    doc.on 'mousemove', @onMouseMoveDocument
+    doc.on 'mouseup', @onMouseUpDocument
+
   nextSubjects: =>
     @previousSubject = TEST.selection[0]
     TEST.selection.splice 0
@@ -120,23 +129,27 @@ class Classifier extends Spine.Controller
       alert 'No more subjects!'
 
   onChangeSubjects: (subjects) =>
+    meta = subjects[0].metadata
     @classification = new Classification
     @classification.onChange @render
     @render()
 
-    if subjects[0].metadata.index is 0
+    if meta.index is 0
+      # We won't use any previous subject.
+      @previousSubject = null
+
       # First subject in a set, so clear out old labels.
       @map.removeLabel label for label in @labels
       @labels.splice 0
-      @seriesProgressFill.css width: 0
 
     @labels.push @map.addLabel subjects[0].coords..., subjects[0].coords.join ', '
-    @map.setCenter subjects[0].coords..., center: [0.25, 0.5]
+    setTimeout => @map.setCenter subjects[0].coords..., center: [0.25, 0.5]
 
     @previousImage.attr src: @previousSubject?.location.standard
     @subjectImage.attr src: subjects[0].location.standard
 
-    meta = subjects[0].metadata
+    @seriesProgressFill.css width: "#{meta.index / (meta.remaining + meta.index + 1) * 100}%"
+
     @storm.html "#{meta.type} #{meta.name} (#{meta.year})"
 
     if @previousSubject?
@@ -201,6 +214,12 @@ class Classifier extends Spine.Controller
 
     @classification.annotate match: null
 
+    # No pro-classify for "other" storms.
+    if category is 'other'
+      @proClassifyButton.css display: 'none'
+    else
+      @proClassifyButton.css display: ''
+
   renderMatch: (match) =>
     @matchImage.toggleClass 'selected', match?
     @matchButtons.removeClass 'selected'
@@ -229,7 +248,14 @@ class Classifier extends Spine.Controller
     @activateButtons()
 
   renderCenter: (coords) =>
-    # Draw a spot.
+    if coords?
+      imgOffset = @subjectImage.offset()
+      parentOffset = @subjectImage.parent().offset()
+      x = coords[0] * @subjectImage.width() + (imgOffset.left - parentOffset.left)
+      y = coords[1] * @subjectImage.height() + (imgOffset.top - parentOffset.top)
+      @centerPoint.css left: x, top: y
+    else
+      @centerPoint.css left: "-50%", top: "-50%"
 
   setupSurrounding: =>
     @el.attr 'data-step': 'surrounding'
@@ -267,7 +293,7 @@ class Classifier extends Spine.Controller
     @el.attr 'data-step': 'blue'
     @activateButtons()
 
-  renderBlue: =>
+  renderBlue: (blue) =>
     @blueButtons.removeClass 'selected'
     if blue?
       @blueButtons.filter("[value='#{blue}']").addClass 'selected'
@@ -276,16 +302,38 @@ class Classifier extends Spine.Controller
     @el.attr 'data-step': 'red'
     @activateButtons()
 
-  renderRed: =>
-    # Draw a spot.
+  renderRed: (coords) =>
+    if coords?
+      imgOffset = @subjectImage.offset()
+      parentOffset = @subjectImage.parent().offset()
+      x = coords[0] * @subjectImage.width() + (imgOffset.left - parentOffset.left)
+      y = coords[1] * @subjectImage.height() + (imgOffset.top - parentOffset.top)
+      @redPoint.css left: x, top: y
+    else
+      @redPoint.css left: "-50%", top: "-50%"
 
-  onClickSubject: (e) =>
-    # TODO: Where'd they click?
-    [x, y] = [0.5, 0.5]
+  onMouseDownSubject: (e) =>
+    @mouseDown = e
+    @onDragSubject e
 
-    params = {}
-    params[@el.attr 'data-step'] = [x, y]
-    @classification.annotate params
+  onMouseMoveDocument: (e) =>
+    @onDragSubject e if @mouseDown
+
+  onDragSubject: (e) =>
+    step = @el.attr 'data-step'
+    return unless step in ['center', 'red']
+
+    e.preventDefault()
+    offset = @subjectImage.offset()
+    x = Math.min Math.max((e.pageX - offset.left) / @subjectImage.width(), 0), 1
+    y = Math.min Math.max((e.pageY - offset.top) / @subjectImage.height(), 0), 1
+
+    annotation = {}
+    annotation[step] = [x, y]
+    @classification.annotate annotation
+
+  onMouseUpDocument: =>
+    delete @mouseDown
 
   onClickButton: ({currentTarget}) =>
     target = $(currentTarget)
@@ -295,7 +343,6 @@ class Classifier extends Spine.Controller
     value = false if value is 'false'
 
     annotation = {}
-
     annotation[property] = value
     annotation[property] = null if value is @classification.get property
 
@@ -303,6 +350,7 @@ class Classifier extends Spine.Controller
 
   setupReveal: =>
     @el.attr 'data-step': 'reveal'
+    @seriesProgressFill.css width: '100%'
     @classification.annotate reveal: true # For the "next" button
     @activateButtons()
 
@@ -310,11 +358,14 @@ class Classifier extends Spine.Controller
     @setupCenter()
 
   onClickContinue: (e) =>
-    @nextSetup?()
+    @nextSetup()
 
   onClickNext: =>
     console.info 'Classified', JSON.stringify @classification.values
-    # Subject last in set and not revealed? Reveal.
-    @nextSubjects()
+
+    if TEST.selection[0]?.metadata.remaining is 0 and not @classification.get 'reveal'
+      @setupReveal()
+    else
+      @nextSubjects()
 
 module.exports = Classifier

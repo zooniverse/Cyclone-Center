@@ -63,6 +63,21 @@
         &.selected
           border 3px solid $greenish
 
+      .point
+        border: 2px solid transparent
+        border-radius 50%
+        height 7px
+        margin -4px 0 0 -4px
+        position absolute
+        width 7px
+        z-index 2
+
+        &.center
+          border-color $white
+
+        &.red
+          border-color $black
+
     .step
       display none
 
@@ -86,19 +101,26 @@
 
         button
           &[name="surrounding"],
-          &[name="exceeding"]
+          &[name="exceeding"],
+          &[name="feature"]
             background $black
             border-radius 3px
             color transparent
             display inline-block
-            height 30px
             margin 0 5px
             overflow hidden
-            width 30px
             white-space nowrap
 
-            &.selected
+            img
+              height 30px
+              width 30px
+
+            &.selected img
               border 3px solid $greenish
+
+          &[name="feature"] img
+            height 60px
+            width 60px
 
     .categories,
     .matches
@@ -164,7 +186,6 @@
           z-index 1
 
     .stronger button,
-    .feature button,
     .blue button
       standard-button()
 
@@ -223,14 +244,6 @@
           &[name="next-subject"]
             display none
 
-    &[data-step="center"],
-    &[data-step="surrounding"],
-    &[data-step="exceeding"],
-    &[data-step="feature"],
-    &[data-step="blue"],
-    &[data-step="red"]
-      width 450
-
     &[data-step="stronger"] .stronger,
     &[data-step="match"] .categories-and-matches,
     &[data-step="center"] .center,
@@ -242,6 +255,9 @@
     &[data-step="reveal"] .reveal
       display block
 
+    &[data-step="reveal"] .main-pair
+      display none
+
     &[data-step="match"] .footer .action button
       &[name="pro-classify"]
         display inline-block
@@ -249,7 +265,8 @@
     &[data-step="match"],
     &[data-step="feature"],
     &[data-step="blue"],
-    &[data-step="red"]
+    &[data-step="red"],
+    &[data-step="reveal"]
       .footer .action button
         &[name="next-subject"]
           display inline-block
