@@ -46,14 +46,19 @@
 
     .main-pair
       clearfix()
+      height 250px
+      overflow hidden
       padding 20px 10px 20px 20px
       position relative
 
       img
         float left
         height 250px
-        margin-right 10px
+        position absolute
         width 250px
+
+        &.subject
+          z-index 1
 
         &.selected
           border 3px solid $greenish
@@ -158,7 +163,9 @@
           opacity 1
           z-index 1
 
-    .stronger button
+    .stronger button,
+    .feature button,
+    .blue button
       standard-button()
 
     .footer
@@ -216,14 +223,22 @@
           &[name="next-subject"]
             display none
 
+    &[data-step="center"],
+    &[data-step="surrounding"],
+    &[data-step="exceeding"],
+    &[data-step="feature"],
+    &[data-step="blue"],
+    &[data-step="red"]
+      width 450
+
     &[data-step="stronger"] .stronger,
     &[data-step="match"] .categories-and-matches,
-    &[data-step="center"] .mark-center,
-    &[data-step="surrounding"] .coldest-surrounding,
-    &[data-step="exceeding"] .coldest-exceeding-width,
-    &[data-step="feature"] .major-feature,
-    &[data-step="blue"] .major-blue,
-    &[data-step="red"] .closest-red,
+    &[data-step="center"] .center,
+    &[data-step="surrounding"] .surrounding,
+    &[data-step="exceeding"] .exceeding,
+    &[data-step="feature"] .feature,
+    &[data-step="blue"] .blue,
+    &[data-step="red"] .red,
     &[data-step="reveal"] .reveal
       display block
 

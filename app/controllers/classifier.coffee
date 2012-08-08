@@ -31,6 +31,17 @@ class Classification
     @emitter.on 'change', (e, key, val) ->
       callback key, val
 
+NORMAL_SIZE = 250
+PRO_SIZE = 485
+
+OFF_LEFT = -250
+NORMAL_LEFT = 20
+PRO_LEFT = 30
+
+OFF_RIGHT = 550
+NORMAL_RIGHT = 280
+PRO_RIGHT = 150
+
 class Classifier extends Spine.Controller
   events:
     'click .main-pair .subject': 'onClickSubject'
@@ -98,18 +109,6 @@ class Classifier extends Spine.Controller
     @defaultImageSrc = @matchImage.attr 'src'
     @nextSubjects()
 
-  render: (attribute, value) =>
-    if attribute
-      @["render#{attribute.charAt(0).toUpperCase() + attribute[1...]}"]? value
-    else
-      method() for name, method of @ when name.match /^render.+/
-
-    @activateButtons()
-
-  activateButtons: =>
-    for button in @el.find '[data-requires-selection]'
-      $(button).prop disabled: not @classification.get(@el.attr 'data-step')?
-
   nextSubjects: =>
     @previousSubject = TEST.selection[0]
     TEST.selection.splice 0
@@ -145,9 +144,27 @@ class Classifier extends Spine.Controller
     else
       @setupCatsAndMatches()
 
+  render: (attribute, value) =>
+    if attribute
+      @["render#{attribute.charAt(0).toUpperCase() + attribute[1...]}"]? value
+    else
+      method() for name, method of @ when name.match /^render.+/
+
+    @activateButtons()
+
+  activateButtons: =>
+    for button in @el.find '[data-requires-selection]'
+      $(button).prop disabled: not @classification.get(@el.attr 'data-step')?
+
   setupStronger: =>
-    @previousImage.show()
-    @matchImage.hide()
+    console.log 'Setup stronger'
+    @previousImage.css height: @subjectImage.height(), left: @subjectImage.css('left'), width: @subjectImage.width()
+    @subjectImage.css left: OFF_RIGHT
+    @matchImage.animate opacity: 0, =>
+      @subjectImage.animate height: NORMAL_SIZE, left: NORMAL_RIGHT, width: NORMAL_SIZE
+      @previousImage.animate height: NORMAL_SIZE, left: NORMAL_LEFT, width: NORMAL_SIZE
+      @subjectImage.parent().animate height: NORMAL_SIZE
+
     @el.attr 'data-step': 'stronger'
     @nextSetup = @setupCatsAndMatches
     @activateButtons()
@@ -159,8 +176,10 @@ class Classifier extends Spine.Controller
       @strongerButtons.filter("[value='#{stronger}']").addClass 'selected'
 
   setupCatsAndMatches: =>
-    @previousImage.hide()
-    @matchImage.show()
+    @previousImage.animate left: OFF_LEFT, =>
+      @subjectImage.animate left: NORMAL_LEFT
+      @matchImage.css left: OFF_RIGHT, opacity: 1
+      @matchImage.animate left: NORMAL_RIGHT
     @el.attr 'data-step': 'match'
     @nextSetup = null
     @activateButtons()
@@ -196,7 +215,9 @@ class Classifier extends Spine.Controller
       @matchImage.attr src: @defaultImageSrc
 
   setupCenter: =>
-    @matchImage.hide()
+    @subjectImage.animate height: PRO_SIZE, left: PRO_LEFT, width: PRO_SIZE
+    @subjectImage.parent().animate height: PRO_SIZE
+    @matchImage.animate left: PRO_RIGHT, opacity: 0
 
     @el.attr 'data-step': 'center'
     @nextSetup = switch @classification.get 'category'
