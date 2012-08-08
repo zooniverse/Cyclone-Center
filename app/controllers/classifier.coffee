@@ -35,8 +35,13 @@ class Classifier extends Spine.Controller
   events:
     'click .main-pair .subject': 'onClickSubject'
 
-    'click button[name="category"]': 'onClickCategory'
-    'click button[name="match"]': 'onClickMatch'
+    'click button[name="stronger"]': 'onClickButton'
+    'click button[name="category"]': 'onClickButton'
+    'click button[name="match"]': 'onClickButton'
+    'click button[name="surrounding"]': 'onClickButton'
+    'click button[name="exceeding"]': 'onClickButton'
+    'click button[name="feature"]': 'onClickButton'
+    'click button[name="blue"]': 'onClickButton'
 
     'click button[name="pro-classify"]': 'onClickProClassify'
     'click button[name="continue"]': 'onClickContinue'
@@ -47,10 +52,15 @@ class Classifier extends Spine.Controller
     '.main-pair .subject': 'subjectImage'
     '.main-pair .match': 'matchImage'
 
+    'button[name="stronger"]': 'strongerButtons'
     'button[name="category"]': 'categoryButtons'
     '.matches': 'matchListsContainer'
     '.matches > ol': 'matchLists'
     'button[name="match"]': 'matchButtons'
+    'button[name="surrounding"]': 'surroundingButtons'
+    'button[name="exceeding"]': 'exceedingButtons'
+    'button[name="major-feature"]': 'featureButtons'
+    'button[name="major-blue"]': 'blueButtons'
 
     '.footer .progress .subject li': 'subjectProgressBullets'
     '.footer .progress .series .fill': 'seriesProgressFill'
@@ -98,7 +108,7 @@ class Classifier extends Spine.Controller
 
   activateButtons: =>
     for button in @el.find '[data-requires-selection]'
-      $(button).prop disabled: not @classification.get @el.attr 'data-step'
+      $(button).prop disabled: not @classification.get(@el.attr 'data-step')?
 
   nextSubjects: =>
     @previousSubject = TEST.selection[0]
@@ -131,23 +141,29 @@ class Classifier extends Spine.Controller
     @storm.html "#{meta.type} #{meta.name} (#{meta.year})"
 
     if @previousSubject?
-      @setupComparison()
+      @setupStronger()
     else
       @setupCatsAndMatches()
 
-  setupComparison: =>
+  setupStronger: =>
+    @previousImage.show()
+    @matchImage.hide()
+    @el.attr 'data-step': 'stronger'
+    @nextSetup = @setupCatsAndMatches
+    @activateButtons()
+
+  renderStronger: (stronger) =>
+    @strongerButtons.removeClass 'selected'
+
+    if stronger?
+      @strongerButtons.filter("[value='#{stronger}']").addClass 'selected'
 
   setupCatsAndMatches: =>
     @previousImage.hide()
+    @matchImage.show()
     @el.attr 'data-step': 'match'
-
-  onClickCategory: ({currentTarget}) =>
-    if $(currentTarget).hasClass 'selected'
-      @classification.annotate category: null
-    else
-      @classification.annotate category: currentTarget.value
-
-    @classification.annotate match: null
+    @nextSetup = null
+    @activateButtons()
 
   renderCategory: (category) =>
     @categoryButtons.removeClass 'selected'
@@ -164,11 +180,7 @@ class Classifier extends Spine.Controller
     else
       @matchListsContainer.css height: '0px'
 
-  onClickMatch: ({currentTarget}) =>
-    if $(currentTarget).hasClass 'selected'
-      @classification.annotate match: null
-    else
-      @classification.annotate match: currentTarget.value
+    @classification.annotate match: null
 
   renderMatch: (match) =>
     @matchImage.toggleClass 'selected', match?
@@ -196,38 +208,55 @@ class Classifier extends Spine.Controller
     @activateButtons()
 
   renderCenter: (coords) =>
+    # Draw a spot.
 
   setupSurrounding: =>
     @el.attr 'data-step': 'surrounding'
     @nextSetup = @setupExceeding
     @activateButtons()
 
-  renderSurrounding: =>
+  renderSurrounding: (surrounding) =>
+    @surroundingButtons.removeClass 'selected'
+
+    if surrounding?
+      @surroundingButtons.filter("[value='#{surrounding}']").addClass 'selected'
 
   setupExceeding: =>
     @el.attr 'data-step': 'exceeding'
     @nextSetup = @setupFeature
     @activateButtons()
 
-  renderExceeding: =>
+  renderExceeding: (exceeding) =>
+    @exceedingButtons.removeClass 'selected'
+
+    if exceeding?
+      @exceedingButtons.filter("[value='#{exceeding}']").addClass 'selected'
 
   setupFeature: =>
     @el.attr 'data-step': 'feature'
+    @nextSetup = null
     @activateButtons()
 
-  renderFeature: =>
+  renderFeature: (feature) =>
+    @featureButtons.removeClass 'selected'
+    if feature?
+      @featureButtons.filter("[value='#{feature}']").addClass 'selected'
 
   setupBlue: =>
     @el.attr 'data-step': 'blue'
     @activateButtons()
 
   renderBlue: =>
+    @blueButtons.removeClass 'selected'
+    if blue?
+      @blueButtons.filter("[value='#{blue}']").addClass 'selected'
 
   setupRed: =>
     @el.attr 'data-step': 'red'
     @activateButtons()
 
   renderRed: =>
+    # Draw a spot.
 
   onClickSubject: (e) =>
     # TODO: Where'd they click?
@@ -236,6 +265,20 @@ class Classifier extends Spine.Controller
     params = {}
     params[@el.attr 'data-step'] = [x, y]
     @classification.annotate params
+
+  onClickButton: ({currentTarget}) =>
+    target = $(currentTarget)
+    property = target.attr 'name'
+    value = target.val()
+    value = true if value is 'true'
+    value = false if value is 'false'
+
+    annotation = {}
+
+    annotation[property] = value
+    annotation[property] = null if value is @classification.get property
+
+    @classification.annotate annotation
 
   setupReveal: =>
     @el.attr 'data-step': 'reveal'
@@ -249,6 +292,7 @@ class Classifier extends Spine.Controller
     @nextSetup?()
 
   onClickNext: =>
+    console.info 'Classified', JSON.stringify @classification.values
     # Subject last in set and not revealed? Reveal.
     @nextSubjects()
 

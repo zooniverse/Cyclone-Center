@@ -16,7 +16,7 @@ button
     pointer-events none
 
 standard-button()
-  // Note: .toggle, .toggle.on, .default
+  // Note: .toggle, .toggle.selected, .default
   background $gray-light
   border 1px solid rgba($blacker, 0.33)
   border-radius 0.33em
@@ -38,7 +38,7 @@ standard-button()
   &:hover
     border-color rgba($black, 0.5)
 
-  &.toggle.on
+  &.toggle.selected
     color $orange
 
   &.default
@@ -49,7 +49,7 @@ standard-button()
     &:hover
       border-color rgba($black, 0.75)
 
-  &.toggle.on,
+  &.toggle.selected,
   &:active
     box-shadow 0 0.125ex 0.25ex rgba($blacker, 0.5) inset
 
