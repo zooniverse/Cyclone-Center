@@ -174,9 +174,9 @@ class Classifier extends Spine.Controller
     @previousImage.css height: @subjectImage.height(), left: @subjectImage.css('left'), width: @subjectImage.width()
     @subjectImage.css left: OFF_RIGHT
     @matchImage.animate opacity: 0, =>
-      @subjectImage.animate height: NORMAL_SIZE, left: NORMAL_RIGHT, width: NORMAL_SIZE
-      @previousImage.animate height: NORMAL_SIZE, left: NORMAL_LEFT, width: NORMAL_SIZE
       @subjectImage.parent().animate height: NORMAL_SIZE
+      @previousImage.animate height: NORMAL_SIZE, left: NORMAL_LEFT, width: NORMAL_SIZE
+      @subjectImage.animate height: NORMAL_SIZE, left: NORMAL_RIGHT, width: NORMAL_SIZE
 
     @el.attr 'data-step': 'stronger'
     @nextSetup = @setupCatsAndMatches
@@ -190,7 +190,8 @@ class Classifier extends Spine.Controller
 
   setupCatsAndMatches: =>
     @previousImage.animate left: OFF_LEFT, =>
-      @subjectImage.animate left: NORMAL_LEFT
+      @subjectImage.parent().animate height: NORMAL_SIZE
+      @subjectImage.animate height: NORMAL_SIZE, left: NORMAL_LEFT, width: NORMAL_SIZE
       @matchImage.css left: OFF_RIGHT, opacity: 1
       @matchImage.animate left: NORMAL_RIGHT
     @el.attr 'data-step': 'match'
