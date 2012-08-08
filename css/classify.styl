@@ -49,6 +49,7 @@
       position relative
 
       img
+        transition 
         float left
         height 250px
         margin-right 10px
@@ -79,6 +80,9 @@
         standard-button()
         font-size 12px
         position absolute
+
+    > .step
+      display none
 
     .categories,
     .matches
@@ -191,24 +195,38 @@
         float right
         font-size: 13px
 
-        .during
-          display none
-
-        .post
-          display none
-
-          .favorite
-            display none
-
         button
           standard-button()
 
-          &.toggle
-            padding-left 10px
-            padding-right 10px
-
-          &[name="unfavorite"]
+          &[name="pro-classify"],
+          &[name="next-subject"]
             display none
+
+    &[data-step="match"] .categories-and-matches,
+    &[data-step="match"] .categories-and-matches,
+    &[data-step="center"] .mark-center,
+    &[data-step="surrounding"] .coldest-surrounding,
+    &[data-step="exceeding"] .coldest-exceeding-width,
+    &[data-step="feature"] .major-feature,
+    &[data-step="blue"] .major-blue,
+    &[data-step="red"] .closest-red,
+    &[data-step="reveal"] .reveal
+      display block
+
+    &[data-step="match"] .footer .action button
+      &[name="pro-classify"]
+        display inline-block
+
+    &[data-step="match"],
+    &[data-step="feature"],
+    &[data-step="blue"],
+    &[data-step="red"]
+      .footer .action button
+        &[name="next-subject"]
+          display inline-block
+
+        &[name="continue"]
+          display none
 
 .dialog-underlay
   background vendor-value(radial-gradient(rgba($black, 0.5), rgba($black, 0.75)))
