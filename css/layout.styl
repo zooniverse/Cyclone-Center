@@ -13,13 +13,28 @@ body
   width 100%
 
 .stack
-  & > *
+  & > section
     display none
-  & > .active
+
+    &.active
+      display block
+
+nav
+  position absolute
+  left 7%
+  top 3%
+  z-index: 1
+
+  a
+    color $white
     display block
+    font 30px/0.8 "Open Sans Condensed", sans-serif
+    padding 5px 0
+    text-decoration none
 
 [data-popup]
-  border-bottom 1px dashed gray
+  border-bottom 1px dashed rgba($gray, 0.5)
+  cursor pointer
 
 .popup-content
   display none
