@@ -1,5 +1,5 @@
 .dialog-underlay
-  background vendor-value(radial-gradient(rgba($black, 0.5), rgba($black, 0.75)))
+  background vendor-value(radial-gradient(rgba($blacker, 0.5), rgba($black, .75)))
   bottom 0
   display none
   left 0
@@ -25,11 +25,30 @@
     &.open
       display inline-block
 
+    .dialog-closer
+      border 1px solid $gray-dark
+      border-radius 3px
+      color $gray-dark
+      display none
+      height 13px
+      line-height 0
+      opacity 0.5
+      position absolute
+      right 5px
+      top 5px
+      width 13px
+
+      &:hover
+        opacity 1
+
     header
       display none
 
-    .content
-      padding 20px
+    .dialog-content
+      margin 20px
+
+      p
+        margin 20px 0
 
     footer
       border-top 1px solid $gray-light
@@ -68,3 +87,12 @@
         right 100%
         margin-left 0
         top 50%
+
+  &.popup .dialog
+    font-size 13px
+
+    .dialog-closer
+      display block
+
+    footer
+      display none

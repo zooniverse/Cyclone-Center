@@ -1,5 +1,6 @@
 Spine = require('spine')
 Map = require('Zooniverse/lib/map')
+Dialog = require('Zooniverse/lib/dialog')
 StatsDialog = require('./stats_dialog')
 
 TEST =
@@ -200,20 +201,25 @@ class Classifier extends Spine.Controller
 
   renderCategory: (category) =>
     @categoryButtons.removeClass 'selected'
-    @matchLists.removeClass 'selected'
     @subjectProgressBullets.eq(1).toggleClass 'filled', category?
+    @matchLists.removeClass 'selected'
 
     if category?
       @categoryButtons.filter("[value='#{category}']").addClass 'selected'
+
       matchList = @matchLists.filter "[data-category='#{category}']"
       matchList.addClass 'selected'
-      naturalHeight = matchList.outerHeight()
-      @matchListsContainer.css height: '0px'
-      setTimeout (=> @matchListsContainer.css height: naturalHeight), 0
-    else
-      @matchListsContainer.css height: '0px'
 
-    @classification.annotate match: null
+      oldHeight = @matchListsContainer.height()
+      @matchListsContainer.css height: ''
+      naturalHeight = @matchListsContainer.height()
+
+      @matchListsContainer.css height: oldHeight
+      @matchListsContainer.animate height: naturalHeight
+    else
+      @matchListsContainer.animate height: 0, =>
+
+    setTimeout => @classification.annotate match: null
 
     # No pro-classify for "other" storms.
     if category is 'other'

@@ -22,7 +22,10 @@
     <section id="home">
       <header>
         <h1><img src="images/cyclone-center-logo.png" alt="Cyclone Center" /></h1>
-        <p>Help classify over XX years of tropical cyclone data.</p>
+        <p>Help classify over XX years of <span data-popup="#cyclone-data-info bottom">tropical cyclone data</span>.</p>
+        <div id="cyclone-data-info" class="popup-content">
+          <p>Our data is collected by satellites.</p>
+        </div>
         <p><a href="#/classify" class="classify">Begin classifying</a></p>
       </header>
     </section>
@@ -47,6 +50,11 @@
 
         <div class="categories-and-matches step">
           <div class="categories">
+            <p class="heading">Choose the category.</p>
+            <p><span data-popup="#category-help left">How can I tell?</span></p>
+            <div id="category-help" class="popup-content">
+              <p>A category is blah blah blah...</p>
+            </div>
             <ol>
               <li><button name="category" value="eye"><img src="http://placehold.it/1/f00.png" /></button></li>
               <li><button name="category" value="embedded"><img src="http://placehold.it/1/ff0.png" /></button></li>
@@ -57,6 +65,7 @@
           </div>
 
           <div class="matches">
+            <p>Now choose the closest match.</p>
             <ol data-category="eye">
               <li><button name="match" value="eye-sel0"><img src="http://placehold.it/1/f00.png" /></button></li>
               <li><button name="match" value="eye-sel1"><img src="http://placehold.it/1/f00.png" /></button></li>
@@ -101,6 +110,7 @@
 
         <div class="center text step">
           <p>Click the center of the storm.</p>
+          <p data-popup="#cyclone-data-info top"></p>
         </div>
 
         <div class="surrounding text step">

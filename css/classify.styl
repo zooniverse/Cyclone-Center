@@ -46,9 +46,9 @@
 
     .main-pair
       clearfix()
-      height 250px
+      height 250px // Adjusted by script
       overflow hidden
-      padding 20px 10px 20px 20px
+      padding 20px 0 20px 20px
       position relative
 
       img
@@ -79,78 +79,88 @@
           border-color $black
 
     .step
+      border-top 1px solid $gray-light
+      border-width 1px 0
       display none
+      padding 0 20px
+      text-align center
 
-      &.text
-        border-top 1px solid $gray-light
-        border-width 1px 0
-        padding 0 20px
-        text-align center
+      p
+        margin 20px 0
 
-        p
-          margin 20px 0
+        & + .heading
+          margin-top -10px
 
-          & + .heading
+        &.heading
+          font 30px/0.8 "Open Sans Condensed", sans-serif
+
+          & + p
             margin-top -10px
 
-          &.heading
-            font 30px/0.8 "Open Sans Condensed", sans-serif
+      [data-popup]
+        border-bottom 0
 
-            & + p
-              margin-top -10px
+      button
+        &[name="surrounding"],
+        &[name="exceeding"],
+        &[name="feature"]
+          background $black
+          border-radius 3px
+          color transparent
+          display inline-block
+          margin 0 5px
+          overflow hidden
+          white-space nowrap
 
-        button
-          &[name="surrounding"],
-          &[name="exceeding"],
-          &[name="feature"]
-            background $black
-            border-radius 3px
-            color transparent
-            display inline-block
-            margin 0 5px
-            overflow hidden
-            white-space nowrap
+          img
+            height 30px
+            width 30px
 
-            img
-              height 30px
-              width 30px
+          &.selected img
+            border 3px solid $greenish
 
-            &.selected img
-              border 3px solid $greenish
+        &[name="feature"] img
+          height 60px
+          width 60px
 
-          &[name="feature"] img
-            height 60px
-            width 60px
+        &[name="stronger"],
+        &[name="blue"]
+         standard-button()
 
-    .categories,
-    .matches
-      ol
-        clearfix()
-        padding 20px 5px 20px 20px
+      &.categories-and-matches
+        padding-left 0
+        padding-right 0
 
-        li
-          display block
-          float left
-          position relative
+        .categories,
+        .matches
+          ol
+            clearfix()
+            padding 0 5px 0 20px
+            margin 20px 0
 
-          button
-            display block
-            margin-right 15px
-            position relative
+            li
+              display block
+              float left
+              position relative
 
-            img
-              height 90px
-              width 90px
+              button
+                display block
+                margin-right 15px
+                position relative
 
-            &:hover
-              border 1px solid $gray-dark
-              margin -1px 14px -1px -1px
+                img
+                  height 90px
+                  width 90px
 
-            &.selected img
-              border 3px solid $greenish
+                &:hover
+                  border 1px solid $gray-dark
+                  margin -1px 14px -1px -1px
+
+                &.selected img
+                  border 3px solid $greenish
 
     .categories
-      margin-top -20px
+      z-index 1
 
       button
         &.selected:before,
@@ -169,25 +179,15 @@
           opacity 0.5
 
     .matches
-      transition height 0.25s ease-in-out
       background $gray-light
       box-shadow 0 0 3px $gray inset
-      // Height is set in the script.
       overflow hidden
-      position relative
 
       ol
-        transition opacity 0.25s ease-in-out
-        opacity 0
-        position absolute
+        display none
 
         &.selected
-          opacity 1
-          z-index 1
-
-    .stronger button,
-    .blue button
-      standard-button()
+          display block
 
     .footer
       clearfix()
@@ -244,6 +244,7 @@
           &[name="next-subject"]
             display none
 
+    // Reveal the appropriate step.
     &[data-step="stronger"] .stronger,
     &[data-step="match"] .categories-and-matches,
     &[data-step="center"] .center,
@@ -258,6 +259,7 @@
     &[data-step="reveal"] .main-pair
       display none
 
+    // Reveal the appropriate buttons.
     &[data-step="match"] .footer .action button
       &[name="pro-classify"]
         display inline-block

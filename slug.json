@@ -6,7 +6,8 @@
     "spine/lib/manager",
     "spine/lib/route",
     "Zooniverse/lib/map",
-    "Zooniverse/lib/dialog"
+    "Zooniverse/lib/dialog",
+    "Zooniverse/lib/auto_popup"
   ],
 
   "libs": [
