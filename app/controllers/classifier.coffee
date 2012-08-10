@@ -79,7 +79,6 @@ class Classifier extends Spine.Controller
     'button[name="feature"]': 'featureButtons'
     'button[name="blue"]': 'blueButtons'
 
-    '.footer .progress .subject li': 'subjectProgressBullets'
     '.footer .progress .series .fill': 'seriesProgressFill'
 
     '.reveal .storm': 'storm'
@@ -201,7 +200,6 @@ class Classifier extends Spine.Controller
 
   renderCategory: (category) =>
     @categoryButtons.removeClass 'selected'
-    @subjectProgressBullets.eq(1).toggleClass 'filled', category?
     @matchLists.removeClass 'selected'
 
     if category?
@@ -230,7 +228,6 @@ class Classifier extends Spine.Controller
   renderMatch: (match) =>
     @matchImage.toggleClass 'selected', match?
     @matchButtons.removeClass 'selected'
-    @subjectProgressBullets.eq(2).toggleClass 'filled', match?
 
     if match?
       @matchButtons.filter("[value='#{match}']").addClass 'selected'

@@ -20,17 +20,28 @@ body
       display block
 
 nav
+  background $white
+  border-radius 5px
+  box-shadow 0 5px 10px rgba($black, 0.33)
+  color $black
   position absolute
   left 7%
   top 3%
   z-index: 1
 
-  a
-    color $white
-    display block
-    font 30px/0.8 "Open Sans Condensed", sans-serif
-    padding 5px 0
-    text-decoration none
+  li
+    a
+      border-top 1px solid $gray
+      color inherit
+      display block
+      font-size 12px
+      font-weight bold
+      padding 5px 20px
+      text-decoration none
+      text-transform uppercase
+
+    &:first-child a
+      border-top 0
 
 [data-popup]
   border-bottom 1px dashed rgba($gray, 0.5)
