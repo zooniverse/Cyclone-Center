@@ -55,7 +55,7 @@
         </div>
 
         <div class="stronger step">
-          <p>Is the image on the right <strong>stronger</strong> than the image on the left? <span data-popup="#stronger-help left" class="help-ball">?</span></p>
+          <p class="heading">Is the image on the right <strong>stronger</strong> than the one on the left? <span data-popup="#stronger-help left" class="help-ball">?</span></p>
           <div id="stronger-help" class="popup-content">
             <p>The strength of a storm can be determined by...</p>
           </div>
@@ -125,14 +125,14 @@
         </div>
 
         <div class="center step">
-          <p>Click the <strong>center</strong> of the storm. <span data-popup="#center-help left" class="help-ball">?</span></p>
+          <p class="heading">Click the <strong>center</strong> of the storm. <span data-popup="#center-help left" class="help-ball">?</span></p>
           <div id="center-help" class="popup-content">
             <p>You can identify the center by...</p>
           </div>
         </div>
 
         <div class="surrounding step">
-          <p>Which is the coldest color completely surrounding the eye?</p>
+          <p class="heading">Which is the coldest color completely surrounding the eye?</p>
           <p>
             <button name="surrounding" value="blue" /><img src="http://placehold.it/1/08f.png" /></button>
             <button name="surrounding" value="light-blue" /><img src="http://placehold.it/1/0ff.png" /></button>
@@ -143,7 +143,7 @@
         </div>
 
         <div class="exceeding step">
-          <p>What color surrounds the eye and is at least this thick: <span class="thickness"></span> <span data-popup="#exceeding-help left" class="help-ball">?</span></p>
+          <p class="heading">What color surrounds the eye and is at least this thick: <span class="thickness"></span> <span data-popup="#exceeding-help left" class="help-ball">?</span></p>
           <div id="exceeding-help" class="popup-content">
             <p>The color exceeding this thickness will be...</p>
           </div>
@@ -157,7 +157,7 @@
         </div>
 
         <div class="feature step">
-          <p>Choose the image that matches the major feature. <span class="thickness"></span> <span data-popup="#feature-help left" class="help-ball">?</span></p>
+          <p class="heading">Choose the image that matches the major feature. <span class="thickness"></span> <span data-popup="#feature-help left" class="help-ball">?</span></p>
           <div id="feature-help" class="popup-content">
             <p>The major feature is...</p>
           </div>
@@ -169,7 +169,7 @@
         </div>
 
         <div class="blue step">
-          <p>Is the major band <strong>blue</strong>? <span class="thickness"></span> <span data-popup="#blue-help left" class="help-ball">?</span></p>
+          <p class="heading">Is the major band <strong>blue</strong>? <span class="thickness"></span> <span data-popup="#blue-help left" class="help-ball">?</span></p>
           <div id="blue-help" class="popup-content">
             <p>The major band is...</p>
           </div>
@@ -180,7 +180,7 @@
         </div>
 
         <div class="red step">
-          <p>In the innermost <strong>red band</strong>, click the point nearest the center.</p>
+          <p class="heading">In the innermost <strong>red band</strong>, click the point nearest the center.</p>
         </div>
 
         <div class="reveal step">
@@ -209,30 +209,40 @@
     </section>
 
     <section id="profile">
-      <h2>Welcome, <span class="current-user"></span></h2>
+      <div class="panel">
+        <header>
+          <h2>Welcome, <span class="current-user">Username</span>!</h2>
+          <p>So far, you've completed <span class="classification-count">N</span> images.</p>
+        </header>
 
-      <div class="favorites">
-        <h3>Favorite images</h3>
-        <p class="none">You haven't favorited any images.</p>
-        <ul>
-          <li data-bind="template">
-            <h4><span class="type"></span> <span class="name"></span> (<span class="year"></span>)</h4>
-            <p><span class="latitude"></span>, <span class="longitude"></span></p>
-            <p><a href="#talk"></a></p>
-          </li>
-        </ul>
-      </div>
+        <div class="favorites">
+          <h3>Favorites</h3>
+          <p class="none">You haven't favorited any images.</p>
+          <ul>
+            <li data-favorite="TEMPLATE">
+              <img src="http://placehold.it/1/000.png" />
+              <div class="description">
+                <button name="remove-favorite">&times;</button>
+                <h4><span class="type">Hurricane</span> <span class="name">Katrina</span> (<span class="year">2005</span>)</h4>
+                <p><span class="date">11:20 AM, Tuesday, 21 Sep 2005</span></p>
+                <p><button name="reveal"><span class="latitude">42.1234</span>, <span class="longitude">-80.5678</span></button></p>
+                <p><a href="#talk">Discuss this image</a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-      <div class="recents">
-        <h3>Recent classifications</h3>
-        <p class="none">You haven't classified anything recently.</p>
-        <ul>
-          <li data-bind="template">
-            <h4><span class="type"></span> <span class="name"></span> (<span class="year"></span>)</h4>
-            <p><span class="latitude"></span>, <span class="longitude"></span></p>
-            <p><a href="#talk"></a></p>
-          </li>
-        </ul>
+        <div class="recents">
+          <h3>Recent classifications</h3>
+          <p class="none">You haven't classified anything recently.</p>
+          <ul>
+            <li data-bind="template">
+              <h4><span class="type"></span> <span class="name"></span> (<span class="year"></span>)</h4>
+              <p><span class="latitude"></span>, <span class="longitude"></span></p>
+              <p><a href="#talk"></a></p>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </body>

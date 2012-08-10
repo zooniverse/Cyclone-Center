@@ -106,6 +106,7 @@ class Classifier extends Spine.Controller
       latitude: 33
       longitude: -60
       zoom: 5
+      className: 'full-screen'
 
     @map.el.prependTo @el.parent() # Is it a little sloppy to modify outside nodes?
 

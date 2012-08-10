@@ -1,2 +1,76 @@
 #profile
-  color $white
+  height 100%
+  left 0
+  position absolute
+  top 0
+  width 100%
+
+  .leaflet-container
+    height 100%
+    left 0
+    position absolute
+    top 0
+    width 100%
+
+  .panel
+    panel()
+    position absolute
+    right 7%
+    text-align center
+    top 3%
+
+    header
+      padding 20px
+
+    h2
+      font 20px "Open Sans Condensed", sans-serif
+
+    h3
+      font 16px "Open Sans Condensed", sans-serif
+
+    h4
+      font-weight bold
+
+    .favorites
+      border-top 1px solid $gray
+      padding 10px 20px 20px
+
+      .none
+        display none
+
+      ul
+        li
+          clearfix()
+          margin-top 10px
+          position relative
+          text-align left
+
+          button[name="remove-favorite"]
+            @standard-button()
+            border-radius 50%
+            display none
+            height 16px
+            padding 0
+            position absolute
+            left -5px
+            top -5px
+            width 16px
+
+          button[name="reveal"]
+            standardButton()
+
+          img
+            height 60px
+            float left
+            width 60px
+            margin-right 10px
+
+          .description
+            font-size 13px
+            float left
+
+          &:hover button[name="remove-favorite"]
+            display block
+
+    .recents
+      display none
