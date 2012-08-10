@@ -11,6 +11,7 @@ class App extends Manager.Stack
   controllers:
     # Using anonymous classes since we only need them for this stack.
     home: class extends Spine.Controller then el: '#home'
+    about: class extends Spine.Controller then el: '#about'
     classify: class extends Spine.Controller then el: '#classify'
     profile: class extends Profile then el: '#profile'
 
@@ -19,6 +20,7 @@ class App extends Manager.Stack
   routes:
     '/': 'home'
     '/home': 'home'
+    '/about': 'about'
     '/classify': 'classify'
     '/profile': 'profile'
 
