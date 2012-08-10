@@ -30,11 +30,10 @@
     <section id="home">
       <header>
         <h1><img src="images/cyclone-center-logo.png" alt="Cyclone Center" /></h1>
-        <p>Help classify over XX years of <span data-popup="#cyclone-data-info bottom">tropical cyclone data</span>.</p>
+        <p>Help classify over 30 years of <span data-popup="#cyclone-data-info bottom">tropical cyclone data</span>.</p>
         <div id="cyclone-data-info" class="popup-content">
           <p>Our data is collected by satellites.</p>
-          <p>Our data is collected by satellites.</p>
-          <p>Our data is collected by satellites.</p>
+          <p>Etc.</p>
         </div>
         <p><a href="#/classify" class="classify">Begin classifying</a></p>
       </header>
@@ -50,8 +49,11 @@
           <div class="red point"></div>
         </div>
 
-        <div class="stronger text step">
-          <p>Does the image on the right appear stronger than the image on the left?</p>
+        <div class="stronger step">
+          <p>Is the image on the right <strong>stronger</strong> than the image on the left? <span data-popup="#stronger-help left" class="help-ball">?</span></p>
+          <div id="stronger-help" class="popup-content">
+            <p>The strength of a storm can be determined by...</p>
+          </div>
           <p>
             <button name="stronger" value="true" class="toggle">Yes</button>
             <button name="stronger" value="false" class="toggle">No</button>
@@ -60,70 +62,71 @@
 
         <div class="categories-and-matches step">
           <div class="categories">
-            <p class="heading">Choose the category.</p>
-            <p><span data-popup="#category-help left">How can I tell?</span></p>
+            <p class="heading">Choose the cyclone type, then the closest match. <span data-popup="#category-help left" class="help-ball">?</span></p>
             <div id="category-help" class="popup-content">
-              <p>A category is blah blah blah...</p>
+              <p>The different cyclone types are blah blah blah...</p>
+              <p>The match will be blah blah blah...</p>
             </div>
-            <ol>
-              <li><button name="category" value="eye"><img src="http://placehold.it/1/f00.png" /></button></li>
-              <li><button name="category" value="embedded"><img src="http://placehold.it/1/ff0.png" /></button></li>
-              <li><button name="category" value="curved"><img src="http://placehold.it/1/0f0.png" /></button></li>
-              <li><button name="category" value="shear"><img src="http://placehold.it/1/0ff.png" /></button></li>
-              <li><button name="category" value="other"><img src="http://placehold.it/1/00f.png" /></button></li>
-            </ol>
+            <p>
+              <button name="category" value="eye" class="toggle">Eye</button>
+              <button name="category" value="embedded" class="toggle">Embedded center</button>
+              <button name="category" value="curved" class="toggle">Curved band</button>
+              <button name="category" value="shear" class="toggle">Shear</button>
+              <button name="category" value="other" class="toggle">Other</button>
+            </p>
           </div>
 
           <div class="matches">
-            <p>Now choose the closest match.</p>
-            <ol data-category="eye">
-              <li><button name="match" value="eye-sel0"><img src="http://placehold.it/1/f00.png" /></button></li>
-              <li><button name="match" value="eye-sel1"><img src="http://placehold.it/1/f00.png" /></button></li>
-              <li><button name="match" value="eye-sel2"><img src="http://placehold.it/1/f00.png" /></button></li>
-              <li><button name="match" value="eye-sel3"><img src="http://placehold.it/1/f00.png" /></button></li>
-              <li><button name="match" value="eye-sel4"><img src="http://placehold.it/1/f00.png" /></button></li>
-            </ol>
+            <p data-category="eye">
+              <button name="match" value="eye-sel0"><img src="http://placehold.it/1/f00.png" /></button>
+              <button name="match" value="eye-sel1"><img src="http://placehold.it/1/f00.png" /></button>
+              <button name="match" value="eye-sel2"><img src="http://placehold.it/1/f00.png" /></button>
+              <button name="match" value="eye-sel3"><img src="http://placehold.it/1/f00.png" /></button>
+              <button name="match" value="eye-sel4"><img src="http://placehold.it/1/f00.png" /></button>
+            </p>
 
-            <ol data-category="embedded">
-              <li><button name="match" value="embedded-sel0"><img src="http://placehold.it/1/ff0.png" /></button></li>
-              <li><button name="match" value="embedded-sel1"><img src="http://placehold.it/1/ff0.png" /></button></li>
-              <li><button name="match" value="embedded-sel2"><img src="http://placehold.it/1/ff0.png" /></button></li>
-              <li><button name="match" value="embedded-sel3"><img src="http://placehold.it/1/ff0.png" /></button></li>
-              <li><button name="match" value="embedded-sel4"><img src="http://placehold.it/1/ff0.png" /></button></li>
-            </ol>
+            <p data-category="embedded">
+              <button name="match" value="embedded-sel0"><img src="http://placehold.it/1/ff0.png" /></button>
+              <button name="match" value="embedded-sel1"><img src="http://placehold.it/1/ff0.png" /></button>
+              <button name="match" value="embedded-sel2"><img src="http://placehold.it/1/ff0.png" /></button>
+              <button name="match" value="embedded-sel3"><img src="http://placehold.it/1/ff0.png" /></button>
+              <button name="match" value="embedded-sel4"><img src="http://placehold.it/1/ff0.png" /></button>
+            </p>
 
-            <ol data-category="curved">
-              <li><button name="match" value="curved-sel0"><img src="http://placehold.it/1/0f0.png" /></button></li>
-              <li><button name="match" value="curved-sel1"><img src="http://placehold.it/1/0f0.png" /></button></li>
-              <li><button name="match" value="curved-sel2"><img src="http://placehold.it/1/0f0.png" /></button></li>
-              <li><button name="match" value="curved-sel3"><img src="http://placehold.it/1/0f0.png" /></button></li>
-              <li><button name="match" value="curved-sel4"><img src="http://placehold.it/1/0f0.png" /></button></li>
-            </ol>
+            <p data-category="curved">
+              <button name="match" value="curved-sel0"><img src="http://placehold.it/1/0f0.png" /></button>
+              <button name="match" value="curved-sel1"><img src="http://placehold.it/1/0f0.png" /></button>
+              <button name="match" value="curved-sel2"><img src="http://placehold.it/1/0f0.png" /></button>
+              <button name="match" value="curved-sel3"><img src="http://placehold.it/1/0f0.png" /></button>
+              <button name="match" value="curved-sel4"><img src="http://placehold.it/1/0f0.png" /></button>
+            </p>
 
-            <ol data-category="shear">
-              <li><button name="match" value="shear-sel0"><img src="http://placehold.it/1/0ff.png" /></button></li>
-              <li><button name="match" value="shear-sel1"><img src="http://placehold.it/1/0ff.png" /></button></li>
-              <li><button name="match" value="shear-sel2"><img src="http://placehold.it/1/0ff.png" /></button></li>
-              <li><button name="match" value="shear-sel3"><img src="http://placehold.it/1/0ff.png" /></button></li>
-              <li><button name="match" value="shear-sel4"><img src="http://placehold.it/1/0ff.png" /></button></li>
-            </ol>
+            <p data-category="shear">
+              <button name="match" value="shear-sel0"><img src="http://placehold.it/1/0ff.png" /></button>
+              <button name="match" value="shear-sel1"><img src="http://placehold.it/1/0ff.png" /></button>
+              <button name="match" value="shear-sel2"><img src="http://placehold.it/1/0ff.png" /></button>
+              <button name="match" value="shear-sel3"><img src="http://placehold.it/1/0ff.png" /></button>
+              <button name="match" value="shear-sel4"><img src="http://placehold.it/1/0ff.png" /></button>
+            </p>
 
-            <ol data-category="other">
-              <li><button name="match" value="other-sel0"><img src="http://placehold.it/1/00f.png" /></button></li>
-              <li><button name="match" value="other-sel1"><img src="http://placehold.it/1/00f.png" /></button></li>
-              <li><button name="match" value="other-sel2"><img src="http://placehold.it/1/00f.png" /></button></li>
-              <li><button name="match" value="other-sel3"><img src="http://placehold.it/1/00f.png" /></button></li>
-              <li><button name="match" value="other-sel4"><img src="http://placehold.it/1/00f.png" /></button></li>
-            </ol>
+            <p data-category="other">
+              <button name="match" value="other-sel0"><img src="http://placehold.it/1/00f.png" /></button>
+              <button name="match" value="other-sel1"><img src="http://placehold.it/1/00f.png" /></button>
+              <button name="match" value="other-sel2"><img src="http://placehold.it/1/00f.png" /></button>
+              <button name="match" value="other-sel3"><img src="http://placehold.it/1/00f.png" /></button>
+              <button name="match" value="other-sel4"><img src="http://placehold.it/1/00f.png" /></button>
+            </p>
           </div>
         </div>
 
-        <div class="center text step">
-          <p>Click the center of the storm.</p>
-          <p data-popup="#cyclone-data-info top"></p>
+        <div class="center step">
+          <p>Click the <strong>center</strong> of the storm. <span data-popup="#center-help left" class="help-ball">?</span></p>
+          <div id="center-help" class="popup-content">
+            <p>You can identify the center by...</p>
+          </div>
         </div>
 
-        <div class="surrounding text step">
+        <div class="surrounding step">
           <p>Which is the coldest color completely surrounding the eye?</p>
           <p>
             <button name="surrounding" value="blue" /><img src="http://placehold.it/1/08f.png" /></button>
@@ -134,8 +137,11 @@
           </p>
         </div>
 
-        <div class="exceeding text step">
-          <p>What color surrounds the eye and is at least this thick?</p>
+        <div class="exceeding step">
+          <p>What color surrounds the eye and is at least this thick: <span class="thickness"></span> <span data-popup="#exceeding-help left" class="help-ball">?</span></p>
+          <div id="exceeding-help" class="popup-content">
+            <p>The color exceeding this thickness will be...</p>
+          </div>
           <p>
             <button name="exceeding" value="blue" /><img src="http://placehold.it/1/08f.png" /></button>
             <button name="exceeding" value="light-blue" /><img src="http://placehold.it/1/0ff.png" /></button>
@@ -145,8 +151,11 @@
           </p>
         </div>
 
-        <div class="feature text step">
-          <p>Choose the image that matches the major feature.</p>
+        <div class="feature step">
+          <p>Choose the image that matches the major feature. <span class="thickness"></span> <span data-popup="#feature-help left" class="help-ball">?</span></p>
+          <div id="feature-help" class="popup-content">
+            <p>The major feature is...</p>
+          </div>
           <p>
             <button name="feature" value="1"><img src="http://placehold.it/50/f00.png" /></button>
             <button name="feature" value="2"><img src="http://placehold.it/50/0f0.png" /></button>
@@ -154,19 +163,22 @@
           </p>
         </div>
 
-        <div class="blue text step">
-          <p>Is the major band blue?</p>
+        <div class="blue step">
+          <p>Is the major band <strong>blue</strong>? <span class="thickness"></span> <span data-popup="#blue-help left" class="help-ball">?</span></p>
+          <div id="blue-help" class="popup-content">
+            <p>The major band is...</p>
+          </div>
           <p>
             <button name="blue" value="true" class="toggle">Yes</button>
             <button name="blue" value="false" class="toggle">No</button>
           </p>
         </div>
 
-        <div class="red text step">
-          <p>Click the closest point to the center in the red band.</p>
+        <div class="red step">
+          <p>In the innermost <strong>red band</strong>, click the point nearest the center.</p>
         </div>
 
-        <div class="reveal text step">
+        <div class="reveal step">
           <p>You've just classified...</p>
           <p class="heading"><span class="storm"></span>!</p>
           <p><button name="stats">View stats</button></p>

@@ -20,6 +20,7 @@ class App extends Manager.Stack
     '/': 'home'
     '/home': 'home'
     '/classify': 'classify'
+    '/profile': 'profile'
 
   constructor: ->
     super

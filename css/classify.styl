@@ -92,7 +92,7 @@
           margin-top -10px
 
         &.heading
-          font 30px/0.8 "Open Sans Condensed", sans-serif
+          font 20px/0.8 "Open Sans Condensed", sans-serif
 
           & + p
             margin-top -10px
@@ -101,31 +101,63 @@
         border-bottom 0
 
       button
+        position relative
+        vertical-align middle
+
+        &[name="stronger"],
+        &[name="blue"]
+          standard-button()
+
+        &[name="category"]
+          standard-button()
+          font-size 12px
+          font-weight bold
+          height 40px
+          width 90px
+
+        &[name="category"],
+        &[name="match"]
+          float left
+          margin-left 15px
+
+          &:first-child
+            margin-left 20px
+
+        // Image/swatch-style buttons
+        &[name="match"],
         &[name="surrounding"],
         &[name="exceeding"],
         &[name="feature"]
-          background $black
-          border-radius 3px
-          color transparent
           display inline-block
           margin 0 5px
           overflow hidden
           white-space nowrap
 
           img
+            border-radius 3px
             height 30px
             width 30px
 
           &.selected img
             border 3px solid $greenish
 
+        &[name="match"] img
+          width 90px
+          height 90px
+
         &[name="feature"] img
           height 60px
           width 60px
 
-        &[name="stronger"],
-        &[name="blue"]
-         standard-button()
+      .help-ball
+        standard-button()
+        border-radius 50%
+        font bold 14px/16px "Open Sans", sans-serif
+        height 16px
+        margin 0
+        padding 0
+        width 16px
+        vertical-align top
 
       &.categories-and-matches
         padding-left 0
@@ -133,31 +165,8 @@
 
         .categories,
         .matches
-          ol
+          p
             clearfix()
-            padding 0 5px 0 20px
-            margin 20px 0
-
-            li
-              display block
-              float left
-              position relative
-
-              button
-                display block
-                margin-right 15px
-                position relative
-
-                img
-                  height 90px
-                  width 90px
-
-                &:hover
-                  border 1px solid $gray-dark
-                  margin -1px 14px -1px -1px
-
-                &.selected img
-                  border 3px solid $greenish
 
         .categories
           z-index 1
@@ -174,16 +183,16 @@
               top 100%
 
             &.selected:before
-              border-top-color $gray
+              border-top-color $gray-dark
               margin-top 21px
               opacity 0.5
 
         .matches
           background $gray-light
-          box-shadow 0 0 3px $gray inset
+          box-shadow 0 3px 10px -3px $gray-dark inset
           overflow hidden
 
-          ol
+          p[data-category]
             display none
 
             &.selected
