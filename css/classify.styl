@@ -105,23 +105,9 @@
         vertical-align middle
 
         &[name="stronger"],
+        &[name="category"],
         &[name="blue"]
           standard-button()
-
-        &[name="category"]
-          standard-button()
-          font-size 12px
-          font-weight bold
-          height 40px
-          width 90px
-
-        &[name="category"],
-        &[name="match"]
-          float left
-          margin-left 15px
-
-          &:first-child
-            margin-left 20px
 
         // Image/swatch-style buttons
         &[name="match"],
@@ -141,13 +127,43 @@
           &.selected img
             border 3px solid $greenish
 
-        &[name="match"] img
-          width 90px
-          height 90px
-
         &[name="feature"] img
           height 60px
           width 60px
+
+        // Category/match buttons
+        &[name="category"]
+          font-size 12px
+          font-weight bold
+          height 40px
+          width 90px
+
+          &.selected:before,
+          &.selected:after
+            border 10px solid transparent
+            border-top 10px solid $white
+            content " "
+            left 50%
+            margin 20px 0 0 -10px
+            position absolute
+            top 100%
+
+          &.selected:before
+            border-top-color $gray-dark
+            margin-top 21px
+            opacity 0.5
+
+        &[name="category"],
+        &[name="match"]
+          float left
+          margin 0 0 0 15px
+
+          &:first-child
+            margin-left 20px
+
+        &[name="match"] img
+          width 90px
+          height 90px
 
       .help-ball
         standard-button()
@@ -170,22 +186,6 @@
 
         .categories
           z-index 1
-
-          button
-            &.selected:before,
-            &.selected:after
-              border 10px solid transparent
-              border-top 10px solid $white
-              content " "
-              left 50%
-              margin 20px 0 0 -10px
-              position absolute
-              top 100%
-
-            &.selected:before
-              border-top-color $gray-dark
-              margin-top 21px
-              opacity 0.5
 
         .matches
           background $gray-light
