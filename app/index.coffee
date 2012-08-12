@@ -1,11 +1,13 @@
-require 'lib/setup'
+Spine = require 'spine'
+Manager = require 'spine/lib/manager'
+Route = require 'spine/lib/route'
 
-Spine = require('spine')
-Manager = require('spine/lib/manager')
-Route = require('spine/lib/route')
-Classifier = require('controllers/classifier')
-Profile = require('controllers/profile')
-AutoPopup = require('Zooniverse/lib/auto_popup')
+Config = require 'lib/config'
+Api = require 'Zooniverse/lib/api'
+
+Classifier = require 'controllers/classifier'
+Profile = require 'controllers/profile'
+AutoPopup = require 'Zooniverse/lib/auto_popup'
 
 class App extends Manager.Stack
   controllers:
@@ -26,6 +28,8 @@ class App extends Manager.Stack
 
   constructor: ->
     super
+
+    Api.init host: Config.apiHost
 
     window.classifier = new Classifier el: '#classify .classifier'
 

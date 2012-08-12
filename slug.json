@@ -2,9 +2,12 @@
   "dependencies": [
     "es5-shimify",
     "jqueryify",
+    "underscore/underscore",
     "spine",
     "spine/lib/manager",
     "spine/lib/route",
+    "Zooniverse/lib/api",
+    "Zooniverse/lib/models/subject",
     "Zooniverse/lib/map",
     "Zooniverse/lib/dialog",
     "Zooniverse/lib/auto_popup"

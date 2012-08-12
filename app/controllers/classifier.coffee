@@ -1,25 +1,13 @@
-Spine = require('spine')
-Map = require('Zooniverse/lib/map')
-Dialog = require('Zooniverse/lib/dialog')
-StatsDialog = require('./stats_dialog')
-
-TEST =
-  selection: []
-
-  subjects: [
-    {id: 0, group: 0, location: {standard: 'http://placehold.it/1/f00.png'}, coords: [24, -70], metadata: {index: 0, remaining: 2}}
-    {id: 1, group: 0, location: {standard: 'http://placehold.it/1/ff0.png'}, coords: [26, -70], metadata: {index: 1, remaining: 1}}
-    {id: 2, group: 0, location: {standard: 'http://placehold.it/1/0f0.png'}, coords: [28, -70], metadata: {index: 2, remaining: 0, type: 'Hurricane', name: 'Katrina', year: 2005}}
-
-    {id: 3, group: 1, location: {standard: 'http://placehold.it/1/0ff.png'}, coords: [30, -70], metadata: {index: 0, remaining: 2}}
-    {id: 4, group: 1, location: {standard: 'http://placehold.it/1/00f.png'}, coords: [32, -70], metadata: {index: 1, remaining: 1}}
-    {id: 5, group: 1, location: {standard: 'http://placehold.it/1/f0f.png'}, coords: [34, -70], metadata: {index: 2, remaining: 0, type: 'Hurricane', name: 'Andrew', year: 1992}}
-  ]
+Spine = require 'spine'
+CycloneSubject = require '../models/cyclone_subject'
+Map = require 'Zooniverse/lib/map'
+Dialog = require 'Zooniverse/lib/dialog'
+StatsDialog = require './stats_dialog'
 
 # Only temporary!
 class Classification
-  constructor: ->
-    @values = {}
+  constructor: ({subjectId}) ->
+    @values = {subjectId}
     @emitter = $({})
 
   annotate: (keyVal) =>
@@ -120,22 +108,19 @@ class Classifier extends Spine.Controller
     doc.on 'mouseup', @onMouseUpDocument
 
   nextSubjects: =>
-    @previousSubject = TEST.selection[0]
-    TEST.selection.splice 0
-    TEST.selection.push TEST.subjects.splice(0, 1)...
+    @previousSubject = CycloneSubject.current
+    CycloneSubject.next (subject) =>
+      @onChangeSubjects subject
 
-    if TEST.selection.length > 0
-      @onChangeSubjects TEST.selection
-    else
-      alert 'No more subjects!'
-
-  onChangeSubjects: (subjects) =>
-    meta = subjects[0].metadata
-    @classification = new Classification
+  onChangeSubjects: (subject) =>
+    meta = subject.metadata
+    @classification = new Classification subjectId: CycloneSubject.current.id
     @classification.onChange @render
     @render()
 
-    if meta.index is 0
+    availableSubjects = CycloneSubject.count()
+
+    if availableSubjects is 6
       # We won't use any previous subject.
       @previousSubject = null
 
@@ -143,13 +128,16 @@ class Classifier extends Spine.Controller
       @map.removeLabel label for label in @labels
       @labels.splice 0
 
-    @labels.push @map.addLabel subjects[0].coords..., subjects[0].coords.join ', '
-    setTimeout => @map.setCenter subjects[0].coords..., center: [0.25, 0.5]
+    @labels.push @map.addLabel subject.coords..., subject.coords.join ', '
+    setTimeout => @map.setCenter subject.coords..., center: [0.25, 0.5]
 
     @previousImage.attr src: @previousSubject?.location.standard
-    @subjectImage.attr src: subjects[0].location.standard
+    @subjectImage.attr src: subject.location.standard
 
-    @seriesProgressFill.css width: "#{meta.index / (meta.remaining + meta.index + 1) * 100}%"
+    index = 6 - availableSubjects
+    remaining = availableSubjects - 1
+
+    @seriesProgressFill.css width: "#{index / (remaining + index + 1) * 100}%"
 
     @storm.html "#{meta.type} #{meta.name} (#{meta.year})"
 
@@ -171,7 +159,6 @@ class Classifier extends Spine.Controller
       $(button).prop disabled: not @classification.get(@el.attr 'data-step')?
 
   setupStronger: =>
-    console.log 'Setup stronger'
     @previousImage.css height: @subjectImage.height(), left: @subjectImage.css('left'), width: @subjectImage.width()
     @subjectImage.css left: OFF_RIGHT
     @matchImage.animate opacity: 0, =>
@@ -368,7 +355,7 @@ class Classifier extends Spine.Controller
   onClickNext: =>
     console.info 'Classified', JSON.stringify @classification.values
 
-    if TEST.selection[0]?.metadata.remaining is 0 and not @classification.get 'reveal'
+    if CycloneSubject.count() is 1 and not @classification.get 'reveal'
       @setupReveal()
     else
       @nextSubjects()
