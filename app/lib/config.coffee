@@ -1,4 +1,7 @@
-Config =
+base =
+  setSize: 6
+
+config =
   test:
     apiHost: null
 
@@ -15,4 +18,4 @@ else if +window.location.port >= 1024
 else
   'production'
 
-module.exports = Config[env]
+module.exports = $.extend {}, base, config[env]

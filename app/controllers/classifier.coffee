@@ -1,4 +1,5 @@
 Spine = require 'spine'
+config = require '../lib/config'
 CycloneSubject = require '../models/cyclone_subject'
 Map = require 'Zooniverse/lib/map'
 Dialog = require 'Zooniverse/lib/dialog'
@@ -6,8 +7,8 @@ StatsDialog = require './stats_dialog'
 
 # Only temporary!
 class Classification
-  constructor: ({subjectId}) ->
-    @values = {subjectId}
+  constructor: ({@subject}) ->
+    @values = {}
     @emitter = $({})
 
   annotate: (keyVal) =>
@@ -69,7 +70,9 @@ class Classifier extends Spine.Controller
 
     '.footer .progress .series .fill': 'seriesProgressFill'
 
-    '.reveal .storm': 'storm'
+    '.reveal .storm': 'revealStorm'
+    '.reveal ul': 'revealList'
+    '.reveal [data-subject="TEMPLATE"]': 'revealTemplate'
 
     'button[name="pro-classify"]': 'proClassifyButton'
     'button[name="continue"]': 'continueButton'
@@ -81,6 +84,7 @@ class Classifier extends Spine.Controller
   defaultImageSrc: ''
 
   previousSubject: null
+  recentClassifications = null
 
   nextSetup: null
 
@@ -99,9 +103,12 @@ class Classifier extends Spine.Controller
     @map.el.prependTo @el.parent() # Is it a little sloppy to modify outside nodes?
 
     @labels ?= []
+    @recentClassifications = []
 
     @defaultImageSrc = @matchImage.attr 'src'
     @nextSubjects()
+
+    @revealTemplate.remove()
 
     doc = $(document)
     doc.on 'mousemove', @onMouseMoveDocument
@@ -114,15 +121,16 @@ class Classifier extends Spine.Controller
 
   onChangeSubjects: (subject) =>
     meta = subject.metadata
-    @classification = new Classification subjectId: CycloneSubject.current.id
+    @classification = new Classification subject: CycloneSubject.current
     @classification.onChange @render
     @render()
 
     availableSubjects = CycloneSubject.count()
 
-    if availableSubjects is 6
+    if availableSubjects is config.setSize
       # We won't use any previous subject.
       @previousSubject = null
+      @recentClassifications.splice()
 
       # First subject in a set, so clear out old labels.
       @map.removeLabel label for label in @labels
@@ -134,12 +142,12 @@ class Classifier extends Spine.Controller
     @previousImage.attr src: @previousSubject?.location.standard
     @subjectImage.attr src: subject.location.standard
 
-    index = 6 - availableSubjects
+    index = config.setSize - availableSubjects
     remaining = availableSubjects - 1
 
     @seriesProgressFill.css width: "#{index / (remaining + index + 1) * 100}%"
 
-    @storm.html "#{meta.type} #{meta.name} (#{meta.year})"
+    @revealStorm.html "#{meta.type} #{meta.name} (#{meta.year})"
 
     if @previousSubject?
       @setupStronger()
@@ -341,6 +349,19 @@ class Classifier extends Spine.Controller
     @classification.annotate annotation
 
   setupReveal: =>
+    console.log 'Revealing', @recentClassifications
+
+    @revealList.empty()
+    for classification in @recentClassifications
+      item = @revealTemplate.clone()
+      item.attr 'data-subject': classification.subject.id
+      item.find('img').attr src: classification.subject.location.standard
+      item.find('.lat').html classification.subject.coords[0]
+      item.find('.lng').html classification.subject.coords[1]
+      console.log item
+      item.appendTo @revealList
+      console.log item.parent()
+
     @el.attr 'data-step': 'reveal'
     @seriesProgressFill.css width: '100%'
     @classification.annotate reveal: true # For the "next" button
@@ -354,6 +375,7 @@ class Classifier extends Spine.Controller
 
   onClickNext: =>
     console.info 'Classified', JSON.stringify @classification.values
+    @recentClassifications.push @classification
 
     if CycloneSubject.count() is 1 and not @classification.get 'reveal'
       @setupReveal()

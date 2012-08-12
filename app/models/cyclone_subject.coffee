@@ -1,5 +1,6 @@
 $ = require 'jqueryify'
 Subject = require 'Zooniverse/lib/models/subject'
+config = require '../lib/config'
 
 class CycloneSubject extends Subject
   @configure 'CycloneSubject', 'zooniverse_id', 'coords', 'location', 'metadata'
@@ -18,22 +19,23 @@ class CycloneSubject extends Subject
 
     nexter = fetcher.pipe =>
       @current = @first()
+      @current
 
     nexter.then callback
 
     nexter
 
-  @fetch: (count = 6) =>
+  @fetch: (count = config.setSize) =>
     fetcher = $.Deferred()
 
     resolveFetcher = =>
-      fetcher.resolve (@createFakeSubject() for i in [0...count])
+      fetcher.resolve (@createFake() for i in [0...count])
 
     setTimeout resolveFetcher, 2000
 
     fetcher.promise()
 
-  @createFakeSubject = ->
+  @createFake = ->
     @create
       id: Math.floor Math.random() * 1000
       location: standard: 'http://placehold.it/1/000.png'

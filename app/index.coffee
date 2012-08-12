@@ -38,3 +38,9 @@ class App extends Manager.Stack
 AutoPopup.init()
 
 module.exports = App
+
+window.reCSS = ->
+  link = $('link[href*="application.css"]')
+  href = link.attr 'href'
+  href += '?x=x' unless ~href.indexOf '?x=x'
+  link.attr 'href', href + 'x'

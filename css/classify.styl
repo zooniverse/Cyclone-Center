@@ -162,6 +162,31 @@
             &.selected
               display block
 
+      &.reveal
+        ul
+          font-size 13px
+
+          li
+            display inline-block
+            margin 0 15px 5px
+
+            img
+              height 155px
+              width 155px
+
+            p
+              clearfix()
+              margin 10px 0
+
+            a,
+            button
+              standard-button()
+              font-size 12px
+              padding 0.5em
+
+              &[name="unfavorite"]
+                display none
+
     .footer
       clearfix()
       border-top 1px solid $gray-light
@@ -222,9 +247,8 @@
       display none
 
     // Reveal the appropriate buttons.
-    &[data-step="match"] .footer .action button
-      &[name="pro-classify"]
-        display inline-block
+    &[data-step="match"] .footer .action button[name="pro-classify"]
+      display inline-block
 
     &[data-step="match"],
     &[data-step="feature"],
