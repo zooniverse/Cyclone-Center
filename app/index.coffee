@@ -4,6 +4,7 @@ Route = require 'spine/lib/route'
 
 Config = require 'lib/config'
 Api = require 'Zooniverse/lib/api'
+TopBar = require 'Zooniverse/lib/controllers/top_bar'
 
 Classifier = require 'controllers/classifier'
 Profile = require 'controllers/profile'
@@ -30,6 +31,13 @@ class App extends Manager.Stack
     super
 
     Api.init host: Config.apiHost
+
+    @topBar = new TopBar
+      languages:
+        en: 'English'
+      app: 'Cyclone Center'
+
+    @topBar.el.prependTo 'body'
 
     window.classifier = new Classifier el: '#classify .classifier'
 

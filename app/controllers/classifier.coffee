@@ -349,7 +349,7 @@ class Classifier extends Spine.Controller
     @classification.annotate annotation
 
   setupReveal: =>
-    console.log 'Revealing', @recentClassifications
+    console.info 'Revealing', @recentClassifications
 
     @revealList.empty()
     for classification in @recentClassifications
@@ -358,9 +358,7 @@ class Classifier extends Spine.Controller
       item.find('img').attr src: classification.subject.location.standard
       item.find('.lat').html classification.subject.coords[0]
       item.find('.lng').html classification.subject.coords[1]
-      console.log item
       item.appendTo @revealList
-      console.log item.parent()
 
     @el.attr 'data-step': 'reveal'
     @seriesProgressFill.css width: '100%'
