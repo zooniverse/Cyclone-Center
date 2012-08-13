@@ -1,5 +1,5 @@
 $ = require 'jqueryify'
-Subject = require 'Zooniverse/lib/models/subject'
+Subject = require 'zooniverse/lib/models/subject'
 config = require '../lib/config'
 
 class CycloneSubject extends Subject

@@ -1,8 +1,8 @@
 Spine = require 'spine'
 config = require '../lib/config'
 CycloneSubject = require '../models/cyclone_subject'
-Map = require 'Zooniverse/lib/map'
-Dialog = require 'Zooniverse/lib/dialog'
+Map = require 'zooniverse/lib/map'
+Dialog = require 'zooniverse/lib/dialog'
 StatsDialog = require './stats_dialog'
 
 # Only temporary!

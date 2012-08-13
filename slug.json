@@ -6,15 +6,15 @@
     "spine",
     "spine/lib/manager",
     "spine/lib/route",
-    "Zooniverse/lib/api",
-    "Zooniverse/lib/controllers/top_bar",
-    "Zooniverse/lib/models/subject",
-    "Zooniverse/lib/map",
-    "Zooniverse/lib/dialog",
-    "Zooniverse/lib/auto_popup"
+    "zooniverse/lib/api",
+    "zooniverse/lib/controllers/top_bar",
+    "zooniverse/lib/models/subject",
+    "zooniverse/lib/map",
+    "zooniverse/lib/dialog",
+    "zooniverse/lib/auto_popup"
   ],
 
   "libs": [
-    "node_modules/Zooniverse/vendor/leaflet/leaflet.js"
+    "node_modules/zooniverse/vendor/leaflet/leaflet.js"
   ]
 }

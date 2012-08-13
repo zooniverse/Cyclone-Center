@@ -1,5 +1,5 @@
 Spine = require('spine')
-Map = require('Zooniverse/lib/map')
+Map = require('zooniverse/lib/map')
 
 TEST =
   favorites: [

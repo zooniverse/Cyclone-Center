@@ -3,12 +3,12 @@ Manager = require 'spine/lib/manager'
 Route = require 'spine/lib/route'
 
 Config = require 'lib/config'
-Api = require 'Zooniverse/lib/api'
-TopBar = require 'Zooniverse/lib/controllers/top_bar'
+Api = require 'zooniverse/lib/api'
+TopBar = require 'zooniverse/lib/controllers/top_bar'
 
 Classifier = require 'controllers/classifier'
 Profile = require 'controllers/profile'
-AutoPopup = require 'Zooniverse/lib/auto_popup'
+AutoPopup = require 'zooniverse/lib/auto_popup'
 
 class App extends Manager.Stack
   controllers:

@@ -1,5 +1,5 @@
 Spine = require('spine')
-Dialog = require('Zooniverse/lib/dialog')
+Dialog = require('zooniverse/lib/dialog')
 
 class StatsDialog extends Dialog
   storm: ''
