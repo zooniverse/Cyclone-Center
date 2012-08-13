@@ -39,7 +39,8 @@
         &.center
           border-color $white
 
-        &.red
+        &.red,
+        &.eye
           border-color $black
 
     .step
@@ -225,20 +226,21 @@
         font-size: 13px
 
         button
-          standard-button()
-
           &[name="restart"]
-            background transparent
-            border 0
-            box-shadow none
+            color $orange
             height 1.5em
-            padding 0
             width 1.5em
+
+          &[name="continue"],
+          &[name="next-subject"]
+            standard-button()
+            width 130px
 
     // Reveal the appropriate step.
     &[data-step="stronger"] .stronger,
     &[data-step="match"] .categories-and-matches,
     &[data-step="center"] .center,
+    &[data-step="eye"] .eye,
     &[data-step="surrounding"] .surrounding,
     &[data-step="exceeding"] .exceeding,
     &[data-step="feature"] .feature,

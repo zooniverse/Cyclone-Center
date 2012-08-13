@@ -57,6 +57,7 @@ class Classifier extends Spine.Controller
     '.main-pair .subject': 'subjectImage'
     '.main-pair .match': 'matchImage'
     '.center.point': 'centerPoint'
+    '.eye.point': 'eyePoint'
     '.red.point': 'redPoint'
 
     'button[name="stronger"]': 'strongerButtons'
@@ -241,7 +242,7 @@ class Classifier extends Spine.Controller
 
     @el.attr 'data-step': 'center'
     @nextSetup = switch @classification.get 'category'
-      when 'eye' then @setupSurrounding
+      when 'eye' then @setupEye
       when 'embedded' then @setupFeature
       when 'curved' then @setupBlue
       when 'shear' then @setupRed
@@ -257,6 +258,21 @@ class Classifier extends Spine.Controller
       @centerPoint.css left: x, top: y
     else
       @centerPoint.css left: "-50%", top: "-50%" # Hide it.
+
+  setupEye: =>
+    @el.attr 'data-step': 'eye'
+    @nextSetup = @setupSurrounding
+    @activateButtons()
+
+  renderEye: (coords) =>
+    if coords?
+      imgOffset = @subjectImage.offset()
+      parentOffset = @subjectImage.parent().offset()
+      x = coords[0] * @subjectImage.width() + (imgOffset.left - parentOffset.left)
+      y = coords[1] * @subjectImage.height() + (imgOffset.top - parentOffset.top)
+      @eyePoint.css left: x, top: y
+    else
+      @eyePoint.css left: "-50%", top: "-50%"
 
   setupSurrounding: =>
     @el.attr 'data-step': 'surrounding'
@@ -324,7 +340,7 @@ class Classifier extends Spine.Controller
 
   onDragSubject: (e) =>
     step = @el.attr 'data-step'
-    return unless step in ['center', 'red']
+    return unless step in ['center', 'eye', 'red']
 
     e.preventDefault()
     offset = @subjectImage.offset()
