@@ -16,6 +16,7 @@
   ],
 
   "libs": [
+    "node_modules/zooniverse/vendor/base64.js",
     "node_modules/zooniverse/vendor/leaflet/leaflet.js"
   ]
 }
