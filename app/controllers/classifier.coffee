@@ -47,7 +47,8 @@ class Classifier extends Spine.Controller
     'click button[name="feature"]': 'onClickButton'
     'click button[name="blue"]': 'onClickButton'
 
-    'click button[name="pro-classify"]': 'onClickProClassify'
+    'click button[name="restart"]': 'onClickRestart'
+    'change input[name="detailed"]': 'onChangeDetailed'
     'click button[name="continue"]': 'onClickContinue'
     'click button[name="next-subject"]': 'onClickNext'
 
@@ -75,7 +76,7 @@ class Classifier extends Spine.Controller
     '.reveal ul': 'revealList'
     '.reveal [data-subject="TEMPLATE"]': 'revealTemplate'
 
-    'button[name="pro-classify"]': 'proClassifyButton'
+    'input[name="detailed"]': 'detailedCheckbox'
     'button[name="continue"]': 'continueButton'
     'button[name="next-subject"]': 'nextButton'
 
@@ -117,11 +118,9 @@ class Classifier extends Spine.Controller
 
   nextSubjects: =>
     @previousSubject = CycloneSubject.current
-    CycloneSubject.next (subject) =>
-      @onChangeSubjects subject
+    CycloneSubject.next @onChangeSubjects
 
   onChangeSubjects: (subject) =>
-    meta = subject.metadata
     @classification = new Classification subject: CycloneSubject.current
     @classification.onChange @render
     @render()
@@ -133,7 +132,7 @@ class Classifier extends Spine.Controller
       @previousSubject = null
       @recentClassifications.splice()
 
-      # First subject in a set, so clear out old labels.
+      # This is the first subject in a set, so clear out old labels.
       @map.removeLabel label for label in @labels
       @labels.splice 0
 
@@ -145,10 +144,10 @@ class Classifier extends Spine.Controller
 
     index = config.setSize - availableSubjects
     remaining = availableSubjects - 1
-
     @progressMessage.html "#{CycloneSubject.count()} more to go..."
     @seriesProgressFill.css width: "#{index / (remaining + index + 1) * 100}%"
 
+    meta = subject.metadata
     @revealStorm.html "#{meta.type} #{meta.name} (#{meta.year})"
 
     if @previousSubject?
@@ -165,8 +164,11 @@ class Classifier extends Spine.Controller
     @activateButtons()
 
   activateButtons: =>
-    for button in @el.find '[data-requires-selection]'
-      $(button).prop disabled: not @classification.get(@el.attr 'data-step')?
+    @continueButton.toggle @nextSetup?
+    @nextButton.toggle not @nextSetup?
+
+    @continueButton.add(@nextButton).prop
+      disabled: not @classification.get(@el.attr 'data-step')?
 
   setupStronger: =>
     @previousImage.css height: @subjectImage.height(), left: @subjectImage.css('left'), width: @subjectImage.width()
@@ -192,9 +194,12 @@ class Classifier extends Spine.Controller
       @subjectImage.animate height: NORMAL_SIZE, left: NORMAL_LEFT, width: NORMAL_SIZE
       @matchImage.css left: OFF_RIGHT, opacity: 1
       @matchImage.animate left: NORMAL_RIGHT
+
     @el.attr 'data-step': 'match'
-    @nextSetup = null
-    @activateButtons()
+
+    @nextSetup = @setupCenter
+
+    @onChangeDetailed()
 
   renderCategory: (category) =>
     @categoryButtons.removeClass 'selected'
@@ -216,12 +221,6 @@ class Classifier extends Spine.Controller
       @matchListsContainer.animate height: 0, =>
 
     setTimeout => @classification.annotate match: null
-
-    # No pro-classify for "other" storms.
-    if category is 'other'
-      @proClassifyButton.css display: 'none'
-    else
-      @proClassifyButton.css display: ''
 
   renderMatch: (match) =>
     @matchImage.toggleClass 'selected', match?
@@ -257,7 +256,7 @@ class Classifier extends Spine.Controller
       y = coords[1] * @subjectImage.height() + (imgOffset.top - parentOffset.top)
       @centerPoint.css left: x, top: y
     else
-      @centerPoint.css left: "-50%", top: "-50%"
+      @centerPoint.css left: "-50%", top: "-50%" # Hide it.
 
   setupSurrounding: =>
     @el.attr 'data-step': 'surrounding'
@@ -293,6 +292,7 @@ class Classifier extends Spine.Controller
 
   setupBlue: =>
     @el.attr 'data-step': 'blue'
+    @nextSetup = null
     @activateButtons()
 
   renderBlue: (blue) =>
@@ -302,6 +302,7 @@ class Classifier extends Spine.Controller
 
   setupRed: =>
     @el.attr 'data-step': 'red'
+    @nextSetup = null
     @activateButtons()
 
   renderRed: (coords) =>
@@ -367,8 +368,28 @@ class Classifier extends Spine.Controller
     @classification.annotate reveal: true # For the "next" button
     @activateButtons()
 
-  onClickProClassify: =>
-    @setupCenter()
+  onClickRestart: (e) =>
+    for property of @classification.values
+      clear = {}
+      clear[property] = null
+      @classification.annotate clear
+
+    if @previousSubject
+      @setupStronger()
+    else
+      @setupCatsAndMatches()
+
+  onChangeDetailed: (e) =>
+    advanced = @detailedCheckbox.get(0).checked
+    @el.toggleClass 'advanced', !!advanced
+
+    if @el.attr('data-step') in ['category', 'match']
+      @nextSetup = if advanced
+        @setupCenter
+      else
+        null
+
+      @activateButtons()
 
   onClickContinue: (e) =>
     @nextSetup()
