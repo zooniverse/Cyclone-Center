@@ -227,9 +227,13 @@
         button
           standard-button()
 
-          &[name="pro-classify"],
-          &[name="next-subject"]
-            display none
+          &[name="restart"]
+            background transparent
+            border 0
+            box-shadow none
+            height 1.5em
+            padding 0
+            width 1.5em
 
     // Reveal the appropriate step.
     &[data-step="stronger"] .stronger,
@@ -245,19 +249,3 @@
 
     &[data-step="reveal"] .main-pair
       display none
-
-    // // Reveal the appropriate buttons.
-    // &[data-step="match"] .footer .action button[name="pro-classify"]
-    //   display inline-block
-
-    // &[data-step="match"],
-    // &[data-step="feature"],
-    // &[data-step="blue"],
-    // &[data-step="red"],
-    // &[data-step="reveal"]
-    //   .footer .action button
-    //     &[name="next-subject"]
-    //       display inline-block
-
-    //     &[name="continue"]
-    //       display none
