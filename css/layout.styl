@@ -16,25 +16,34 @@ body
     display block
 
 nav
+  border-top 1px solid #fff
+  border-bottom 1px solid $gray-light
   panel()
   position absolute
   left 0
   top 0
 
-
   li
     a
-      border-top 1px solid $gray
-      color inherit
+      border-top 1px solid #fff
+      border-bottom 1px solid $gray-light
+      color $gray-dark
       display block
-      font-size 12px
+      font-size 11px
       font-weight bold
-      padding 5px 20px
+      padding 10px 20px
+      text-align center
       text-decoration none
-      text-transform uppercase
+
+      &:hover,
+      &.active
+        color $black
 
     &:first-child a
       border-top 0
+
+    &:last-child a
+      border-bottom 0
 
 [data-popup]
   cursor pointer

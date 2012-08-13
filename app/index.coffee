@@ -8,7 +8,8 @@ TopBar = require 'zooniverse/lib/controllers/top_bar'
 
 Classifier = require 'controllers/classifier'
 Profile = require 'controllers/profile'
-AutoPopup = require 'zooniverse/lib/auto_popup'
+autoPopup = require 'zooniverse/lib/auto_popup'
+activeHashLinks = require 'zooniverse/lib/active_hash_links'
 
 class App extends Manager.Stack
   controllers:
@@ -43,7 +44,8 @@ class App extends Manager.Stack
 
     Route.setup()
 
-AutoPopup.init()
+autoPopup.init()
+activeHashLinks.init()
 
 module.exports = App
 

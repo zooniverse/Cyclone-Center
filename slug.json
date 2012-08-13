@@ -11,7 +11,8 @@
     "zooniverse/lib/models/subject",
     "zooniverse/lib/map",
     "zooniverse/lib/dialog",
-    "zooniverse/lib/auto_popup"
+    "zooniverse/lib/auto_popup",
+    "zooniverse/lib/active_hash_links"
   ],
 
   "libs": [
