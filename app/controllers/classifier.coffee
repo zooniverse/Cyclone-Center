@@ -68,6 +68,7 @@ class Classifier extends Spine.Controller
     'button[name="feature"]': 'featureButtons'
     'button[name="blue"]': 'blueButtons'
 
+    '.footer .progress .message': 'progressMessage'
     '.footer .progress .series .fill': 'seriesProgressFill'
 
     '.reveal .storm': 'revealStorm'
@@ -145,6 +146,7 @@ class Classifier extends Spine.Controller
     index = config.setSize - availableSubjects
     remaining = availableSubjects - 1
 
+    @progressMessage.html "#{CycloneSubject.count()} more to go..."
     @seriesProgressFill.css width: "#{index / (remaining + index + 1) * 100}%"
 
     @revealStorm.html "#{meta.type} #{meta.name} (#{meta.year})"
