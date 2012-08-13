@@ -8,8 +8,11 @@ TopBar = require 'zooniverse/lib/controllers/top_bar'
 
 Classifier = require 'controllers/classifier'
 Profile = require 'controllers/profile'
+Map = require 'zooniverse/lib/map'
 autoPopup = require 'zooniverse/lib/auto_popup'
 activeHashLinks = require 'zooniverse/lib/active_hash_links'
+
+# Map::tilesId = 50122
 
 class App extends Manager.Stack
   controllers:
