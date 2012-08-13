@@ -171,6 +171,9 @@ class Classifier extends Spine.Controller
     @continueButton.add(@nextButton).prop
       disabled: not @classification.get(@el.attr 'data-step')?
 
+    # http://zol.tumblr.com/post/461878753/safari-css-attribute-selector-bug
+    $('body').toggleClass 'safari-css-hack'
+
   setupStronger: =>
     @previousImage.css height: @subjectImage.height(), left: @subjectImage.css('left'), width: @subjectImage.width()
     @subjectImage.css left: OFF_RIGHT
