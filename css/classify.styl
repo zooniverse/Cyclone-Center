@@ -251,3 +251,7 @@
 
     &[data-step="reveal"] .main-pair
       display none
+
+// This is a fix for a bug in Safari where attribute selectors aren't styled.
+* + [data-step]
+  color inherit
