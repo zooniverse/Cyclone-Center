@@ -63,7 +63,7 @@ class Classifier extends Spine.Controller
     'button[name="stronger"]': 'strongerButtons'
     'button[name="category"]': 'categoryButtons'
     '.matches': 'matchListsContainer'
-    '.matches > p': 'matchLists'
+    '.matches > ul': 'matchLists'
     'button[name="match"]': 'matchButtons'
     'button[name="surrounding"]': 'surroundingButtons'
     'button[name="exceeding"]': 'exceedingButtons'

@@ -133,15 +133,9 @@
             margin-top 21px
             opacity 0.5
 
-        &[name="category"],
         &[name="match"]
-          float left
-          margin 0 0 0 15px
+          margin 0
 
-          &:first-child
-            margin-left 20px
-
-        &[name="match"]
           img
             width 90px
             height 90px
@@ -173,8 +167,19 @@
 
         .categories,
         .matches
-          p
+          ul
             clearfix()
+            margin 20px 0 20px 5px
+
+            li
+              float left
+              margin 0 0 0 15px
+              position relative
+
+              .help-ball
+                position absolute
+                right -5px
+                top -5px
 
         .categories
           z-index 1
@@ -184,7 +189,7 @@
           box-shadow 0 3px 10px -3px $gray-dark inset
           overflow hidden
 
-          p[data-category]
+          ul[data-category]
             display none
 
             &.selected
