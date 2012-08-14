@@ -97,7 +97,6 @@ class Classifier extends Spine.Controller
     @el.attr tabindex: 0 # Make this focusable.
 
     @map ?= new Map
-      apiKey: '21a5504123984624a5e1a856fc00e238'
       latitude: 33
       longitude: -60
       zoom: 5

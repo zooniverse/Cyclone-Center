@@ -12,7 +12,8 @@ Map = require 'zooniverse/lib/map'
 autoPopup = require 'zooniverse/lib/auto_popup'
 activeHashLinks = require 'zooniverse/lib/active_hash_links'
 
-# Map::tilesId = 50122
+Map::tilesId = 70052
+Map::apiKey = '21a5504123984624a5e1a856fc00e238'
 
 class App extends Manager.Stack
   controllers:
@@ -45,10 +46,10 @@ class App extends Manager.Stack
 
     window.classifier = new Classifier el: '#classify .classifier'
 
-    Route.setup()
+    autoPopup.init()
+    activeHashLinks.init()
 
-autoPopup.init()
-activeHashLinks.init()
+    Route.setup()
 
 module.exports = App
 
