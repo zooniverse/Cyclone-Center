@@ -40,7 +40,7 @@ class App extends Manager.Stack
     @topBar = new TopBar
       languages:
         en: 'English'
-      app: 'Cyclone Center'
+      app: 'cyclone_center'
 
     @topBar.el.prependTo 'body'
 

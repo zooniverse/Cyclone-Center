@@ -1,13 +1,6 @@
 Spine = require('spine')
 Map = require('zooniverse/lib/map')
 
-TEST =
-  favorites: [
-    {id: 0, subjects: [{id: 0, location: {standard: 'http://placehold.it/1/0f0.png'}, coords: [28, -70], metadata: {type: 'Hurricane', name: 'Katrina', year: 2005}}]}
-    {id: 1, subjects: [{id: 0, location: {standard: 'http://placehold.it/1/0f0.png'}, coords: [27, -70], metadata: {type: 'Hurricane', name: 'Charlie', year: 2006}}]}
-    {id: 3, subjects: [{id: 0, location: {standard: 'http://placehold.it/1/0f0.png'}, coords: [26, -70], metadata: {type: 'Hurricane', name: 'Ivan', year: 2007}}]}
-  ]
-
 class Profile extends Spine.Controller
   map: null
 
@@ -38,16 +31,22 @@ class Profile extends Spine.Controller
 
     @favoriteTemplate.remove()
 
-    @updateFavorites()
+    setTimeout @updateFavorites, 1000
 
-  updateFavorites: =>
-    for fav in TEST.favorites
+  updateFavorites: (favorites) =>
+    # JUST FOR TESTING
+    favorites ?= window.classifier.recentClassifications
+
+    for fav in favorites
       favItem = @favoriteTemplate.clone()
-      favItem.attr 'data-favorite': fav.id
+      favItem.attr 'data-favorite': fav.subject.id
+      favItem.find('img').attr src: fav.subject.location.standard
+      favItem.find('.date').html fav.subject.metadata.captured.toString().split(' ')[1..4].join ' '
+      favItem.find('.latitude').html fav.subject.coords[0]
+      favItem.find('.longitude').html fav.subject.coords[1]
       favItem.appendTo @favoritesList
 
-      coords = fav.subjects[0].coords
-      @labels[fav.id] = @map.addLabel coords...,  coords.join ', '
+      @labels[fav.subject.id] = @map.addLabel fav.subject.coords...,  fav.subject.coords.join ', '
 
   onMouseEnterFavorite: ({currentTarget}) =>
     favID = $(currentTarget).attr 'data-favorite'

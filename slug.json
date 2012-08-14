@@ -9,6 +9,8 @@
     "zooniverse/lib/api",
     "zooniverse/lib/controllers/top_bar",
     "zooniverse/lib/models/subject",
+    "zooniverse/lib/models/favorite",
+    "zooniverse/lib/models/recent",
     "zooniverse/lib/map",
     "zooniverse/lib/dialog",
     "zooniverse/lib/auto_popup",
