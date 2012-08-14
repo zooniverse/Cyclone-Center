@@ -141,9 +141,21 @@
           &:first-child
             margin-left 20px
 
-        &[name="match"] img
-          width 90px
-          height 90px
+        &[name="match"]
+          img
+            width 90px
+            height 90px
+
+          .caption
+            background rgba($black, 0.5)
+            bottom 0
+            color $white
+            font-weight bold
+            left 0
+            padding 3px
+            position absolute
+            text-shadow 0 1px 1px $blacks
+            width 100%
 
       .help-ball
         standard-button()
