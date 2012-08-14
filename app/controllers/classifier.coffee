@@ -377,6 +377,7 @@ class Classifier extends Spine.Controller
       item = @revealTemplate.clone()
       item.attr 'data-subject': classification.subject.id
       item.find('img').attr src: classification.subject.location.standard
+      item.find('.date').html classification.subject.metadata.captured.toString().split(' ')[1..4].join(' ')
       item.find('.lat').html classification.subject.coords[0]
       item.find('.lng').html classification.subject.coords[1]
       item.appendTo @revealList

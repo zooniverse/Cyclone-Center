@@ -66,6 +66,8 @@ class CycloneSubject extends Subject
         +(Math.random() * 5 + 20).toString().slice 0, 7
         +(Math.random() * -10 - 60).toString().slice 0, 7
       ]
-      metadata: {}
+      metadata: {
+        captured: new Date Math.random() * new Date
+      }
 
 module.exports = CycloneSubject
