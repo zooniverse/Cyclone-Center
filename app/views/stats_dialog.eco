@@ -1,0 +1,22 @@
+<header>
+  <h2><%= @type %> <%= @name %></h2>
+  <p class="duration"><strong>Duration</strong> <%= @start %> &ndash; <%= @end %></p>
+  <p class="strength"><strong><%= @scale %></strong> <%= @strength %></p>
+</header>
+
+<section class="path column">
+  <header>Storm path</header>
+  <div class="map"></div>
+</section>
+
+<div class="graphs column">
+  <section class="wind-speed">
+    <header>Max sustained wind speed without normalization</header>
+    <div class="graph"></div>
+  </section>
+
+  <section class="pressure">
+    <header>Minimum central pressure</header>
+    <div class="graph"></div>
+  </section>
+</div>

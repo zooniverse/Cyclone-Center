@@ -13,6 +13,7 @@
     "zooniverse/lib/models/recent",
     "zooniverse/lib/map",
     "zooniverse/lib/dialog",
+    "zooniverse/lib/bar_graph",
     "zooniverse/lib/auto_popup",
     "zooniverse/lib/active_hash_links"
   ],
