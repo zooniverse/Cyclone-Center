@@ -10,7 +10,7 @@ class StatsDialog extends Dialog
   constructor: ->
     super
 
-    @storm ?=
+    @storm ?= # For dev!
       type: 'Hurricane'
       name: 'Brian'
       start: (new Date).getMonth()
@@ -18,6 +18,10 @@ class StatsDialog extends Dialog
       scale: 'Saffir-Simpson'
       strength: 'Category 5'
       captures: [0...50]
+      coords: ([
+        +(Math.random() * 5 + 20).toString().slice 0, 7
+        +(Math.random() * -10 - 60).toString().slice 0, 7
+      ] for i in [0...50])
       windSpeeds: ((Math.random() * 150) for i in [0...50])
       pressures: ((Math.random() * 60) + 900 for i in [0...50])
 
@@ -32,6 +36,21 @@ class StatsDialog extends Dialog
     @map = new Map
       el: @el.find '.path .map'
 
+    allLats = []
+    allLngs = []
+    @storm.coords.forEach (coords) =>
+      @map.addLabel coords..., ''
+      allLats.push coords[0]
+      allLngs.push coords[1]
+      zoom: 3
+
+    avgCoords = [
+      (1 / allLats.length) * allLats.reduce (a, b) -> a + b
+      (1 / allLngs.length) * allLngs.reduce (a, b) -> a + b
+    ]
+
+    @map.setCenter avgCoords...
+
     @windSpeedGraph = new BarGraph
       el: @el.find '.wind-speed .graph'
       x: 'Date': @storm.captures
@@ -45,7 +64,9 @@ class StatsDialog extends Dialog
 
   open: =>
     super
+    setTimeout =>
+      @map.resize()
+      @map.setZoom @map.zoom
 
-    setTimeout @map.resize
 
 module.exports = StatsDialog
