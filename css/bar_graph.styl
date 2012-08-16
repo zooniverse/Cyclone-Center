@@ -1,39 +1,39 @@
 .bar-chart
   clearfix()
   font-size 11px
+  overflow-x auto
+  overflow-y hidden
   position relative
+  white-space nowrap
 
   .axis
-    position absolute
-
     &.x
-      top 100%
       text-align center
-      width 100%
 
     &.y
-      height 100%
-      right 100%
+      display inline-block
+      height: 100px
+      width: 10px
+      position relative
 
       .label
         transform(rotate(-90deg))
         transform-origin(0 100%)
         bottom 0
-        left 0
+        left 100%
         position absolute
         text-align center
         width 100px
 
   .item
-    float left
+    display inline-block
     height 100px
     position relative
-    width 4px
-    margin-right 2px
+    width 5px
+    margin-right 5px
 
     .bar
-      background $black
-      border-radius 2px
+      background $gray
       bottom 0
       left 0
       position absolute

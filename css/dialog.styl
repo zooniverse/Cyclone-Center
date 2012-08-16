@@ -1,3 +1,7 @@
+undergroove()
+  border-bottom 1px solid $gray
+  box-shadow 0 2px 0 #fff
+
 .dialog-underlay
   background vendor-value(radial-gradient(rgba($blacker, 0.5), rgba($black, .75)))
   bottom 0
@@ -100,15 +104,14 @@
         display none
 
   &.stats .dialog
-    max-width 80%
+    max-width 100%
 
     .dialog-content
       clearfix()
       text-align left
 
       > header
-        border-bottom 1px solid $gray
-        box-shadow 0 2px 0 #fff
+        undergroove()
 
         h2,
         p
@@ -123,20 +126,27 @@
 
         h2
           border-left 0
-          color $blue
           font 30px $open-sans-condensed
           padding-bottom 0
           padding-left 0
 
       .column
         float left
+        width 400px
 
       section
         margin 20px 20px 0 0
+
+        header
+          font-size 11px
+          margin-bottom 10px
 
         &.path
           .map
             height 400px
             width 400px
 
-      //   &.wind-speed
+        &.pressure,
+        &.wind-speed
+          border-bottom 1px solid $gray-light
+          padding-bottom 20px
