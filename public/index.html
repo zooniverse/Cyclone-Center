@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <title>App</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Open+Sans+Condensed:300,700" rel="stylesheet" />
     <link href="http://cdn.leafletjs.com/leaflet-0.4.2/leaflet.css" rel="stylesheet" />
     <link href="application.css" rel="stylesheet" />
     <script src="application.js"></script>
@@ -83,24 +83,41 @@
               <li><button name="category" value="other" class="toggle">Other</button> <span data-popup="#other-help left" class="help-ball">?</span></li>
             </ul>
             <div id="eye-help" class="popup-content">
-              <p>Eye cyclones are blah blah blah...</p>
-              <p>The match will be blah blah blah...</p>
+              <h2>Eye</h2>
+              <h3>What does this storm look like?</h3>
+              <p>Look for a roundish area of cold clouds near the center of the storm. Strong embedded center storms may start to develop an eye, while weaker storms are closely related to curved bands.</p>
+              <h3>How can I identify a strong eye?</h3>
+              <p>There will be more tightly wrapped spiral bands and colder (bluer) clouds.</p>
             </div>
             <div id="embedded-help" class="popup-content">
-              <p>Embedded center cyclones are blah blah blah...</p>
-              <p>The match will be blah blah blah...</p>
+               <h2>Embedded Center</h2>
+              <h3>What does this storm look like?</h3>
+              <p>Look for an area of warmer color near the center. The eye in the center is sometimes pink, grey, always a warmer color than the surrounding eye wall.</p>
+              <h3>How can I identify an embedded center?</h3>
+              <p>There will be a warmer and more circular eye at the center, with colder clouds surrounding the eye. The spiral bands will be more pronounced.</p>
             </div>
             <div id="curved-help" class="popup-content">
-              <p>Curved band cyclones are blah blah blah...</p>
-              <p>The match will be blah blah blah...</p>
+              <h2>Curved Band</h2>
+              <h3>What does this storm look like?</h3>
+              <p>Look for a comma shaped storm. These are often closely related to weak embedded center storms.</p>
+              <h3>How can I identify a curved band?</h3>
+              <p>There will be colder clouds and tightly wrapped spiral bands.</p>
             </div>
             <div id="shear-help" class="popup-content">
-              <p>Shear cyclones are blah blah blah...</p>
-              <p>The match will be blah blah blah...</p>
+               <h2>Shear</h2>
+              <h3>What does this storm look like?</h3>
+              <p>Look for a swirl in the gray clouds, as well as cold clouds very close to warm ones.</p>
+              <h3>How can I identify a strong shear?</h3>
+              <p>The Center of the gray swirls will be closer to blue cloudds, and the colder clouds (blue) will be more spiral and organized.</p>
             </div>
             <div id="other-help" class="popup-content">
-              <p>Other cyclones might be blah blah blah...</p>
-              <p>The match will be blah blah blah...</p>
+               <h2>Other Storms</h2>
+              <h3>Post-Tropical</h3>
+              <p>As storms move toward the poles, they become less tropical and more like midlatitude weather systems. The storms will have more gray and pink clouds, and may appear stretched out with long tails of clouds.</p>
+              <h3>Edge</h3>
+              <p>These storms are on the edge of the satellite's peripheral vision and will often look distorted, or have missing data (black areas)</p>
+              <h3>No Storm</h3>
+              <p>These storms appear disorganized and are too weak to classify.</p>
             </div>
           </div>
 

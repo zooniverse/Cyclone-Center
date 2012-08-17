@@ -24,18 +24,19 @@ standard-button()
   // Note: .toggle, .toggle.selected, .default
   box-sizing(border-box)
   background $gray-light
-  border 1px solid rgba($blacker, 0.33)
-  border-radius 0.33em
-  box-shadow 0 0.67em 0.67em rgba($white, 0.33) inset, 0 -0.5em 0.5em rgba($blacker, 0.125) inset, 0 0.125ex 0.25ex rgba($blacker, 0.33)
+  border 1px solid #b2b2b2
+  border-radius 3px
+  box-shadow inset 0px 1px 0px #ffffff
   color $black
   display inline-block
   font-family "Open Sans", sans-serif
-  font-size inherit
+  font-weight 600
+  font-size 13px
   line-height 1
   margin-left 0.75em
   padding 0.5em 2em
   text-decoration none
-  text-shadow 0 0.125ex $white
+  text-shadow 0 1px 0px $white
   vertical-align middle
 
   &:first-child
@@ -50,7 +51,9 @@ standard-button()
   &.default
     background $blue
     color $white
-    text-shadow 0 0.125ex rgba($black, 0.5)
+    text-shadow 0 1px 0px #006084
+    box-shadow inset 0px 1px 0px #00a8e6
+    border 1px solid #016387
 
     &:hover
       border-color rgba($black, 0.75)
