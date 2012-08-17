@@ -285,7 +285,8 @@ class Classifier extends Spine.Controller
     @surroundingButtons.removeClass 'selected'
 
     if surrounding?
-      @surroundingButtons.filter("[value='#{surrounding}']").addClass 'selected'
+      toSelect = @surroundingButtons.filter "[value='#{surrounding}']"
+      toSelect.prevAll().andSelf().addClass 'selected'
 
   setupExceeding: =>
     @el.attr 'data-step': 'exceeding'
@@ -296,7 +297,8 @@ class Classifier extends Spine.Controller
     @exceedingButtons.removeClass 'selected'
 
     if exceeding?
-      @exceedingButtons.filter("[value='#{exceeding}']").addClass 'selected'
+      toSelect = @exceedingButtons.filter "[value='#{exceeding}']"
+      toSelect.prevAll().andSelf().addClass 'selected'
 
   setupFeature: =>
     @el.attr 'data-step': 'feature'
