@@ -320,7 +320,8 @@ class Classifier extends Spine.Controller
   renderBlue: (blue) =>
     @blueButtons.removeClass 'selected'
     if blue?
-      @blueButtons.filter("[value='#{blue}']").addClass 'selected'
+      toSelect = @blueButtons.filter "[value='#{blue}']"
+      toSelect.prevAll().andSelf().addClass 'selected'
 
   setupCurve: =>
     @el.attr 'data-step': 'curve'
