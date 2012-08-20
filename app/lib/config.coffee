@@ -6,7 +6,8 @@ config =
     apiHost: null
 
   development:
-    apiHost: 'http://localhost:3000'
+    # apiHost: 'http://localhost:3000'
+    apiHost: 'https://api.zooniverse.org'
 
   production:
     apiHost: 'https://api.zooniverse.org'
