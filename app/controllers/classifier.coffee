@@ -235,7 +235,7 @@ class Classifier extends Spine.Controller
       @matchButtons.filter("[value='#{match}']").addClass 'selected'
 
       # TODO: Do this better.
-      @matchImage.attr src: @matchButtons.filter(".selected").find('img').attr 'src'
+      @matchImage.attr src: @matchButtons.filter(".selected").find('img').attr('src').replace '.thumb', ''
     else
       @matchImage.attr src: @defaultImageSrc
 
