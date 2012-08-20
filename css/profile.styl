@@ -1,4 +1,36 @@
 #profile
+  .login-form
+    panel()
+    float right
+    font-size 13px
+    padding 30px 20px
+    text-align center
+    width 400px
+
+    p
+      margin-bottom 1em
+
+    form
+      display inline-block
+
+      label
+        display block
+        margin-bottom 1em
+
+        > span
+          // There's a child input, which makes this kinda weird.
+          display inline-block
+          width 10em
+
+      button
+        standard-button()
+
+    .picker
+      margin-top 1em
+
+      button
+        border-bottom 1px solid $gray
+
   .panel
     panel()
     float right

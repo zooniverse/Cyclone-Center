@@ -1,5 +1,6 @@
-Spine = require('spine')
-Map = require('zooniverse/lib/map')
+Spine = require 'spine'
+Map = require 'zooniverse/lib/map'
+LoginForm = require 'zooniverse/lib/controllers/login_form'
 
 class Profile extends Spine.Controller
   map: null
@@ -13,11 +14,14 @@ class Profile extends Spine.Controller
     'click .favorites img': 'onClickReveal'
 
   elements:
+    '.login-form': 'loginFormContainer'
     '.favorites ul': 'favoritesList'
     '.favorites [data-favorite="TEMPLATE"]': 'favoriteTemplate'
 
   constructor: ->
     super
+
+    @loginForm = new LoginForm el: @loginFormContainer
 
     @labels = {}
 
