@@ -46,6 +46,7 @@ class Classifier extends Spine.Controller
     'click button[name="exceeding"]': 'onClickButton'
     'click button[name="feature"]': 'onClickButton'
     'click button[name="blue"]': 'onClickButton'
+    'click button[name="curve"]': 'onClickButton'
 
     'click button[name="restart"]': 'onClickRestart'
     'change input[name="detailed"]': 'onChangeDetailed'
@@ -69,6 +70,7 @@ class Classifier extends Spine.Controller
     'button[name="exceeding"]': 'exceedingButtons'
     'button[name="feature"]': 'featureButtons'
     'button[name="blue"]': 'blueButtons'
+    'button[name="curve"]': 'curveButtons'
 
     '.footer .progress .message': 'progressMessage'
     '.footer .progress .series .fill': 'seriesProgressFill'
@@ -312,13 +314,23 @@ class Classifier extends Spine.Controller
 
   setupBlue: =>
     @el.attr 'data-step': 'blue'
-    @nextSetup = null
+    @nextSetup = @setupCurve
     @activateButtons()
 
   renderBlue: (blue) =>
     @blueButtons.removeClass 'selected'
     if blue?
       @blueButtons.filter("[value='#{blue}']").addClass 'selected'
+
+  setupCurve: =>
+    @el.attr 'data-step': 'curve'
+    @nextSetup = null
+    @activateButtons()
+
+  renderCurve: (curve) =>
+    @curveButtons.removeClass 'selected'
+    if curve?
+      @curveButtons.filter("[value='#{curve}']").addClass 'selected'
 
   setupRed: =>
     @el.attr 'data-step': 'red'
