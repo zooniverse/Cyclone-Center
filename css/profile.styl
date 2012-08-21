@@ -31,8 +31,15 @@
       button
         border-bottom 1px solid $gray
 
+    &.signed-in
+      display none
+
+      & + .panel
+        display block
+
   .panel
     panel()
+    display none
     float right
     text-align center
 
