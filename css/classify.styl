@@ -31,8 +31,10 @@
         border: 0 solid transparent
         border-width 2px 0 0 2px
         height 50px
+        left -50%
         pointer-events none
         position absolute
+        top -50%
         width 50px
         z-index 2
 
@@ -225,6 +227,16 @@
 
               &[name="unfavorite"]
                 display none
+
+            &.favoriting
+              opacity: 0.5
+
+            &[data-favorite] button
+              &[name="favorite"]
+                display none
+
+              &[name="unfavorite"]
+                display inline-block
 
     .footer
       clearfix()

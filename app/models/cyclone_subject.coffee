@@ -33,7 +33,7 @@ class CycloneSubject extends Subject
   @fetch: (count = config.setSize) =>
     fetcher = $.Deferred()
 
-    Api.get "/projects/cyclone_center/groups/subjects", (rawSubjects) =>
+    Api.get "/projects/cyclone_center/groups/subjects?limit=#{count}", (rawSubjects) =>
       newSubjects = @fromJSON rawSubject for rawSubject in rawSubjects
       fetcher.resolve newSubjects
 
@@ -43,6 +43,7 @@ class CycloneSubject extends Subject
     console.info 'Raw subject', raw
     @create
       id: raw.id
+      zooniverseId: raw.zooniverse_id
       workflowId: raw.workflow_ids[0]
       groupId: raw.group_id
       location: standard: randomPropertyFrom raw.location

@@ -4,6 +4,7 @@ CycloneSubject = require '../models/cyclone_subject'
 Map = require 'zooniverse/lib/map'
 Dialog = require 'zooniverse/lib/dialog'
 Classification = require '../models/classification'
+Favorite = require 'zooniverse/lib/models/favorite'
 StatsDialog = require './stats_dialog'
 
 # Sizes for use in animations
@@ -35,6 +36,9 @@ class Classifier extends Spine.Controller
     'change input[name="detailed"]': 'onChangeDetailed'
     'click button[name="continue"]': 'onClickContinue'
     'click button[name="next-subject"]': 'onClickNext'
+
+    'click button[name="favorite"]': 'onClickFavorite'
+    'click button[name="unfavorite"]': 'onClickUnfavorite'
 
   elements:
     '.main-pair .previous': 'previousImage'
@@ -365,8 +369,6 @@ class Classifier extends Spine.Controller
     @classification.annotate property, value
 
   setupReveal: =>
-    console.info 'Revealing', @recentClassifications
-
     @revealList.empty()
     for classification in @recentClassifications
       item = @revealTemplate.clone()
@@ -381,6 +383,32 @@ class Classifier extends Spine.Controller
     @seriesProgressFill.css width: '100%'
     @classification.annotate 'reveal', true # For the "next" button
     @activateButtons()
+
+  onClickFavorite: ({currentTarget}) =>
+    itemParent = $(currentTarget).parents '[data-subject]'
+    subjectId = itemParent.attr 'data-subject'
+
+    favorite = Favorite.create({})
+    favorite.subjects = {id: subjectId}
+    favorite.save()
+
+    send = favorite.send().deferred
+    @el.addClass 'favoriting'
+    send.done ->
+      # Give the the favorite a chance to update its ID.
+      setTimeout ->
+        itemParent.removeClass 'favoriting'
+        itemParent.attr 'data-favorite': favorite.id
+
+  onClickUnfavorite: ({currentTarget}) =>
+    itemParent = $(currentTarget).parents '[data-favorite]'
+    favoriteId = itemParent.attr 'data-favorite'
+
+    favorite = Favorite.find favoriteId
+
+    destroy = favorite.destroy().deferred
+    destroy.done ->
+      itemParent.attr 'data-favorite': null
 
   onClickRestart: (e) =>
     for property of @classification.annotations
@@ -407,9 +435,9 @@ class Classifier extends Spine.Controller
     @nextSetup()
 
   onClickNext: =>
-    console.info 'Classified', JSON.stringify @classification.toJSON()
     @recentClassifications.push @classification
-    @classification.send()
+    @classification.send =>
+      console.info 'Classified', JSON.stringify @classification.toJSON()
 
     if CycloneSubject.count() is 1 and not @classification.get 'reveal'
       @setupReveal()

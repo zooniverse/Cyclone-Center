@@ -37,7 +37,6 @@ class Classification
     "/projects/cyclone_center/workflows/#{@subject.workflowId}/classifications"
 
   send: ->
-    Api.post @url(), @toJSON(), (response) =>
-      console.info response
+    Api.post @url(), @toJSON(), arguments...
 
 module.exports = Classification
