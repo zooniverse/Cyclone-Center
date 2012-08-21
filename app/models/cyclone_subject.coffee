@@ -8,7 +8,7 @@ randomPropertyFrom = (object) ->
   object[keys[Math.floor Math.random() * keys.length]]
 
 class CycloneSubject extends Subject
-  @configure 'CycloneSubject', 'zooniverse_id', 'coords', 'location', 'metadata'
+  @configure 'CycloneSubject', 'zooniverse_id', 'workflowId', 'groupId', 'location', 'coords', 'metadata'
 
   @current: null
 
@@ -40,9 +40,16 @@ class CycloneSubject extends Subject
     fetcher.promise()
 
   @fromJSON: (raw) =>
+    console.info 'Raw subject', raw
     @create
+      id: raw.id
+      workflowId: raw.workflow_ids[0]
+      groupId: raw.group_id
       location: standard: randomPropertyFrom raw.location
-      coords: [raw.metadata.map_lat, raw.metadata.map_lng]
+      coords: [
+        raw.metadata.lat || raw.metadata.map_lat
+        raw.metadata.lng || raw.metadata.map_lng
+      ]
       metadata: raw.metadata
 
 module.exports = CycloneSubject

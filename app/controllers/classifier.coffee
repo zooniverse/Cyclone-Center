@@ -3,25 +3,8 @@ config = require '../lib/config'
 CycloneSubject = require '../models/cyclone_subject'
 Map = require 'zooniverse/lib/map'
 Dialog = require 'zooniverse/lib/dialog'
+Classification = require '../models/classification'
 StatsDialog = require './stats_dialog'
-
-# Only temporary!
-class Classification
-  constructor: ({@subject}) ->
-    @values = {}
-    @emitter = $({})
-
-  annotate: (keyVal) =>
-    for key, val of keyVal
-      @values[key] = val
-      @emitter.trigger "change", [key, val]
-
-  get: (key) =>
-    @values[key]
-
-  onChange: (callback) ->
-    @emitter.on 'change', (e, key, val) ->
-      callback key, val
 
 # Sizes for use in animations
 NORMAL_SIZE = 250
@@ -225,7 +208,7 @@ class Classifier extends Spine.Controller
     else
       @matchListsContainer.animate height: 0, =>
 
-    setTimeout => @classification.annotate match: null
+    setTimeout => @classification.annotate 'match', null
 
   renderMatch: (match) =>
     @matchImage.toggleClass 'selected', match?
@@ -364,25 +347,22 @@ class Classifier extends Spine.Controller
     x = Math.min Math.max((e.pageX - offset.left) / @subjectImage.width(), 0), 1
     y = Math.min Math.max((e.pageY - offset.top) / @subjectImage.height(), 0), 1
 
-    annotation = {}
-    annotation[step] = [x, y]
-    @classification.annotate annotation
+    @classification.annotate step, [x, y]
 
   onMouseUpDocument: =>
     delete @mouseDown
 
   onClickButton: ({currentTarget}) =>
     target = $(currentTarget)
+
     property = target.attr 'name'
+
     value = target.val()
     value = true if value is 'true'
     value = false if value is 'false'
+    value = null if value is @classification.get property
 
-    annotation = {}
-    annotation[property] = value
-    annotation[property] = null if value is @classification.get property
-
-    @classification.annotate annotation
+    @classification.annotate property, value
 
   setupReveal: =>
     console.info 'Revealing', @recentClassifications
@@ -392,21 +372,19 @@ class Classifier extends Spine.Controller
       item = @revealTemplate.clone()
       item.attr 'data-subject': classification.subject.id
       item.find('img').attr src: classification.subject.location.standard
-      item.find('.date').html classification.subject.metadata.captured.toString().split(' ')[1..4].join ' '
+      item.find('.date').html classification.subject.metadata.iso_time
       item.find('.lat').html classification.subject.coords[0]
       item.find('.lng').html classification.subject.coords[1]
       item.appendTo @revealList
 
     @el.attr 'data-step': 'reveal'
     @seriesProgressFill.css width: '100%'
-    @classification.annotate reveal: true # For the "next" button
+    @classification.annotate 'reveal', true # For the "next" button
     @activateButtons()
 
   onClickRestart: (e) =>
-    for property of @classification.values
-      clear = {}
-      clear[property] = null
-      @classification.annotate clear
+    for property of @classification.annotations
+      @classification.annotate property, null
 
     if @previousSubject
       @setupStronger()
@@ -429,8 +407,9 @@ class Classifier extends Spine.Controller
     @nextSetup()
 
   onClickNext: =>
-    console.info 'Classified', JSON.stringify @classification.values
+    console.info 'Classified', JSON.stringify @classification.toJSON()
     @recentClassifications.push @classification
+    @classification.send()
 
     if CycloneSubject.count() is 1 and not @classification.get 'reveal'
       @setupReveal()
