@@ -105,17 +105,22 @@
           overflow hidden
           white-space nowrap
 
-          img
+          img,
+          .swatch
             border-radius 3px
             height 30px
             width 30px
 
-          &.selected img
-            border 3px solid $greenish
+          &.selected
+            img,
+            .swatch
+              border 3px solid $greenish
 
-        &[name="feature"] img
-          height 60px
-          width 60px
+        &[name="feature"],
+        &[name="curve"]
+          img
+            height 60px
+            width 60px
 
         // Category/match buttons
         &[name="category"]
@@ -158,6 +163,24 @@
             position absolute
             text-shadow 0 1px 1px $blacks
             width 100%
+
+      .swatch
+        box-sizing(border-box)
+        background #000
+        box-shadow 0 0 1px #000 inset
+        display inline-block
+        min-height 10px
+        min-width 10px
+
+        &.coldest  {background: $coldest;}
+        &.colder   {background: $colder;}
+        &.cold     {background: $cold;}
+        &.coldish  {background: $coldish;}
+        &.moderate {background: $moderate;}
+        &.warmish  {background: $warmish;}
+        &.warm     {background: $warm;}
+        &.warmer   {background: $warmer;}
+        &.warmest  {background: $warmest;}
 
       .help-ball
         standard-button()

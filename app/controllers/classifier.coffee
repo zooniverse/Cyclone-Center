@@ -370,6 +370,8 @@ class Classifier extends Spine.Controller
     @classification.annotate property, value
 
   setupReveal: =>
+    @progressMessage.html ""
+
     @revealList.empty()
     for classification in @recentClassifications
       item = @revealTemplate.clone()
