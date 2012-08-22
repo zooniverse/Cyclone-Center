@@ -1,34 +1,35 @@
 Dialog = require 'zooniverse/lib/dialog'
+Api = require 'zooniverse/lib/api'
 Map  = require 'zooniverse/lib/map'
 BarGraph  = require 'zooniverse/lib/bar_graph'
 
 template = require 'views/stats_dialog'
 
 class StatsDialog extends Dialog
+  stormId: ''
   storm: null
 
   constructor: ->
     super
-
-    @storm ?= # For dev!
-      type: 'Hurricane'
-      name: 'Brian'
-      start: (new Date).getMonth()
-      end: (new Date).getMonth()
-      scale: 'Saffir-Simpson'
-      strength: 'Category 5'
-      captures: [0...50]
-      coords: ([
-        +(Math.random() * 5 + 20).toString().slice 0, 7
-        +(Math.random() * -10 - 60).toString().slice 0, 7
-      ] for i in [0...50])
-      windSpeeds: ((Math.random() * 150) for i in [0...50])
-      pressures: ((Math.random() * 60) + 900 for i in [0...50])
-
-    @content = 'Loading stats...'
-
     @el.addClass 'stats'
-    @content = template @storm
+
+    @storm =
+      name: ''
+      strength: ''
+      coords: []
+      times: []
+      pressures: []
+      winds: []
+
+    Api.get '/projects/cyclone_center/groups/503293f9516bcb6782000005', (raw) =>
+      @storm.name = raw.metadata.name
+      @storm.strength = raw.metadata.max_category
+      for stat in raw.metadata.stats
+        @storm.coords.push [stat.lat || stat.map_lat, stat.lng || stat.map_lng]
+        @storm["#{key}s"].push stat[key] for key in ['time', 'pressure', 'wind']
+
+      @content = template @storm
+      @open()
 
   render: =>
     super
@@ -53,12 +54,12 @@ class StatsDialog extends Dialog
 
     @windSpeedGraph = new BarGraph
       el: @el.find '.wind-speed .graph'
-      x: 'Date': @storm.captures
-      y: 'kt': @storm.windSpeeds
+      x: 'Date': @storm.times
+      y: 'kt': @storm.winds
 
     @pressureGraph = new BarGraph
       el: @el.find '.pressure .graph'
-      x: 'Date': @storm.captures
+      x: 'Date': @storm.times
       y: 'mb': @storm.pressures
       floor: Math.floor 0.95 * Math.min @storm.pressures...
 

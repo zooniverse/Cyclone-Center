@@ -1,7 +1,7 @@
 <header>
-  <h2><%= @type %> <%= @name %></h2>
-  <p class="duration"><strong>Duration</strong> <%= @start %> &ndash; <%= @end %></p>
-  <p class="strength"><strong><%= @scale %></strong> <%= @strength %></p>
+  <h2><%= @name %></h2>
+  <p class="duration"><strong>Duration</strong> <%= @times[0] %> &ndash; <%= @times[-1...] %></p>
+  <p class="strength"><strong>Strength</strong> <%= @strength %></p>
 </header>
 
 <section class="path column">

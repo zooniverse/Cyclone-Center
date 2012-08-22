@@ -37,6 +37,7 @@ class Classifier extends Spine.Controller
     'click button[name="continue"]': 'onClickContinue'
     'click button[name="next-subject"]': 'onClickNext'
 
+    'click button[name="view-stats"]': 'onClickViewStats'
     'click button[name="favorite"]': 'onClickFavorite'
     'click button[name="unfavorite"]': 'onClickUnfavorite'
 
@@ -409,6 +410,12 @@ class Classifier extends Spine.Controller
     destroy = favorite.destroy().deferred
     destroy.done ->
       itemParent.attr 'data-favorite': null
+
+  onClickViewStats: =>
+    console.log 'Viewing stats for', @recentClassifications[0].subject.groupId
+    new StatsDialog
+      stormId: @recentClassifications[0].subject.groupId
+      destroyOnClose: true
 
   onClickRestart: (e) =>
     for property of @classification.annotations
