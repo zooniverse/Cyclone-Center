@@ -40,7 +40,6 @@ class CycloneSubject extends Subject
     fetcher.promise()
 
   @fromJSON: (raw) =>
-    console.info 'Raw subject', raw
     @create
       id: raw.id
       zooniverseId: raw.zooniverse_id
@@ -54,3 +53,4 @@ class CycloneSubject extends Subject
       metadata: raw.metadata
 
 module.exports = CycloneSubject
+module.exports.randomPropertyFrom = randomPropertyFrom

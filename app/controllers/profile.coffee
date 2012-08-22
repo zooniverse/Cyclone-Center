@@ -1,6 +1,9 @@
 Spine = require 'spine'
 Map = require 'zooniverse/lib/map'
 LoginForm = require 'zooniverse/lib/controllers/login_form'
+User = require 'zooniverse/lib/models/user'
+Favorite = require 'zooniverse/lib/models/favorite'
+{randomPropertyFrom} = require 'models/cyclone_subject'
 
 class Profile extends Spine.Controller
   map: null
@@ -12,9 +15,12 @@ class Profile extends Spine.Controller
     'mouseleave .favorites li': 'onMouseLeaveFavorite'
     'click .favorites button[name="reveal"]': 'onClickReveal'
     'click .favorites img': 'onClickReveal'
+    'click .favorites button[name="remove-favorite"]': 'onClickRemove'
 
   elements:
     '.login-form': 'loginFormContainer'
+    '.current-user': 'currentUser'
+    '.classification-count': 'classificaionCount'
     '.favorites ul': 'favoritesList'
     '.favorites [data-favorite="TEMPLATE"]': 'favoriteTemplate'
 
@@ -35,22 +41,39 @@ class Profile extends Spine.Controller
 
     @favoriteTemplate.remove()
 
-    setTimeout @updateFavorites, 1000
+    @onUserSignIn()
+    User.bind 'sign-in', @onUserSignIn
 
-  updateFavorites: (favorites) =>
-    # JUST FOR TESTING
-    favorites ?= window.classifier.recentClassifications
+    @updateFavorites()
+    Favorite.bind 'fetch create destroy', =>
+      setTimeout @updateFavorites, 250
 
+  onUserSignIn: =>
+    @currentUser.html User.current?.name
+    @classificaionCount.html User.current?.classification_count
+
+  updateFavorites: =>
+    @favoritesList.empty()
+
+    favorites = Favorite.all()
     for fav in favorites
       favItem = @favoriteTemplate.clone()
-      favItem.attr 'data-favorite': fav.subject.id
-      favItem.find('img').attr src: fav.subject.location.standard
-      favItem.find('.date').html fav.subject.metadata.captured.toString().split(' ')[1..4].join ' '
-      favItem.find('.latitude').html fav.subject.coords[0]
-      favItem.find('.longitude').html fav.subject.coords[1]
+      favItem.attr 'data-favorite': fav.id
+
+      subject = fav.subjects
+      lat = subject.metadata.lat || subject.metadata.map_lat
+      lng = subject.metadata.lng || subject.metadata.map_lng
+
+      favItem.find('img').attr src: randomPropertyFrom subject.location
+      favItem.find('.name').html subject.metadata.name
+      favItem.find('.year').html subject.metadata.year
+      favItem.find('.date').html subject.metadata.iso_time
+      favItem.find('.latitude').html lat
+      favItem.find('.longitude').html lng
+
       favItem.appendTo @favoritesList
 
-      @labels[fav.subject.id] = @map.addLabel fav.subject.coords...,  fav.subject.coords.join ', '
+      @labels[fav.id] = @map.addLabel lat, lng, ''
 
   onMouseEnterFavorite: ({currentTarget}) =>
     favID = $(currentTarget).attr 'data-favorite'
@@ -66,5 +89,11 @@ class Profile extends Spine.Controller
     label = @labels[favID]
     {lat, lng} = label.getLatLng()
     @map.setCenter lat, lng, center: [0.25, 0.5]
+
+  onClickRemove: ({currentTarget}) =>
+    parent = $(currentTarget).parents '[data-favorite]'
+    favoriteId = parent.attr 'data-favorite'
+    favorite = Favorite.find favoriteId
+    favorite.unfavorite()
 
 module.exports = Profile
