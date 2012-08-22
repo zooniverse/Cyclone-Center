@@ -138,7 +138,7 @@ class Classifier extends Spine.Controller
     @seriesProgressFill.css width: "#{index / (remaining + index + 1) * 100}%"
 
     meta = subject.metadata
-    @revealStorm.html "#{meta.type} #{meta.name} (#{meta.year})"
+    @revealStorm.html "#{meta.name} (#{meta.year})"
 
     if @previousSubject?
       @setupStronger()
