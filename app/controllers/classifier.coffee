@@ -7,18 +7,6 @@ Classification = require '../models/classification'
 Favorite = require 'zooniverse/lib/models/favorite'
 StatsDialog = require './stats_dialog'
 
-# Sizes for use in animations
-NORMAL_SIZE = 250
-PRO_SIZE = 485
-
-OFF_LEFT = -250
-NORMAL_LEFT = 20
-PRO_LEFT = 30
-
-OFF_RIGHT = 550
-NORMAL_RIGHT = 280
-PRO_RIGHT = 150
-
 class Classifier extends Spine.Controller
   events:
     'mousedown .main-pair .subject': 'onMouseDownSubject'
@@ -77,7 +65,6 @@ class Classifier extends Spine.Controller
 
   defaultImageSrc: ''
 
-  previousSubject: null
   recentClassifications = null
 
   nextSetup: null
@@ -108,7 +95,6 @@ class Classifier extends Spine.Controller
     doc.on 'mouseup', @onMouseUpDocument
 
   nextSubjects: =>
-    @previousSubject = CycloneSubject.current
     CycloneSubject.next @onChangeSubjects
 
   onChangeSubjects: (subject) =>
@@ -120,7 +106,6 @@ class Classifier extends Spine.Controller
 
     if availableSubjects is config.setSize
       # We won't use any previous subject.
-      @previousSubject = null
       @recentClassifications.splice()
 
       # This is the first subject in a set, so clear out old labels.
@@ -130,7 +115,7 @@ class Classifier extends Spine.Controller
     @labels.push @map.addLabel subject.coords..., subject.coords.join ', '
     setTimeout => @map.setCenter subject.coords..., center: [0.25, 0.5]
 
-    @previousImage.attr src: @previousSubject?.location.standard
+    @previousImage.attr src: 'http://placehold.it/600/000.png&text=(Yesterday)'
     @subjectImage.attr src: subject.location.standard
 
     index = config.setSize - availableSubjects
@@ -141,10 +126,7 @@ class Classifier extends Spine.Controller
     meta = subject.metadata
     @revealStorm.html "#{meta.name} (#{meta.year})"
 
-    if @previousSubject?
-      @setupStronger()
-    else
-      @setupCatsAndMatches()
+    @setupStronger()
 
   render: (attribute, value) =>
     if attribute
@@ -166,13 +148,6 @@ class Classifier extends Spine.Controller
     $('body').toggleClass 'safari-css-hack'
 
   setupStronger: =>
-    @previousImage.css height: @subjectImage.height(), left: @subjectImage.css('left'), width: @subjectImage.width()
-    @subjectImage.css left: OFF_RIGHT
-    @matchImage.animate opacity: 0, =>
-      @subjectImage.parent().animate height: NORMAL_SIZE
-      @previousImage.animate height: NORMAL_SIZE, left: NORMAL_LEFT, width: NORMAL_SIZE
-      @subjectImage.animate height: NORMAL_SIZE, left: NORMAL_RIGHT, width: NORMAL_SIZE
-
     @el.attr 'data-step': 'stronger'
     @nextSetup = @setupCatsAndMatches
     @activateButtons()
@@ -184,14 +159,7 @@ class Classifier extends Spine.Controller
       @strongerButtons.filter("[value='#{stronger}']").addClass 'selected'
 
   setupCatsAndMatches: =>
-    @previousImage.animate left: OFF_LEFT, =>
-      @subjectImage.parent().animate height: NORMAL_SIZE
-      @subjectImage.animate height: NORMAL_SIZE, left: NORMAL_LEFT, width: NORMAL_SIZE
-      @matchImage.css left: OFF_RIGHT, opacity: 1
-      @matchImage.animate left: NORMAL_RIGHT
-
     @el.attr 'data-step': 'match'
-
     @nextSetup = @setupCenter
 
     @onChangeDetailed()
@@ -230,10 +198,6 @@ class Classifier extends Spine.Controller
       @matchImage.attr src: @defaultImageSrc
 
   setupCenter: =>
-    @subjectImage.animate height: PRO_SIZE, left: PRO_LEFT, width: PRO_SIZE
-    @subjectImage.parent().animate height: PRO_SIZE
-    @matchImage.animate left: PRO_RIGHT, opacity: 0
-
     @el.attr 'data-step': 'center'
     @nextSetup = switch @classification.get 'category'
       when 'eye' then @setupEye
@@ -424,10 +388,7 @@ class Classifier extends Spine.Controller
     for property of @classification.annotations
       @classification.annotate property, null
 
-    if @previousSubject
-      @setupStronger()
-    else
-      @setupCatsAndMatches()
+    @setupStronger()
 
   onChangeDetailed: (e) =>
     advanced = @detailedCheckbox.get(0).checked

@@ -11,19 +11,28 @@
 
     .main-pair
       clearfix()
-      height 250px // Adjusted by script
       overflow hidden
       padding 20px
       position relative
 
       img
+        transition all 0.5s ease-in-out
         float left
-        height 250px
-        position absolute
-        width 250px
+        height 300px
+        position relative
+        width 300px
+
+        &.previous
+          position absolute
+          margin-left -320px
 
         &.subject
+          margin-right 15px
+          margin-left 0
           z-index 1
+
+        &.match
+          margin-left 0
 
         &.selected
           border 3px solid $greenish
@@ -62,7 +71,7 @@
     .step
       border-top 1px solid $gray-light
       border-width 1px 0
-      // display none
+      display none
       padding 0 20px
       text-align center
 
@@ -349,6 +358,40 @@
     &[data-step="red"] .red,
     &[data-step="reveal"] .reveal
       display block
+
+    &[data-step="stronger"] .main-pair img
+      &.previous
+        margin-left 0
+
+      &.subject
+        margin-left 320px
+        margin-right 0
+
+      &.match
+        margin-right -300px
+        opacity 0
+
+    &[data-step="center"],
+    &[data-step="eye"],
+    &[data-step="surrounding"],
+    &[data-step="exceeding"],
+    &[data-step="feature"],
+    &[data-step="blue"],
+    &[data-step="curve"],
+    &[data-step="red"],
+    &[data-step="reveal"]
+      .main-pair img
+        &.subject
+          height 485px
+          margin-right 0
+          width 485px
+
+        &.match
+          margin-left -300px
+          opacity 0
+
+      .step
+        max-width 485px
 
     &[data-step="reveal"] .main-pair
       display none
