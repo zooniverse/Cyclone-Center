@@ -58,3 +58,6 @@ window.reCSS = ->
   href = link.attr 'href'
   href += '?x=x' unless ~href.indexOf '?x=x'
   link.attr 'href', href + 'x'
+
+window.next = ->
+  window.classifier.onClickNext()

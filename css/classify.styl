@@ -2,7 +2,7 @@
   .classifier
     panel()
     float right
-    width 550px
+    overflow hidden
 
     img
       box-sizing border-box
@@ -12,7 +12,7 @@
       clearfix()
       height 250px // Adjusted by script
       overflow hidden
-      padding 20px 0 20px 20px
+      padding 20px
       position relative
 
       img
@@ -28,7 +28,7 @@
           border 3px solid $greenish
 
       .point
-        border: 0 solid transparent
+        border 0 solid transparent
         border-width 2px 0 0 2px
         height 50px
         left -50%
@@ -69,7 +69,6 @@
         margin 20px 0
         font-weight 600
 
-
         & + .heading
           margin-top -10px
 
@@ -81,13 +80,14 @@
           & + p
             margin-top -10px
 
-
       [data-popup]
         border-bottom 0
 
       button
         position relative
         vertical-align middle
+
+        // TODO: The following button stuff is a mess, clean it up.
 
         &[name="stronger"],
         &[name="category"]
@@ -227,32 +227,74 @@
               display block
 
       &.reveal
+        font-size 12px
+        padding 0
+
+        .did-you-know
+          background $gray-light
+          border-bottom 1px solid $gray
+          color $gray-dark
+          padding 20px 10px 20px 20px
+          text-align left
+
+          header
+            color rgba($blue, 0.33)
+            float left
+            font bold 30px/0.9 $open-sans-condensed
+            margin-right 15px
+            text-transform uppercase
+
+          .fact
+            margin-left 200px
+            line-height 1.25
+
+            p
+              margin 0
+
+        p.heading
+          font-size 30px
+
         ul
           font-size 13px
+          padding 0 15px
 
           li
             display inline-block
             margin 0 5px 5px
 
             img
-              height 155px
-              width 155px
+              height 110px
+              width 110px
 
             p
               clearfix()
-              margin 10px 0
+              margin-top 5px
+              overflow hidden
 
             a,
             button
               standard-button()
-              font-size 12px
+              float left
+              margin 0
               padding 0.5em
+
+              &:hover
+                z-index 1 // Because buttons overlap
+
+              &[name="favorite"],
+              &[name="unfavorite"]
+                border-top-right-radius 0
+                border-bottom-right-radius 0
+                width 34px
 
               &[name="unfavorite"]
                 display none
 
-            &.favoriting
-              opacity: 0.5
+              &.talk
+                border-bottom-left-radius 0
+                border-top-left-radius 0
+                margin-left -1px
+                width 77px // +1 to compensate for overlap
 
             &[data-favorite] button
               &[name="favorite"]
@@ -296,7 +338,7 @@
 
       .action
         float right
-        font-size: 13px
+        font-size 13px
 
         button
           &[name="restart"]
@@ -305,9 +347,9 @@
             width 1.5em
 
           &[name="continue"],
+          &[name="view-stats"],
           &[name="next-subject"]
             standard-button()
-            width 130px
 
     // Reveal the appropriate step.
     &[data-step="stronger"] .stronger,

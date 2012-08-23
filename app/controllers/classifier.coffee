@@ -69,6 +69,7 @@ class Classifier extends Spine.Controller
 
     'input[name="detailed"]': 'detailedCheckbox'
     'button[name="continue"]': 'continueButton'
+    'button[name="view-stats"]': 'statsButton'
     'button[name="next-subject"]': 'nextButton'
 
   map: null
@@ -155,6 +156,7 @@ class Classifier extends Spine.Controller
 
   activateButtons: =>
     @continueButton.toggle @nextSetup?
+    @statsButton.toggle @el.attr('data-step') is 'reveal'
     @nextButton.toggle not @nextSetup?
 
     @continueButton.add(@nextButton).prop
@@ -377,14 +379,13 @@ class Classifier extends Spine.Controller
       item = @revealTemplate.clone()
       item.attr 'data-subject': classification.subject.id
       item.find('img').attr src: classification.subject.location.standard
-      item.find('.date').html classification.subject.metadata.iso_time
-      item.find('.lat').html classification.subject.coords[0]
-      item.find('.lng').html classification.subject.coords[1]
+      item.find('a.talk').attr href: '#TODO'
       item.appendTo @revealList
 
     @el.attr 'data-step': 'reveal'
     @seriesProgressFill.css width: '100%'
     @classification.annotate 'reveal', true # For the "next" button
+    @nextSetup = null
     @activateButtons()
 
   onClickFavorite: ({currentTarget}) =>

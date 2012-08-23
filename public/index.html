@@ -267,19 +267,23 @@
         </div>
 
         <div class="reveal step">
-          <p>You've just classified...</p>
-          <p class="heading"><span class="storm"></span>!</p>
-          <p><button name="view-stats">View stats</button></p>
+          <div class="did-you-know">
+            <header>Did you know</header>
+            <div class="fact">
+              <p>You're using a modified version of the Dvorak method to determine storm size and strength.</p>
+              <p>This is the same method then meteorologists use while studying tropical cyclones.</p>
+            </div>
+          </div>
+          <p class="heading"><span class="storm">STORM</span></p>
           <ul>
             <li data-subject="TEMPLATE">
               <img />
-              <p><span class="date">12:34 am, 25 Feb 1984</span></p>
               <p>
                 <span class="favorite">
-                  <button name="favorite">Fav</button>
-                  <button name="unfavorite">Unfav</button>
+                  <button name="favorite">&hearts;</button>
+                  <button name="unfavorite" class="toggle selected">&hearts;</button>
                 </span>
-                <a href="#">Talk</a>
+                <a href="#" class="talk">Discuss</a>
               </p>
             </li>
           </ul>
@@ -299,7 +303,8 @@
             <button name="restart" title="Restart classification">&larr;</button>
             <label><input type="checkbox" name="detailed" /> Detailed classification</label>
             <button name="continue" data-requires-selection="true" class="default">Continue</button>
-            <button name="next-subject" data-requires-selection="true" class="default">Next Image</button>
+            <button name="view-stats">View stats</button>
+            <button name="next-subject" data-requires-selection="true" class="default">Next image</button>
           </div>
         </div>
       </div>

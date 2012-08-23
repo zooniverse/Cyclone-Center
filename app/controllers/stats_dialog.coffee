@@ -11,6 +11,7 @@ class StatsDialog extends Dialog
 
   constructor: ->
     super
+    @buttons = []
     @el.addClass 'stats'
 
     @storm =
