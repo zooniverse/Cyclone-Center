@@ -98,6 +98,7 @@ class Classifier extends Spine.Controller
     CycloneSubject.next @onChangeSubjects
 
   onChangeSubjects: (subject) =>
+    return unless CycloneSubject.current
     @classification = new Classification subject: CycloneSubject.current
     @classification.onChange @render
     @render()
