@@ -1,5 +1,6 @@
 #classify
   .classifier
+    font-size 12px
     panel()
     float right
     overflow hidden
@@ -61,7 +62,7 @@
     .step
       border-top 1px solid $gray-light
       border-width 1px 0
-      display none
+      // display none
       padding 0 20px
       text-align center
 
@@ -81,96 +82,13 @@
             margin-top -10px
 
       [data-popup]
-        border-bottom 0
-
-      button
-        position relative
-        vertical-align middle
-
-        // TODO: The following button stuff is a mess, clean it up.
-
-        &[name="stronger"],
-        &[name="category"]
-          standard-button()
-
-        // Image/swatch-style buttons
-        &[name="match"],
-        &[name="surrounding"],
-        &[name="exceeding"],
-        &[name="feature"],
-        &[name="blue"],
-        &[name="curve"]
-          display inline-block
-          margin 0 5px
-          overflow hidden
-          white-space nowrap
-
-          img,
-          .swatch
-            border-radius 3px
-            height 30px
-            width 30px
-
-          &.selected
-            img,
-            .swatch
-              border 3px solid $greenish
-
-        &[name="feature"],
-        &[name="curve"]
-          img
-            height 60px
-            width 60px
-
-        // Category/match buttons
-        &[name="category"]
-          font-size 12px
-          font-weight 600
-          height 40px
-          padding-left 0
-          padding-right 0
-          width 90px
-
-          &.selected:before,
-          &.selected:after
-            border 10px solid transparent
-            border-top 10px solid $white
-            content " "
-            left 50%
-            margin 20px 0 0 -10px
-            position absolute
-            top 100%
-
-          &.selected:before
-            border-top-color $gray-dark
-            margin-top 21px
-            opacity 0.5
-
-        &[name="match"]
-          margin 0
-
-          img
-            width 90px
-            height 90px
-
-          .caption
-            background rgba($black, 0.5)
-            bottom 0
-            color $white
-            font-weight bold
-            left 0
-            padding 3px 0
-            position absolute
-            text-shadow 0 1px 1px $blacks
-            width 100%
+        border-bottom 0 // Remove default underline
 
       .swatch
         box-sizing(border-box)
         background #000
         box-shadow 0 0 1px #000 inset
         display inline-block
-        min-height 10px
-        min-width 10px
 
         &.coldest  {background: $coldest;}
         &.colder   {background: $colder;}
@@ -190,30 +108,51 @@
         margin 0
         padding 0
         width 16px
-        vertical-align top
+
+      &.stronger
+        button
+          standard-button()
 
       &.categories-and-matches
-        padding-left 0
-        padding-right 0
+        padding 0
 
-        .categories,
-        .matches
-          ul
-            clearfix()
-            margin 20px 0 20px 5px
-
-            li
-              float left
-              margin 0 0 0 15px
-              position relative
-
-              .help-ball
-                position absolute
-                right -5px
-                top -5px
+        ul
+          li
+            display inline-block
+            margin 0 5px
+            position relative
 
         .categories
-          z-index 1
+          padding 0 20px 20px
+          z-index 1 // Clear that little "selected" arrow.
+
+          button
+            standard-button()
+            margin 0
+            padding 0 5px
+            position relative
+            height 40px
+
+            &[name="category"]
+              border-top-right-radius 0
+              border-bottom-right-radius 0
+              position: static
+              width 85px
+
+              &.selected:after
+                border 10px solid transparent
+                border-top-color $white
+                content " "
+                left 50%
+                margin 20px 0 0 -10px
+                position absolute
+                top 100%
+
+            &.help
+              border-top-left-radius 0
+              border-bottom-left-radius 0
+              width 26px
+              margin-left -1px
 
         .matches
           background $gray-light
@@ -222,12 +161,58 @@
 
           ul[data-category]
             display none
+            margin 20px 0
 
             &.selected
               display block
 
+          button
+            img
+              border-radius 3px
+              height 110px
+              width 110px
+
+            &.selected img
+              border 3px solid $greenish
+
+            .caption
+              background rgba($black, 0.5)
+              bottom 0
+              color $white
+              font-weight bold
+              left 0
+              padding 3px 0
+              position absolute
+              text-shadow 0 1px 1px $blacks
+              width 100%
+
+      &.surrounding,
+      &.exceeding,
+      &.feature,
+      &.blue,
+      &.curve
+        button
+          display inline-block
+          margin 0 5px
+          overflow hidden
+          white-space nowrap
+
+          img,
+          .swatch
+            border-radius 3px
+            height 30px
+            width 30px
+
+          img
+            height 70px
+            width 70px
+
+          &.selected
+            img,
+            .swatch
+              border 3px solid $greenish
+
       &.reveal
-        font-size 12px
         padding 0
 
         .did-you-know

@@ -76,12 +76,13 @@
           <div class="categories">
             <p class="heading">Choose the cyclone type, then the closest match.</p>
             <ul>
-              <li><button name="category" value="eye" class="toggle">Eye</button> <span data-popup="#eye-help left" class="help-ball">?</span></li>
-              <li><button name="category" value="embedded" class="toggle">Embedded center</button> <span data-popup="#embedded-help left" class="help-ball">?</span></li>
-              <li><button name="category" value="curved" class="toggle">Curved band</button> <span data-popup="#curved-help left" class="help-ball">?</span></li>
-              <li><button name="category" value="shear" class="toggle">Shear</button> <span data-popup="#shear-help left" class="help-ball">?</span></li>
-              <li><button name="category" value="other" class="toggle">Other</button> <span data-popup="#other-help left" class="help-ball">?</span></li>
+              <li><button name="category" value="eye" class="toggle">Eye</button><button data-popup="#eye-help left" class="help">?</button></li>
+              <li><button name="category" value="embedded" class="toggle">Embedded center</button><button data-popup="#embedded-help left" class="help">?</button></li>
+              <li><button name="category" value="curved" class="toggle">Curved band</button><button data-popup="#curved-help left" class="help">?</button></li>
+              <li><button name="category" value="shear" class="toggle">Shear</button><button data-popup="#shear-help left" class="help">?</button></li>
+              <li><button name="category" value="other" class="toggle">Other</button><button data-popup="#other-help left" class="help">?</button></li>
             </ul>
+
             <div id="embedded-help" class="popup-content">
               <h2>Embedded Center</h2>
               <h3>What does this storm look like?</h3>
@@ -89,13 +90,15 @@
               <h3>How can I identify a strong Embedded Center?</h3>
               <p>There will be more tightly wrapped spiral bands and colder (bluer) clouds.</p>
             </div>
+
             <div id="eye-help" class="popup-content">
-               <h2>Eye</h2>
+              <h2>Eye</h2>
               <h3>What does this storm look like?</h3>
               <p>Look for an area of warmer color near the center. The eye in the center is sometimes pink, grey, always a warmer color than the surrounding eye wall.</p>
               <h3>How can I identify a strong Eye storm?</h3>
               <p>There will be a warmer and more circular eye at the center, with colder clouds surrounding the eye. The spiral bands will be more pronounced.</p>
             </div>
+
             <div id="curved-help" class="popup-content">
               <h2>Curved Band</h2>
               <h3>What does this storm look like?</h3>
@@ -103,15 +106,17 @@
               <h3>How can I identify a curved band?</h3>
               <p>There will be colder clouds and tightly wrapped spiral bands.</p>
             </div>
+
             <div id="shear-help" class="popup-content">
-               <h2>Shear</h2>
+              <h2>Shear</h2>
               <h3>What does this storm look like?</h3>
               <p>Look for a swirl in the gray clouds, as well as cold clouds very close to warm ones.</p>
               <h3>How can I identify a strong shear?</h3>
               <p>The Center of the gray swirls will be closer to blue cloudds, and the colder clouds (blue) will be more spiral and organized.</p>
             </div>
+
             <div id="other-help" class="popup-content">
-               <h2>Other Storms</h2>
+              <h2>Other Storms</h2>
               <h3>Post-Tropical</h3>
               <p>As storms move toward the poles, they become less tropical and more like midlatitude weather systems. The storms will have more gray and pink clouds, and may appear stretched out with long tails of clouds.</p>
               <h3>Edge</h3>
@@ -158,8 +163,6 @@
               <li><button name="match" value="post-tropical"><img src="images/matches/other-post-tropical.png" /><span class="caption">Post-tropical</span></button></li>
               <li><button name="match" value="limb"><img src="images/matches/other-limb.png" /><span class="caption">Edge</span></button></li>
               <li><button name="match" value="no-storm"><img src="images/matches/other-no-storm.png" /><span class="caption">No storm</span></button></li>
-              <!--<button name="match" value="off-center"><img src="images/matches/other-off-center.png" /></button>
-              <button name="match" value="two-storms"><img src="images/matches/other-two-storms.png" /></button>-->
             </ul>
           </div>
         </div>
