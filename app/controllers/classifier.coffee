@@ -344,7 +344,7 @@ class Classifier extends Spine.Controller
       item = @revealTemplate.clone()
       item.attr 'data-subject': classification.subject.id
       item.find('img').attr src: classification.subject.location.standard
-      item.find('a.talk').attr href: '#TODO'
+      item.find('a.talk').attr href: classification.subject.talkHref()
       item.appendTo @revealList
 
     @el.attr 'data-step': 'reveal'

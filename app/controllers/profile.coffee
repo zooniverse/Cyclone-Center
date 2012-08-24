@@ -3,7 +3,8 @@ Map = require 'zooniverse/lib/map'
 LoginForm = require 'zooniverse/lib/controllers/login_form'
 User = require 'zooniverse/lib/models/user'
 Favorite = require 'zooniverse/lib/models/favorite'
-{randomPropertyFrom} = require 'models/cyclone_subject'
+CycloneSubject = require 'models/cyclone_subject'
+{randomPropertyFrom} = CycloneSubject
 
 class Profile extends Spine.Controller
   map: null
@@ -70,6 +71,9 @@ class Profile extends Spine.Controller
       favItem.find('.date').html subject.metadata.iso_time
       favItem.find('.latitude').html lat
       favItem.find('.longitude').html lng
+
+      favItem.find('a.talk').attr href:
+        CycloneSubject::talkHref.call zooniverseId: subject.zooniverse_id
 
       favItem.appendTo @favoritesList
 

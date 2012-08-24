@@ -52,5 +52,8 @@ class CycloneSubject extends Subject
       ]
       metadata: raw.metadata
 
+  talkHref: ->
+    "http://talk.cyclonecenter.org/objects/#{@zooniverseId}"
+
 module.exports = CycloneSubject
-module.exports.randomPropertyFrom = randomPropertyFrom
+module.exports.randomPropertyFrom = randomPropertyFrom # For convenience
