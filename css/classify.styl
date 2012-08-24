@@ -63,10 +63,34 @@
           border-color #fff
 
         &.red,
-        &.red:before,
-        &.eye,
-        &.eye:before
+        &.red:before
           border-color #000
+
+      .eye.circle
+        border 1px solid #000
+        border-radius 50%
+        position absolute
+        z-index 2
+
+        &[data-size="smaller-eye"]
+          height 6px
+          width 6px
+          margin -3px 0 0 -3px
+
+        &[data-size="small-eye"]
+          height 12px
+          width 12px
+          margin -6px 0 0 -6px
+
+        &[data-size="big-eye"]
+          height 18px
+          width 18px
+          margin -9px 0 0 -9px
+
+        &[data-size="bigger-eye"]
+          height 24px
+          width 24px
+          margin -12px 0 0 -12px
 
     .step
       border-top 1px solid $gray-light
@@ -118,7 +142,8 @@
         padding 0
         width 16px
 
-      &.stronger
+      &.stronger,
+      &.eye
         button
           standard-button()
 

@@ -56,7 +56,7 @@
           <img class="subject" />
           <img src="http://placehold.it/1.png" class="match" />
           <div class="center point"></div>
-          <div class="eye point"></div>
+          <div class="eye circle"></div>
           <div class="red point"></div>
         </div>
 
@@ -171,22 +171,28 @@
           <p class="heading">Click the <strong>center</strong> of the storm. <span data-popup="#center-help left" class="help-ball">?</span></p>
           <div id="center-help" class="popup-content">
             <h2>Finding the Center</h2>
-              <h3>Shear</h3>
-              <p>Look for the middle of the gray swirl. The center is often near the flat edge of the cold clouds.</p>
-              <h3>Curved Band</h3>
-              <p>Follow the spirals inward. Don't get distracted by the coldest or largest clouds, as the center often occurs on the inner edge of a warm edge.</p>
-              <h3>Embedded Center</h3>
-              <p>Follow the swirls inward. Don't get distracted by the coldest or largest clouds.</p>
-              <h3>Eye</h3>
-              <p>The center is in the middle of the eye. The edge of the eye is where the colors stop being very close together.</p>
+            <h3>Shear</h3>
+            <p>Look for the middle of the gray swirl. The center is often near the flat edge of the cold clouds.</p>
+            <h3>Curved Band</h3>
+            <p>Follow the spirals inward. Don't get distracted by the coldest or largest clouds, as the center often occurs on the inner edge of a warm edge.</p>
+            <h3>Embedded Center</h3>
+            <p>Follow the swirls inward. Don't get distracted by the coldest or largest clouds.</p>
+            <h3>Eye</h3>
+            <p>The center is in the middle of the eye. The edge of the eye is where the colors stop being very close together.</p>
           </div>
         </div>
 
         <div class="eye step">
-          <p class="heading">Click the edge of the <strong>eye</strong> of the storm. <span data-popup="#eye-help left" class="help-ball">?</span></p>
+          <p class="heading">Click the <strong>center</strong> of the storm, then choose the size of the eye.<span data-popup="#eye-help left" class="help-ball">?</span></p>
           <div id="eye-help" class="popup-content">
             <p>You can identify the eye by...</p>
           </div>
+          <p>
+            <button name="eye" value="smaller-eye" />Smaller</button>
+            <button name="eye" value="small-eye" />Small</button>
+            <button name="eye" value="big-eye" />Big</button>
+            <button name="eye" value="bigger-eye" />Bigger</button>
+          </p>
         </div>
 
         <div class="surrounding step">

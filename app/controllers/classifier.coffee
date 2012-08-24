@@ -14,6 +14,7 @@ class Classifier extends Spine.Controller
     'click button[name="stronger"]': 'onClickButton'
     'click button[name="category"]': 'onClickButton'
     'click button[name="match"]': 'onClickButton'
+    'click button[name="eye"]': 'onClickButton'
     'click button[name="surrounding"]': 'onClickButton'
     'click button[name="exceeding"]': 'onClickButton'
     'click button[name="feature"]': 'onClickButton'
@@ -34,7 +35,7 @@ class Classifier extends Spine.Controller
     '.main-pair .subject': 'subjectImage'
     '.main-pair .match': 'matchImage'
     '.center.point': 'centerPoint'
-    '.eye.point': 'eyePoint'
+    '.eye.circle': 'eyeCircle'
     '.red.point': 'redPoint'
 
     'button[name="stronger"]': 'strongerButtons'
@@ -138,8 +139,10 @@ class Classifier extends Spine.Controller
     @activateButtons()
 
   activateButtons: =>
+    step = @el.attr 'data-step'
+
     @continueButton.toggle @nextSetup?
-    @statsButton.toggle @el.attr('data-step') is 'reveal'
+    @statsButton.toggle step is 'reveal'
     @nextButton.toggle not @nextSetup?
 
     @continueButton.add(@nextButton).prop
@@ -198,13 +201,19 @@ class Classifier extends Spine.Controller
     else
       @matchImage.attr src: @defaultImageSrc
 
+  startDetailedClassify: =>
+    if @classification.get('category') is 'eye'
+      @setupEye()
+    else
+      @setupCenter()
+
   setupCenter: =>
     @el.attr 'data-step': 'center'
     @nextSetup = switch @classification.get 'category'
-      when 'eye' then @setupEye
       when 'embedded' then @setupFeature
       when 'curved' then @setupBlue
       when 'shear' then @setupRed
+      else null
 
     @activateButtons()
 
@@ -215,23 +224,19 @@ class Classifier extends Spine.Controller
       x = coords[0] * @subjectImage.width() + (imgOffset.left - parentOffset.left)
       y = coords[1] * @subjectImage.height() + (imgOffset.top - parentOffset.top)
       @centerPoint.css left: x, top: y
+      @eyeCircle.css left: x, top: y
     else
       @centerPoint.css left: "-50%", top: "-50%" # Hide it.
+      @eyeCircle.css left: "-50%", top: "-50%" # Hide it.
 
   setupEye: =>
     @el.attr 'data-step': 'eye'
     @nextSetup = @setupSurrounding
     @activateButtons()
 
-  renderEye: (coords) =>
-    if coords?
-      imgOffset = @subjectImage.offset()
-      parentOffset = @subjectImage.parent().offset()
-      x = coords[0] * @subjectImage.width() + (imgOffset.left - parentOffset.left)
-      y = coords[1] * @subjectImage.height() + (imgOffset.top - parentOffset.top)
-      @eyePoint.css left: x, top: y
-    else
-      @eyePoint.css left: "-50%", top: "-50%"
+  renderEye: (size) =>
+    @eyeCircle.toggle size?
+    @eyeCircle.attr 'data-size': size
 
   setupSurrounding: =>
     @el.attr 'data-step': 'surrounding'
@@ -319,6 +324,7 @@ class Classifier extends Spine.Controller
     x = Math.min Math.max((e.pageX - offset.left) / @subjectImage.width(), 0), 1
     y = Math.min Math.max((e.pageY - offset.top) / @subjectImage.height(), 0), 1
 
+    step = 'center' if step is 'eye'
     @classification.annotate step, [x, y]
 
   onMouseUpDocument: =>
@@ -397,7 +403,7 @@ class Classifier extends Spine.Controller
 
     if @el.attr('data-step') in ['category', 'match']
       @nextSetup = if advanced
-        @setupCenter
+        @startDetailedClassify
       else
         null
 
