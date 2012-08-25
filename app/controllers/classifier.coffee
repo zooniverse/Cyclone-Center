@@ -37,6 +37,7 @@ class Classifier extends Spine.Controller
     '.center.point': 'centerPoint'
     '.eye.circle': 'eyeCircle'
     '.red.point': 'redPoint'
+    '.calipers': 'calipers'
 
     'button[name="stronger"]': 'strongerButtons'
     'button[name="category"]': 'categoryButtons'
@@ -255,6 +256,16 @@ class Classifier extends Spine.Controller
     @nextSetup = @setupFeature
     @activateButtons()
 
+  renderCalipers: (coords) =>
+    if coords?
+      imgOffset = @subjectImage.offset()
+      parentOffset = @subjectImage.parent().offset()
+      x = coords[0] * @subjectImage.width() + (imgOffset.left - parentOffset.left)
+      y = coords[1] * @subjectImage.height() + (imgOffset.top - parentOffset.top)
+      @calipers.css left: x, top: y
+    else
+      @calipers.css left: "-50%", top: "-50%"
+
   renderExceeding: (exceeding) =>
     @exceedingButtons.removeClass 'selected'
 
@@ -317,7 +328,7 @@ class Classifier extends Spine.Controller
 
   onDragSubject: (e) =>
     step = @el.attr 'data-step'
-    return unless step in ['center', 'eye', 'red']
+    return unless step in ['center', 'eye', 'exceeding', 'red']
 
     e.preventDefault()
     offset = @subjectImage.offset()
@@ -325,6 +336,7 @@ class Classifier extends Spine.Controller
     y = Math.min Math.max((e.pageY - offset.top) / @subjectImage.height(), 0), 1
 
     step = 'center' if step is 'eye'
+    step = 'calipers' if step is 'exceeding'
     @classification.annotate step, [x, y]
 
   onMouseUpDocument: =>
