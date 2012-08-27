@@ -78,6 +78,8 @@ class Classifier extends Spine.Controller
 
     @el.attr tabindex: 0 # Make this focusable.
 
+    @detailedCheckbox.prop checked: localStorage.detailedClassification
+
     @map ?= new Map
       latitude: 33
       longitude: -60
@@ -414,6 +416,8 @@ class Classifier extends Spine.Controller
 
   onChangeDetailed: (e) =>
     advanced = @detailedCheckbox.get(0).checked
+    localStorage.detailedClassification = advanced
+
     @el.toggleClass 'advanced', !!advanced
 
     if @el.attr('data-step') in ['category', 'match']
