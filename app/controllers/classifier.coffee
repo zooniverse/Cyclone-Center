@@ -122,7 +122,7 @@ class Classifier extends Spine.Controller
     @labels.push @map.addLabel subject.coords..., subject.coords.join ', '
     setTimeout => @map.setCenter subject.coords..., center: [0.25, 0.5]
 
-    @previousImage.attr src: 'http://placehold.it/600/000.png&text=(Yesterday)'
+    @previousImage.attr src: subject.location.yesterday
     @subjectImage.attr src: subject.location.standard
 
     index = config.setSize - availableSubjects
@@ -133,7 +133,10 @@ class Classifier extends Spine.Controller
     meta = subject.metadata
     @revealStorm.html "#{meta.name} (#{meta.year})"
 
-    @setupStronger()
+    if CycloneSubject.current.location.yesterday
+      @setupStronger()
+    else
+      @setupCatsAndMatches()
 
   render: (attribute, value) =>
     if attribute
@@ -412,7 +415,10 @@ class Classifier extends Spine.Controller
     for property of @classification.annotations
       @classification.annotate property, null
 
-    @setupStronger()
+    if CycloneSubject.current.location.yesterday
+      @setupStronger()
+    else
+      @setupCatsAndMatches()
 
   onChangeDetailed: (e) =>
     advanced = @detailedCheckbox.get(0).checked

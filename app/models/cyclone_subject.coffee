@@ -6,7 +6,6 @@ Api = require 'zooniverse/lib/api'
 randomPropertyFrom = (object, pattern) ->
   keys = Object.keys object
   keys = (key for key in keys when key.match pattern) if pattern?
-  console.log keys
   keys[Math.floor Math.random() * keys.length]
 
 class CycloneSubject extends Subject
