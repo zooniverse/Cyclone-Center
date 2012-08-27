@@ -9,46 +9,61 @@ body
   background transparent
   min-height 100%
 
-.stack > section
-  display none
+  &.stack > section
+    display none
 
-  &.active
-    display block
-
-nav
-  border-top 1px solid #fff
-  border-bottom 1px solid $gray-light
-  panel()
-  position absolute
-  left 0
-  top 0
-  z-index 3
-
-  li
-    a
-      border-top 1px solid #fff
-      border-bottom 1px solid $gray-light
-      color $gray-dark
+    &.active
       display block
-      font-size 11px
-      font-weight bold
-      padding 10px 20px
-      text-align center
-      text-decoration none
 
-      &:hover,
-      &.active
-        color $black
+  > nav
+    border-top 1px solid #fff
+    border-bottom 1px solid $gray-light
+    panel()
+    position absolute
+    left 0
+    top 0
+    z-index 3
 
-    &:first-child a
-      border-top 0
+    li
+      a
+        border-top 1px solid #fff
+        border-bottom 1px solid $gray-light
+        color $gray-dark
+        display block
+        font-size 11px
+        font-weight bold
+        padding 10px 20px
+        text-align center
+        text-decoration none
 
-    &:last-child a
-      border-bottom 0
+        &:hover,
+        &.active
+          color $black
+
+      &:first-child a
+        border-top 0
+
+      &:last-child a
+        border-bottom 0
 
 a
   color $blue
   text-decoration none
+
+figure
+  font-size 12px
+  margin 0 10px 0 0
+  text-align center
+
+  img
+    display block
+
+  figcaption
+    font-weight bold
+
+.hang-left
+  float left
+  margin-right  10px
 
 [data-popup]
   cursor pointer
