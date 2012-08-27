@@ -62,10 +62,12 @@
         </div>
 
         <div class="stronger step">
-          <p class="heading">Which image is <strong>stronger</strong>? <span data-popup="#stronger-help left" class="help-ball">?</span></p>
+          <p class="heading">Which storm appears <strong>stronger</strong>? <span data-popup="#stronger-help left" class="help-ball to-do">?</span></p>
+
           <div id="stronger-help" class="popup-content">
             <p>The strength of a storm can be determined by...</p>
           </div>
+
           <p>
             <button name="stronger" value="decrease" class="toggle">Left</button>
             <button name="stronger" value="same" class="toggle">About the same</button>
@@ -75,7 +77,7 @@
 
         <div class="categories-and-matches step">
           <div class="categories">
-            <p class="heading">Choose the cyclone type, then the closest match.</p>
+            <p class="heading">Pick the cyclone type, then choose the closest match.</p>
             <ul>
               <li><button name="category" value="eye" class="toggle">Eye</button><button data-popup="#eye-help left" class="help">?</button></li>
               <li><button name="category" value="embedded" class="toggle">Embedded center</button><button data-popup="#embedded-help left" class="help">?</button></li>
@@ -84,20 +86,20 @@
               <li><button name="category" value="other" class="toggle">Other</button><button data-popup="#other-help left" class="help">?</button></li>
             </ul>
 
-            <div id="embedded-help" class="popup-content">
-              <h2>Embedded Center</h2>
-              <h3>What does this storm look like?</h3>
-              <p>Look for a roundish area of cold clouds near the center of the storm. Strong embedded center storms may start to develop an eye, while weaker storms are closely related to curved bands.</p>
-              <h3>How can I identify a strong Embedded Center?</h3>
-              <p>There will be more tightly wrapped spiral bands and colder (bluer) clouds.</p>
-            </div>
-
             <div id="eye-help" class="popup-content">
               <h2>Eye</h2>
               <h3>What does this storm look like?</h3>
               <p>Look for an area of warmer color near the center. The eye in the center is sometimes pink, grey, always a warmer color than the surrounding eye wall.</p>
               <h3>How can I identify a strong Eye storm?</h3>
               <p>There will be a warmer and more circular eye at the center, with colder clouds surrounding the eye. The spiral bands will be more pronounced.</p>
+            </div>
+
+            <div id="embedded-help" class="popup-content">
+              <h2>Embedded Center</h2>
+              <h3>What does this storm look like?</h3>
+              <p>Look for a roundish area of cold clouds near the center of the storm. Strong embedded center storms may start to develop an eye, while weaker storms are closely related to curved bands.</p>
+              <h3>How can I identify a strong Embedded Center?</h3>
+              <p>There will be more tightly wrapped spiral bands and colder (bluer) clouds.</p>
             </div>
 
             <div id="curved-help" class="popup-content">
@@ -170,6 +172,7 @@
 
         <div class="center step">
           <p class="heading">Click the <strong>center</strong> of the storm. <span data-popup="#center-help left" class="help-ball">?</span></p>
+
           <div id="center-help" class="popup-content">
             <h2>Finding the Center</h2>
             <h3>Shear</h3>
@@ -184,20 +187,27 @@
         </div>
 
         <div class="eye step">
-          <p class="heading">Click the <strong>center</strong> of the storm, then choose the size of the eye.<span data-popup="#eye-help left" class="help-ball">?</span></p>
-          <div id="eye-help" class="popup-content">
+          <p class="heading">Click the <strong>center</strong> of the storm, then choose the size of the eye. <span data-popup="#eye-center-help left" class="help-ball to-do">?</span></p>
+
+          <div id="eye-center-help" class="popup-content">
             <p>You can identify the eye by...</p>
           </div>
+
           <p>
-            <button name="eye" value="smaller-eye" />Smaller</button>
-            <button name="eye" value="small-eye" />Small</button>
-            <button name="eye" value="big-eye" />Big</button>
-            <button name="eye" value="bigger-eye" />Bigger</button>
+            <button name="eye" value="smaller-eye" class="to-do" />Smaller</button>
+            <button name="eye" value="small-eye" class="to-do" />Small</button>
+            <button name="eye" value="big-eye" class="to-do" />Big</button>
+            <button name="eye" value="bigger-eye" class="to-do" />Bigger</button>
           </p>
         </div>
 
         <div class="surrounding step">
-          <p class="heading">Which is the coldest color completely surrounding the eye?</p>
+          <p class="heading">Which is the coldest color completely surrounding the eye? <span data-popup="#surrounding-help left" class="help-ball to-do">?</span></p>
+
+          <div id="surrounding-help" class="popup-content">
+            <p>Completely surrounding the eye...</p>
+          </div>
+
           <p>
             <button name="surrounding" value="warmest" /><span class="warmest swatch"></span></button>
             <button name="surrounding" value="warmer" /><span class="warmer swatch"></span></button>
@@ -212,11 +222,13 @@
         </div>
 
         <div class="exceeding step">
-          <p class="heading">Choose the color completely surrounding the eye at least this thick. <span data-popup="#exceeding-help left" class="help-ball">?</span></p>
+          <p class="heading">Choose the color completely surrounding the eye at least this thick. <span data-popup="#exceeding-help left" class="help-ball to-do">?</span></p>
           <p>Drag your cursor over the image to show a measuring tool.</p>
+
           <div id="exceeding-help" class="popup-content">
             <p>The color exceeding this thickness will be...</p>
           </div>
+
           <p>
             <button name="exceeding" value="warmest" /><span class="warmest swatch"></span></button>
             <button name="exceeding" value="warmer" /><span class="warmer swatch"></span></button>
@@ -231,10 +243,12 @@
         </div>
 
         <div class="feature step">
-          <p class="heading">Choose the image that matches the banding feature. <span class="thickness"></span> <span data-popup="#feature-help left" class="help-ball">?</span></p>
+          <p class="heading">Choose the image that matches the banding feature. <span class="thickness"></span> <span data-popup="#feature-help left" class="help-ball to-do">?</span></p>
+
           <div id="feature-help" class="popup-content">
             <p>The banding feature is...</p>
           </div>
+
           <p>
             <button name="feature" value="1"><img src="images/banding/none.png" /></button>
             <button name="feature" value="2"><img src="images/banding/moderate.png" /></button>
@@ -244,9 +258,11 @@
 
         <div class="blue step">
           <p class="heading">What is the <strong>primary color</strong> of the band? <span data-popup="#blue-help left" class="help-ball">?</span></p>
+
           <div id="blue-help" class="popup-content">
             <p>The primary color is...</p>
           </div>
+
           <p>
             <button name="blue" value="warmest" /><span class="warmest swatch"></span></button>
             <button name="blue" value="warmer" /><span class="warmer swatch"></span></button>
@@ -261,10 +277,12 @@
         </div>
 
         <div class="curve step">
-          <p class="heading">How far does the main band wrap? <span data-popup="#curve-help left" class="help-ball">?</span></p>
+          <p class="heading">How far does the main band wrap? <span data-popup="#curve-help left" class="help-ball to-do">?</span></p>
+
           <div id="curve-help" class="popup-content">
             <p>The main band is...</p>
           </div>
+
           <p>
             <button name="curve" value="0.2" /><img src="images/curve/0.2.png" /></button>
             <button name="curve" value="0.4" /><img src="images/curve/0.4.png" /></button>
@@ -274,7 +292,11 @@
         </div>
 
         <div class="red step">
-          <p class="heading">Click the <strong>red</strong> point nearest the center associated with the main cloud feature.</p>
+          <p class="heading">Click the <strong>red</strong> point nearest the storm center that is associated with the main cloud feature. <span data-popup="#red-help left" class="help-ball to-do">?</span></p>
+
+          <div id="red-help" class="popup-content">
+            <p>The red nearest the center...</p>
+          </div>
         </div>
 
         <div class="reveal step">
@@ -316,6 +338,7 @@
             <button name="continue" data-requires-selection="true" class="default">Continue</button>
             <button name="view-stats">View stats</button>
             <button name="next-subject" data-requires-selection="true" class="default">Next image</button>
+            <button name="next-storm" data-requires-selection="true" class="default">Next storm</button>
           </div>
         </div>
       </div>

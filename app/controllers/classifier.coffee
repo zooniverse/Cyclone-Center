@@ -25,6 +25,7 @@ class Classifier extends Spine.Controller
     'change input[name="detailed"]': 'onChangeDetailed'
     'click button[name="continue"]': 'onClickContinue'
     'click button[name="next-subject"]': 'onClickNext'
+    'click button[name="next-storm"]': 'onClickNext'
 
     'click button[name="view-stats"]': 'onClickViewStats'
     'click button[name="favorite"]': 'onClickFavorite'
@@ -61,6 +62,7 @@ class Classifier extends Spine.Controller
     'button[name="continue"]': 'continueButton'
     'button[name="view-stats"]': 'statsButton'
     'button[name="next-subject"]': 'nextButton'
+    'button[name="next-storm"]': 'nextStormButton'
 
   map: null
   labels: null # Labelled points on the map
@@ -144,7 +146,8 @@ class Classifier extends Spine.Controller
 
     @continueButton.toggle @nextSetup?
     @statsButton.toggle step is 'reveal'
-    @nextButton.toggle not @nextSetup?
+    @nextButton.toggle not @nextSetup? and step isnt 'reveal'
+    @nextStormButton.toggle step is 'reveal'
 
     @continueButton.add(@nextButton).prop
       disabled: not @classification.get(@el.attr 'data-step')?

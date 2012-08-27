@@ -379,7 +379,8 @@
 
           &[name="continue"],
           &[name="view-stats"],
-          &[name="next-subject"]
+          &[name="next-subject"],
+          &[name="next-storm"]
             standard-button()
 
     // Reveal the appropriate step.
@@ -430,5 +431,9 @@
       .step
         max-width 485px
 
-    &[data-step="reveal"] .main-pair
-      display none
+    &[data-step="reveal"]
+      .main-pair
+        display none
+
+      .step
+        max-width none
