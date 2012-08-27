@@ -3,9 +3,11 @@ Subject = require 'zooniverse/lib/models/subject'
 config = require '../lib/config'
 Api = require 'zooniverse/lib/api'
 
-randomPropertyFrom = (object) ->
+randomPropertyFrom = (object, pattern) ->
   keys = Object.keys object
-  object[keys[Math.floor Math.random() * keys.length]]
+  keys = (key for key in keys when key.match pattern) if pattern?
+  console.log keys
+  keys[Math.floor Math.random() * keys.length]
 
 class CycloneSubject extends Subject
   @configure 'CycloneSubject', 'zooniverse_id', 'workflowId', 'groupId', 'location', 'coords', 'metadata'
@@ -40,12 +42,16 @@ class CycloneSubject extends Subject
     fetcher.promise()
 
   @fromJSON: (raw) =>
+    satellite = randomPropertyFrom raw.location, /[^-yesterday]$/
+
     @create
       id: raw.id
       zooniverseId: raw.zooniverse_id
       workflowId: raw.workflow_ids[0]
       groupId: raw.group_id
-      location: standard: randomPropertyFrom raw.location
+      location:
+        standard: raw.location[satellite]
+        yesterday: raw.location["#{satellite}-yesterday"]
       coords: [
         raw.metadata.lat || raw.metadata.map_lat
         raw.metadata.lng || raw.metadata.map_lng

@@ -65,7 +65,7 @@ class Profile extends Spine.Controller
       lat = subject.metadata.lat || subject.metadata.map_lat
       lng = subject.metadata.lng || subject.metadata.map_lng
 
-      favItem.find('img').attr src: randomPropertyFrom subject.location
+      favItem.find('img').attr src: subject.location[randomPropertyFrom subject.location]
       favItem.find('.name').html subject.metadata.name
       favItem.find('.year').html subject.metadata.year
       favItem.find('.date').html subject.metadata.iso_time
