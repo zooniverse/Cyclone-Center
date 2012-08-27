@@ -422,7 +422,7 @@ class Classifier extends Spine.Controller
 
   onChangeDetailed: (e) =>
     advanced = @detailedCheckbox.get(0).checked
-    localStorage.detailedClassification = advanced
+    localStorage.detailedClassification = advanced || ''
 
     @el.toggleClass 'advanced', !!advanced
 
