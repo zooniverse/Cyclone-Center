@@ -22,6 +22,7 @@ class App extends Manager.Stack
     about: class extends Spine.Controller then el: '#about'
     classify: class extends Spine.Controller then el: '#classify'
     profile: class extends Profile then el: '#profile'
+    feedback: class extends Spine.Controller then el: '#feedback'
 
   default: 'home'
 
@@ -31,6 +32,7 @@ class App extends Manager.Stack
     '/about': 'about'
     '/classify': 'classify'
     '/profile': 'profile'
+    '/feedback': 'feedback'
 
   constructor: ->
     super
