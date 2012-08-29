@@ -113,7 +113,7 @@ class Classifier extends Spine.Controller
 
     if availableSubjects is config.setSize
       # We won't use any previous subject.
-      @recentClassifications.splice()
+      @recentClassifications.splice 0
 
       # This is the first subject in a set, so clear out old labels.
       @map.removeLabel label for label in @labels
