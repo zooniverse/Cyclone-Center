@@ -211,7 +211,11 @@ class Classifier extends Spine.Controller
       @matchImage.attr src: @defaultImageSrc
 
   startDetailedClassify: =>
-    if @classification.get('category') is 'eye'
+    category = @classification.get 'category'
+
+    if category is 'other'
+      @onClickNext()
+    else if category is 'eye'
       @setupEye()
     else
       @setupCenter()
