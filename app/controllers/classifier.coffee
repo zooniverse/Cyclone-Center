@@ -45,6 +45,7 @@ class Classifier extends Spine.Controller
     '.matches': 'matchListsContainer'
     '.matches > ul': 'matchLists'
     'button[name="match"]': 'matchButtons'
+    'button[name="eye"]': 'eyeButtons'
     'button[name="surrounding"]': 'surroundingButtons'
     'button[name="exceeding"]': 'exceedingButtons'
     'button[name="feature"]': 'featureButtons'
@@ -250,6 +251,14 @@ class Classifier extends Spine.Controller
   renderEye: (size) =>
     @eyeCircle.toggle size?
     @eyeCircle.attr 'data-size': size
+    @eyeButtons.removeClass 'selected'
+
+    if size?
+      @eyeButtons.filter("[value='#{size}']").toggleClass 'selected', size?
+
+    setTimeout =>
+      @continueButton.add(@nextButton).prop
+        disabled: not size? or not (@classification.get 'center')?
 
   setupSurrounding: =>
     @el.attr 'data-step': 'surrounding'
