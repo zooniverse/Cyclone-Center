@@ -43,7 +43,7 @@ class CycloneSubject extends Subject
   @fromJSON: (raw) =>
     satellite = randomPropertyFrom raw.location, /[^-yesterday]$/
 
-    @create
+    subject = @create
       id: raw.id
       zooniverseId: raw.zooniverse_id
       workflowId: raw.workflow_ids[0]
@@ -56,6 +56,10 @@ class CycloneSubject extends Subject
         raw.metadata.lng || raw.metadata.map_lng
       ]
       metadata: raw.metadata
+
+    subject.metadata.satellite = satellite
+
+    subject
 
   talkHref: ->
     "http://talk.cyclonecenter.org/objects/#{@zooniverseId}"

@@ -17,6 +17,8 @@ class Classification
     @annotations = {}
     @emitter = $({})
 
+    @annotate 'satellite', @subject.metadata.satellite
+
   annotate: (key, value) ->
     @annotations[key] = value
     @emitter.trigger "change", [key, value]
