@@ -31,18 +31,18 @@ class CycloneSubject extends Subject
 
     nexter
 
-  @fetch: (count = config.setSize) =>
-    fetcher = $.Deferred()
+  @fetch: (count = config.setSize, fetcher) =>
+    fetcher ?= $.Deferred()
 
     Api.get "/projects/cyclone_center/groups/subjects?limit=#{count}", (rawSubjects) =>
       # Try again if we didn't get enough subjects.
-      if rawSubjects.length isnt count
+      if rawSubjects.length is count
+        console.info "Got new subjects!", rawSubjects
+        newSubjects = @fromJSON rawSubject for rawSubject in rawSubjects
+        fetcher.resolve newSubjects
+      else
         console.warn "CycloneSubject got #{rawSubjects.length}, but expected #{count}. Trying again..."
-        return @fetch count
-
-      console.info "Got #{rawSubjects.length} new subjects!", rawSubjects
-      newSubjects = @fromJSON rawSubject for rawSubject in rawSubjects
-      fetcher.resolve newSubjects
+        @fetch count, fetcher
 
     fetcher.promise()
 
