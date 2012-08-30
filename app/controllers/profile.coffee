@@ -71,15 +71,15 @@ class Profile extends Spine.Controller
       favItem.find('.name').html subject.metadata.name
       favItem.find('.year').html subject.metadata.year
       favItem.find('.date').html subject.metadata.iso_time
-      favItem.find('.latitude').html lat
-      favItem.find('.longitude').html lng
+      favItem.find('.latitude').html lat.toString()[0..5]
+      favItem.find('.longitude').html lng.toString()[0..5]
 
       favItem.find('a.talk').attr href:
         CycloneSubject::talkHref.call zooniverseId: subject.zooniverse_id
 
       favItem.appendTo @favoritesList
 
-      @labels[fav.id] = @map.addLabel lat, lng, ''
+      @labels[fav.id] = @map.addLabel lat, lng, "#{lat.toString()[0..5]}, #{lng.toString()[0..5]}"
 
   onMouseEnterFavorite: ({currentTarget}) =>
     favID = $(currentTarget).attr 'data-favorite'

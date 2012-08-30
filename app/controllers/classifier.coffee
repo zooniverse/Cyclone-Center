@@ -120,7 +120,7 @@ class Classifier extends Spine.Controller
       @map.removeLabel label for label in @labels
       @labels.splice 0
 
-    @labels.push @map.addLabel subject.coords..., subject.coords.join ', '
+    @labels.push @map.addLabel subject.coords..., "#{subject.coords[0].toString()[0..5]}, #{subject.coords[1].toString()[0..5]}"
     setTimeout => @map.setCenter subject.coords..., center: [0.25, 0.5]
 
     @previousImage.attr src: subject.location.yesterday
