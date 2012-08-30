@@ -83,11 +83,11 @@ class Profile extends Spine.Controller
 
   onMouseEnterFavorite: ({currentTarget}) =>
     favID = $(currentTarget).attr 'data-favorite'
-    @labels[favID].el.addClass 'hovering'
+    # @labels[favID].el.addClass 'hovering'
 
   onMouseLeaveFavorite: ({currentTarget}) =>
     favID = $(currentTarget).attr 'data-favorite'
-    @labels[favID].el.removeClass 'hovering'
+    # @labels[favID].el.removeClass 'hovering'
 
   onClickReveal: ({currentTarget}) =>
     favRoot = $(currentTarget).closest '[data-favorite]'
