@@ -9,7 +9,7 @@ randomPropertyFrom = (object, pattern) ->
   keys[Math.floor Math.random() * keys.length]
 
 class CycloneSubject extends Subject
-  @configure 'CycloneSubject', 'zooniverse_id', 'workflowId', 'groupId', 'location', 'coords', 'metadata'
+  @configure 'CycloneSubject', 'zooniverseId', 'workflowId', 'groupId', 'location', 'coords', 'metadata'
 
   @current: null
 
