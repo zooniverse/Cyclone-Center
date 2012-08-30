@@ -46,7 +46,7 @@ class Profile extends Spine.Controller
     User.bind 'sign-in', @onUserSignIn
 
     @updateFavorites()
-    Favorite.bind 'fetch create destroy', =>
+    Favorite.bind 'fetch destroy', =>
       setTimeout @updateFavorites, 250
 
   onUserSignIn: =>
@@ -55,6 +55,7 @@ class Profile extends Spine.Controller
 
   updateFavorites: =>
     @favoritesList.empty()
+    @map.removeLabel label for id, label of @labels
 
     favorites = Favorite.all()
     for fav in favorites
@@ -62,6 +63,7 @@ class Profile extends Spine.Controller
       favItem.attr 'data-favorite': fav.id
 
       subject = fav.subjects
+      continue unless subject.metadata?
       lat = subject.metadata.lat || subject.metadata.map_lat
       lng = subject.metadata.lng || subject.metadata.map_lng
 

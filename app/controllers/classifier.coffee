@@ -407,6 +407,7 @@ class Classifier extends Spine.Controller
       setTimeout ->
         itemParent.removeClass 'favoriting'
         itemParent.attr 'data-favorite': favorite.id
+        Favorite.fetch()
 
   onClickUnfavorite: ({currentTarget}) =>
     itemParent = $(currentTarget).parents '[data-favorite]'
@@ -417,6 +418,7 @@ class Classifier extends Spine.Controller
     destroy = favorite.destroy().deferred
     destroy.done ->
       itemParent.attr 'data-favorite': null
+      Favorite.fetch()
 
   onClickViewStats: =>
     console.log 'Viewing stats for', @recentClassifications[0].subject.groupId

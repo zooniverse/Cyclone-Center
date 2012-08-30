@@ -22,12 +22,14 @@ class StatsDialog extends Dialog
       pressures: []
       winds: []
 
-    Api.get '/projects/cyclone_center/groups/503293f9516bcb6782000005', (raw) =>
+    Api.get "/projects/cyclone_center/groups/#{@stormId}", (raw) =>
       @storm.name = raw.metadata.name
       @storm.strength = raw.metadata.max_category
       for stat in raw.metadata.stats
-        @storm.coords.push [stat.lat || stat.map_lat, stat.lng || stat.map_lng]
-        @storm["#{key}s"].push stat[key] for key in ['time', 'pressure', 'wind']
+        @storm.coords.push [stat.lat, stat.lng]
+        @storm.times.push stat.time
+        @storm.winds.push stat.wind.wmo || stat.wind.min
+        @storm.pressures.push stat.wind.wmo || stat.pressure.min
 
       @content = template @storm
       @open()
