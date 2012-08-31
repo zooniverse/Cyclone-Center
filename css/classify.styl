@@ -456,3 +456,10 @@
 
       .step
         max-width none
+
+    &.southern
+      .main-pair img.match,
+      .categories-and-matches.step img
+        -ms-filter  "FlipH"
+        filter FlipH
+        transform scaleX(-1)

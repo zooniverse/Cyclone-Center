@@ -121,6 +121,8 @@ class Classifier extends Spine.Controller
       @map.removeLabel label for label in @labels
       @labels.splice 0
 
+    @el.toggleClass 'southern', subject.coords[0] < 0
+
     @labels.push @map.addLabel subject.coords..., "#{subject.coords[0].toString()[0..5]}, #{subject.coords[1].toString()[0..5]}"
     setTimeout => @map.setCenter subject.coords...
 
