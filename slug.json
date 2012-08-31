@@ -6,6 +6,7 @@
     "spine",
     "spine/lib/manager",
     "spine/lib/route",
+    "zooniverse/lib/controllers/browser_check",
     "zooniverse/lib/api",
     "zooniverse/lib/controllers/top_bar",
     "zooniverse/lib/models/subject",

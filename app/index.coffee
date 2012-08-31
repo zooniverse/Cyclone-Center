@@ -1,3 +1,6 @@
+BrowserCheck = require 'zooniverse/lib/controllers/browser_check'
+(new BrowserCheck).check()
+
 Spine = require 'spine'
 Manager = require 'spine/lib/manager'
 Route = require 'spine/lib/route'
