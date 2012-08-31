@@ -35,7 +35,8 @@ class Profile extends Spine.Controller
     @map ?= new Map
       latitude: 33
       longitude: -60
-      zoom: 5
+      centerOffset: [0.25, 0.5]
+      zoom: 3
       className: 'full-screen'
 
     @map.el.prependTo @el
@@ -94,7 +95,7 @@ class Profile extends Spine.Controller
     favID = favRoot.attr 'data-favorite'
     label = @labels[favID]
     {lat, lng} = label.getLatLng()
-    @map.setCenter lat, lng, center: [0.25, 0.5]
+    @map.setCenter lat, lng
 
   onClickRemove: ({currentTarget}) =>
     parent = $(currentTarget).parents '[data-favorite]'

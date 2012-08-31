@@ -84,7 +84,8 @@ class Classifier extends Spine.Controller
     @map ?= new Map
       latitude: 33
       longitude: -60
-      zoom: 5
+      centerOffset: [0.25, 0.5]
+      zoom: 4
       className: 'full-screen'
 
     @map.el.prependTo @el.parent() # Is it a little sloppy to modify outside nodes?
@@ -121,7 +122,7 @@ class Classifier extends Spine.Controller
       @labels.splice 0
 
     @labels.push @map.addLabel subject.coords..., "#{subject.coords[0].toString()[0..5]}, #{subject.coords[1].toString()[0..5]}"
-    setTimeout => @map.setCenter subject.coords..., center: [0.25, 0.5]
+    setTimeout => @map.setCenter subject.coords...
 
     @previousImage.attr src: subject.location.yesterday
     @subjectImage.attr src: subject.location.standard

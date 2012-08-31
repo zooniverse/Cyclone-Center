@@ -39,14 +39,15 @@ class StatsDialog extends Dialog
 
     @map = new Map
       el: @el.find '.path .map'
+      zoom: 2
 
     allLats = []
     allLngs = []
+
     @storm.coords.forEach (coords) =>
       @map.addLabel coords..., ''
       allLats.push coords[0]
       allLngs.push coords[1]
-      zoom: 3
 
     avgCoords = [
       (1 / allLats.length) * allLats.reduce (a, b) -> a + b
@@ -68,9 +69,7 @@ class StatsDialog extends Dialog
 
   open: =>
     super
-    setTimeout =>
-      @map.resize()
-      @map.setZoom @map.zoom
-
+    @map.resize()
+    @map.setZoom @map.zoom
 
 module.exports = StatsDialog
