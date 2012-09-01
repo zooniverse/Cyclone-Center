@@ -38,10 +38,12 @@
           border 3px solid $greenish
 
       .point
+        transition opacity 0.5s ease-in-out
         border 0 solid transparent
         border-width 2px 0 0 2px
         height 50px
         left -50%
+        opacity 0
         pointer-events none
         position absolute
         top -50%
@@ -72,7 +74,7 @@
         box-shadow 0 0 0 2px #fff
         height 17.3px
         left -50%
-        margin: -24px 0 0 -24px
+        margin -24px 0 0 -24px
         pointer-events none
         position absolute
         top -50%
@@ -91,8 +93,10 @@
           width 25px
 
       .eye.circle
+        transition opacity 0.5s ease-in-out
         border 1px solid #000
         border-radius 50%
+        opacity 0
         position absolute
         pointer-events none
         z-index 2
@@ -454,6 +458,16 @@
       &.match
         margin-right -300px
         opacity 0
+
+    &[data-step="center"],
+    &[data-step="eye"]
+      .main-pair
+        .center.point,
+        .eye.circle
+          opacity 1
+
+    &[data-step="red"] .main-pair .red.point
+        opacity 1
 
     &[data-step="center"],
     &[data-step="eye"],
