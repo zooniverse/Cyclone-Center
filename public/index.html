@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html class="show-field-guide">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE7" />
@@ -31,7 +31,39 @@
           <!--<li><a href="#-http://talk.cyclonecenter.org/" class="to-do">Talk</a></li>
           <li><a href="#-http://blog.cyclonecenter.org/" class="to-do">Blog</a></li>-->
         </ul>
+
+        <ul class="field-guide">
+          <li><button name="field-guide" value="show">Show Guide</button></li>
+          <li><button name="field-guide" value="hide">Hide Guide</button></li>
+        </ul>
       </nav>
+
+      <ul class="field-guide">
+        <li><button name="field-guide" value="show">Show Guide</button></li>
+        <li><button name="field-guide" value="hide">Hide Guide</button></li>
+      </ul>
+    </nav>
+
+      <div id="field-guide">
+        <nav>
+          <ul>
+            <li><button name="page" value="eye">Eye</button></li>
+            <li><button name="page" value="embedded">Embedded center</button></li>
+            <li><button name="page" value="curved">Curved band</button></li>
+            <li><button name="page" value="shear">Shear</button></li>
+            <li><button name="page" value="other">Other</button></li>
+          </ul>
+
+          <section data-page="eye">Eye</section>
+
+          <section data-page="embedded">Embedded</section>
+
+          <section data-page="curved">Curved</section>
+
+          <section data-page="shear">Shear</section>
+
+          <section data-page="other">Other</section>
+      </div>
 
       <section id="home">
         <header>

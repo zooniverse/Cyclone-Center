@@ -9,6 +9,7 @@ Config = require 'lib/config'
 Api = require 'zooniverse/lib/api'
 TopBar = require 'zooniverse/lib/controllers/top_bar'
 
+FieldGuide = require 'controllers/field_guide'
 Classifier = require 'controllers/classifier'
 Profile = require 'controllers/profile'
 Map = require 'zooniverse/lib/map'
@@ -50,6 +51,7 @@ class App extends Manager.Stack
 
     @topBar.el.prependTo 'body'
 
+    window.fieldGuide = new FieldGuide el: '#field-guide'
     window.classifier = new Classifier el: '#classify .classifier'
 
     autoPopup.init()
