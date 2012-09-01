@@ -10,6 +10,7 @@ StatsDialog = require './stats_dialog'
 class Classifier extends Spine.Controller
   events:
     'mousedown .main-pair .subject': 'onMouseDownSubject'
+    'click .main-pair img': 'onClickMainImage'
 
     'click button[name="stronger"]': 'onClickButton'
     'click button[name="category"]': 'onClickButton'
@@ -169,11 +170,24 @@ class Classifier extends Spine.Controller
     @nextSetup = @setupCatsAndMatches
     @activateButtons()
 
+  onClickMainImage: ({currentTarget}) =>
+    return unless @el.attr('data-step') is 'stronger'
+    currentTarget = $(currentTarget)
+    if currentTarget.is @previousImage
+      @classification.annotate 'stronger', 'decrease'
+    else if currentTarget.is @subjectImage
+      @classification.annotate 'stronger', 'increase'
+
   renderStronger: (stronger) =>
     @strongerButtons.removeClass 'selected'
+    @previousImage.add(@subjectImage).removeClass 'selected'
 
     if stronger?
       @strongerButtons.filter("[value='#{stronger}']").addClass 'selected'
+      if stronger is 'decrease'
+        @previousImage.addClass 'selected'
+      else if stronger is 'increase'
+        @subjectImage.addClass 'selected'
 
   setupCatsAndMatches: =>
     @el.attr 'data-step': 'match'
