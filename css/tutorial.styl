@@ -1,0 +1,15 @@
+.tutorial.dialog-underlay
+  height 0
+  position static
+  width 0
+
+  .dialog
+    transition left 0.25s ease-in-out, top 0.25s ease-in-out 0.1s
+    z-index 999
+
+    > footer
+      display block
+
+  &.next-on-action
+    .dialog > footer
+      display none

@@ -8,6 +8,8 @@ Favorite = require 'zooniverse/lib/models/favorite'
 StatsDialog = require './stats_dialog'
 User = require 'zooniverse/lib/models/user'
 Splits = require 'lib/splits'
+Tutorial = require 'zooniverse/lib/controllers/tutorial'
+tutorialSteps = require './tutorial_steps'
 
 class Classifier extends Spine.Controller
   events:
@@ -104,6 +106,17 @@ class Classifier extends Spine.Controller
     doc = $(document)
     doc.on 'mousemove', @onMouseMoveDocument
     doc.on 'mouseup', @onMouseUpDocument
+
+    @tutorial = new Tutorial
+      hashMatch: /^#\/classify/
+      steps: tutorialSteps
+
+    User.bind 'sign-in', @onUserSignIn
+
+  onUserSignIn: =>
+    console.log 'User signed in', User.current
+    return if User.current?.classification_count > 0
+    @tutorial.start()
 
   nextSubjects: =>
     CycloneSubject.next @onChangeSubjects
