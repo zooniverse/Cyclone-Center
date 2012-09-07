@@ -1,8 +1,8 @@
 $eye-wall-diameters = 15 30 50 80 120
 
-km-to-px(km, scale = 485 / 600)
+km-to-px(km, scale = (485 / 600))
   deg = (km / 111.12)
-  unit((deg / 0.02337), px)
+  unit((deg / 0.02337) * scale, px)
 
 #classify
   .classifier
