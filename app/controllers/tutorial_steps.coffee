@@ -14,4 +14,5 @@ module.exports = [
     content: 'Once you\'re comfortable, check "detailed classification" to answer a few extra steps about each image.'
     attachment: x: 'right'
     nextOn: click: '*'
+    block: 'nav'
 ]
