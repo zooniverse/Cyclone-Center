@@ -9,10 +9,13 @@ class StatsDialog extends Dialog
   stormId: ''
   storm: null
 
+  content: 'Loading...'
+  openImmediately: true
+
   constructor: ->
     super
+
     @buttons = []
-    @el.addClass 'stats'
 
     @storm =
       name: ''
@@ -21,6 +24,8 @@ class StatsDialog extends Dialog
       times: []
       pressures: []
       winds: []
+
+    console.log "/projects/cyclone_center/groups/#{@stormId}"
 
     Api.get "/projects/cyclone_center/groups/#{@stormId}", (raw) =>
       @storm.name = raw.metadata.name
@@ -32,11 +37,15 @@ class StatsDialog extends Dialog
         @storm.pressures.push stat.wind.wmo || stat.pressure.min
 
       @content = template @storm
-      @open()
+      @render()
+      @addData()
 
-  render: =>
-    super
+      @attach() # I have no idea why I have to call this twice.
+      @attach() # I have no idea why I have to call this twice.
 
+    @el.addClass 'stats'
+
+  addData: =>
     @map = new Map
       el: @el.find '.path .map'
       zoom: 2
@@ -54,6 +63,8 @@ class StatsDialog extends Dialog
       (1 / allLngs.length) * allLngs.reduce (a, b) -> a + b
     ]
 
+    @map.resize()
+    @map.setZoom @map.zoom
     @map.setCenter avgCoords...
 
     @windSpeedGraph = new BarGraph
@@ -67,9 +78,5 @@ class StatsDialog extends Dialog
       y: 'mb': @storm.pressures
       floor: Math.floor 0.95 * Math.min @storm.pressures...
 
-  open: =>
-    super
-    @map.resize()
-    @map.setZoom @map.zoom
-
+window.SD = StatsDialog
 module.exports = StatsDialog
