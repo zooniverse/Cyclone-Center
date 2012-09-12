@@ -10,6 +10,7 @@ User = require 'zooniverse/lib/models/user'
 Splits = require 'lib/splits'
 Tutorial = require 'zooniverse/lib/controllers/tutorial'
 tutorialSteps = require './tutorial_steps'
+Splits = require 'lib/splits'
 
 class Classifier extends Spine.Controller
   events:
