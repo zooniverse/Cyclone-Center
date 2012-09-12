@@ -6,17 +6,7 @@
     "spine",
     "spine/lib/manager",
     "spine/lib/route",
-    "zooniverse/lib/controllers/browser_check",
-    "zooniverse/lib/api",
-    "zooniverse/lib/controllers/top_bar",
-    "zooniverse/lib/models/subject",
-    "zooniverse/lib/models/favorite",
-    "zooniverse/lib/models/recent",
-    "zooniverse/lib/map",
-    "zooniverse/lib/dialog",
-    "zooniverse/lib/bar_graph",
-    "zooniverse/lib/auto_popup",
-    "zooniverse/lib/active_hash_links"
+    "zooniverse"
   ],
 
   "libs": [
