@@ -6,6 +6,8 @@ Dialog = require 'zooniverse/lib/dialog'
 Classification = require '../models/classification'
 Favorite = require 'zooniverse/lib/models/favorite'
 StatsDialog = require './stats_dialog'
+User = require 'zooniverse/lib/models/user'
+Splits = require 'lib/splits'
 
 class Classifier extends Spine.Controller
   events:
@@ -113,6 +115,11 @@ class Classifier extends Spine.Controller
     @render()
 
     availableSubjects = CycloneSubject.count()
+
+    if availableSubjects is 1
+      User.current.project.reveal_count or= 0
+      User.current.project.reveal_count += 1
+      @classification.annotate 'last_image', true
 
     if availableSubjects is config.setSize
       # We won't use any previous subject.
@@ -404,10 +411,22 @@ class Classifier extends Spine.Controller
       item.appendTo @revealList
 
     @el.attr 'data-step': 'reveal'
+    @setRevealMessage()
     @seriesProgressFill.css width: '100%'
     @classification.annotate 'reveal', true # For the "next" button
     @nextSetup = null
     @activateButtons()
+
+  revealHeader: => $('.reveal.step header', @el)
+
+  revealFact: => $('.reveal.step .fact', @el)
+
+  setRevealMessage: =>
+    split = if User.current then User.current.project.splits.classifier_messaging else 'default'
+    message = Splits.classifier_messaging[split]
+    message = Splits.classifier_messaging.default unless message.isShown()
+    @revealHeader().text message.header
+    @revealFact().text message.body
 
   onClickFavorite: ({currentTarget}) =>
     itemParent = $(currentTarget).parents '[data-subject]'
