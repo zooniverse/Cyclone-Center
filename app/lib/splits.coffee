@@ -5,6 +5,7 @@ module.exports =
     default:
       header: 'Did you know'
       body: 'You can collect your favorite storm images and discuss them in Talk.'
+      isShown: -> true
     
     a:
       header: ''
