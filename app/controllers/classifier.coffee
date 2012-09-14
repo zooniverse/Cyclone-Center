@@ -476,14 +476,16 @@ class Classifier extends Spine.Controller
       stormId: @recentClassifications[0].subject.groupId
       destroyOnClose: true
 
-  onClickRestart: (e) =>
-    for property of @classification.annotations
-      @classification.annotate property, null
+  onClickRestart: =>
+    # TODO: Make this nicer.
+    if confirm 'Really restart this classification from the beginning?'
+      for property of @classification.annotations
+        @classification.annotate property, null
 
-    if CycloneSubject.current.location.yesterday
-      @setupStronger()
-    else
-      @setupCatsAndMatches()
+      if CycloneSubject.current.location.yesterday
+        @setupStronger()
+      else
+        @setupCatsAndMatches()
 
   onChangeDetailed: (e) =>
     advanced = @detailedCheckbox.get(0).checked
