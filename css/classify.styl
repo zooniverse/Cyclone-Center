@@ -46,7 +46,7 @@ km-to-px(km, scale = (485 / 600))
           border 3px solid $greenish
 
       .point
-        transition opacity 0.5s ease-in-out
+        transition height 0.5s ease-in-out, opacity 0.5s ease-in-out, width 0.5s ease-in-out
         border 0 solid transparent
         border-width 2px 0 0 2px
         height 50px
@@ -440,7 +440,13 @@ km-to-px(km, scale = (485 / 600))
         .eye.circle
           opacity 1
 
-    &[data-step="red"] .main-pair .red.point
+    &[data-step="red"] .main-pair
+      .center.point
+        height 15px
+        opacity 1
+        width 15px
+
+      .red.point
         opacity 1
 
     &[data-step="center"],
