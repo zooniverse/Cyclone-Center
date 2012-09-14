@@ -9,7 +9,7 @@ randomPropertyFrom = (object, pattern) ->
   keys[Math.floor Math.random() * keys.length]
 
 class CycloneSubject extends Subject
-  @configure 'CycloneSubject', 'zooniverseId', 'workflowId', 'groupId', 'location', 'coords', 'metadata'
+  @configure 'CycloneSubject', 'zooniverseId', 'workflowId', 'groupId', 'location', 'coords', 'metadata', 'firstOfSet'
 
   @current: null
 
@@ -35,14 +35,11 @@ class CycloneSubject extends Subject
     fetcher ?= $.Deferred()
 
     Api.get "/projects/cyclone_center/groups/subjects?limit=#{count}", (rawSubjects) =>
-      # Try again if we didn't get enough subjects.
-      if rawSubjects.length is count
-        console.info "Got new subjects!", rawSubjects
-        newSubjects = @fromJSON rawSubject for rawSubject in rawSubjects
-        fetcher.resolve newSubjects
-      else
-        console.warn "CycloneSubject got #{rawSubjects.length}, but expected #{count}. Trying again..."
-        @fetch count, fetcher
+      console.info "Got #{rawSubjects.length} new subjects!", rawSubjects
+      newSubjects = (@fromJSON rawSubject for rawSubject in rawSubjects)
+      newSubjects[0].firstOfSet = true
+      newSubjects[0].save()
+      fetcher.resolve newSubjects
 
     fetcher.promise()
 

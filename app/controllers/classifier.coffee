@@ -135,7 +135,9 @@ class Classifier extends Spine.Controller
       User.current.project.reveal_count += 1
       @classification.annotate 'last_image', true
 
-    if availableSubjects is config.setSize
+    if CycloneSubject.current.firstOfSet
+      console.log 'First subject of set'
+
       # We won't use any previous subject.
       @recentClassifications.splice 0
 
