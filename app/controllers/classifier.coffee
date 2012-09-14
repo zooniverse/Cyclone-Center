@@ -130,7 +130,7 @@ class Classifier extends Spine.Controller
 
     availableSubjects = CycloneSubject.count()
 
-    if availableSubjects is 1
+    if User.current and availableSubjects is 1
       User.current.project.reveal_count or= 0
       User.current.project.reveal_count += 1
       @classification.annotate 'last_image', true
