@@ -46,6 +46,7 @@ class App extends Manager.Stack
       languages:
         en: 'English'
       app: 'cyclone_center'
+      appName: 'Cyclone Center'
 
     @topBar.el.prependTo 'body'
 
@@ -55,6 +56,10 @@ class App extends Manager.Stack
     activeHashLinks.init()
 
     Route.setup()
+
+    # Play nice with the top bar.
+    @el.height innerHeight
+    $(window).on 'resize', => @el.height innerHeight
 
 module.exports = App
 
