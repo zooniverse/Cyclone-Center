@@ -25,16 +25,29 @@ class StatsDialog extends Dialog
       pressures: []
       winds: []
 
+    el = @el
+
+    @el.on 'mouseenter', '.item', ->
+      index = $(@).index()
+      el.find('.bar-chart').each ->
+        $(@).children().eq(index).addClass 'hover'
+
+    @el.on 'mouseleave', '.item', ->
+      index = $(@).index()
+      el.find('.bar-chart').each ->
+        $(@).children().eq(index).removeClass 'hover'
+
     console.log "/projects/cyclone_center/groups/#{@stormId}"
 
     Api.get "/projects/cyclone_center/groups/#{@stormId}", (raw) =>
+      console.log raw
       @storm.name = raw.metadata.name
       @storm.strength = raw.metadata.max_category
       for stat in raw.metadata.stats
         @storm.coords.push [stat.lat, stat.lng]
         @storm.times.push stat.time
-        @storm.winds.push stat.wind.wmo || stat.wind.min
-        @storm.pressures.push stat.wind.wmo || stat.pressure.min
+        @storm.winds.push stat.wind.wmo || stat.wind.max
+        @storm.pressures.push stat.pressure.wmo || stat.pressure.max
 
       @content = template @storm
       @render()

@@ -1,6 +1,11 @@
 <header>
   <h2><%= @name %></h2>
-  <p class="duration"><strong>Duration</strong> <%= @times[0] %> &ndash; <%= @times[-1...] %></p>
+  <p class="duration">
+    <strong>Duration</strong>
+    <%= @times[0][0..9] %> &ndash; <%= @times[-1...][0][0..9] %>
+    &ensp;(<%= Math.ceil ((new Date @times[-1...][0]) - (new Date @times[0])) / 86400000 %> days)
+  </p>
+
   <p class="strength"><strong>Strength</strong> <%= @strength %></p>
 </header>
 

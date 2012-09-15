@@ -1,8 +1,6 @@
 .bar-chart
   clearfix()
   font-size 11px
-  overflow-x auto
-  overflow-y hidden
   position relative
   white-space nowrap
 
@@ -29,24 +27,27 @@
     display inline-block
     height 100px
     position relative
-    width 5px
-    margin-right 5px
+    width 3px
 
     .bar
-      background $gray
+      border-top: 1px solid
       bottom 0
       left 0
       position absolute
       width 100%
 
     .label
+      background #ff6
       display none
+      left -15px
+      padding 2px 4px
       position absolute
       top 100%
+      z-index 1
 
-    &:hover
-      .bar
-        background $blue
+    &:hover,
+    &.hover
+      background: rgba($gray, 0.75)
 
       .label
         display block
