@@ -73,3 +73,9 @@ window.reCSS = ->
 
 window.next = ->
   window.classifier.onClickNext()
+
+StatsDialog = require 'controllers/stats_dialog'
+
+window.sd = new StatsDialog
+  stormId: '50538da9516bcb0e5f000006' # Karl
+  destroyOnClose: true

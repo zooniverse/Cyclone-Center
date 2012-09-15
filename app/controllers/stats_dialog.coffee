@@ -25,17 +25,19 @@ class StatsDialog extends Dialog
       pressures: []
       winds: []
 
-    el = @el
+    dialog = @
 
-    @el.on 'mouseenter', '.item', ->
+    @el.on 'mouseenter', '.bar-chart .item', ->
       index = $(@).index()
-      el.find('.bar-chart').each ->
+      dialog.el.find('.bar-chart').each ->
         $(@).children().eq(index).addClass 'hover'
+        dialog.map.labels[index - 1].setRadius 10
 
-    @el.on 'mouseleave', '.item', ->
+    @el.on 'mouseleave', '.bar-chart .item', ->
       index = $(@).index()
-      el.find('.bar-chart').each ->
+      dialog.el.find('.bar-chart').each ->
         $(@).children().eq(index).removeClass 'hover'
+        dialog.map.labels[index - 1].setRadius 5
 
     console.log "/projects/cyclone_center/groups/#{@stormId}"
 
