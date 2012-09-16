@@ -13,12 +13,17 @@ class Profile extends Spine.Controller
   favoriteMapLabels: null
   recentMapLabels: null
 
+  favPage: 1
+  recPage: 1
+
   events:
     'mouseenter .favorites li': 'onMouseEnterFavorite'
     'mouseleave .favorites li': 'onMouseLeaveFavorite'
+    'click .favorites button[name="more"]': 'onClickMoreFavorites'
     'click .favorites button[name="reveal"]': 'onClickReveal'
     'click .favorites img': 'onClickReveal'
     'click .favorites button[name="remove-favorite"]': 'onClickRemove'
+    'click button[name="more-recents"]': 'onClickMoreRecents'
 
   elements:
     '.login-form': 'loginFormContainer'
@@ -62,11 +67,16 @@ class Profile extends Spine.Controller
     return unless User.current
     @currentUser.html User.current.name
     @classificaionCount.html User.current.classification_count
-    Favorite.fetch per_page: 20
-    Recent.fetch per_page: 20
+    Favorite.fetch page: @favPage, per_page: 20
+    Recent.fetch page: @recPage, per_page: 20
+
+  onClickMoreFavorites: =>
+    @favPage += 1
+    Favorite.fetch page: @favPage, per_page: 20
 
   updateFavorites: =>
     console.log 'Favorites fetched', Favorite.count()
+
     @favoritesList.empty()
     @map.removeLabel label for id, label of @favoriteMapLabels
 
@@ -92,7 +102,11 @@ class Profile extends Spine.Controller
 
       favItem.appendTo @favoritesList
 
-      @favoriteMapLabels[fav.id] = @map.addLabel lat, lng, "#{lat.toString()[0..5]}, #{lng.toString()[0..5]}"
+      @favoriteMapLabels[fav.id] = @map.addLabel lat, lng, """
+        #{subject.metadata.name} (#{subject.metadata.year})<br />
+        #{subject.metadata.iso_time}<br />
+        #{lat.toString()[0..8]}, #{lng.toString()[0..8]}
+      """
 
   onMouseEnterFavorite: ({currentTarget}) =>
     favID = $(currentTarget).attr 'data-favorite'
@@ -109,6 +123,10 @@ class Profile extends Spine.Controller
     {lat, lng} = label.getLatLng()
     @map.setCenter lat, lng
 
+  onClickMoreRecents: =>
+    @recPage += 1
+    Recent.fetch page: @recPage, per_page: 20
+
   updateRecents: =>
     console.log 'Recents fetched', Recent.count()
     @map.removeLabel label for id, label of @recentMapLabels
@@ -117,7 +135,11 @@ class Profile extends Spine.Controller
       continue unless subject.metadata?
       lat = subject.metadata.lat || subject.metadata.map_lat
       lng = subject.metadata.lng || subject.metadata.map_lng
-      @recentMapLabels[recent.id] = @map.addLabel lat, lng, "#{lat.toString()[0..5]}, #{lng.toString()[0..5]}"
+      @recentMapLabels[recent.id] = @map.addLabel lat, lng, """
+        #{subject.metadata.name} (#{subject.metadata.year})<br />
+        #{subject.metadata.iso_time}<br />
+        #{lat.toString()[0..8]}, #{lng.toString()[0..8]}
+      """
 
   onClickRemove: ({currentTarget}) =>
     parent = $(currentTarget).parents '[data-favorite]'
