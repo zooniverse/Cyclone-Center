@@ -69,6 +69,8 @@ class StatsDialog extends Dialog
     allLngs = []
 
     @storm.coords.forEach (coords) =>
+      coords[1] += 360 if coords[1] < 0 # 0 through 360 instead of -180 through +180
+
       @map.addLabel coords..., ''
       allLats.push coords[0]
       allLngs.push coords[1]
