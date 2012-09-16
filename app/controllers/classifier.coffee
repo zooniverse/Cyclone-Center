@@ -438,7 +438,7 @@ class Classifier extends Spine.Controller
   revealFact: => $('.reveal.step .fact', @el)
 
   setRevealMessage: =>
-    split = if User.current then User.current.project.splits.classifier_messaging else 'default'
+    split = User.current?.project.splits.classifier_messaging || 'default'
     message = Splits.classifier_messaging[split]
     message = Splits.classifier_messaging.default unless message.isShown()
     @revealHeader().text message.header
