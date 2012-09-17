@@ -264,10 +264,18 @@ class Classifier extends Spine.Controller
 
   setupCenter: =>
     @el.attr 'data-step': 'center'
-    @nextSetup = switch @classification.get 'category'
+    category = @classification.get 'category'
+
+    @nextSetup = switch category
       when 'embedded' then @setupFeature
       when 'curved' then @setupBlue
       when 'shear' then @setupRed
+      else null
+
+    @el.find('.center.step .help-ball').attr 'data-guide', switch category
+      when 'embedded' then 'center-embedded-center'
+      when 'curved' then 'center-curved-band'
+      when 'shear' then 'center-shear'
       else null
 
     @activateButtons()
