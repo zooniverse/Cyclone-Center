@@ -116,8 +116,9 @@ class Classifier extends Spine.Controller
 
   onUserSignIn: =>
     console.log 'User signed in', User.current
-    return if User.current?.classification_count > 0
-    # @tutorial.start()
+    return if User.current and User.current.classification_count > 0
+    @tutorial.start()
+    console.log 'Tutorial started'
 
   nextSubjects: =>
     CycloneSubject.next @onChangeSubjects
