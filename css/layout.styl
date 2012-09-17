@@ -10,6 +10,9 @@ body
   min-height 100%
   position relative
 
+#zooniverse-top-bar-button
+  margin-left -500px
+
 #wrapper
   height auto // Reset on window resize
   left 0
@@ -24,45 +27,40 @@ body
       display block
 
   > nav
-    position absolute
+    background $white
+    color $gray-dark
     left 0
-    top 100px
+    position relative
+    text-align center
+    top 0
+    width 100%
     z-index 3
 
-    ul
-      panel()
-      border-top 1px solid #fff
-      border-bottom 1px solid $gray-light
+    a.logo
+      border-right 1px solid $gray
+      color $black
+      display inline-block
+      font-weight bold
+      padding 10px 20px
 
-      & + ul
-        margin-top -15px
+    ul
+      display inline-block
 
       li
+        display inline-block
+
         a,
         button
-          border-top 1px solid #fff
-          border-bottom 1px solid $gray-light
-          color $gray-dark
+          color inherit
           display block
-          font-size 11px
+          font-size 12px
           font-weight bold
           padding 7px 10px
-          text-align center
           text-decoration none
 
           &:hover,
           &.active
             color $black
-
-        &:first-child
-          a,
-          button
-            border-top 0
-
-        &:last-child
-          a,
-          button
-            border-bottom 0
 
 a
   color $blue

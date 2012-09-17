@@ -22,47 +22,32 @@
   <body>
     <div id="wrapper">
       <nav>
+        <a href="#/home" class="logo">Cyclone Center</a>
         <ul>
           <li><a href="#/home">Home</a></li>
           <li><a href="#/about">About</a></li>
           <li><a href="#/classify">Classify</a></li>
           <li><a href="#/profile">Profile</a></li>
-          <li><a href="#/feedback" style="text-decoration: underline;">Feedback</a></li>
-          <!--<li><a href="#-http://talk.cyclonecenter.org/" class="to-do">Talk</a></li>
-          <li><a href="#-http://blog.cyclonecenter.org/" class="to-do">Blog</a></li>-->
-        </ul>
-
-        <ul class="field-guide">
-          <li><button name="field-guide" value="show">Show Guide</button></li>
-          <li><button name="field-guide" value="hide">Hide Guide</button></li>
+          <li><a href="#-http://talk.cyclonecenter.org/" class="to-do">Discuss</a></li>
+          <li><a href="#-http://blog.cyclonecenter.org/" class="to-do">Blog</a></li>
         </ul>
       </nav>
 
-      <ul class="field-guide">
-        <li><button name="field-guide" value="show">Show Guide</button></li>
-        <li><button name="field-guide" value="hide">Hide Guide</button></li>
-      </ul>
-    </nav>
-
       <div id="field-guide">
-        <nav>
-          <ul>
-            <li><button name="page" value="eye">Eye</button></li>
-            <li><button name="page" value="embedded">Embedded center</button></li>
-            <li><button name="page" value="curved">Curved band</button></li>
-            <li><button name="page" value="shear">Shear</button></li>
-            <li><button name="page" value="other">Other</button></li>
-          </ul>
-
-          <section data-page="eye">Eye</section>
-
-          <section data-page="embedded">Embedded</section>
-
-          <section data-page="curved">Curved</section>
-
-          <section data-page="shear">Shear</section>
-
-          <section data-page="other">Other</section>
+        <section data-page="strength"><p>Here's how you determine which storm is stronger...</p></section>
+        <section data-page="eye"><p>Here's how you find an eye storm...</p></section>
+        <section data-page="embedded-center"><p>Here's how you find an embedded center storm...</p></section>
+        <section data-page="curved-band"><p>Here's how you find a curved band storm...</p></section>
+        <section data-page="shear"><p>Here's how you find a shear storm...</p></section>
+        <section data-page="other"><p>Here's how you find an "other" storm...</p></section>
+        <section data-page="center"><p>Here's how you find the center...</p></section>
+        <section data-page="eyewall"><p>Here's how you measure the eyewall...</p></section>
+        <section data-page="surrounding"><p>Here's how you get the surrounding color...</p></section>
+        <section data-page="exceeding"><p>Here's how you get the band exceeding 0.5deg...</p></section>
+        <section data-page="feature"><p>Here's how you get the banding feature...</p></section>
+        <section data-page="color"><p>Here's how you get the main band color...</p></section>
+        <section data-page="wrap"><p>Here's how you get the wrapping amount...</p></section>
+        <section data-page="red"><p>Here's how you get thered point...</p></section>
       </div>
 
       <section id="home">
@@ -181,7 +166,7 @@
           </div>
 
           <div class="stronger step">
-            <p class="heading">Click the storm image that appears <strong>stronger</strong> <span data-popup="#stronger-help left" class="help-ball">?</span></p>
+            <p class="heading">Click the storm image that appears <strong>stronger</strong> <span data-guide="strength" class="help-ball">?</span></p>
 
             <div id="stronger-help" class="popup-content">
               <h2>What characteristics indicate strength?</h2>
@@ -201,11 +186,11 @@
             <div class="categories">
               <p class="heading">Pick the cyclone type, then choose the closest match.</p>
               <ul>
-                <li><button name="category" value="eye" class="toggle">Eye</button><button data-popup="#eye-help left" class="help">?</button></li>
-                <li><button name="category" value="embedded" class="toggle">Embedded center</button><button data-popup="#embedded-help left" class="help">?</button></li>
-                <li><button name="category" value="curved" class="toggle">Curved band</button><button data-popup="#curved-help left" class="help">?</button></li>
-                <li><button name="category" value="shear" class="toggle">Shear</button><button data-popup="#shear-help left" class="help">?</button></li>
-                <li><button name="category" value="other" class="toggle">Other</button><button data-popup="#other-help left" class="help">?</button></li>
+                <li><button name="category" value="eye" class="toggle">Eye</button><button data-guide="eye" class="help">?</button></li>
+                <li><button name="category" value="embedded" class="toggle">Embedded center</button><button data-guide="embedded-center" class="help">?</button></li>
+                <li><button name="category" value="curved" class="toggle">Curved band</button><button data-guide="curved-band" class="help">?</button></li>
+                <li><button name="category" value="shear" class="toggle">Shear</button><button data-guide="shear" class="help">?</button></li>
+                <li><button name="category" value="other" class="toggle">Other</button><button data-guide="other" class="help">?</button></li>
               </ul>
 
               <div id="eye-help" class="popup-content">
@@ -295,7 +280,7 @@
           </div>
 
           <div class="center step">
-            <p class="heading">Click the <strong>center</strong> of the storm. <span data-popup="#center-help left" class="help-ball">?</span></p>
+            <p class="heading">Click the <strong>center</strong> of the storm. <span data-guide="center" class="help-ball">?</span></p>
 
             <div id="center-help" class="popup-content">
               <h2>Finding the Center</h2>
@@ -311,7 +296,7 @@
           </div>
 
           <div class="eye step">
-            <p class="heading">Click the <strong>center</strong> of the storm, then pick the size closest to the eye edge. <span data-popup="#eye-center-help left" class="help-ball">?</span></p>
+            <p class="heading">Click the <strong>center</strong> of the storm, then pick the size closest to the eye edge. <span data-guide="eyewall" class="help-ball">?</span></p>
 
             <div id="eye-center-help" class="popup-content">
               <h2>What is the eye edge?</h2>
@@ -330,7 +315,7 @@
           </div>
 
           <div class="surrounding step">
-            <p class="heading">Which colors completely surround the eye? <span data-popup="#surrounding-help left" class="help-ball">?</span></p>
+            <p class="heading">Which colors completely surround the eye? <span data-guide="surrounding" class="help-ball">?</span></p>
 
             <div id="surrounding-help" class="popup-content">
               <h2>Coldest color surrounding the eye</h2>
@@ -354,7 +339,7 @@
           </div>
 
           <div class="exceeding step">
-            <p class="heading">Choose the colors completely surrounding the eye at least 0.5° thick. <span data-popup="#exceeding-help left" class="help-ball">?</span></p>
+            <p class="heading">Choose the colors completely surrounding the eye at least 0.5° thick. <span data-guide="exceeding" class="help-ball">?</span></p>
             <p>Drag your mouse over the image to reveal a measuring tool.</p>
 
             <div id="exceeding-help" class="popup-content">
@@ -378,7 +363,7 @@
           </div>
 
           <div class="feature step">
-            <p class="heading">Choose the image that matches the banding feature. <span class="thickness"></span> <span data-popup="#feature-help left" class="help-ball">?</span></p>
+            <p class="heading">Choose the image that matches the banding feature. <span class="thickness"></span> <span data-guide="feature" class="help-ball">?</span></p>
 
             <div id="feature-help" class="popup-content">
               <h2>Banding Features</h2>
@@ -399,7 +384,7 @@
           </div>
 
           <div class="blue step">
-            <p class="heading">Which colors wrap most of the way around the band? <span data-popup="#blue-help left" class="help-ball">?</span></p>
+            <p class="heading">Which colors wrap most of the way around the band? <span data-guide="color" class="help-ball">?</span></p>
 
             <div id="blue-help" class="popup-content">
               <h2>What is the coldest color that extends most of the length of the band?</h2>
@@ -420,7 +405,7 @@
           </div>
 
           <div class="curve step">
-            <p class="heading">How far does the main band wrap? <span data-popup="#curve-help left" class="help-ball">?</span></p>
+            <p class="heading">How far does the main band wrap? <span data-guide="wrap" class="help-ball">?</span></p>
 
             <div id="curve-help" class="popup-content">
               <h3>What is this?</h3>
@@ -439,7 +424,7 @@
           </div>
 
           <div class="red step">
-            <p class="heading">Click the <strong>red</strong> point nearest the storm center that is associated with the main cloud feature. <span data-popup="#red-help left" class="help-ball">?</span></p>
+            <p class="heading">Click the <strong>red</strong> point nearest the storm center that is associated with the main cloud feature. <span data-guide="red" class="help-ball">?</span></p>
 
             <div id="red-help" class="popup-content">
               <h3>What is this?</h3>

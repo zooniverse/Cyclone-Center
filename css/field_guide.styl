@@ -1,9 +1,3 @@
-body > nav ul.field-guide li button
-  width 100px
-
-  &[value="hide"]
-    display none
-
 #field-guide
   panel()
   transition left 0.25s ease-in-out, opacity 0.25s ease-in-out
@@ -14,28 +8,6 @@ body > nav ul.field-guide li button
   width 300px
   z-index 3
 
-  > nav
-    ul
-      clearfix()
-
-      li
-        float left
-
-        button
-          height 40px
-          width 60px
-
-          &.selected
-            background linear-gradient(top, $gray, rgba($white, 0))
-
-.show-field-guide
-  body > nav ul.field-guide li button
-    &[value="show"]
-      display none
-
-    &[value="hide"]
-      display inline-block
-
-  #field-guide
+  &.open
     left 120px
     opacity 1

@@ -1,21 +1,26 @@
 $ = require 'jqueryify'
 
-$(document).on 'click', 'button[name="field-guide"]', ({currentTarget}) ->
-  $('html').toggleClass 'show-field-guide', $(currentTarget).attr('value') is 'show'
-
 class FieldGuide
   constructor: ({@el}) ->
     @el = $(@el)
+    @addCloseButton()
 
-    @el.on 'click', 'button[name="page"]', ({currentTarget}) =>
-      page = $(currentTarget).attr 'value'
+    $(document).on 'click', '[data-guide]', ({currentTarget}) =>
+      page = $(currentTarget).attr 'data-guide'
+      console.log "Opening field guide to #{page}"
+      @open page
 
-      @el.find('button[name="page"]').removeClass 'selected'
-      $(currentTarget).addClass 'selected'
+  addCloseButton: ->
+    @el.prepend '<button name="close" title="Close field guide">&times;</button>'
+    @el.on 'click', 'button[name="close"]', =>
+      @close()
 
-      @el.find('[data-page]').hide()
-      @el.find("[data-page='#{page}']").show()
+  open: (page) ->
+    @el.find('[data-page]').hide()
+    @el.find("[data-page='#{page}']").show()
+    @el.addClass 'open'
 
-    @el.find('button[name="page"]').first().click()
+  close: ->
+    @el.removeClass 'open'
 
 module.exports = FieldGuide
