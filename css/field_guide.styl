@@ -1,13 +1,44 @@
 #field-guide
+  box-sizing border-box
   panel()
-  transition left 0.25s ease-in-out, opacity 0.25s ease-in-out
-  left -350px
-  opacity 0.5
+  transition left 0.25s ease-in-out, opacity 0.25s ease-in-out, right 0.25s ease-in-out
+  bottom 20px
+  font-size 12px
+  left -100%
+  line-height 1.4
+  margin 0
+  opacity 0.25
+  overflow auto
+  padding 20px 15px 20px 20px
   position absolute
-  top 0
-  width 300px
+  right 110%
+  top 60px
   z-index 3
 
   &.open
-    left 120px
+    left 20px
     opacity 1
+    right 750px
+
+  button[name="close"]
+    color $gray-dark
+    font-size 16px
+    font-weight bold
+    position absolute
+    right 10px
+    top 10px
+
+  h3
+    font-size 16px
+    font-weight bold
+
+  p,
+  ul
+    margin 1em 0
+
+    li
+      list-style disc
+      margin 1em 0 1em 1em
+
+  img
+    max-width 100%
