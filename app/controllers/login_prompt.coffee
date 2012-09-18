@@ -9,14 +9,14 @@ class LoginPrompt
 
   classificationCount: 0
 
-  prompt: null
+  promptDialog: null
   loginForm: null
   loginDialog: null
 
   constructor: (params = {}) ->
     @[property] = value for own property, value of params
 
-    @prompt = new Dialog
+    @promptDialog = new Dialog
       title: @title
       content: @content
       buttons: [{'Log in': true}, {'No thanks': false}]
@@ -26,7 +26,7 @@ class LoginPrompt
 
     @loginDialog = new Dialog
       content: @loginForm.el
-      buttons: []
+      buttons: ['Cancel': null]
 
     User.bind 'sign-in', @onSignIn
     @classifier.bind 'classify', @onClassify
@@ -37,9 +37,10 @@ class LoginPrompt
     @classificationCount += 1
     if @classificationCount in [3, 9]
       console.log "#{@classificationCount} classifications, login prompt opening"
-      @prompt.open()
+      @promptDialog.open()
 
-  onClickLogIn: =>
+  onClickLogIn: (saidOkay) =>
+    return unless saidOkay
     @loginDialog.open()
 
   onSignIn: =>
@@ -47,6 +48,7 @@ class LoginPrompt
 
     console.log 'User signed in, login prompt closing'
     @classificationCount = 0
-    @prompt.close()
+    @loginDialog.close()
+    @promptDialog.close()
 
 module.exports = LoginPrompt
