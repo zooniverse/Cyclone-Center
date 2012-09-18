@@ -156,7 +156,7 @@ class Classifier extends Spine.Controller
 
     index = config.setSize - availableSubjects
     remaining = availableSubjects - 1
-    @progressMessage.html "#{CycloneSubject.count()} more to go..."
+    @progressMessage.html "#{CycloneSubject.count()} more images of this storm to go..."
     @seriesProgressFill.css width: "#{index / (remaining + index + 1) * 100}%"
 
     meta = subject.metadata
