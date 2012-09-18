@@ -78,7 +78,9 @@ window.next = ->
 
 StatsDialog = require 'controllers/stats_dialog'
 
-# window.sd = new StatsDialog
-#   stormId: '50538da9516bcb0e5f000006' # Karl
-#   # stormId: '50538cfc516bcb0e5f000004' # Innis
-#   destroyOnClose: true
+window.sd = new StatsDialog
+  # stormId: '5057531d516bcb5717000001' # Aletta
+  # stormId: '5057531d516bcb571700000d' # Bud
+  # stormId: '5057531d516bcb571700001d' # Carlotta
+  stormId: '50575320516bcb57170000ab' # Gilma
+  destroyOnClose: true

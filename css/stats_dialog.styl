@@ -1,0 +1,50 @@
+undergroove()
+  border-bottom 1px solid $gray
+  box-shadow 0 2px 0 #fff
+
+.stats.dialog-underlay .dialog
+  max-width 100%
+
+  .dialog-content
+    clearfix()
+    text-align left
+
+    > header
+      undergroove()
+
+      h2,
+      p
+        border-left 1px solid $gray
+        display inline-block
+        margin 0
+        padding 0 20px 10px
+
+        strong
+          color $blue
+          display block
+
+      h2
+        border-left 0
+        font 30px $open-sans-condensed
+        padding-bottom 0
+        padding-left 0
+
+    .column
+      float left
+
+    section
+      margin 20px 20px 0 0
+
+      header
+        font-size 11px
+        margin-bottom 10px
+
+      &.path
+        .map
+          height 400px
+          width 400px
+
+      &.pressure,
+      &.wind-speed
+        border-bottom 1px solid $gray-light
+        padding-bottom 20px
