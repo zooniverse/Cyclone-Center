@@ -11,6 +11,7 @@ TopBar = require 'zooniverse/lib/controllers/top_bar'
 
 FieldGuide = require 'controllers/field_guide'
 Classifier = require 'controllers/classifier'
+LoginPrompt = require 'controllers/login_prompt'
 Profile = require 'controllers/profile'
 Map = require 'zooniverse/lib/map'
 autoPopup = require 'zooniverse/lib/auto_popup'
@@ -53,6 +54,7 @@ class App extends Manager.Stack
 
     window.fieldGuide = new FieldGuide el: '#field-guide'
     window.classifier = new Classifier el: '#classify .classifier'
+    window.loginPrompt = new LoginPrompt classifier: window.classifier
 
     autoPopup.init()
     activeHashLinks.init()

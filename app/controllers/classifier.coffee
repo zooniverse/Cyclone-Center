@@ -520,6 +520,7 @@ class Classifier extends Spine.Controller
       @recentClassifications.push @classification
       @classification.send =>
         console.info 'Classified', JSON.stringify @classification.toJSON()
+        @trigger 'classify', @classification
 
     if CycloneSubject.count() is 1 and not @classification.get 'reveal'
       @setupReveal()
