@@ -375,14 +375,6 @@
 
           <div class="stronger step">
             <p class="heading">Click the storm image that appears <strong>stronger</strong> <span data-guide="strength" class="help-ball">?</span></p>
-
-            <div id="stronger-help" class="popup-content">
-              <h2>What characteristics indicate strength?</h2>
-              <p>More cold colors</p>
-              <p>More organized cloud patterns, such as a more circular center and more tightly wrapped spirals</p>
-              <p>A storm with an eye is stonger than a storm without one. The warmer and more circular the eye, the stronger the storm.</p>
-            </div>
-
             <p>
               <!--<button name="stronger" value="decrease" class="toggle">Left</button>-->
               <button name="stronger" value="same" class="toggle">They're about the same</button>
@@ -400,50 +392,6 @@
                 <li><button name="category" value="shear" class="toggle">Shear</button><button data-guide="shear" class="help">?</button></li>
                 <li><button name="category" value="other" class="toggle">Other</button><button data-guide="other" class="help">?</button></li>
               </ul>
-
-              <div id="eye-help" class="popup-content">
-                <h2>Eye</h2>
-                <h3>What does this storm look like?</h3>
-                <p>Look for an area of warmer color near the center. The eye is sometimes pink or gray. It is always a warmer color than the surrounding eye wall.</p>
-                <h3>How can I identify a strong Eye storm?</h3>
-                <p>There will be a warmer and more circular eye at the center, with colder clouds surrounding the eye. The spiral bands will be more pronounced.</p>
-              </div>
-
-              <div id="embedded-help" class="popup-content">
-                <h2>Embedded Center</h2>
-                <h3>What does this storm look like?</h3>
-                <p>Look for an area of rounded cold clouds near the center of the storm. Strong embedded center storms may start to develop an eye, while weaker storms are more closely related to curved bands.</p>
-                <h3>How can I identify a strong Embedded Center?</h3>
-                <p>There will be spiral bands that are more tightly wrapped and colder (bluer) clouds.</p>
-              </div>
-
-              <div id="curved-help" class="popup-content">
-                <h2>Curved Band</h2>
-                <h3>What does this storm look like?</h3>
-                <p>Look for a storm shaped like a comma. They are closely related to weaker embedded center storms, but the tail of the comma is just as cold and large as the head.</p>
-                <h3>How can I identify a stronger curved band?</h3>
-                <p>There will be colder clouds and tightly wrapped spiral bands.</p>
-              </div>
-
-              <div id="shear-help" class="popup-content">
-                <h2>Shear</h2>
-                <h3>What does this storm look like?</h3>
-                <p>Look for a swirl in the gray clouds, as well as cold clouds very close to warm ones.</p>
-                <p>Sheared storms tend to have one side of the cold clouds appear flattened.</p>
-                <h3>How can I identify a strong shear?</h3>
-                <p>The center of the gray swirls will be closer to cooler (blue) clouds, and the colder clouds will be more spiraled and organized.</p>
-              </div>
-
-              <div id="other-help" class="popup-content">
-                <h2>Other Storms</h2>
-                <h3>Post-Tropical</h3>
-                <p>As storms move toward the poles they become less tropical and more like midlatitude weather systems. These storms will have more gray and pink clouds and may appear stretched out with long tails of clouds.</p>
-                <h3>Edge</h3>
-                <p>These storms are on the edge of the satellite's peripheral vision and will often look distorted or have missing data (black areas).</p>
-                <p>Only select this if the image distortion makes a classification impossible.</p>
-                <h3>No Storm</h3>
-                <p>These storms appear disorganized and are too weak to classify.</p>
-              </div>
             </div>
 
             <div class="matches">
@@ -489,30 +437,10 @@
 
           <div class="center step">
             <p class="heading">Click the <strong>center</strong> of the storm. <span data-guide="center" class="help-ball">?</span></p>
-
-            <div id="center-help" class="popup-content">
-              <h2>Finding the Center</h2>
-              <h3>Shear</h3>
-              <p>Look for the middle of the gray swirl. The center is often near the flat edge of the cold clouds.</p>
-              <h3>Curved Band</h3>
-              <p>Follow the spirals inward. Don't get distracted by the coldest or largest clouds, as the center often occurs on the inner edge of a warm edge.</p>
-              <h3>Embedded Center</h3>
-              <p>Follow the swirls inward. Don't get distracted by the coldest or largest clouds.</p>
-              <h3>Eye</h3>
-              <p>The center is in the middle of the eye. The edge of the eye is where the colors stop being very close together.</p>
-            </div>
           </div>
 
           <div class="eye step">
             <p class="heading">Click the <strong>center</strong> of the storm, then pick the size closest to the eye edge. <span data-guide="eyewall" class="help-ball">?</span></p>
-
-            <div id="eye-center-help" class="popup-content">
-              <h2>What is the eye edge?</h2>
-              <p>The eye of a tropical cyclone is a warm, circular area at the center of the storm surrounded by towering, cold clouds (the “eyewall”). The eye has a narrow diameter at the bottom and slopes outward with height like a giant stadium.</p>
-              <p>The eye edge is the top of the “stadium”. As the clouds slope outward, they become dramatically colder very quickly.</p>
-              <p>The edge of the eye occurs where the temperatures (colors) stop changing quickly.</p>
-            </div>
-
             <p>
               <button name="eye" value="15" class="toggle"><span class="circle"></span></button>
               <button name="eye" value="30" class="toggle"><span class="circle"></span></button>
@@ -524,15 +452,6 @@
 
           <div class="surrounding step">
             <p class="heading">Which colors completely surround the eye? <span data-guide="surrounding" class="help-ball">?</span></p>
-
-            <div id="surrounding-help" class="popup-content">
-              <h2>Coldest color surrounding the eye</h2>
-              <p>The eye of a tropical cyclone consists of a swirl of low warm clouds surrounded by towering cold clouds (the “eyewall”).</p>
-              <p>The clouds of the eyewall must <strong>completely surround</strong> the eye, but do not have to be any minimum thickness.</p>
-              <h3>How is this determined?</h3>
-              <p>Look for a solid ring of any thickness completely surrounding the eye.</p>
-            </div>
-
             <p>
               <button name="surrounding" value="warmest" /><span class="warmest swatch"></span></button>
               <button name="surrounding" value="warmer" /><span class="warmer swatch"></span></button>
@@ -549,14 +468,6 @@
           <div class="exceeding step">
             <p class="heading">Choose the colors completely surrounding the eye at least 0.5° thick. <span data-guide="exceeding" class="help-ball">?</span></p>
             <p>Drag your mouse over the image to reveal a measuring tool.</p>
-
-            <div id="exceeding-help" class="popup-content">
-              <h2>Coldest color least 0.5° thick</h2>
-              <p>Tropical cyclones are more intense when the coldest clouds extend farther out from the center of the system. By identifying the coldest color meeting a minimum thickness, we are able to determine the storm's approximate intensity. The color meeting the minimum thickness may be interrupted with pockets of other colors so long as they are completely engulfed within the dominate band.</p>
-              <h3>How is this determined?</h3>
-              <p>Click and drag your mouse over the image to reveal a 0.5° measuring tool. When the thinnest part of a band fills the tool, you'll know it's at least 0.5° thick.</p>
-            </div>
-
             <p>
               <button name="exceeding" value="warmest" /><span class="warmest swatch"></span></button>
               <button name="exceeding" value="warmer" /><span class="warmer swatch"></span></button>
@@ -572,18 +483,6 @@
 
           <div class="feature step">
             <p class="heading">Choose the image that matches the banding feature. <span class="thickness"></span> <span data-guide="feature" class="help-ball">?</span></p>
-
-            <div id="feature-help" class="popup-content">
-              <h2>Banding Features</h2>
-              <h3>What is this?</h3>
-              <p>You're looking for a band of cold clouds spiraling into the circular clouds near the center.</p>
-              <p>Storms with long spirals wrapping around them tend to be stronger.</p>
-              <h3>How do I identify this?</h3>
-              <p>The band must be orange or colder.</p>
-              <p>It should be separated from the circular center by a wedge that’s red or warmer.</p>
-              <p>Focus on the length of the band (how far it spirals around) when picking the matching image.</p>
-            </div>
-
             <p>
               <button name="feature" value="1"><img src="images/banding/none.png" /></button>
               <button name="feature" value="2"><img src="images/banding/moderate.png" /></button>
@@ -593,12 +492,6 @@
 
           <div class="blue step">
             <p class="heading">Which colors wrap most of the way around the band? <span data-guide="color" class="help-ball">?</span></p>
-
-            <div id="blue-help" class="popup-content">
-              <h2>What is the coldest color that extends most of the length of the band?</h2>
-              <p>You're looking for a <strong>contiguous ring</strong> of cold colors along the band.</p>
-            </div>
-
             <p>
               <button name="blue" value="warmest" /><span class="warmest swatch"></span></button>
               <button name="blue" value="warmer" /><span class="warmer swatch"></span></button>
@@ -614,15 +507,6 @@
 
           <div class="curve step">
             <p class="heading">How far does the main band wrap? <span data-guide="wrap" class="help-ball">?</span></p>
-
-            <div id="curve-help" class="popup-content">
-              <h3>What is this?</h3>
-              <p>You're looking for a band of cold clouds spiraling towards the center.</p>
-              <h3>How do I identify this?</h3>
-              <p>Focus on the coldest color that extends most of the length of the band.</p>
-              <p>Look at how far that color wraps around, and then select the image that best represents it.</p>
-            </div>
-
             <p>
               <button name="curve" value="0.2" /><img src="images/curve/0.2.png" /></button>
               <button name="curve" value="0.4" /><img src="images/curve/0.4.png" /></button>
@@ -633,13 +517,6 @@
 
           <div class="red step">
             <p class="heading">Click the <strong>red</strong> point nearest the storm center that is associated with the main cloud feature. <span data-guide="red" class="help-ball">?</span></p>
-
-            <div id="red-help" class="popup-content">
-              <h3>What is this?</h3>
-              <p>You are looking for the edge of the storm's coldest clouds (depicted in solid colors) that is nearest to the center you have selected.</p>
-              <h3>How do I Identify This?</h3>
-              <p>Starting from your center, simply locate and click on the nearest instance of red coloring that is part of the main convection.</p>
-            </div>
           </div>
 
           <div class="reveal step">
