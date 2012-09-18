@@ -1,5 +1,7 @@
 BrowserCheck = require 'zooniverse/lib/controllers/browser_check'
-(new BrowserCheck).check()
+bc = new BrowserCheck
+bc.support.msie = 9
+bc.check()
 
 Spine = require 'spine'
 Manager = require 'spine/lib/manager'
