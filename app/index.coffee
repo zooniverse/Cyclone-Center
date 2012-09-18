@@ -61,7 +61,7 @@ class App extends Manager.Stack
 
     # Play nice with the top bar.
     @el.height innerHeight
-    $(window).on 'resize', => @el.height innerHeight
+    $(window).on 'resize', => @el.height innerHeight - 5
 
 module.exports = App
 
