@@ -4,7 +4,7 @@ module.exports = [
   new Step
     title: 'Welcome to Cyclone Center!'
     content:'''
-      <p>In this project, we\'ll be classifying satellite images of storms. Let's take a quick look at the classification interface.</p>
+      <p>In this project you'll classify satellite images of storms. Let's take a quick look at the classification interface.</p>
     '''
     attachment: to: '.main-pair'
 
@@ -19,8 +19,8 @@ module.exports = [
   new Step
     title: 'Instructions'
     content: '''
-      <p>Each type of storm requires different questions to be answered. Read the question below the subject and answer as best you can.</p>
-      <p>Classifying storms is very subjective process, so use your best judgement and don't worry about being right or wrong.</p>
+      <p>You'll be asked different questions for different types of storms. Read the question below the satellite image and answer as best you can.</p>
+      <p>Classifying storms is a very subjective process, so use your best judgement and don't worry about being right or wrong.</p>
       <p>We'll combine your observations with the observations of other volunteers to come to a conclusion.</p>
     '''
     attachment: arrowDirection: 'bottom', y: 'bottom', to: '.classifier .step', at: y: 'top'
@@ -28,7 +28,7 @@ module.exports = [
   new Step
     title: 'Get help'
     content: '''
-      <p>Click the "?" buttons to get help if you're not sure what an instruction is asking you to do.</p>
+      <p>Click the "?" buttons to get help if you're not sure what you're being asked to do.</p>
     '''
     attachment: arrowDirection: 'bottom', y: 'bottom', to: '.classifier .help, .classifier .help-ball', at: y: 'top'
 
@@ -59,8 +59,8 @@ module.exports = [
   new Step
     title: 'Have fun!'
     content: '''
-      <p>Remember, there's no right or wrong answer to any of these. We're using classifications from multiple people to get the best look at how a storm changes.</p>
-      <p>Thanks for helping!</p>
+      <p>Remember, there's no right or wrong answer to any of these questions. We'll use classifications from multiple people to get the best idea of how a storm evolves.</p>
+      <p>Thanks for your help!</p>
     '''
     attachment: to: '.classifier'
 ]
