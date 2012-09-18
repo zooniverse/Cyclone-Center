@@ -1,6 +1,7 @@
 .tutorial.dialog-underlay
   .dialog
     transition left 0.25s ease-in-out, top 0.25s ease-in-out 0.1s
+    border 3px solid $blue
     z-index 999
 
     .dialog-closer
@@ -8,6 +9,19 @@
 
     > footer
       display block
+
+    .dialog-arrow
+      &[data-direction="top"]
+        border-bottom-color $blue
+
+      &[data-direction="right"]
+        border-left-color $blue
+
+      &[data-direction="bottom"]
+        border-top-color $blue
+
+      &[data-direction="left"]
+        border-right-color $blue
 
   &.next-on-action
     .dialog > footer
