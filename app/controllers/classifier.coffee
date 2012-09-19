@@ -436,7 +436,7 @@ class Classifier extends Spine.Controller
       item.appendTo @revealList
 
     @el.attr 'data-step': 'reveal'
-    @setRevealMessage()
+    # @setRevealMessage()
     @seriesProgressFill.css width: '100%'
     @classification.annotate 'reveal', true # For the "next" button
     @nextSetup = null
@@ -450,8 +450,8 @@ class Classifier extends Spine.Controller
     split = User.current?.project.splits.classifier_messaging || 'default'
     message = Splits.classifier_messaging[split]
     message = Splits.classifier_messaging.default unless message.isShown()
-    @revealHeader().text message.header
-    @revealFact().text message.body
+    @revealHeader().text message.header()
+    @revealFact().text message.body(project.classification_count)
 
   onClickFavorite: ({currentTarget}) =>
     itemParent = $(currentTarget).parents '[data-subject]'
