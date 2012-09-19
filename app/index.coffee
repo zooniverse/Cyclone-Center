@@ -78,11 +78,11 @@ window.reCSS = ->
 window.next = ->
   window.classifier.onClickNext()
 
-StatsDialog = require 'controllers/stats_dialog'
+# StatsDialog = require 'controllers/stats_dialog'
 
-window.sd = new StatsDialog
-  # stormId: '5057531d516bcb5717000001' # Aletta
-  # stormId: '5057531d516bcb571700000d' # Bud
-  # stormId: '5057531d516bcb571700001d' # Carlotta
-  stormId: '50575320516bcb57170000ab' # Gilma
-  destroyOnClose: true
+# window.sd = new StatsDialog
+#   # stormId: '5057531d516bcb5717000001' # Aletta
+#   # stormId: '5057531d516bcb571700000d' # Bud
+#   # stormId: '5057531d516bcb571700001d' # Carlotta
+#   stormId: '50575320516bcb57170000ab' # Gilma
+#   destroyOnClose: true
