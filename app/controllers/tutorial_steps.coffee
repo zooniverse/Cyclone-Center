@@ -11,8 +11,10 @@ module.exports = [
   new Step
     title: 'Subject'
     content: '''
-      This is a satellite image of a storm you're classifying.
-
+      <p>This is a satellite image of a storm you're classifying.</p>
+      <p>The colors in these images show the temperatures at the tops of clouds.</p>
+      <p>White and blues indicates the coldest and tallest clouds that produce heavy rain and thunderstorms.</p>
+      <p>Pink and gray are warmer and shallower clouds.</p>
     '''
     attachment: arrowDirection: 'right', x: 'right', to: '.classifier img.subject', at: x: 'left'
 
