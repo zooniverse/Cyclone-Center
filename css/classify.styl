@@ -210,14 +210,19 @@ km-to-px(km, scale = (485 / 600))
               position: static
               width 85px
 
+              &:after
+                border 5px solid transparent
+                border-top-color $gray-dark
+                content " "
+                left 50%
+                margin 0 0 0 -5px
+                position absolute
+                top 100%
+
               &.selected:after
                 border 10px solid transparent
                 border-top-color $white
-                content " "
-                left 50%
                 margin 20px 0 0 -10px
-                position absolute
-                top 100%
 
             &.help
               border-top-left-radius 0
