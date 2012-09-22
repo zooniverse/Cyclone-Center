@@ -88,12 +88,15 @@ class StatsDialog extends Dialog
       el: @el.find '.wind-speed .graph'
       x: 'Date': @storm.times
       y: 'kt': @storm.winds
+      floor: 0
+      ceiling: 185
 
     @pressureGraph = new BarGraph
       el: @el.find '.pressure .graph'
       x: 'Date': @storm.times
       y: 'mb': @storm.pressures
-      floor: Math.floor 0.95 * Math.min @storm.pressures...
+      floor: 870
+      ceiling: 1020
 
 window.SD = StatsDialog
 module.exports = StatsDialog
