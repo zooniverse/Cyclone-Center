@@ -84,5 +84,6 @@ window.next = ->
 #   # stormId: '5057531d516bcb5717000001' # Aletta
 #   # stormId: '5057531d516bcb571700000d' # Bud
 #   # stormId: '5057531d516bcb571700001d' # Carlotta
-#   stormId: '50575320516bcb57170000ab' # Gilma
+#   # stormId: '50575320516bcb57170000ab' # Gilma
+#   stormId: '50575d48516bcb57170245d3' # Unnamed
 #   destroyOnClose: true

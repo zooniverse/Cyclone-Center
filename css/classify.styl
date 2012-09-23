@@ -365,6 +365,9 @@ km-to-px(km, scale = (485 / 600))
               &[name="unfavorite"]
                 display inline-block
 
+        p.detailed-prompt
+          margin -15px 0 10px
+
     .footer
       clearfix()
       border-top 1px solid $gray-light
@@ -494,3 +497,6 @@ km-to-px(km, scale = (485 / 600))
         -ms-filter  "FlipH"
         filter FlipH
         transform scaleX(-1)
+
+    &.advanced .step.reveal p.detailed-prompt
+      display none
