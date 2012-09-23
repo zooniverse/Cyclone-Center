@@ -6,7 +6,7 @@
     &ensp;(<%= Math.ceil ((new Date @times[-1...][0]) - (new Date @times[0])) / 86400000 %> days)
   </p>
 
-  <p class="strength"><strong>Strength</strong> <%= @strength %></p>
+  <!--<p class="strength"><strong>Strength</strong> <%= @strength %></p>-->
 </header>
 
 <section class="path column">
