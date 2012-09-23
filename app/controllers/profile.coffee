@@ -66,7 +66,7 @@ class Profile extends Spine.Controller
   onUserSignIn: =>
     return unless User.current
     @currentUser.html User.current.name
-    @classificaionCount.html User.current.classification_count
+    @classificaionCount.html User.current.project.classification_count
     Favorite.fetch page: @favPage, per_page: 20
     Recent.fetch page: @recPage, per_page: 20
 
