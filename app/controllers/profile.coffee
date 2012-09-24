@@ -17,12 +17,8 @@ class Profile extends Spine.Controller
   recPage: 1
 
   events:
-    'mouseenter .favorites li': 'onMouseEnterFavorite'
-    'mouseleave .favorites li': 'onMouseLeaveFavorite'
-    'click .favorites button[name="more"]': 'onClickMoreFavorites'
-    'click .favorites button[name="reveal"]': 'onClickReveal'
-    'click .favorites img': 'onClickReveal'
-    'click .favorites button[name="remove-favorite"]': 'onClickRemove'
+    'click button[name="remove-favorite"]': 'onClickRemoveFavorite'
+    'click button[name="more-favorites"]': 'onClickMoreFavorites'
     'click button[name="more-recents"]': 'onClickMoreRecents'
 
   elements:
@@ -54,97 +50,77 @@ class Profile extends Spine.Controller
     @onUserSignIn()
     User.bind 'sign-in', @onUserSignIn
 
-    # TODO: Why do I have to wait so long after fetching
-    # for recents and favorites to be available?
-
-    Favorite.bind 'fetch destroy', =>
-      setTimeout @updateFavorites, 500
-
-    Recent.bind 'fetch', =>
-      setTimeout @updateRecents, 500
+    Favorite.bind 'create', @onCreateFavorite
+    Favorite.bind 'destroy', @onDestroyFavorite
+    Recent.bind 'create', @onCreateRecent
 
   onUserSignIn: =>
+    @map.removeLabel label for id, label of @recentMapLabels
+    @map.removeLabel label for id, label of @favoriteMapLabels
+    @favoritesList.empty()
+
     return unless User.current
+
     @currentUser.html User.current.name
     @classificaionCount.html User.current.project.classification_count
+
     Favorite.fetch page: @favPage, per_page: 20
     Recent.fetch page: @recPage, per_page: 20
 
-  onClickMoreFavorites: =>
-    @favPage += 1
-    Favorite.fetch page: @favPage, per_page: 20
+  onCreateRecent: (recent) =>
+    subject = recent.subjects # Not a typo
+    metadata = subject.metadata
+    lat = metadata.lat || metadata.map_lat
+    lng = metadata.lng || metadata.map_lng
+    @recentMapLabels[recent.id] = @map.addLabel lat, lng, """
+      <strong>#{metadata.name}</strong> (#{metadata.year})<br />
+      #{metadata.iso_time}<br />
+      #{lat.toString()[0..8]}, #{lng.toString()[0..8]}<br />
+      <a href="#{CycloneSubject::talkHref.call zooniverseId: subject.zooniverse_id}">Discuss on Talk</a>
+    """
 
-  updateFavorites: =>
-    console.log 'Favorites fetched', Favorite.count()
+  onCreateFavorite: (favorite, {fromClassify}) =>
+      return unless favorite.subjects.metadata # Created from the UI. Wait for response from server.
 
-    @favoritesList.empty()
-    @map.removeLabel label for id, label of @favoriteMapLabels
-
-    favorites = Favorite.all()
-    for fav in favorites
       favItem = @favoriteTemplate.clone()
-      favItem.attr 'data-favorite': fav.id
+      favItem.attr 'data-favorite': favorite.id
 
-      subject = fav.subjects
-      continue unless subject.metadata?
-      lat = subject.metadata.lat || subject.metadata.map_lat
-      lng = subject.metadata.lng || subject.metadata.map_lng
+      subject = favorite.subjects # Not a typo
+      metadata = subject.metadata
+      lat = metadata.lat || metadata.map_lat
+      lng = metadata.lng || metadata.map_lng
 
       favItem.find('img').attr src: subject.location[randomPropertyFrom subject.location, /[^yesterday]$/]
-      favItem.find('.name').html subject.metadata.name
-      favItem.find('.year').html subject.metadata.year
-      favItem.find('.date').html subject.metadata.iso_time
-      favItem.find('.latitude').html lat.toString()[0..5]
-      favItem.find('.longitude').html lng.toString()[0..5]
-
+      favItem.find('.name').html metadata.name
+      favItem.find('.year').html metadata.year
+      favItem.find('.date').html metadata.iso_time
+      favItem.find('.latitude').html lat.toString()[0..8]
+      favItem.find('.longitude').html lng.toString()[0..8]
       favItem.find('a.talk').attr href:
         CycloneSubject::talkHref.call zooniverseId: subject.zooniverse_id
 
-      favItem.appendTo @favoritesList
+      if fromClassify
+        favItem.prependTo @favoritesList
+      else
+        favItem.appendTo @favoritesList
 
-      @favoriteMapLabels[fav.id] = @map.addLabel lat, lng, """
-        #{subject.metadata.name} (#{subject.metadata.year})<br />
-        #{subject.metadata.iso_time}<br />
-        #{lat.toString()[0..8]}, #{lng.toString()[0..8]}
-      """
+  onClickRemoveFavorite: ({currentTarget}) =>
+    itemParent = $(currentTarget).parents '[data-favorite]'
+    favoriteId = itemParent.attr 'data-favorite'
+    favorite = Favorite.find favoriteId
+    favorite.unfavorite()
 
-  onMouseEnterFavorite: ({currentTarget}) =>
-    favID = $(currentTarget).attr 'data-favorite'
-    @favoriteMapLabels[favID].setRadius 10
+  onDestroyFavorite: (favorite) =>
+    @favoritesList.children("[data-favorite='#{favorite.id}']").remove()
 
-  onMouseLeaveFavorite: ({currentTarget}) =>
-    favID = $(currentTarget).attr 'data-favorite'
-    @favoriteMapLabels[favID].setRadius 5
-
-  onClickReveal: ({currentTarget}) =>
-    favRoot = $(currentTarget).closest '[data-favorite]'
-    favID = favRoot.attr 'data-favorite'
-    label = @favoriteMapLabels[favID]
-    {lat, lng} = label.getLatLng()
-    @map.setCenter lat, lng
+  # TODO
 
   onClickMoreRecents: =>
     @recPage += 1
     Recent.fetch page: @recPage, per_page: 20
 
-  updateRecents: =>
-    console.log 'Recents fetched', Recent.count()
-    @map.removeLabel label for id, label of @recentMapLabels
-    for recent in Recent.all()
-      subject = recent.subjects
-      continue unless subject.metadata?
-      lat = subject.metadata.lat || subject.metadata.map_lat
-      lng = subject.metadata.lng || subject.metadata.map_lng
-      @recentMapLabels[recent.id] = @map.addLabel lat, lng, """
-        #{subject.metadata.name} (#{subject.metadata.year})<br />
-        #{subject.metadata.iso_time}<br />
-        #{lat.toString()[0..8]}, #{lng.toString()[0..8]}
-      """
-
-  onClickRemove: ({currentTarget}) =>
-    parent = $(currentTarget).parents '[data-favorite]'
-    favoriteId = parent.attr 'data-favorite'
-    favorite = Favorite.find favoriteId
-    favorite.unfavorite()
+  onClickMoreFavorites: =>
+    @favPage += 1
+    Favorite.fetch page: @favPage, per_page: 20
 
 module.exports = Profile

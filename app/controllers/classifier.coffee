@@ -457,18 +457,16 @@ class Classifier extends Spine.Controller
     itemParent = $(currentTarget).parents '[data-subject]'
     subjectId = itemParent.attr 'data-subject'
 
-    favorite = Favorite.create({})
-    favorite.subjects = {id: subjectId}
-    favorite.save()
+    dummyFavorite = Favorite.create subjects: id: subjectId
 
-    send = favorite.send().deferred
     @el.addClass 'favoriting'
-    send.done ->
-      # Give the the favorite a chance to update its ID.
-      setTimeout ->
-        itemParent.removeClass 'favoriting'
-        itemParent.attr 'data-favorite': favorite.id
-        Favorite.fetch()
+    send = dummyFavorite.send().deferred
+    send.done (rawFavorite) =>
+      newFavorite = new Favorite rawFavorite
+      newFavorite.save()
+      newFavorite.trigger 'create', fromClassify: true
+      itemParent.attr 'data-favorite': newFavorite.id
+      @el.removeClass 'favoriting'
 
   onClickUnfavorite: ({currentTarget}) =>
     itemParent = $(currentTarget).parents '[data-favorite]'
@@ -476,10 +474,9 @@ class Classifier extends Spine.Controller
 
     favorite = Favorite.find favoriteId
 
-    destroy = favorite.destroy().deferred
-    destroy.done ->
+    destroyer = favorite.unfavorite().deferred
+    destroyer.done ->
       itemParent.attr 'data-favorite': null
-      Favorite.fetch()
 
   onClickViewStats: =>
     console.log 'Viewing stats for', @recentClassifications[0].subject.groupId
