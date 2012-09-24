@@ -276,8 +276,8 @@ km-to-px(km, scale = (485 / 600))
           img,
           .swatch
             border-radius 3px
-            height 30px
-            width 30px
+            height 25px
+            width 25px
 
           img
             height 70px
@@ -376,7 +376,7 @@ km-to-px(km, scale = (485 / 600))
       .progress
         float left
         height 26px
-        width 33%
+        width 40%
 
         .message
           font-size 10px
@@ -404,7 +404,7 @@ km-to-px(km, scale = (485 / 600))
 
       .action
         float right
-        font-size 13px
+        font-size 11px
 
         button
           &[name="restart"]
@@ -417,6 +417,7 @@ km-to-px(km, scale = (485 / 600))
           &[name="next-subject"],
           &[name="next-storm"]
             standard-button()
+            padding 5px 15px
 
     // Reveal the appropriate step.
     &[data-step="stronger"] .stronger,
@@ -471,16 +472,16 @@ km-to-px(km, scale = (485 / 600))
     &[data-step="reveal"]
       .main-pair img
         &.subject
-          height 485px
+          height 455px
           margin-right 0
-          width 485px
+          width 455px
 
         &.match
           margin-left -300px
           opacity 0
 
       .step
-        max-width 485px
+        max-width 455px
 
     &[data-step="reveal"]
       .main-pair
