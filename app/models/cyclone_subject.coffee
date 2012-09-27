@@ -62,6 +62,12 @@ class CycloneSubject extends Subject
 
     subject.metadata.satellite = satellite
 
+    for location, src of subject.location
+      continue unless src
+      preload = $("<img src='#{src}' />")
+      preload.appendTo 'body'
+      preload.on 'load', -> $(@).remove()
+
     subject
 
   talkHref: ->
