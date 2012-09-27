@@ -7,6 +7,7 @@ Spine = require 'spine'
 Manager = require 'spine/lib/manager'
 Route = require 'spine/lib/route'
 
+googleAnalytics = require 'zooniverse/lib/google_analytics'
 Config = require 'lib/config'
 Api = require 'zooniverse/lib/api'
 TopBar = require 'zooniverse/lib/controllers/top_bar'
@@ -43,6 +44,8 @@ class App extends Manager.Stack
 
   constructor: ->
     super
+
+    googleAnalytics.init account: 'UA-1224199-33', domain: 'cyclonecenter.org'
 
     Api.init host: Config.apiHost
 
