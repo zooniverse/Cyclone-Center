@@ -5,6 +5,7 @@ Map = require 'zooniverse/lib/map'
 Dialog = require 'zooniverse/lib/dialog'
 Classification = require '../models/classification'
 Favorite = require 'zooniverse/lib/models/favorite'
+Recent = require 'zooniverse/lib/models/recent'
 StatsDialog = require './stats_dialog'
 User = require 'zooniverse/lib/models/user'
 Splits = require 'lib/splits'
@@ -429,11 +430,16 @@ class Classifier extends Spine.Controller
 
     @revealList.empty()
     for classification in @recentClassifications
+      recent = new Recent subjects: classification.subject
+      recent.save()
+
       item = @revealTemplate.clone()
       item.attr 'data-subject': classification.subject.id
       item.find('img').attr src: classification.subject.location.standard
       item.find('a.talk').attr href: classification.subject.talkHref()
       item.appendTo @revealList
+
+    Recent.trigger 'create-group', number: @recentClassifications.length
 
     @el.attr 'data-step': 'reveal'
     # @setRevealMessage()

@@ -53,6 +53,7 @@ class Profile extends Spine.Controller
     Favorite.bind 'create', @onCreateFavorite
     Favorite.bind 'destroy', @onDestroyFavorite
     Recent.bind 'create', @onCreateRecent
+    Recent.bind 'create-group', @onCreateRecentGroup
 
   onUserSignIn: =>
     @map.removeLabel label for id, label of @recentMapLabels
@@ -79,30 +80,34 @@ class Profile extends Spine.Controller
       <a href="#{CycloneSubject::talkHref.call zooniverseId: subject.zooniverse_id}">Discuss on Talk</a>
     """
 
+  onCreateRecentGroup: ({number}) =>
+    console.log 'Recent group created', number
+    @classificaionCount.html +@classificaionCount.html() + number
+
   onCreateFavorite: (favorite, {fromClassify}) =>
-      return unless favorite.subjects.metadata # Created from the UI. Wait for response from server.
+    return unless favorite.subjects.metadata # Created from the UI. Wait for response from server.
 
-      favItem = @favoriteTemplate.clone()
-      favItem.attr 'data-favorite': favorite.id
+    favItem = @favoriteTemplate.clone()
+    favItem.attr 'data-favorite': favorite.id
 
-      subject = favorite.subjects # Not a typo
-      metadata = subject.metadata
-      lat = metadata.lat || metadata.map_lat
-      lng = metadata.lng || metadata.map_lng
+    subject = favorite.subjects # Not a typo
+    metadata = subject.metadata
+    lat = metadata.lat || metadata.map_lat
+    lng = metadata.lng || metadata.map_lng
 
-      favItem.find('img').attr src: subject.location[randomPropertyFrom subject.location, /[^yesterday]$/]
-      favItem.find('.name').html metadata.name
-      favItem.find('.year').html metadata.year
-      favItem.find('.date').html metadata.iso_time
-      favItem.find('.latitude').html lat.toString()[0..8]
-      favItem.find('.longitude').html lng.toString()[0..8]
-      favItem.find('a.talk').attr href:
-        CycloneSubject::talkHref.call zooniverseId: subject.zooniverse_id
+    favItem.find('img').attr src: subject.location[randomPropertyFrom subject.location, /[^yesterday]$/]
+    favItem.find('.name').html metadata.name
+    favItem.find('.year').html metadata.year
+    favItem.find('.date').html metadata.iso_time
+    favItem.find('.latitude').html lat.toString()[0..8]
+    favItem.find('.longitude').html lng.toString()[0..8]
+    favItem.find('a.talk').attr href:
+      CycloneSubject::talkHref.call zooniverseId: subject.zooniverse_id
 
-      if fromClassify
-        favItem.prependTo @favoritesList
-      else
-        favItem.appendTo @favoritesList
+    if fromClassify
+      favItem.prependTo @favoritesList
+    else
+      favItem.appendTo @favoritesList
 
   onClickRemoveFavorite: ({currentTarget}) =>
     itemParent = $(currentTarget).parents '[data-favorite]'
@@ -112,8 +117,6 @@ class Profile extends Spine.Controller
 
   onDestroyFavorite: (favorite) =>
     @favoritesList.children("[data-favorite='#{favorite.id}']").remove()
-
-  # TODO
 
   onClickMoreRecents: =>
     @recPage += 1
