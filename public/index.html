@@ -13,6 +13,9 @@
     <![endif]-->
     <script src="application.js"></script>
     <script>
+      function noop() {}
+      window.console = window.console || {log: noop, debug: noop, info: noop, warn: noop, error: noop};
+
       var jQuery  = require("jqueryify");
       var exports = this;
       jQuery(function(){
