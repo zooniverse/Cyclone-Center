@@ -445,7 +445,7 @@ class Classifier extends Spine.Controller
     Recent.trigger 'create-group', number: @recentClassifications.length
 
     @el.attr 'data-step': 'reveal'
-    # @setRevealMessage()
+    @setRevealMessage()
     @seriesProgressFill.css width: '100%'
     @classification.annotate 'reveal', true # For the "next" button
     @nextSetup = null
@@ -456,11 +456,14 @@ class Classifier extends Spine.Controller
   revealFact: => $('.reveal.step .fact', @el)
 
   setRevealMessage: =>
-    split = User.current?.project.splits.classifier_messaging || 'default'
+    split = User.current?.project?.splits?.classifier_messaging or 'default'
+    userCount = User.current?.project?.user_count or 0
+    
     message = Splits.classifier_messaging[split]
     message = Splits.classifier_messaging.default unless message.isShown()
-    @revealHeader().text message.header()
-    @revealFact().text message.body(project.classification_count)
+    
+    @revealHeader().html message.header()
+    @revealFact().html message.body(userCount)
 
   onClickFavorite: ({currentTarget}) =>
     itemParent = $(currentTarget).parents '[data-subject]'
