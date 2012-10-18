@@ -10,34 +10,39 @@ module.exports =
     a:
       header: -> ''
       body: -> ''
-      isShown: -> true
+      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 1
     
     b:
-      header: -> 'Good job'
-      body: (userCount) -> "You and #{ userCount } other Zooniverse volunteers have contributed to Cyclone Center."
-      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 1
+      header: -> ''
+      body: -> ''
+      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 3
     
     c:
       header: -> 'Good job'
       body: (userCount) -> "You and #{ userCount } other Zooniverse volunteers have contributed to Cyclone Center."
-      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 3
+      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 1
     
     d:
       header: -> 'Good job'
-      body: -> 'You just successfully finished classifying satellite images of tropical cyclones'
-      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 1
+      body: (userCount) -> "You and #{ userCount } other Zooniverse volunteers have contributed to Cyclone Center."
+      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 3
     
     e:
       header: -> 'Good job'
       body: -> 'You just successfully finished classifying satellite images of tropical cyclones.'
-      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 3
+      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 1
     
     f:
+      header: -> 'Good job'
+      body: -> 'You just successfully finished classifying satellite images of tropical cyclones.'
+      isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 3
+    
+    g:
       header: -> 'Good job'
       body: -> 'Your work is directly helping the science of meteorology to better understand the formation and development of tropical cyclones.'
       isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 1
     
-    g:
+    h:
       header: -> 'Good job'
       body: -> 'Your work is directly helping the science of meteorology to better understand the formation and development of tropical cyclones.'
       isShown: -> User.current.project.reveal_count is undefined or User.current.project.reveal_count <= 3
