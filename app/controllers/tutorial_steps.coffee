@@ -7,6 +7,8 @@ module.exports = [
       <p>In this project you'll classify satellite images of storms. Let's take a quick look at the classification interface.</p>
     '''
     attachment: to: '.main-pair'
+    onLeave: ->
+      $(document).trigger 'enter-tutorial-step', 1
 
   new Step
     title: 'Subject'
@@ -17,6 +19,9 @@ module.exports = [
       <p>Pink and gray are warmer and shallower clouds.</p>
     '''
     attachment: arrowDirection: 'right', x: 'right', to: '.classifier img.subject', at: x: 'left'
+    onLeave: ->
+      $(document).trigger 'enter-tutorial-step', 2
+      console.log 'here'
 
   new Step
     title: 'Instructions'
@@ -26,6 +31,8 @@ module.exports = [
       <p>We'll combine your observations with the observations of other volunteers to come to a conclusion.</p>
     '''
     attachment: arrowDirection: 'bottom', y: 'bottom', to: '.classifier .step', at: y: 'top'
+    onLeave: ->
+      $('body').trigger 'enter-tutorial-step', 3
 
   new Step
     title: 'Get help'
@@ -33,6 +40,8 @@ module.exports = [
       <p>Click the "?" buttons to get help if you're not sure what you're being asked to do.</p>
     '''
     attachment: arrowDirection: 'bottom', y: 'bottom', to: '.classifier .help, .classifier .help-ball', at: y: 'top'
+    onLeave: ->
+      $('body').trigger 'enter-tutorial-step', 4
 
   new Step
     title: 'Progress'
@@ -42,6 +51,8 @@ module.exports = [
       <p>You can check your progress here.</p>
     '''
     attachment: arrowDirection: 'bottom', y: 'bottom', to: '.classifier .progress', at: y: 'top'
+    onLeave: ->
+      $('body').trigger 'enter-tutorial-step', 5
 
   new Step
     title: 'Reset'
@@ -49,6 +60,8 @@ module.exports = [
       <p>Make a mistake? Start your classification over with this button.</p>
     '''
     attachment: arrowDirection: 'bottom', y: 'bottom', to: '.classifier button[name="restart"]', at: y: 'top'
+    onLeave: ->
+      $('body').trigger 'enter-tutorial-step', 6
 
   new Step
     title: 'Detailed classification'
@@ -57,6 +70,8 @@ module.exports = [
       <p>Check this box to be asked the additional questions. Remember, they're subjective, so just use your best judgement.</p>
     '''
     attachment: arrowDirection: 'bottom', y: 'bottom', to: '.classifier input[name="detailed"]', at: y: 'top'
+    onLeave: ->
+      $('body').trigger 'enter-tutorial-step', 7
 
   new Step
     title: 'Have fun!'
@@ -65,4 +80,6 @@ module.exports = [
       <p>Thanks for your help!</p>
     '''
     attachment: to: '.classifier'
+    onLeave: ->
+      $('body').trigger 'enter-tutorial-step', 8
 ]
