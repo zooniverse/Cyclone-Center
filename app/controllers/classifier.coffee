@@ -101,7 +101,6 @@ class Classifier extends Spine.Controller
     @recentClassifications = []
 
     @defaultImageSrc = @matchImage.attr 'src'
-    @nextSubjects()
 
     @revealTemplate.remove()
 
@@ -117,6 +116,8 @@ class Classifier extends Spine.Controller
 
   onUserSignIn: =>
     console.log 'User signed in', User.current
+    @nextSubjects()
+
     if User.current and User.current.classification_count > 0
       @tutorial.end()
       console.log 'Tutorial already done, ended'

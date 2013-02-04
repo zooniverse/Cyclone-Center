@@ -78,9 +78,6 @@ window.reCSS = ->
   href += '?x=x' unless ~href.indexOf '?x=x'
   link.attr 'href', href + 'x'
 
-window.next = ->
-  window.classifier.onClickNext()
-
 # StatsDialog = require 'controllers/stats_dialog'
 
 # window.sd = new StatsDialog

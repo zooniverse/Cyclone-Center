@@ -32,6 +32,7 @@ class CycloneSubject extends Subject
     nexter
 
   @fetch: (count = config.setSize, fetcher) =>
+    # console.log 'User is', require('zooniverse/lib/models/user').current
     fetcher ?= $.Deferred()
 
     Api.get "/projects/cyclone_center/groups/subjects?limit=#{count}", (rawSubjects) =>
