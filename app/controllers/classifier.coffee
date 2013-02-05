@@ -115,6 +115,8 @@ class Classifier extends Spine.Controller
     User.bind 'sign-in', @onUserSignIn
 
   onUserSignIn: =>
+    CycloneSubject.destroyAll()
+
     console.log 'User signed in', User.current
     @nextSubjects()
 
