@@ -11,18 +11,6 @@
     <!--[if lt IE 9]>
       <script src="https://raw.github.com/aFarkas/html5shiv/master/dist/html5shiv.js"></script>
     <![endif]-->
-    <script src="application.js"></script>
-    <script>
-      function noop() {}
-      window.console = window.console || {log: noop, debug: noop, info: noop, warn: noop, error: noop};
-
-      var jQuery  = require("jqueryify");
-      var exports = this;
-      jQuery(function(){
-        var App = require("index");
-        exports.app = new App({el: $("#wrapper")});
-      });
-    </script>
   </head>
 
   <body>
@@ -616,6 +604,16 @@
         </div>
       </section>
     </div>
+    <script src="application.js"></script>
+    <script>
+      function noop() {}
+      window.console = window.console || {log: noop, debug: noop, info: noop, warn: noop, error: noop};
+
+      (function() {
+        var App = require("index");
+        window.app = new App({el: $("#wrapper")});
+      }());
+    </script>
     <script src="http://tracker.zooniverse.org/socket.io/socket.io.js" charset="utf-8"></script>
     <script src="http://tracker.zooniverse.org/client.js" charset="utf-8"></script>
   </body>
