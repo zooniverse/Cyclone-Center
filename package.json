@@ -12,5 +12,8 @@
     "spine": "~1.0.7",
     "nib": "~0.7.0",
     "zooniverse": "git+ssh://git@github.com:zooniverse/Zooniverse.git#master"
+  },
+  "scripts": {
+    "start": "hem server -p 8080"
   }
 }
