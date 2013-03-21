@@ -8,7 +8,7 @@ module.exports = [
     '''
     attachment: to: '.main-pair'
     onLeave: ->
-      $(document).trigger 'enter-tutorial-step', 1
+      $('body').trigger 'enter-tutorial-step', 1
 
   new Step
     title: 'Subject'
@@ -20,7 +20,7 @@ module.exports = [
     '''
     attachment: arrowDirection: 'right', x: 'right', to: '.classifier img.subject', at: x: 'left'
     onLeave: ->
-      $(document).trigger 'enter-tutorial-step', 2
+      $('body').trigger 'enter-tutorial-step', 2
       console.log 'here'
 
   new Step
