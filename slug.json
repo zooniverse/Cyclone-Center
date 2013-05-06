@@ -1,4 +1,6 @@
 {
+  "port": 8080,
+
   "dependencies": [
     "es5-shimify",
     "jqueryify",
