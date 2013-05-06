@@ -1,6 +1,7 @@
 <% translate = require 't7e' %>
 
 <nav>
+  <a href="#/home" class="logo">Cyclone Center</a>
   <a href="#/home"><%- translate 'span', 'navigation.home' %></a>
   <a href="#/about"><%- translate 'span', 'navigation.about' %></a>
   <a href="#/classify"><%- translate 'span', 'navigation.classify' %></a>

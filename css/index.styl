@@ -1,12 +1,21 @@
 @import "../node_modules/zooniverse/css/top-bar.css"
 @import "../node_modules/zooniverse/css/dialog.css"
 
-.page
-  & > .page-nav
-    display: none
+$blue = #027da9
+$sans-serif = "Open Sans", "Helvetica Neue", Arial, sans-serif
 
-  & > .page-subpages > .page
-    display: none
+button
+  background: transparent
+  border: 0
+  color: inherit
+  cursor: pointer
+  font: inherit
+  margin: 0
+  padding: 0
+  text-shadow: inherit
 
-    &.active
-      display: block
+  img
+    max-width: 100%
+
+@import "./layout"
+@import "./classify"

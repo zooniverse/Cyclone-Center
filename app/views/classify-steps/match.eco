@@ -1,0 +1,53 @@
+<div class="matches step">
+  <div class="categories">
+    <p class="instruction">Pick the cyclone type, then choose the closest match.</p>
+
+    <ul>
+      <li><button name="category" value="eye" class="toggle">Eye</button></li>
+      <li><button name="category" value="embedded" class="toggle">Embedded Center</button></li>
+      <li><button name="category" value="curved" class="toggle">Curved Band</button></li>
+      <li><button name="category" value="shear" class="toggle">Shear</button></li>
+      <li><button name="category" value="other" class="toggle">Other</button></li>
+    </ul>
+  </div>
+
+  <div class="matches">
+    <ul data-category="eye">
+      <li><button name="match" value="eye-4.0"><img src="images/matches/eye-4.0.thumb.png" /></button></li>
+      <li><button name="match" value="eye-5.0"><img src="images/matches/eye-5.0.thumb.png" /></button></li>
+      <li><button name="match" value="eye-6.0"><img src="images/matches/eye-6.0.thumb.png" /></button></li>
+      <li><button name="match" value="eye-7.0"><img src="images/matches/eye-7.0.thumb.png" /></button></li>
+      <li><button name="match" value="eye-8.0"><img src="images/matches/eye-8.0.thumb.png" /></button></li>
+    </ul>
+
+    <ul data-category="embedded">
+      <li><button name="match" value="embed-3.5"><img src="images/matches/embed-3.5.thumb.png" /></button></li>
+      <li><button name="match" value="embed-4.0"><img src="images/matches/embed-4.0.thumb.png" /></button></li>
+      <li><button name="match" value="embed-4.5"><img src="images/matches/embed-4.5.thumb.png" /></button></li>
+      <li><button name="match" value="embed-5.0"><img src="images/matches/embed-5.0.thumb.png" /></button></li>
+      <li><button name="match" value="embed-5.5"><img src="images/matches/embed-5.5.thumb.png" /></button></li>
+    </ul>
+
+    <ul data-category="curved">
+      <li><button name="match" value="band-1.5"><img src="images/matches/band-1.5.thumb.png" /></button></li>
+      <li><button name="match" value="band-2.0"><img src="images/matches/band-2.0.thumb.png" /></button></li>
+      <li><button name="match" value="band-2.5"><img src="images/matches/band-2.5.thumb.png" /></button></li>
+      <li><button name="match" value="band-3.0"><img src="images/matches/band-3.0.thumb.png" /></button></li>
+      <li><button name="match" value="band-3.5"><img src="images/matches/band-3.5.thumb.png" /></button></li>
+    </ul>
+
+    <ul data-category="shear">
+      <li><button name="match" value="shear-1.5"><img src="images/matches/shear-1.5.thumb.png" /></button></li>
+      <li><button name="match" value="shear-2.0"><img src="images/matches/shear-2.0.thumb.png" /></button></li>
+      <li><button name="match" value="shear-2.5"><img src="images/matches/shear-2.5.thumb.png" /></button></li>
+      <li><button name="match" value="shear-3.0"><img src="images/matches/shear-3.0.thumb.png" /></button></li>
+      <li><button name="match" value="shear-3.5"><img src="images/matches/shear-3.5.thumb.png" /></button></li>
+    </ul>
+
+    <ul data-category="other">
+      <li><button name="match" value="post-tropical"><img src="images/matches/other-post-tropical.png" /><span class="caption">Post-tropical</span></button></li>
+      <li><button name="match" value="limb"><img src="images/matches/other-limb.png" /><span class="caption">Edge</span></button></li>
+      <li><button name="match" value="no-storm"><img src="images/matches/other-no-storm.png" /><span class="caption">No storm</span></button></li>
+    </ul>
+  </div>
+</div>

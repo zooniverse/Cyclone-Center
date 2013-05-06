@@ -1,103 +1,51 @@
 html
-  background url("images/big-clouds.jpg") fixed center bottom
-  background-size cover
-  font 16px "Open Sans", sans-serif
-  height 100%
-  position relative
+  background: $blue
+  background: -moz-radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
+  background: -webkit-radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
+  background: radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
+  border-top: 5px solid #000
+  color: #fff
+  font: 14px $sans-serif
+  min-height: 100%
 
 body
-  background transparent
-  min-height 100%
-  position relative
+  margin: 0
 
-#wrapper
-  height auto // Reset on window resize
-  left 0
-  min-height 720px // Prevents most weird scrolling
-  position relative
-  top 0
-  width 100%
+  h1
+    font-size: 40px
+    font-weight: 300
+    margin: 0.25em 0
 
-  &.stack > section
-    display none
+  h2
+    font-weight: 300
 
-    &.active
-      display block
+  a
+    border-bottom: 1px solid
+    color: inherit
+    text-decoration: none
 
-  > nav
-    background $white
-    color $black
-    left 0
-    position relative
-    text-align center
-    top 0
-    width 100%
-    z-index 3
+    &:hover
+      color: yellow
 
-    a.logo
-      color $black
-      display inline-block
-      font-weight bold
-      left 50%
-      margin-left -450px
-      padding 13px 20px
-      position absolute
+  & > nav
+    margin: 0 auto
+    width: 1000px
 
-    ul
-      margin 0 auto
-      text-align right
-      width 1000px
+    a
+      color: inherit
+      border-bottom: 0
+      display: inline-block
+      padding: 10px
 
-      li
-        display inline-block
+      &.logo
+        font-size: 20px
 
-        a,
-        button
-          color rgba($black, 0.5)
-          display block
-          font-size 12px
-          font-weight bold
-          padding 15px
-          text-decoration none
+  & > .page
+    & > .page-nav
+      display: none
 
-          &:hover,
-          &.active
-            color $black
+    & > .page-subpages > .page
+      display: none
 
-a
-  color $blue
-  text-decoration none
-
-figure
-  font-size 12px
-  margin 0 10px 0 0
-  text-align center
-
-  img
-    display block
-
-  figcaption
-    font-weight bold
-
-.hang-left
-  float left
-  margin-right  10px
-
-.hang-right
-  float right
-  margin-right  10px
-
-[data-popup]
-  cursor pointer
-
-.popup-content
-  display none
-
-.to-do
-  outline 1px dashed rgba($orange, 0.75)
-
-#feedback .panel
-  panel()
-  float right
-  padding 3px
-  width 760px
+      &.active
+        display: block

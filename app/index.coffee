@@ -7,16 +7,20 @@ t7e.load enUs
 Api = require 'zooniverse/lib/api'
 api = new Api project: 'cyclone_center'
 
+Subject = require 'zooniverse/models/subject'
+Subject.group = true
+
 Navigation = require './controllers/navigation'
 navigation = new Navigation
 navigation.el.appendTo document.body
 
 Navigable = require 'navigable'
 Home = require './controllers/home'
+Classify = require './controllers/classify'
 stack = Navigable.stack [
   {'Home': new Home}
   {'About': 'This is the about page'}
-  {'Classify': 'This is the classify page'}
+  {'Classify': new Classify}
   {'Profile': 'This is the profile page'}
 ]
 
