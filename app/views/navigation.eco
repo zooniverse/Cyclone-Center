@@ -1,0 +1,10 @@
+<% translate = require 't7e' %>
+
+<nav>
+  <a href="#/home"><%- translate 'span', 'navigation.home' %></a>
+  <a href="#/about"><%- translate 'span', 'navigation.about' %></a>
+  <a href="#/classify"><%- translate 'span', 'navigation.classify' %></a>
+  <a href="#/profile"><%- translate 'span', 'navigation.profile' %></a>
+  <a href="#/TODO_TALK"><%- translate 'span', 'navigation.talk' %></a>
+  <a href="#/TODO_BLOG"><%- translate 'span', 'navigation.blog' %></a>
+</nav>

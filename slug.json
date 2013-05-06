@@ -1,16 +1,6 @@
 {
   "port": 8080,
 
-  "dependencies": [
-    "es5-shimify",
-    "jqueryify",
-    "underscore/underscore",
-    "spine",
-    "spine/lib/manager",
-    "spine/lib/route",
-    "zooniverse"
-  ],
-
   "libs": [
     "node_modules/zooniverse/vendor/base64.js"
   ]
