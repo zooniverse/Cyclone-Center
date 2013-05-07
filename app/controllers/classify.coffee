@@ -2,6 +2,9 @@ Controller = require 'zooniverse/controllers/base-controller'
 template = require '../views/classify'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
+$ = require 'jqueryify'
+
+MatchStep = require './classify-steps/match'
 
 class Classify extends Controller
   className: 'classify'
@@ -12,6 +15,8 @@ class Classify extends Controller
 
   constructor: ->
     super
+
+    new MatchStep {@el}
 
     @el.addClass 'loading'
 

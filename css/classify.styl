@@ -41,7 +41,6 @@
             font-size: 12px
             font-weight: bold
             line-height: 1
-            padding: 5px
             width: 100%
 
       .categories
@@ -55,14 +54,44 @@
             box-shadow: 0 1px 0 #fff inset
             height: 45px
             padding: 0 25px
+            position: relative
+
+            &.active
+              background: #ccc
+              border-left-color: #bbb
+              box-shadow: 0 1px 10px #999 inset
+
+              &:after
+                border: 15px solid transparent
+                border-bottom: 0
+                border-top-color: #ccc
+                content: ""
+                height: 0
+                left: 50%
+                margin: -7px 0 0 -15px
+                position: absolute
+                top: 100%
+                width: 0
 
       [data-category]
         background: #ccc
         box-shadow: 0 3px 10px rgba(#000, 0.33) inset
+        display: none
         padding: 5px
 
-        img
-          box-shadow: 0 1px 3px rgba(#000, 0.25)
+        &.active
+          display: block
+
+        button
+          padding: 5px
+
+          &.active
+            background: #fff
+            box-shadow: 0 1px 3px rgba(#000, 0.25)
+
+          img
+            box-shadow: 0 1px 3px rgba(#000, 0.25)
+            display: block
 
     .progress
       .followup
@@ -75,4 +104,3 @@
     position: absolute
     right: 0
     top: $min-top
-

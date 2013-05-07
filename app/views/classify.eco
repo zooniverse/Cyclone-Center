@@ -6,10 +6,7 @@
     <img src="//placehold.it/1.png" class="current" />
   </div>
 
-  <div class="steps">
-    <%- do require './classify-steps/stronger' %>
-    <%- do require './classify-steps/match' %>
-  </div>
+  <div class="steps"></div>
 
   <div class="progress">
     <button name="continue"><%- translate 'classify.continue' %></button>
