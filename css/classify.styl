@@ -15,14 +15,17 @@
     .subject
       overflow: hidden
       padding: 2px
-      text-align: center
 
       img
         border: 2px solid transparent
         box-sizing: border-box
-        float: left
+        display: block
         height: 318px
+        margin: 0 auto
         width: 318px
+
+        &.older
+          display: none
 
     .matches.step
       overflow: hidden
@@ -96,6 +99,18 @@
     .progress
       .followup
         display: none
+
+  // The "stronger" step gets side-by-side subject images.
+  &[data-step="stronger"] .controls .subject img
+    cursor: pointer
+    float: left
+    margin: 0
+
+    &.older
+      display: block
+
+    &.active
+      border-color: #000
 
   .details
     bottom: 0

@@ -6,7 +6,7 @@
     <img src="//placehold.it/1.png" class="current" />
   </div>
 
-  <div class="steps"></div>
+  <div class="step-controls"></div>
 
   <div class="progress">
     <button name="continue"><%- translate 'classify.continue' %></button>

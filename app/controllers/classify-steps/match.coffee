@@ -1,8 +1,10 @@
-Controller = require 'zooniverse/controllers/base-controller'
+Step = require './base-step'
 template = require '../../views/classify-steps/match'
 $ = require 'jqueryify'
 
-class Match extends Controller
+class Match extends Step
+  template: template
+
   events:
     'click button[name="category"]': 'onClickCategory'
     'click button[name="match"]': 'onClickMatch'
@@ -11,11 +13,6 @@ class Match extends Controller
     'button[name="category"]': 'categoryButtons'
     '[data-category]': 'categoryLists'
     'button[name="match"]': 'matchButtons'
-
-  constructor: ->
-    super
-    @el.find('.steps').append template
-    @nameElements()
 
   onClickCategory: (e) ->
     target = $(e.currentTarget)
