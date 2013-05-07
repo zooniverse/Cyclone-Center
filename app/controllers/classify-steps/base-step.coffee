@@ -9,6 +9,8 @@ class BaseStep
   template: null
   controls: null
 
+  property: ''
+
   events: null
   elements: null
 

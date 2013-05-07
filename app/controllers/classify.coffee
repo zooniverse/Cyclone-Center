@@ -28,6 +28,7 @@ class Classify extends Controller
     '.subject .older': 'olderImg'
     '.subject .current': 'currentImg'
     '.step-controls': 'stepControls'
+    'button[name="continue"]': 'continueButton'
 
   constructor: ->
     super
@@ -54,6 +55,7 @@ class Classify extends Controller
     @el.removeClass 'loading'
 
     @classification = new Classification {subject}
+    @classification.on 'change', @onClassificationChange
 
     satellite = grabRandomSatellite subject
     @currentImg.attr src: subject.location[satellite]
@@ -68,11 +70,23 @@ class Classify extends Controller
   onNoMoreSubjects: =>
     @el.removeClass 'loading'
 
+  onClassificationChange: (e, key, value) =>
+    requiredProperty = @steps[@step].property
+    disabled = if requiredProperty
+      not @classification.get(requiredProperty)?
+    else
+      false
+
+    @continueButton.attr {disabled}
+
   goToStep: (step) ->
     @steps[@step]?.leave()
     @step = step
 
     @el.attr 'data-step', @step
     @steps[@step].enter()
+
+    if @steps[@step].property
+      @continueButton.attr disabled: true
 
 module.exports = Classify

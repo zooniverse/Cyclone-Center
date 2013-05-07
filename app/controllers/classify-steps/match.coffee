@@ -3,6 +3,8 @@ template = require '../../views/classify-steps/match'
 $ = require 'jqueryify'
 
 class Match extends Step
+  property: 'match'
+
   template: template
 
   events:
@@ -24,11 +26,17 @@ class Match extends Step
     @categoryLists.removeClass 'active'
     @categoryLists.filter("[data-category='#{category}']").addClass 'active'
 
+    @matchButtons.removeClass 'active'
+
+    @classifier.classification.set @property, null
+
   onClickMatch: (e) ->
     target = $(e.currentTarget)
     match = target.val()
 
     @matchButtons.removeClass 'active'
     target.addClass 'active'
+
+    @classifier.classification.set @property, match
 
 module.exports = Match
