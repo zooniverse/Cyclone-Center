@@ -24,6 +24,9 @@ class Classify extends Controller
 
   classification: null
 
+  events:
+    'click button[name="continue"]': 'onClickContinue'
+
   elements:
     '.subject .older': 'olderImg'
     '.subject .current': 'currentImg'
@@ -78,6 +81,9 @@ class Classify extends Controller
       false
 
     @continueButton.attr {disabled}
+
+  onClickContinue: ->
+    match = @classification.get 'match'
 
   goToStep: (step) ->
     @steps[@step]?.leave()
