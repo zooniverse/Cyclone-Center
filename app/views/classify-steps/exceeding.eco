@@ -1,0 +1,15 @@
+<div class="exceeding step">
+  <p class="heading">Choose the colors completely surrounding the eye at least 0.5° thick.</p>
+  <p>Drag your mouse over the image to reveal a measuring tool.</p>
+  <p>
+    <button name="exceeding" value="warmest"><span class="warmest swatch">warmest</span></button>
+    <button name="exceeding" value="warmer"><span class="warmer swatch">warmer</span></button>
+    <button name="exceeding" value="warm"><span class="warm swatch">warm</span></button>
+    <button name="exceeding" value="warmish"><span class="warmish swatch">warmish</span></button>
+    <button name="exceeding" value="moderate"><span class="moderate swatch">moderate</span></button>
+    <button name="exceeding" value="cold"><span class="cold swatch">cold</span></button>
+    <button name="exceeding" value="coldish"><span class="coldish swatch">coldish</span></button>
+    <button name="exceeding" value="colder"><span class="colder swatch">colder</span></button>
+    <button name="exceeding" value="coldest"><span class="coldest swatch">coldest</span></button>
+  </p>
+</div>

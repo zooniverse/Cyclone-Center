@@ -57,8 +57,8 @@ class Center extends Step
 
     # TODO: This seems a bit unreliable. Clean it up.
 
-    x = (e.clientX - subjectOffset.left) + subjectImg.offsetLeft
-    y = (e.clientY - subjectOffset.top) + subjectImg.offsetTop
+    x = (e.pageX - subjectOffset.left) + subjectImg.offsetLeft
+    y = (e.pageY - subjectOffset.top) + subjectImg.offsetTop
 
     @circle.attr 'cx', x
     @circle.attr 'cy', y
