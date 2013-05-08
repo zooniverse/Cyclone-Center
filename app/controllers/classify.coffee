@@ -7,6 +7,7 @@ $ = require 'jqueryify'
 
 StrongerStep = require './classify-steps/stronger'
 MatchStep = require './classify-steps/match'
+CenterStep = require './classify-steps/center'
 
 grabRandomSatellite = (subject) ->
   satellites = for satellite of subject.location
@@ -47,6 +48,7 @@ class Classify extends Controller
     @steps =
       stronger: (new StrongerStep classifier: @)
       match: (new MatchStep classifier: @)
+      center: (new CenterStep classifier: @)
 
   onUserChange: (e, user) ->
     Subject.next()
@@ -64,6 +66,8 @@ class Classify extends Controller
     @currentImg.attr src: subject.location[satellite]
 
     olderLocation = subject.location["#{satellite}-yesterday"]
+    return @goToStep 'center'
+
     if olderLocation?
       @olderImg.attr src: olderLocation
       @goToStep 'stronger'
