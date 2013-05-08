@@ -34,16 +34,15 @@ class BaseStep
 
     if @hasDrawing
       @svg = new SVG width: 100, height: 100
-      @svg.el.style.display = 'none'
-      @svg.el.style.position = 'absolute'
-      @svg.el.style.left = 0
-      @svg.el.style.top = 0
-      @svg.el.style.width = SUBJECT_WIDTH
-      @svg.el.style.height = SUBJECT_HEIGHT
-      @svg.el.style.left = '50%'
-      @svg.el.style.top = '50%'
-      @svg.el.style.marginLeft = -0.5 * SUBJECT_WIDTH
-      @svg.el.style.marginTop = -0.5 * SUBJECT_HEIGHT
+      @svg.attr 'width', SUBJECT_WIDTH
+      @svg.attr 'height', SUBJECT_HEIGHT
+      @svg.attr 'style', """
+        display: none;
+        margin: #{-0.5 * SUBJECT_HEIGHT}px 0 0 #{-0.5 * SUBJECT_WIDTH}px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+      """
       @classifier.el.find('.subject').append @svg.el
 
     setTimeout =>
