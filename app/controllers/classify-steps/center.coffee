@@ -1,6 +1,5 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/center'
-SVG = require '../../lib/svg'
 $ = require 'jqueryify'
 
 class Center extends Step
@@ -8,7 +7,7 @@ class Center extends Step
 
   template: template
 
-  svg: null
+  hasDrawing: true
   circle: null
 
   mouseIsDown: false
@@ -25,15 +24,6 @@ class Center extends Step
   constructor: ->
     super
     window.centerStep = @
-
-    @svg = new SVG width: 100, height: 100
-    @svg.el.style.display = 'none'
-    @svg.el.style.position = 'absolute'
-    @svg.el.style.left = 0
-    @svg.el.style.top = 0
-    @svg.el.style.width = '100%'
-    @svg.el.style.height = '100%'
-    @classifier.el.find('.subject').append @svg.el
 
   onMouseDownSubject: (e) ->
     e.preventDefault()
@@ -57,8 +47,9 @@ class Center extends Step
 
     # TODO: This seems a bit unreliable. Clean it up.
 
-    x = (e.pageX - subjectOffset.left) + subjectImg.offsetLeft
-    y = (e.pageY - subjectOffset.top) + subjectImg.offsetTop
+    subjectOffset = @classifier.currentImg.offset()
+    x = e.pageX - subjectOffset.left
+    y = e.pageY - subjectOffset.top
 
     @circle.attr 'cx', x
     @circle.attr 'cy', y
