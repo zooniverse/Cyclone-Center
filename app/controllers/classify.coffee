@@ -13,6 +13,7 @@ SurroundingStep = require './classify-steps/surrounding'
 ExceedingStep = require './classify-steps/exceeding'
 FeatureStep = require './classify-steps/feature'
 BlueStep = require './classify-steps/blue'
+CurveStep = require './classify-steps/curve'
 
 grabRandomSatellite = (subject) ->
   satellites = for satellite of subject.location
@@ -59,6 +60,7 @@ class Classify extends Controller
       exceeding: (new ExceedingStep classifier: @)
       feature: (new FeatureStep classifier: @)
       blue: (new BlueStep classifier: @)
+      curve: (new CurveStep classifier: @)
 
   onUserChange: (e, user) ->
     Subject.next()

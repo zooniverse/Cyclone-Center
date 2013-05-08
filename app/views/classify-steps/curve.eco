@@ -1,0 +1,9 @@
+<div class="curve step">
+  <p class="heading">How far does the main band wrap?</p>
+  <p>
+    <button name="curve" value="0.2"><img src="images/curve/0.2.png" /></button>
+    <button name="curve" value="0.4"><img src="images/curve/0.4.png" /></button>
+    <button name="curve" value="0.6"><img src="images/curve/0.6.png" /></button>
+    <button name="curve" value="0.8"><img src="images/curve/0.8.png" /></button>
+  </p>
+</div>
