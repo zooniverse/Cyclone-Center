@@ -14,6 +14,7 @@ ExceedingStep = require './classify-steps/exceeding'
 FeatureStep = require './classify-steps/feature'
 BlueStep = require './classify-steps/blue'
 CurveStep = require './classify-steps/curve'
+RedStep = require './classify-steps/red'
 
 grabRandomSatellite = (subject) ->
   satellites = for satellite of subject.location
@@ -61,6 +62,7 @@ class Classify extends Controller
       feature: (new FeatureStep classifier: @)
       blue: (new BlueStep classifier: @)
       curve: (new CurveStep classifier: @)
+      red: (new RedStep classifier: @)
 
   onUserChange: (e, user) ->
     Subject.next()
@@ -79,7 +81,7 @@ class Classify extends Controller
 
     olderLocation = subject.location["#{satellite}-yesterday"]
 
-    return @goToStep 'blue'
+    return @goToStep 'red'
 
     if olderLocation?
       @olderImg.attr src: olderLocation
