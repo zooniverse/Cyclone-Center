@@ -8,6 +8,7 @@ $ = require 'jqueryify'
 StrongerStep = require './classify-steps/stronger'
 MatchStep = require './classify-steps/match'
 CenterStep = require './classify-steps/center'
+CenterEyeSizeStep = require './classify-steps/center-eye-size'
 
 grabRandomSatellite = (subject) ->
   satellites = for satellite of subject.location
@@ -49,6 +50,7 @@ class Classify extends Controller
       stronger: (new StrongerStep classifier: @)
       match: (new MatchStep classifier: @)
       center: (new CenterStep classifier: @)
+      centerEyeSize: (new CenterEyeSizeStep classifier: @)
 
   onUserChange: (e, user) ->
     Subject.next()
@@ -66,7 +68,8 @@ class Classify extends Controller
     @currentImg.attr src: subject.location[satellite]
 
     olderLocation = subject.location["#{satellite}-yesterday"]
-    return @goToStep 'center'
+
+    return @goToStep 'centerEyeSize'
 
     if olderLocation?
       @olderImg.attr src: olderLocation
@@ -79,7 +82,10 @@ class Classify extends Controller
 
   onClassificationChange: (e, key, value) =>
     requiredProperty = @steps[@step].property
-    disabled = if requiredProperty
+    disabled = if requiredProperty instanceof Array
+      set = (true for property in requiredProperty when @classification.get(property)?)
+      set.length isnt requiredProperty.length
+    else if requiredProperty
       not @classification.get(requiredProperty)?
     else
       false

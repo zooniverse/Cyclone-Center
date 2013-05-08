@@ -63,7 +63,7 @@ class Center extends Step
     @circle.attr 'cx', x
     @circle.attr 'cy', y
 
-    @classifier.classification.set @property, {x, y}
+    @classifier.classification.set 'center', {x, y}
 
   onDocumentMouseUp: (e) =>
     return unless @mouseIsDown
