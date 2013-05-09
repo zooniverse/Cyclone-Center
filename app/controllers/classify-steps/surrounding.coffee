@@ -1,7 +1,6 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/surrounding'
 translate = require 't7e'
-
 $ = require 'jqueryify'
 
 class Surrounding extends Step
