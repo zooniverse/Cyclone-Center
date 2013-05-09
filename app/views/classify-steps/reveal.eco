@@ -1,1 +1,9 @@
-<div>REVEAL!</div>
+<% translate = require 't7e' %>
+
+<h1 clas="storm-name"></h1>
+
+<div class="map"></div>
+
+<%- translate 'h2', 'classify.details.reveal.windAndPressure' %>
+
+<div class="graph"></div>

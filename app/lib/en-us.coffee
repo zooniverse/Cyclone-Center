@@ -80,8 +80,5 @@ module.exports =
         <p>Lorem ipsum dolor sit amet</p>
       '''
 
-      reveal: '''
-        <h1>reveal</h1>
-        <p>Here's how you find: reveal</p>
-        <p>Lorem ipsum dolor sit amet</p>
-      '''
+      reveal:
+        windAndPressure: 'Wind speed and pressure'
