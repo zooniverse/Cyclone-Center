@@ -16,6 +16,10 @@ class Blue extends Step
   elements:
     'button[name="blue"]': 'buttons'
 
+  reset: ->
+    super
+    @buttons.removeClass 'active'
+
   onClickButton: (e) ->
     target = $(e.currentTarget)
 

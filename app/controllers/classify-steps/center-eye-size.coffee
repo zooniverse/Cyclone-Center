@@ -15,13 +15,17 @@ class CenterEyeSizeStep extends CenterStep
   )
 
   elements: ($.extend {}, CenterStep::elements,
-    'button[name="size"]': 'sizeButtons'
+    'button[name="size"]': 'buttons'
   )
+
+  reset: ->
+    super
+    @buttons.removeClass 'active'
 
   onClickEye: (e) ->
     target = $(e.currentTarget)
 
-    @sizeButtons.removeClass 'active'
+    @buttons.removeClass 'active'
     target.addClass 'active'
 
     @classifier.classification.set 'size', target.val()

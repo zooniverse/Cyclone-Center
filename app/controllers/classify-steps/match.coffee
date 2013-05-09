@@ -19,6 +19,12 @@ class Match extends Step
     '[data-category]': 'categoryLists'
     'button[name="match"]': 'matchButtons'
 
+  reset: ->
+    super
+    @categoryButtons.removeClass 'active'
+    @categoryLists.removeClass 'active'
+    @matchButtons.removeClass 'active'
+
   onClickCategory: (e) ->
     target = $(e.currentTarget)
     category = target.val()

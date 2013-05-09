@@ -16,6 +16,10 @@ class Feature extends Step
   elements:
     'button[name="feature"]': 'buttons'
 
+  reset: ->
+    super
+    @buttons.removeClass 'active'
+
   onClickButton: (e) ->
     target = $(e.currentTarget)
 

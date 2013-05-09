@@ -31,6 +31,27 @@ class Red extends Step
     @center = @svg.create 'circle', r: 5, fill: 'black', 'stroke-width': 0
     @line = @svg.create 'line', stroke: 'black', 'stroke-width': 3
 
+  enter: ->
+    super
+    $(document).on "mouseup.#{@id}", @onDocumentMouseUp
+    @svg.el.style.display = ''
+
+    center = @classifier.classification.get 'center'
+    red = @classifier.classification.get 'red'
+    center ?= x: 160, y: 160
+    red ?= center
+
+    @center.attr 'cx', center.x
+    @center.attr 'cy', center.y
+
+    @line.attr 'x1', center.x
+    @line.attr 'y1', center.y
+    @line.attr 'x2', red.x
+    @line.attr 'y2', red.y
+
+  reset: ->
+    super
+
   onMouseDownSubject: (e) ->
     e.preventDefault()
 
@@ -52,24 +73,6 @@ class Red extends Step
   onDocumentMouseUp: (e) =>
     return unless @mouseIsDown
     @mouseIsDown = false
-
-  enter: ->
-    super
-    $(document).on "mouseup.#{@id}", @onDocumentMouseUp
-    @svg.el.style.display = ''
-
-    center = @classifier.classification.get 'center'
-    red = @classifier.classification.get 'red'
-    center ?= x: 160, y: 160
-    red ?= center
-
-    @center.attr 'cx', center.x
-    @center.attr 'cy', center.y
-
-    @line.attr 'x1', center.x
-    @line.attr 'y1', center.y
-    @line.attr 'x2', red.x
-    @line.attr 'y2', red.y
 
   leave: ->
     super

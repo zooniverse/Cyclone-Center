@@ -43,6 +43,10 @@ class Exceeding extends Step
     @center.attr 'cx', center.x
     @center.attr 'cy', center.y
 
+  reset: ->
+    super
+    @buttons.removeClass 'active'
+
   onMouseMove: (e) ->
     center = @classifier.classification.get 'center'
     center ?= x: 160, y: 160

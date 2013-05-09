@@ -16,6 +16,10 @@ class Curve extends Step
   elements:
     'button[name="curve"]': 'buttons'
 
+  reset: ->
+    super
+    @buttons.removeClass 'active'
+
   onClickButton: (e) ->
     target = $(e.currentTarget)
 

@@ -16,6 +16,12 @@ class Match extends Step
   elements:
     'button[name="stronger"][value="same"]': 'sameButton'
 
+  reset: ->
+    super
+    @classifier.currentImg.removeClass 'active'
+    @classifier.olderImg.removeClass 'active'
+    @sameButton.removeClass 'active'
+
   onClickOlder: ->
     @classifier.currentImg.removeClass 'active'
     @classifier.olderImg.addClass 'active'

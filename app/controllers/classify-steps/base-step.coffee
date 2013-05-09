@@ -61,6 +61,10 @@ class BaseStep
     @controls?.show()
     @details?.show()
     Controller::delegateEvents.call @
+    @reset()
+
+  reset: ->
+    # Do what you gotta do.
 
   leave: ->
     @svg?.el.style.display = 'none'

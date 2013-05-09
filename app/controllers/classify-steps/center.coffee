@@ -24,9 +24,15 @@ class Center extends Step
     '[data-category]': 'categoryLists'
     'button[name="match"]': 'matchButtons'
 
-  constructor: ->
+  enter: ->
     super
-    window.centerStep = @
+    $(document).on "mouseup.#{@id}", @onDocumentMouseUp
+    @svg.el.style.display = ''
+
+  reset: ->
+    super
+    @svg.el.removeChild @circle.el
+    @circle = null
 
   onMouseDownSubject: (e) ->
     e.preventDefault()
@@ -62,11 +68,6 @@ class Center extends Step
   onDocumentMouseUp: (e) =>
     return unless @mouseIsDown
     @mouseIsDown = false
-
-  enter: ->
-    super
-    $(document).on "mouseup.#{@id}", @onDocumentMouseUp
-    @svg.el.style.display = ''
 
   leave: ->
     super

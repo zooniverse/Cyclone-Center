@@ -16,6 +16,10 @@ class Surrounding extends Step
   elements:
     'button[name="surrounding"]': 'buttons'
 
+  reset: ->
+    super
+    @buttons.removeClass 'active'
+
   onClickColor: (e) ->
     target = $(e.currentTarget)
 
