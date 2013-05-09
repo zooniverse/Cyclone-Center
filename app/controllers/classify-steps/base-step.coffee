@@ -10,6 +10,9 @@ class BaseStep
   template: null
   controls: null
 
+  explanation: null
+  details: null
+
   hasDrawing: false
   svg: null
 
@@ -25,9 +28,14 @@ class BaseStep
     @el = @classifier.el
 
     if @template?
-      @controls = $(@template @)
+      @controls = $("<div>#{@template @}</div>")
       @controls.appendTo @classifier.stepControls
       @controls.hide()
+
+    if @explanation?
+      @details = $("<div>#{@explanation}</div>")
+      @details.appendTo @classifier.detailsContainer
+      @details.hide()
 
     SUBJECT_WIDTH = 318
     SUBJECT_HEIGHT = 318
@@ -49,13 +57,15 @@ class BaseStep
       Controller::nameElements.call @
 
   enter: ->
-    @controls.show()
     @svg?.el.style.display = ''
+    @controls?.show()
+    @details?.show()
     Controller::delegateEvents.call @
 
   leave: ->
-    @controls.hide()
     @svg?.el.style.display = 'none'
+    @controls?.hide()
+    @details?.hide()
     @el.off ".#{@id}"
 
 module.exports = BaseStep

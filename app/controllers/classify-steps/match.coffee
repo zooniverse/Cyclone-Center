@@ -1,11 +1,14 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/match'
+translate = require 't7e'
+
 $ = require 'jqueryify'
 
 class Match extends Step
   property: ['category', 'match']
 
   template: template
+  explanation: translate 'div', 'classify.details.catAndMatch'
 
   events:
     'click button[name="category"]': 'onClickCategory'

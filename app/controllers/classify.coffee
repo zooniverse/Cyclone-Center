@@ -35,12 +35,14 @@ class Classify extends Controller
 
   events:
     'click button[name="continue"], button[name="finish"]': 'onClickContinue'
+    'click button[name="next"]': 'onClickNext'
 
   elements:
     '.subject .older': 'olderImg'
     '.subject .current': 'currentImg'
     '.step-controls': 'stepControls'
     'button[name="continue"]': 'continueButton'
+    '.step-details': 'detailsContainer'
 
   constructor: ->
     super
@@ -122,7 +124,7 @@ class Classify extends Controller
       when 'centerEyeSize' then 'surrounding'
 
       when 'center'
-        switch 'category'
+        switch category
           when 'embedded' then 'feature'
           when 'curved' then 'blue'
           when 'shear' then 'red'
@@ -144,13 +146,13 @@ class Classify extends Controller
     @steps[@step]?.leave()
     @step = step
 
-    if @step?
-      @el.toggleClass 'last-step', not @getNextStep()?
+    @el.attr 'data-step', @step
+    @steps[@step].enter()
 
-      @el.attr 'data-step', @step
-      @steps[@step].enter()
+    if @steps[@step].property
+      @continueButton.attr disabled: true
 
-      if @steps[@step].property
-        @continueButton.attr disabled: true
+  onClickNext: ->
+    Subject.next()
 
 module.exports = Classify

@@ -1,10 +1,14 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/exceeding'
+translate = require 't7e'
+
 $ = require 'jqueryify'
 
 class Exceeding extends Step
   property: 'exceeding'
+
   template: template
+  explanation: translate 'div', 'classify.details.exceeding'
 
   hasDrawing: true
   center: null

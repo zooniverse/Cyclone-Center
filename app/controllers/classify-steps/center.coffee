@@ -1,11 +1,14 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/center'
+translate = require 't7e'
+
 $ = require 'jqueryify'
 
 class Center extends Step
   property: 'center'
 
   template: template
+  explanation: translate 'div', 'classify.details.center'
 
   hasDrawing: true
   circle: null

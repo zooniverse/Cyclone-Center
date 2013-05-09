@@ -1,11 +1,14 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/blue'
+translate = require 't7e'
+
 $ = require 'jqueryify'
 
 class Blue extends Step
   property: 'blue'
 
   template: template
+  explanation: translate 'div', 'classify.details.blue'
 
   events:
     'click button[name="blue"]': 'onClickButton'

@@ -1,11 +1,14 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/curve'
+translate = require 't7e'
+
 $ = require 'jqueryify'
 
 class Curve extends Step
   property: 'curve'
 
   template: template
+  explanation: translate 'div', 'classify.details.curve'
 
   events:
     'click button[name="curve"]': 'onClickButton'

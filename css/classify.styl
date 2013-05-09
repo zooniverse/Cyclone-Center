@@ -1,3 +1,10 @@
+@keyframes classify-loading
+  0%
+    background-color: rgba($blue, 0.25)
+
+  100%
+    background-color: rgba($blue, 0)
+
 .page > .classify
   $min-top = 40px
 
@@ -13,7 +20,7 @@
     width: 640px
 
     .subject
-      background: linear-gradient(bottom, rgba(#000, 0.25), rgba(#000, 0), transparent)
+      background-image: linear-gradient(bottom, rgba(#000, 0.25), rgba(#000, 0), transparent)
       overflow: hidden
       padding: 2px
       position: relative
@@ -130,11 +137,11 @@
         text-shadow: 0 1px 1px #000
         text-transform: uppercase
 
-        &[name="finish"]
-          display: none
-
       .followup
         display: none
+
+  &.loading .controls .subject
+    animation: 1s classify-loading ease-in-out infinite alternate
 
   // The "stronger" step gets side-by-side subject images.
   &[data-step="stronger"] .controls .subject img
@@ -148,15 +155,14 @@
     &.active
       border-color: #000
 
-  &.last-step
-    .progress button
-      &[name="continue"]
-        display: none
+  &[data-step="reveal"] .controls .progress
+    .in-progress
+      display: none
 
-      &[name="finish"]
-        display: inline-block
+    .followup
+      display: block
 
-  .details
+  .step-details
     bottom: 0
     left: 660px
     padding: 30px
