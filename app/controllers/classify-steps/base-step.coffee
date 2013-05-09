@@ -53,8 +53,7 @@ class BaseStep
       """
       @classifier.el.find('.subject').append @svg.el
 
-    setTimeout =>
-      Controller::nameElements.call @
+    Controller::nameElements.call @
 
   enter: ->
     @svg?.el.style.display = ''

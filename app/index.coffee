@@ -7,8 +7,15 @@ t7e.load enUs
 Api = require 'zooniverse/lib/api'
 api = new Api project: 'cyclone_center'
 
+# groups = [
+#   '5057531d516bcb5717000001'
+#   '5057531d516bcb571700000d'
+#   '5057531d516bcb571700001d'
+#   '5057531e516bcb5717000046'
+# ]
+
 Subject = require 'zooniverse/models/subject'
-Subject.group = true
+Subject.group = true # Changes from Home page
 
 Navigation = require './controllers/navigation'
 navigation = new Navigation
