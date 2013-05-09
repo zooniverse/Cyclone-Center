@@ -15,6 +15,7 @@ FeatureStep = require './classify-steps/feature'
 BlueStep = require './classify-steps/blue'
 CurveStep = require './classify-steps/curve'
 RedStep = require './classify-steps/red'
+RevealStep = require './classify-steps/reveal'
 
 grabRandomSatellite = (subject) ->
   satellites = for satellite of subject.location
@@ -33,7 +34,7 @@ class Classify extends Controller
   classification: null
 
   events:
-    'click button[name="continue"]': 'onClickContinue'
+    'click button[name="continue"], button[name="finish"]': 'onClickContinue'
 
   elements:
     '.subject .older': 'olderImg'
@@ -54,7 +55,7 @@ class Classify extends Controller
 
     @steps =
       stronger: (new StrongerStep classifier: @)
-      match: (new MatchStep classifier: @)
+      catAndMatch: (new MatchStep classifier: @)
       center: (new CenterStep classifier: @)
       centerEyeSize: (new CenterEyeSizeStep classifier: @)
       surrounding: (new SurroundingStep classifier: @)
@@ -63,6 +64,7 @@ class Classify extends Controller
       blue: (new BlueStep classifier: @)
       curve: (new CurveStep classifier: @)
       red: (new RedStep classifier: @)
+      reveal: (new RevealStep classifier: @)
 
   onUserChange: (e, user) ->
     Subject.next()
@@ -81,13 +83,11 @@ class Classify extends Controller
 
     olderLocation = subject.location["#{satellite}-yesterday"]
 
-    return @goToStep 'red'
-
     if olderLocation?
       @olderImg.attr src: olderLocation
       @goToStep 'stronger'
     else
-      @goToStep 'match'
+      @goToStep 'catAndMatch'
 
   onNoMoreSubjects: =>
     @el.removeClass 'loading'
@@ -105,16 +105,52 @@ class Classify extends Controller
     @continueButton.attr {disabled}
 
   onClickContinue: ->
-    match = @classification.get 'match'
+    @goToStep @getNextStep()
+
+  getNextStep: ->
+    category = @classification.get 'category'
+
+    switch @step
+      when 'stronger' then 'catAndMatch'
+
+      when 'catAndMatch'
+        switch category
+          when 'eye' then 'centerEyeSize'
+          when 'other' then 'reveal'
+          else 'center'
+
+      when 'centerEyeSize' then 'surrounding'
+
+      when 'center'
+        switch 'category'
+          when 'embedded' then 'feature'
+          when 'curved' then 'blue'
+          when 'shear' then 'red'
+          when 'other' then 'reveal'
+
+      when 'surrounding' then 'exceeding'
+
+      when 'exceeding' then 'feature'
+
+      when 'feature' then 'reveal'
+
+      when 'blue' then 'curve'
+
+      when 'curve' then 'reveal'
+
+      when 'red' then 'reveal'
 
   goToStep: (step) ->
     @steps[@step]?.leave()
     @step = step
 
-    @el.attr 'data-step', @step
-    @steps[@step].enter()
+    if @step?
+      @el.toggleClass 'last-step', not @getNextStep()?
 
-    if @steps[@step].property
-      @continueButton.attr disabled: true
+      @el.attr 'data-step', @step
+      @steps[@step].enter()
+
+      if @steps[@step].property
+        @continueButton.attr disabled: true
 
 module.exports = Classify
