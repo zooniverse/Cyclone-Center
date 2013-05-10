@@ -22,8 +22,8 @@ class Surrounding extends Step
   onClickColor: (e) ->
     target = $(e.currentTarget)
 
-    @buttons.removeAttr 'active'
-    target.addClass 'active'
+    @buttons.removeClass 'active'
+    target.prevAll().andSelf().addClass 'active'
 
     @classifier.classification.set @property, target.val()
 

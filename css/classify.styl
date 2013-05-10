@@ -36,88 +36,117 @@
         &.older
           display: none
 
-    .matches.step
-      overflow: hidden
-
-      ul
-        clearfix()
-        margin: 0
-        padding: 0
-
-        li
-          display: block
-          float: left
-          width: 20%
-
-          button
-            font-size: 12px
-            font-weight: bold
-            line-height: 1
-            width: 100%
-
-      .categories
-        ul
-          border-top: 1px solid #ccc
-
-          button
-            border: 1px solid #ccc
-            border-bottom: 0
-            border-left-color: #fff
-            border-top: 0
-            box-shadow: 0 1px 0 #fff inset
-            height: 45px
-            padding: 0 25px
-            position: relative
-
-            &.active
-              background: #ccc
-              border-left-color: #bbb
-              box-shadow: 0 1px 10px #999 inset
-
-              &:after
-                border: 15px solid transparent
-                border-bottom: 0
-                border-top-color: #ccc
-                content: ""
-                height: 0
-                left: 50%
-                margin: -7px 0 0 -15px
-                position: absolute
-                top: 100%
-                width: 0
-
-      [data-category]
-        background: #ccc
-        box-shadow: 0 3px 10px rgba(#000, 0.33) inset
-        display: none
-        padding: 5px
-
-        &.active
-          display: block
-
-        button
-          padding: 5px
-          position: relative
-
-          &.active
-            background: #fff
-            box-shadow: 0 1px 3px rgba(#000, 0.25)
-
-          img
-            box-shadow: 0 1px 3px rgba(#000, 0.25)
-            display: block
-
-          .caption
-            background: rgba(#fff, 0.75)
-            bottom: 10px
-            left: 10px
-            position: absolute
-            right: 10px
-            text-align: center
-
     .step-controls
       border-bottom: 1px solid #ccc
       border-top: 1px solid #fff
+
+      button
+        border: 1px solid #999
+        box-shadow:
+          0 1px 0px #fff inset,
+          0 1px 0px #fff
+        padding: 5px
+
+        &.active
+          background: #ccc
+          box-shadow:
+            0 2px 3px rgba(#000, 0.25) inset,
+            0 1px 0px #fff
+
+        img
+          display: block
+
+        .swatch
+          background: gray
+          box-shadow: 0 1px 1px rgba(#000, 0.25)
+          display: block
+          height: 30px
+          letter-spacing: -10em
+          overflow: hidden
+          text-indent: -10em
+          width: 30px
+
+      .matches.step
+        overflow: hidden
+
+        ul
+          clearfix()
+          margin: 0
+          padding: 0
+
+          li
+            display: block
+            float: left
+            width: 20%
+
+            button
+              font-size: 12px
+              font-weight: bold
+              line-height: 1
+              width: 100%
+
+        .categories
+          ul
+            border-top: 1px solid #ccc
+
+            button
+              border: 1px solid #ccc
+              border-bottom: 0
+              border-left-color: #fff
+              border-top: 0
+              box-shadow: 0 1px 0 #fff inset
+              height: 45px
+              padding: 0 25px
+              position: relative
+
+              &.active
+                background: #ccc
+                border-left-color: #bbb
+                box-shadow: 0 1px 10px #999 inset
+                color: inherit
+
+                &:after
+                  border: 15px solid transparent
+                  border-bottom: 0
+                  border-top-color: #ccc
+                  content: ""
+                  height: 0
+                  left: 50%
+                  margin: -7px 0 0 -15px
+                  position: absolute
+                  top: 100%
+                  width: 0
+
+        [data-category]
+          background: #ccc
+          box-shadow: 0 3px 10px rgba(#000, 0.33) inset
+          display: none
+          padding: 5px
+
+          &.active
+            display: block
+
+          button
+            border: 0
+            box-shadow: none
+            padding: 0
+            position: relative
+
+            &.active
+              background: #fff
+              box-shadow: 0 1px 3px rgba(#000, 0.25)
+
+            img
+              box-shadow: 0 1px 3px rgba(#000, 0.25)
+              display: block
+
+            .caption
+              background: rgba(#fff, 0.75)
+              bottom: 10px
+              left: 10px
+              position: absolute
+              right: 10px
+              text-align: center
 
     .progress
       border-bottom: 1px solid #ccc

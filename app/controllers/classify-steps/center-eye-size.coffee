@@ -14,7 +14,7 @@ class CenterEyeSizeStep extends CenterStep
   )
 
   elements: ($.extend {}, CenterStep::elements,
-    'button[name="size"]': 'buttons'
+    'button[name="eye"]': 'buttons'
   )
 
   reset: ->
