@@ -1,6 +1,6 @@
 Controller = require 'zooniverse/controllers/base-controller'
 SVG = require '../../lib/svg'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 nextId = 0
 

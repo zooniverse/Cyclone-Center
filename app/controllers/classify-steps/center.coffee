@@ -1,7 +1,7 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/center'
 translate = require 't7e'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 class Center extends Step
   property: 'center'

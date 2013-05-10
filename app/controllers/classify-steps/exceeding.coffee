@@ -1,7 +1,7 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/exceeding'
 translate = require 't7e'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 class Exceeding extends Step
   property: 'exceeding'

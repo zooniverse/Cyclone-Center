@@ -1,7 +1,7 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/blue'
 translate = require 't7e'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 class Blue extends Step
   property: 'blue'

@@ -1,7 +1,7 @@
 CenterStep = require './center'
 template = require '../../views/classify-steps/center-eye-size'
 translate = require 't7e'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 class CenterEyeSizeStep extends CenterStep
   property: ['center', 'size']

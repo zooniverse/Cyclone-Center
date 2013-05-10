@@ -1,7 +1,7 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/curve'
 translate = require 't7e'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 class Curve extends Step
   property: 'curve'

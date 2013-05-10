@@ -3,7 +3,7 @@ template = require '../views/classify'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 Classification = require 'zooniverse/models/classification'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 StrongerStep = require './classify-steps/stronger'
 MatchStep = require './classify-steps/match'

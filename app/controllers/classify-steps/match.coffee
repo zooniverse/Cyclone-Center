@@ -1,7 +1,7 @@
 Step = require './base-step'
 template = require '../../views/classify-steps/match'
 translate = require 't7e'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 class Match extends Step
   property: ['category', 'match']

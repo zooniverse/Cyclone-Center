@@ -1,5 +1,3 @@
-window.jQuery = require 'jqueryify' # Global jQuery
-
 translate = require 't7e'
 enUs = require './lib/en-us'
 t7e.load enUs

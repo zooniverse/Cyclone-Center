@@ -1,6 +1,6 @@
 Step = require './base-step'
 detailsTemplate = require '../../views/classify-steps/reveal'
-$ = require 'jqueryify'
+$ = window.jQuery
 Leaflet = window.L
 Api = require 'zooniverse/lib/api'
 
