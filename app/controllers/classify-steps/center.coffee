@@ -30,7 +30,7 @@ class Center extends Step
 
   reset: ->
     super
-    @svg.el.removeChild @circle.el
+    @circle?.remove()
     @circle = null
 
   onMouseDownSubject: (e) ->
