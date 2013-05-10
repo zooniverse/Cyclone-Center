@@ -12,6 +12,9 @@ class Shape
   attr: (attribute, value) ->
     @el.setAttributeNS null, attribute, value
 
+  remove: ->
+    @el.parentNode.removeChild @el
+
 class SVG
   el: null
 
