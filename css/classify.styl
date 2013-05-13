@@ -66,6 +66,10 @@
           text-indent: -10em
           width: 30px
 
+      .stronger.step
+        button
+          padding: 5px 20px
+
       .matches.step
         overflow: hidden
 
@@ -80,6 +84,7 @@
             width: 20%
 
             button
+              display: block
               font-size: 12px
               font-weight: bold
               line-height: 1
@@ -96,7 +101,6 @@
               border-top: 0
               box-shadow: 0 1px 0 #fff inset
               height: 45px
-              padding: 0 25px
               position: relative
 
               &.active
@@ -127,13 +131,13 @@
             display: block
 
           button
-            border: 0
+            border: 5px solid transparent
             box-shadow: none
             padding: 0
             position: relative
 
             &.active
-              background: #fff
+              border-color: #fff
               box-shadow: 0 1px 3px rgba(#000, 0.25)
 
             img
