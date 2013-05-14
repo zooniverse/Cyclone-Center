@@ -4,4 +4,6 @@
 
 <%- translate 'h2', 'home.explanation' %>
 
+<hr />
+
 <div class="active-storms"></div>

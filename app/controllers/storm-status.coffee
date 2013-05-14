@@ -1,6 +1,7 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 template = require '../views/storm-status'
 Api = require 'zooniverse/lib/api'
+Subject = require 'zooniverse/models/subject'
 
 class StormStatus extends BaseController
   group: ''
@@ -8,6 +9,9 @@ class StormStatus extends BaseController
 
   className: 'storm-status'
   template: template
+
+  events:
+    'click button[name="select"]': 'onSelect'
 
   elements:
     '.preview': 'previewImg'
@@ -36,5 +40,10 @@ class StormStatus extends BaseController
 
     @nameContainer.html @storm.name
     @yearContainer.html parseInt middleCapture.time, 10
+
+  onSelect: ->
+    Subject.group = @group
+    Subject.destroyAll()
+    Subject.next()
 
 module.exports = StormStatus
