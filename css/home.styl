@@ -1,38 +1,79 @@
-#home
-  full-size()
-  background linear-gradient($black, transparent)
-  color $white
+.storm-status
+  background: #fff
+  border: 1px solid #fff
+  box-shadow: 0 3px 3px -3px #000
+  color: #000
+  display: inline-block
+  margin-left: 20px
 
-  header
-    font-size 14px
-    line-height 1.4
-    margin 90px auto
-    text-shadow 0 1px 1px rgba(black, 0.5)
-    width 1000px
+  .preview
+    display: block
+    max-width: 100%
 
-    h1
-      border-bottom 1px solid rgba($white, 0.5)
-      margin-bottom 20px
+  .progress
+    .track
+      background: #000
+      height: 5px
+      position: relative
 
-      img
-        margin 0 0 -10px -20px
-        max-width 50%
+      .fill
+        background: green
+        height: 100%
+        left: 0
+        position: absolute
+        top: 0
+        width: 50%
 
-    h2
-      font-size 18px
-      font-weight bold
+        .complete
+          background: #000
+          border-radius: 20px
+          bottom: 10px
+          color: #fff
+          font-size: 10px
+          font-weight: bold
+          line-height: 1
+          margin-right: -20px
+          padding: 3px 5px
+          position: absolute
+          right: 0
+          text-align: center
+          width: 25px
 
-    p
-      margin 1.5em 0
+          &:after
+            border: 5px solid transparent
+            border-top-color: black
+            content: ""
+            left: 50%
+            margin-left: -5px
+            position: absolute
+            top: 100%
 
-    a.classify
-      standard-button()
-      background: $orange
-      border 0
-      box-shadow 0 1px 1px rgba(white, 0.25) inset, 0 -1px 1px rgba(black, 0.25) inset, 0 3px 5px rgba(black, 0.5)
-      color $white
-      font-size 18px
-      font-weight bold
-      margin-top 25px
-      padding 15px 25px
-      text-shadow 0 1px 1px rgba($black, 0.5)
+  .info
+    padding: 5px
+
+    .name
+      font-weight: bold
+
+    .year
+      float: right
+
+  .actions
+    border-top: 1px solid #ccc
+    display: table
+    width: 100%
+
+    .action
+      border: 0
+      border-left: 1px solid #ccc
+      display: table-cell
+      padding: 3px 0
+      text-align: center
+      text-decoration: none
+
+      &:first-child
+        border-left: 0
+
+    button
+      color: $blue
+      font-size: 12px
+      font-weight: bold

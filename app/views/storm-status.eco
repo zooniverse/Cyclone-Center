@@ -1,0 +1,22 @@
+<% translate = require 't7e' %>
+
+<img class="preview" />
+
+<div class="progress">
+  <div class="track">
+    <div class="fill">
+      <div class="complete"><span class="value">&mdash;</span>%</div>
+    </div>
+  </div>
+</div>
+
+<div class="info">
+  <span class="name">&mdash;</span>
+  <span class="year">&mdash;</span>
+</div>
+
+<div class="actions">
+  <a href="#/TWITTER" class="twitter action">(t)</a>
+  <a href="#/FACEBOOK" class="facebook action">(fb)</a>
+  <span class="action"><button name="select"><%- translate 'span', 'home.analyze' %></button></span>
+</div>

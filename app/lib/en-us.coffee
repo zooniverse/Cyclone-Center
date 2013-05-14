@@ -7,7 +7,17 @@ module.exports =
     talk: 'Discuss'
     blog: 'Blog'
 
-  home: {}
+  home:
+    intro: '''
+      Climate scientists need your help analyzing more than 30 years of tropical cyclone satellite imagery.
+    '''
+
+    explanation: '''
+      Differences in analysis around the world and through time have caused uncertainties in the global cyclone tensity record.
+      Scientists are enlisting the public because patterns in storm imagery are best recognized by the human eye.
+    '''
+
+    analyze:'Analyze this storm'
 
   classify:
     favorite: 'Favorite'

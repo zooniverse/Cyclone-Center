@@ -1,1 +1,7 @@
-<h1>Cyclone Center</h1>
+<% translate = require 't7e' %>
+
+<%- translate 'h1', 'home.intro' %>
+
+<%- translate 'h2', 'home.explanation' %>
+
+<div class="active-storms"></div>
