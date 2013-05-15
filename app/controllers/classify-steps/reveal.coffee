@@ -46,9 +46,9 @@ class Reveal extends Step
       title:
         text: ''
 
-      xAxis:
-        labels:
-          rotation: -45
+      # xAxis:
+      #   labels:
+      #     rotation: -45
       series: [
         {name: 'Wind'}
         {name: 'Wind range', type: 'errorbar'}
@@ -68,22 +68,35 @@ class Reveal extends Step
     getStorm.then (storm) =>
       @stormNameContainer.html storm.name
 
-      # console.log 'Stats', storm.metadata.stats
-
       categories = []
 
+      lastLat = null
+      lastLng = null
+
       for {time, lat, lng, wind, pressure} in storm.metadata.stats
+        # Ignore any crazy numbers.
+        lat = lastLat if lastLat and Math.abs(lastLat - lat) > 20
+        lng = lastLng if lastLng and Math.abs(lastLng - lng) > 20
+
+        lng += 360 if lng < 0 # 0 through 360 instead of -180 through +180
+
+        [lastLat, lastLng] = [lat, lng]
+
         @trail.addLatLng [lat, lng]
 
-        @chart.series[0].addPoint wind.wmo
-        @chart.series[1].addPoint [wind.min, wind.max]
-        @chart.series[2].addPoint pressure.wmo
-        @chart.series[3].addPoint [pressure.min, pressure.max]
+        @chart.series[0].addPoint wind.wmo, false
+        @chart.series[1].addPoint [wind.min, wind.max], false
+        @chart.series[2].addPoint pressure.wmo, false
+        @chart.series[3].addPoint [pressure.min, pressure.max], false
         categories.push time
 
       # @chart.axes[0].setCategories categories
 
-      @youAreHere.setLatLng @classifier.classification.subject.coords
+      setTimeout => @chart.redraw()
+
+      coords = @classifier.classification.subject.coords
+      coords[1] += 360 if coords[1] < 0
+      @youAreHere.setLatLng coords
       @map.setView @classifier.classification.subject.coords, DEFAULT_ZOOM
 
   reset: ->

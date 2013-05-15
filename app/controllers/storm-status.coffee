@@ -26,7 +26,6 @@ class StormStatus extends BaseController
     @constructor.on 'select', @onGroupChanged
 
     Api.current.get "/projects/#{Api.current.project}/groups/#{@group}", (storm) =>
-      console.log storm
       @storm = storm
       @render()
 
@@ -57,7 +56,6 @@ class StormStatus extends BaseController
       location.hash = '/classify'
 
   onGroupChanged: (e, group) =>
-    console.log {@el, @group}, {group}
     @el.toggleClass 'active', group is @group
 
 module.exports = StormStatus
