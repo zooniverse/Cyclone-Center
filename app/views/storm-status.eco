@@ -1,5 +1,7 @@
 <% translate = require 't7e' %>
 
+<div class="loader"></div>
+
 <img class="preview" />
 
 <div class="progress">

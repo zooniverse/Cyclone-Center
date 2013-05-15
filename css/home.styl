@@ -1,3 +1,10 @@
+@keyframes wait-for-next
+  0%
+    background-position: 0 0
+
+  100%
+    background-position: 50px 0
+
 .page > .home
   margin: 50px auto
   text-align: center
@@ -10,7 +17,23 @@
   color: #000
   display: inline-block
   margin: 10px
+  position: relative
   width: 310px
+
+  .loader
+    animation: 1s wait-for-next linear infinite
+    background: linear-gradient(left top, transparent 25%, $blue 25%, $blue 50%, transparent 50%, transparent 75%, $blue 75%)
+    background-size: 25px 25px
+    bottom: 0
+    display: none
+    left: 0
+    opacity: 0.25
+    position: absolute
+    right: 0
+    top: 0
+
+  &.loading .loader
+    display: block
 
   .preview
     display: block

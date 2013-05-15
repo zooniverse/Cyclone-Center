@@ -44,6 +44,10 @@ class StormStatus extends BaseController
   onSelect: ->
     Subject.group = @group
     Subject.destroyAll()
-    Subject.next()
+
+    @el.addClass 'loading'
+    Subject.next =>
+      @el.removeClass 'loading'
+      location.hash = "/classify"
 
 module.exports = StormStatus
