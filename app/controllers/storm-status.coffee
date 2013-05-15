@@ -22,6 +22,9 @@ class StormStatus extends BaseController
 
   constructor: ->
     super
+
+    @constructor.on 'select', @onGroupChanged
+
     Api.current.get "/projects/#{Api.current.project}/groups/#{@group}", (storm) =>
       console.log storm
       @storm = storm
@@ -41,13 +44,20 @@ class StormStatus extends BaseController
     @nameContainer.html @storm.name
     @yearContainer.html parseInt middleCapture.time, 10
 
+  # NOTE: This is also called manually from the home controller.
   onSelect: ->
     Subject.group = @group
     Subject.destroyAll()
 
+    StormStatus.trigger 'select', @group
+
     @el.addClass 'loading'
     Subject.next =>
       @el.removeClass 'loading'
-      location.hash = "/classify"
+      location.hash = '/classify'
+
+  onGroupChanged: (e, group) =>
+    console.log {@el, @group}, {group}
+    @el.toggleClass 'active', group is @group
 
 module.exports = StormStatus

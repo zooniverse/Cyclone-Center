@@ -19,6 +19,10 @@ module.exports =
 
     analyze:'Analyze this storm'
 
+    or: 'or'
+
+    classifyRandom: 'Classify a random storm'
+
   classify:
     favorite: 'Favorite'
     continue: 'Continue'

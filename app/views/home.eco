@@ -6,4 +6,12 @@
 
 <hr />
 
-<div class="active-storms"></div>
+<div class="storm-selection">
+  <div class="active-storms"></div>
+
+  <hr />
+  <p class="random">
+    <%- translate 'span', 'home.or' %>
+    <button name="random"><%- translate 'span', 'home.classifyRandom' %></button>
+  </p>
+</div>
