@@ -59,6 +59,10 @@ class Reveal extends Step
       tooltip:
         shared: true
 
+    $(window).on 'hashchange', =>
+      @map.invalidateSize()
+      @chart.setSize @graphContainer.width(), @graphContainer.height()
+
   enter: ->
     super
     @map.invalidateSize()
@@ -92,7 +96,9 @@ class Reveal extends Step
 
       # @chart.axes[0].setCategories categories
 
-      setTimeout => @chart.redraw()
+      setTimeout =>
+        @chart.setSize @graphContainer.width(), @graphContainer.height()
+        @chart.redraw()
 
       coords = @classifier.classification.subject.coords
       coords[1] += 360 if coords[1] < 0
