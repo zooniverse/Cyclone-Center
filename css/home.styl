@@ -19,6 +19,11 @@
     margin: 0 5px
     padding: 3px 10px
 
+    &.loading
+      animation: 1s wait-for-next linear infinite
+      background-image: linear-gradient(left top, transparent 25%, rgba($blue, 0.25) 25%, rgba($blue, 0.25) 50%, transparent 50%, transparent 75%, rgba($blue, 0.25) 75%)
+      background-size: 25px 25px
+
     &.active
       border-color: #fc0
 
@@ -31,6 +36,7 @@
   display: inline-block
   margin: 10px
   position: relative
+  text-align: left
   width: 310px
 
   .loader
@@ -47,9 +53,6 @@
 
   &.loading .loader
     display: block
-
-  &.active
-    border-color: #fc0
 
   .preview
     display: block
@@ -111,7 +114,6 @@
       border: 0
       border-left: 1px solid #ccc
       display: table-cell
-      padding: 3px 0
       text-align: center
       text-decoration: none
 
@@ -122,3 +124,11 @@
       color: $blue
       font-size: 12px
       font-weight: bold
+      height: 2em
+      width: 100%
+
+  &.active
+    border-color: #fc0
+
+    .actions button
+      background: #fc0
