@@ -16,11 +16,12 @@ Navigable = require 'navigable'
 Home = require './controllers/home'
 About = require './controllers/about'
 Classify = require './controllers/classify'
+Profile = require 'zooniverse/controllers/profile'
 stack = Navigable.stack [
   {'Home': new Home}
   {'About': new About}
   {'Classify': new Classify}
-  {'Profile': 'This is the profile page'}
+  {'Profile': new Profile}
 ]
 
 document.body.appendChild stack.el
