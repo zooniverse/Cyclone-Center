@@ -45,6 +45,10 @@ class StormStatus extends BaseController
 
   # NOTE: This is also called manually from the home controller.
   onSelect: ->
+    if Subject.group is @group
+      location.hash = '/classify'
+      return
+
     Subject.group = @group
     Subject.destroyAll()
 
