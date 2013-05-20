@@ -11,7 +11,7 @@ class StormStatus extends BaseController
   template: template
 
   events:
-    'click button[name="select"]': 'onSelect'
+    'click': 'onClick'
 
   elements:
     '.preview': 'previewImg'
@@ -42,6 +42,10 @@ class StormStatus extends BaseController
 
     @nameContainer.html @storm.name
     @yearContainer.html parseInt middleCapture.time, 10
+
+  onClick: (e) ->
+    unless e.target.nodeName.toUpperCase() is 'A'
+      @onSelect e
 
   # NOTE: This is also called manually from the home controller.
   onSelect: ->

@@ -29,15 +29,24 @@
 
 .storm-status
   background: #fff
-  border: 5px solid #fff
+  border: 1px solid #fff
   box-shadow: 0 3px 3px -3px #000
   box-sizing: border-box
   color: #000
+  cursor: pointer
   display: inline-block
   margin: 10px
   position: relative
   text-align: left
   width: 310px
+
+  &:hover
+    border-color: #000
+
+  &.active
+    background: #ff0
+    border-color: #ff0
+    cursor: default
 
   .loader
     animation: 1s wait-for-next linear infinite
@@ -126,9 +135,3 @@
       font-weight: bold
       height: 2em
       width: 100%
-
-  &.active
-    border-color: #fc0
-
-    .actions button
-      background: #fc0
