@@ -1,5 +1,7 @@
 Controller = require 'zooniverse/controllers/base-controller'
 template = require '../views/classify'
+loginDialog = require 'zooniverse/controllers/login-dialog'
+signUpDialog = require 'zooniverse/controllers/signup-dialog'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 Classification = require 'zooniverse/models/classification'
@@ -36,6 +38,8 @@ class Classify extends Controller
   events:
     'click button[name="continue"], button[name="finish"]': 'onClickContinue'
     'click button[name="next"]': 'onClickNext'
+    'click .not-signed-in .sign-in': -> loginDialog.show()
+    'click .not-signed-in .sign-up': -> signUpDialog.show()
 
   elements:
     '.subject .older': 'olderImg'
@@ -68,7 +72,8 @@ class Classify extends Controller
       red: (new RedStep classifier: @)
       reveal: (new RevealStep classifier: @)
 
-  onUserChange: (e, user) ->
+  onUserChange: (e, user) =>
+    @el.toggleClass 'signed-in', user?
     Subject.next()
 
   onGettingNextSubject: =>

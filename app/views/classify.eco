@@ -15,18 +15,24 @@
 
     <div class="followup">
       <div class="talk">
-        <a href="#/TALK_IMAGE" class="talk-image"><%- translate 'classify.talkSubject' %></a>
-        <a href="#/TALK_STORM" class="talk-storm"><%- translate 'classify.talkGroup' %></a>
+        <a href="#/TALK_IMAGE" class="talk-image"><%- translate 'span', 'classify.talkSubject' %></a>
+        <a href="#/TALK_STORM" class="talk-storm"><%- translate 'span', 'classify.talkGroup' %></a>
       </div>
 
       <div class="social">
-        <a href="#/FACEBOOK" class="facebook"><%- translate 'classify.share' %></a>
-        <a href="#/TWITTER" class="twitter"><%- translate 'classify.tweet' %></a>
+        <a href="#/FACEBOOK" class="facebook"><%- translate 'span', 'classify.share' %></a>
+        <a href="#/TWITTER" class="twitter"><%- translate 'span', 'classify.tweet' %></a>
       </div>
 
       <button name="next"><%- translate 'classify.next' %></button>
     </div>
   </div>
 </div>
+
+<p class="not-signed-in">
+  <%- translate 'span', 'classify.notSignedIn' %>
+  <%- translate 'span.sign-in', 'classify.pleaseSignIn' %>
+  <%- translate 'span.sign-up', 'classify.orSignUp' %>
+</p>
 
 <div class="step-details"></div>

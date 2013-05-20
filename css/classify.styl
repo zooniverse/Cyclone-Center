@@ -12,11 +12,10 @@
     background: #eee
     box-shadow: 0 2px 4px -1px rgba(#000, 0.5)
     color: #000
-    left: 20px
-    position: absolute
+    margin-left: 20px
     text-align: center
     text-shadow: 0 1px #fff
-    top: $min-top + 20px
+    margin-top: $min-top + 20px
     width: 640px
 
     .subject
@@ -185,6 +184,18 @@
 
     .followup
       display: block
+
+  .not-signed-in
+    margin-left: 20px
+    width: 640px
+
+    .sign-in,
+    .sign-up
+      cursor: pointer
+      text-decoration: underline
+
+  &.signed-in .not-signed-in
+    display: none
 
   .step-details
     bottom: 0
