@@ -10,22 +10,35 @@
   text-align: center
   width: 1000px
 
-  button[name="random"]
-    background: #fff
-    color: $blue
-    border: 3px solid transparent
-    box-shadow: 0 2px 2px -2px #000
-    font-weight: bold
-    margin: 0 5px
-    padding: 3px 10px
+  h1,
+  h2
+    margin: 2em 0
 
-    &.loading
-      animation: 1s wait-for-next linear infinite
-      background-image: linear-gradient(left top, transparent 25%, rgba($blue, 0.25) 25%, rgba($blue, 0.25) 50%, transparent 50%, transparent 75%, rgba($blue, 0.25) 75%)
-      background-size: 25px 25px
+  .random
+    margin: 2em 0 4em
 
-    &.active
-      border-color: #fc0
+    button[name="random"]
+      background: #fff
+      color: $blue
+      border: 3px solid transparent
+      box-shadow: 0 2px 2px -2px #000
+      font-weight: bold
+      margin: 0 5px
+      padding: 3px 10px
+
+      &.loading
+        animation: 1s wait-for-next linear infinite
+        background-image: linear-gradient(left top, transparent 25%, rgba($blue, 0.25) 25%, rgba($blue, 0.25) 50%, transparent 50%, transparent 75%, rgba($blue, 0.25) 75%)
+        background-size: 25px 25px
+
+      &.active
+        border-color: #fc0
+
+.zooniverse-footer
+  text-align: left
+
+  a
+    border: 0
 
 .storm-status
   background: #fff
