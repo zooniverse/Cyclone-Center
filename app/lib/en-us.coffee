@@ -17,6 +17,10 @@ module.exports =
       Scientists are enlisting the public because patterns in storm imagery are best recognized by the human eye.
     '''
 
+    theStorms: '''
+      Here are the storms we're currently most interested in classifying.
+    '''
+
     analyze:'Analyze this storm'
 
     or: 'or'

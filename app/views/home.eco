@@ -7,11 +7,14 @@
 <hr />
 
 <div class="storm-selection">
+  <%- translate 'p', 'home.theStorms' %>
+
   <div class="active-storms"></div>
 
-  <hr />
   <p class="random">
     <%- translate 'span', 'home.or' %>
     <button name="random"><%- translate 'span', 'home.classifyRandom' %></button>
   </p>
+
+  <hr />
 </div>
