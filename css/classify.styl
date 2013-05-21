@@ -222,6 +222,11 @@
       cursor: pointer
       text-decoration: underline
 
+  &.southern .controls button img
+    -ms-filter:  "FlipH"
+    filter: FlipH
+    transform: scaleX(-1)
+
   &.signed-in .not-signed-in
     display: none
 

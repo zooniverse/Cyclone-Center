@@ -90,7 +90,9 @@ class Classify extends Controller
 
     olderLocation = subject.location["#{satellite}-yesterday"]
 
-    return @goToStep 'exceeding'
+    @el.toggleClass 'southern', subject.coords[0] < 0
+
+    return @goToStep 'feature'
 
     if olderLocation?
       @olderImg.attr src: olderLocation
