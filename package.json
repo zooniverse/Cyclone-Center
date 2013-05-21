@@ -4,7 +4,7 @@
   "dependencies": {
     "haw": "~0.0.7",
     "jqueryify": "~1.9.1",
-    "navigable": "~0.0.2",
+    "navigable": "~0.0.4",
     "publisssh": "~0.0.5",
     "t7e": "git+ssh://git@github.com:brian-c/t7e.git#editor",
     "zooniverse": "git+ssh://git@github.com:zooniverse/Zooniverse.git#no-deps"

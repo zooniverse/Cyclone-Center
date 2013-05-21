@@ -60,8 +60,8 @@ class Reveal extends Step
         shared: true
 
     $(window).on 'hashchange', =>
-      @map.invalidateSize()
-      @chart.setSize @graphContainer.width(), @graphContainer.height()
+      # @map.invalidateSize()
+      # @chart.setSize @graphContainer.width(), @graphContainer.height()
 
   enter: ->
     super

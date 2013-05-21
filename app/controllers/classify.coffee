@@ -92,7 +92,7 @@ class Classify extends Controller
 
     @el.toggleClass 'southern', subject.coords[0] < 0
 
-    return @goToStep 'blue'
+    # return @goToStep 'red'
 
     if olderLocation?
       @olderImg.attr src: olderLocation
