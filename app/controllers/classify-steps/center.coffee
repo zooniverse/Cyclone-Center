@@ -10,7 +10,7 @@ class Center extends Step
   explanation: translate 'div', 'classify.details.center'
 
   hasDrawing: true
-  circle: null
+  crosshairs: null
 
   mouseIsDown: false
 
@@ -25,24 +25,20 @@ class Center extends Step
 
   enter: ->
     super
+    @crosshairs ?= @svg.create 'path',
+      d: 'M 0, -400 L 0, 400 M -400, 0 L 400, 0'
+      stroke: 'black'
+      'stroke-width': 2
+
     $(document).on "mouseup.#{@id}", @onDocumentMouseUp
-    @svg.el.style.display = ''
 
   reset: ->
     super
-    @circle?.remove()
-    @circle = null
+    @crosshairs?.remove()
+    @crosshairs = null
 
   onMouseDownSubject: (e) ->
     e.preventDefault()
-
-    @circle ?= @svg.create 'circle',
-      width: 10
-      height: 10
-      r: 10
-      fill: 'transparent'
-      stroke: 'black'
-      'stroke-width': 3
 
     @mouseIsDown = true
     @onMouseMoveSubject e
@@ -59,8 +55,7 @@ class Center extends Step
     x = e.pageX - subjectOffset.left
     y = e.pageY - subjectOffset.top
 
-    @circle.attr 'cx', x
-    @circle.attr 'cy', y
+    @crosshairs.attr 'transform', "translate(#{x}, #{y})"
 
     @classifier.classification.set 'center', {x, y}
 
@@ -71,6 +66,5 @@ class Center extends Step
   leave: ->
     super
     $(document).off "mouseup.#{@id}", @onDocumentMouseUp
-    @svg.el.style.display = 'none'
 
 module.exports = Center
