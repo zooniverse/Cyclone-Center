@@ -1,14 +1,14 @@
 <div class="surrounding step">
   <p class="heading">Which colors completely surround the eye?</p>
   <p>
-    <button name="surrounding" value="warmest"><span class="swatch" style="background: rgb(255, 255, 255);">warmest</span></button>
-    <button name="surrounding" value="warmer"><span class="swatch" style="background: rgb(0, 0, 150);">warmer</span></button>
-    <button name="surrounding" value="warm"><span class="swatch" style="background: rgb(0, 191, 255);">warm</span></button>
-    <button name="surrounding" value="warmish"><span class="swatch" style="background: rgb(65, 105, 225);">warmish</span></button>
-    <button name="surrounding" value="moderate"><span class="swatch" style="background: rgb(160, 210, 255);">moderate</span></button>
-    <button name="surrounding" value="cold"><span class="swatch" style="background: rgb(255, 225, 50);">cold</span></button>
-    <button name="surrounding" value="coldish"><span class="swatch" style="background: rgb(255, 110, 0);">coldish</span></button>
-    <button name="surrounding" value="colder"><span class="swatch" style="background: rgb(160, 35, 35);">colder</span></button>
-    <button name="surrounding" value="coldest"><span class="swatch" style="background: rgb(183, 153, 153);">coldest</span></button>
+    <button name="surrounding" value="coldest"><span class="swatch beige"></span></button>
+    <button name="surrounding" value="colder"><span class="swatch red"></span></button>
+    <button name="surrounding" value="coldish"><span class="swatch orange"></span></button>
+    <button name="surrounding" value="cold"><span class="swatch yellow"></span></button>
+    <button name="surrounding" value="moderate"><span class="swatch light-blue"></span></button>
+    <button name="surrounding" value="warm"><span class="swatch teal"></span></button>
+    <button name="surrounding" value="warmish"><span class="swatch blue"></span></button>
+    <button name="surrounding" value="warmer"><span class="swatch dark-blue"></span></button>
+    <button name="surrounding" value="warmest"><span class="swatch white"></span></button>
   </p>
 </div>
