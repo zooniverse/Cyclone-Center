@@ -23,7 +23,7 @@ class Blue extends Step
     target = $(e.currentTarget)
 
     @buttons.removeClass 'active'
-    target.addClass 'active'
+    target.prevAll().andSelf().addClass 'active'
 
     @classifier.classification.set @property, target.val()
 

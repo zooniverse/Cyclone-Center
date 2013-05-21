@@ -1,14 +1,14 @@
 <div class="blue step">
   <p class="heading">Which colors wrap most of the way around the band?</p>
   <p>
-    <button name="blue" value="warmest"><span class="warmest swatch">warmest</span></button>
-    <button name="blue" value="warmer"><span class="warmer swatch">warmer</span></button>
-    <button name="blue" value="warm"><span class="warm swatch">warm</span></button>
-    <button name="blue" value="warmish"><span class="warmish swatch">warmish</span></button>
-    <button name="blue" value="moderate"><span class="moderate swatch">moderate</span></button>
-    <button name="blue" value="cold"><span class="cold swatch">cold</span></button>
-    <button name="blue" value="coldish"><span class="coldish swatch">coldish</span></button>
-    <button name="blue" value="colder"><span class="colder swatch">colder</span></button>
-    <button name="blue" value="coldest"><span class="coldest swatch">coldest</span></button>
+    <button name="blue" value="coldest"><span class="swatch beige"></span></button>
+    <button name="blue" value="colder"><span class="swatch red"></span></button>
+    <button name="blue" value="coldish"><span class="swatch orange"></span></button>
+    <button name="blue" value="cold"><span class="swatch yellow"></span></button>
+    <button name="blue" value="moderate"><span class="swatch light-blue"></span></button>
+    <button name="blue" value="warm"><span class="swatch teal"></span></button>
+    <button name="blue" value="warmish"><span class="swatch blue"></span></button>
+    <button name="blue" value="warmer"><span class="swatch dark-blue"></span></button>
+    <button name="blue" value="warmest"><span class="swatch white"></span></button>
   </p>
 </div>
