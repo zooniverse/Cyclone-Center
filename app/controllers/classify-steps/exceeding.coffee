@@ -64,7 +64,7 @@ class Exceeding extends Step
     target = $(e.target)
 
     @buttons.removeClass 'active'
-    target.addClass 'active'
+    target.prevAll().andSelf().addClass 'active'
 
     @classifier.classification.set @property, target.val()
 
