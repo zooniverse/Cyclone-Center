@@ -6,7 +6,7 @@
     "jqueryify": "~1.9.1",
     "navigable": "~0.0.4",
     "publisssh": "~0.0.5",
-    "t7e": "git+ssh://git@github.com:brian-c/t7e.git#editor",
+    "t7e": "~0.1.3",
     "zooniverse": "git+ssh://git@github.com:zooniverse/Zooniverse.git#no-deps"
   },
   "scripts": {
