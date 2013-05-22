@@ -1,6 +1,7 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 template = require '../views/storm-status'
 Api = require 'zooniverse/lib/api'
+User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 
 class StormStatus extends BaseController
@@ -33,7 +34,7 @@ class StormStatus extends BaseController
     middleCapture = @storm.metadata.stats[Math.floor @storm.metadata.stats.length / 2]
 
     {lat, lng} = middleCapture
-    previewSrc = @storm.preview || "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=320x160&sensor=false"
+    previewSrc = @storm.metadata.preview || "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=320x160&sensor=false"
     @previewImg.attr src: previewSrc
 
     finished = @storm.stats.complete / @storm.stats.total
@@ -45,23 +46,26 @@ class StormStatus extends BaseController
 
   onClick: (e) ->
     unless e.target.nodeName.toUpperCase() is 'A'
-      @onSelect e
+      @select()
+
+    location.hash = '/classify'
 
   # NOTE: This is also called manually from the home controller.
-  onSelect: ->
+  select: ->
     if Subject.group is @group
       location.hash = '/classify'
       return
+
+    User.current?.setPreference 'cyclone_center.storm', @group, false
 
     Subject.group = @group
     Subject.destroyAll()
 
     StormStatus.trigger 'select', @group
 
-    @el.addClass 'loading'
+    @el?.addClass 'loading'
     Subject.next =>
-      @el.removeClass 'loading'
-      location.hash = '/classify'
+      @el?.removeClass 'loading'
 
   onGroupChanged: (e, group) =>
     @el.toggleClass 'active', group is @group

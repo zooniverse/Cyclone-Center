@@ -19,13 +19,8 @@ class Home extends Controller
   constructor: ->
     super
 
-    statuses = [
-      new StormStatus group: activeStorms[0]
-      new StormStatus group: activeStorms[1]
-      new StormStatus group: activeStorms[2]
-    ]
-
-    status.el.appendTo @activeStormsContainer for status in statuses
+    for storm in activeStorms
+      (new StormStatus group: storm).el.appendTo @activeStormsContainer
 
     StormStatus.on 'select', =>
       StormStatus::onGroupChanged.apply el: @randomButton, group: true, arguments
@@ -35,6 +30,6 @@ class Home extends Controller
 
   onClickRandom: ->
     # Pretend we selected a group from the home page:
-    StormStatus::onSelect.call el: @randomButton, group: true
+    StormStatus::select.call el: @randomButton, group: true
 
 module.exports = Home

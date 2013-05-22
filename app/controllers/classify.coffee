@@ -5,6 +5,8 @@ signUpDialog = require 'zooniverse/controllers/signup-dialog'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 Classification = require 'zooniverse/models/classification'
+StormStatus = require './storm-status'
+{active: activeStorms} = require '../lib/storms'
 $ = window.jQuery
 
 StrongerStep = require './classify-steps/stronger'
@@ -74,6 +76,12 @@ class Classify extends Controller
 
   onUserChange: (e, user) =>
     @el.toggleClass 'signed-in', user?
+
+    group = user?.preferences.cyclone_center?.storm
+    unless group in activeStorms
+      group = activeStorms[Math.floor Math.random() * activeStorms.length]
+    StormStatus::select.call {group}
+
     Subject.next()
 
   onGettingNextSubject: =>
