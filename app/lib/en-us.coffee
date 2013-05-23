@@ -172,8 +172,10 @@ module.exports =
       Please log in now
     '''
 
-    orSignUp: '''
-      or sign up for a new account.
+    or: 'or'
+
+    signUp: '''
+      sign up for a new account.
     '''
 
     details:

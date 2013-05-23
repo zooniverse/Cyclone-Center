@@ -32,7 +32,8 @@
 <p class="not-signed-in">
   <%- translate 'span', 'classify.notSignedIn' %>
   <%- translate 'span.sign-in', 'classify.pleaseSignIn' %>
-  <%- translate 'span.sign-up', 'classify.orSignUp' %>
+  <%- translate 'span', 'classify.or' %>
+  <%- translate 'span.sign-up', 'classify.signUp' %>
 </p>
 
 <div class="step-details"></div>
