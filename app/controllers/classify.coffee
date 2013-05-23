@@ -137,7 +137,7 @@ class Classify extends Controller
     @goToStep @getNextStep()
 
   getNextStep: ->
-    category = @classification.get 'category'
+    category = @classification.get @steps.catAndMatch.property[0]
 
     switch @step
       when 'stronger' then 'catAndMatch'

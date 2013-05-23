@@ -67,7 +67,7 @@ class Red extends Step
     @line.attr 'x2', x
     @line.attr 'y2', y
 
-    @classifier.classification.set 'red', {x, y}
+    @classifier.classification.set @property, {x, y}
 
   onDocumentMouseUp: (e) =>
     return unless @mouseIsDown

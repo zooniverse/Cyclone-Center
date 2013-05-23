@@ -61,7 +61,7 @@ class Exceeding extends Step
     @line.attr 'transform', "translate(#{x} #{y}) rotate(#{angle})"
 
   onClickExceeding: (e) ->
-    target = $(e.target)
+    target = $(e.currentTarget)
 
     @buttons.removeClass 'active'
     target.prevAll().andSelf().addClass 'active'
