@@ -68,6 +68,9 @@ class Reveal extends Step
     @map.invalidateSize()
     @chart.setSize @graphContainer.width(), @graphContainer.height()
 
+    @classifier.classification.send()
+    console?.log 'Sent classification', JSON.stringify @classifier.classification
+
     getStorm = Api.current.get "https://dev.zooniverse.org/projects/cyclone_center/groups/#{@classifier.classification.subject.group_id}"
     getStorm.then (storm) =>
       @stormNameContainer.html storm.name
