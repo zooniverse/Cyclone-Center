@@ -186,10 +186,39 @@
     .progress
       border-bottom: 1px solid #ccc
       border-top: 1px solid #fff
-      padding: 10px
+
+      .in-progress
+        padding: 10px
 
       .followup
         display: none
+        overflow: hidden
+
+        .talk
+        .social
+          width: 30%
+
+          a
+            border: 0
+            color: inherit
+            display: block
+            font-size: 12px
+            margin: 5px
+            padding: 3px 10px
+            text-decoration: underline
+
+            &:hover
+              color: inherit
+
+        .talk
+          float: left
+
+        .social
+          float: right
+
+        button[name="next"]
+          margin-top: 15px
+          width: 25%
 
   &.loading .controls .subject
     animation: 1s classify-loading ease-in-out infinite alternate
