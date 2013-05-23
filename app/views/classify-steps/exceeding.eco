@@ -2,14 +2,14 @@
   <p class="heading">Choose the colors completely surrounding the eye at least 0.5° thick.</p>
   <p>Drag your mouse over the image to reveal a measuring tool.</p>
   <p>
-    <button name="exceeding" value="coldest"><span class="swatch beige"></span></button>
-    <button name="exceeding" value="colder"><span class="swatch red"></span></button>
-    <button name="exceeding" value="coldish"><span class="swatch orange"></span></button>
-    <button name="exceeding" value="cold"><span class="swatch yellow"></span></button>
-    <button name="exceeding" value="moderate"><span class="swatch light-blue"></span></button>
-    <button name="exceeding" value="warm"><span class="swatch teal"></span></button>
-    <button name="exceeding" value="warmish"><span class="swatch blue"></span></button>
-    <button name="exceeding" value="warmer"><span class="swatch dark-blue"></span></button>
-    <button name="exceeding" value="warmest"><span class="swatch white"></span></button>
+    <button name="exceeding" value="9"><span class="swatch beige"></span></button>
+    <button name="exceeding" value="-30"><span class="swatch red"></span></button>
+    <button name="exceeding" value="-41"><span class="swatch orange"></span></button>
+    <button name="exceeding" value="-53"><span class="swatch yellow"></span></button>
+    <button name="exceeding" value="-63"><span class="swatch light-blue"></span></button>
+    <button name="exceeding" value="-69"><span class="swatch teal"></span></button>
+    <button name="exceeding" value="-75"><span class="swatch blue"></span></button>
+    <button name="exceeding" value="-80"><span class="swatch dark-blue"></span></button>
+    <button name="exceeding" value="-86"><span class="swatch white"></span></button>
   </p>
 </div>

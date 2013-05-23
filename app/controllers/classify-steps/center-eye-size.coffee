@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class CenterEyeSizeStep extends CenterStep
-  property: ['center', 'size']
+  property: ['center', 'eyewall']
 
   template: template
   explanation: translate 'div', 'classify.details.centerEyeSize'
@@ -38,10 +38,9 @@ class CenterEyeSizeStep extends CenterStep
     super
     return unless @mouseIsDown
 
-    {x, y} = @classifier.classification.get 'center'
+    {x, y} = @classifier.classification.get @property[0]
     @circle.attr 'cx', x
     @circle.attr 'cy', y
-
 
   onClickEye: (e) ->
     target = $(e.currentTarget)
@@ -50,7 +49,7 @@ class CenterEyeSizeStep extends CenterStep
     @buttons.removeClass 'active'
     target.addClass 'active'
 
-    @classifier.classification.set 'size', value
+    @classifier.classification.set @property[1], value
     @circle.attr 'r', value
 
 module.exports = CenterEyeSizeStep

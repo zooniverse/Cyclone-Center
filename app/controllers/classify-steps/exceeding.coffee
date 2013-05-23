@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class Exceeding extends Step
-  property: 'exceeding'
+  property: 'coldest_at_least_0_5_deg'
 
   template: template
   explanation: translate 'div', 'classify.details.exceeding'
@@ -66,6 +66,6 @@ class Exceeding extends Step
     @buttons.removeClass 'active'
     target.prevAll().andSelf().addClass 'active'
 
-    @classifier.classification.set @property, target.val()
+    @classifier.classification.set @property, parseFloat target.val()
 
 module.exports = Exceeding

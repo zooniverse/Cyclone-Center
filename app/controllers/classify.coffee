@@ -1,5 +1,6 @@
 Controller = require 'zooniverse/controllers/base-controller'
 template = require '../views/classify'
+Dialog = require 'zooniverse/controllers/dialog'
 loginDialog = require 'zooniverse/controllers/login-dialog'
 signUpDialog = require 'zooniverse/controllers/signup-dialog'
 User = require 'zooniverse/models/user'
@@ -20,6 +21,12 @@ BlueStep = require './classify-steps/blue'
 CurveStep = require './classify-steps/curve'
 RedStep = require './classify-steps/red'
 RevealStep = require './classify-steps/reveal'
+
+noMoreSubjectsDialog = new Dialog
+  content: '''
+    <p>There are no more subjects to classify! Try another storm.</p>
+    <button name="close-dialog">OK</button>
+  '''
 
 grabRandomSatellite = (subject) ->
   satellites = for satellite of subject.location
@@ -108,8 +115,11 @@ class Classify extends Controller
     else
       @goToStep 'catAndMatch'
 
+    @classification.set 'satellite', satellite
+
   onNoMoreSubjects: =>
     @el.removeClass 'loading'
+    # noMoreSubjectsDialog.show()
 
   onClassificationChange: (e, key, value) =>
     requiredProperty = @steps[@step].property

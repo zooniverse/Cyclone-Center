@@ -3,7 +3,7 @@ template = require '../../views/classify-steps/stronger'
 translate = require 't7e'
 
 class Match extends Step
-  property: 'stronger'
+  property: 'strength'
 
   template: template
   explanation: translate 'div', 'classify.details.stronger'

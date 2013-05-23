@@ -1,14 +1,14 @@
 <div class="surrounding step">
   <p class="heading">Which colors completely surround the eye?</p>
   <p>
-    <button name="surrounding" value="coldest"><span class="swatch beige"></span></button>
-    <button name="surrounding" value="colder"><span class="swatch red"></span></button>
-    <button name="surrounding" value="coldish"><span class="swatch orange"></span></button>
-    <button name="surrounding" value="cold"><span class="swatch yellow"></span></button>
-    <button name="surrounding" value="moderate"><span class="swatch light-blue"></span></button>
-    <button name="surrounding" value="warm"><span class="swatch teal"></span></button>
-    <button name="surrounding" value="warmish"><span class="swatch blue"></span></button>
-    <button name="surrounding" value="warmer"><span class="swatch dark-blue"></span></button>
-    <button name="surrounding" value="warmest"><span class="swatch white"></span></button>
+    <button name="surrounding" value="9"><span class="swatch beige"></span></button>
+    <button name="surrounding" value="-30"><span class="swatch red"></span></button>
+    <button name="surrounding" value="-41"><span class="swatch orange"></span></button>
+    <button name="surrounding" value="-53"><span class="swatch yellow"></span></button>
+    <button name="surrounding" value="-63"><span class="swatch light-blue"></span></button>
+    <button name="surrounding" value="-69"><span class="swatch teal"></span></button>
+    <button name="surrounding" value="-75"><span class="swatch blue"></span></button>
+    <button name="surrounding" value="-80"><span class="swatch dark-blue"></span></button>
+    <button name="surrounding" value="-86"><span class="swatch white"></span></button>
   </p>
 </div>

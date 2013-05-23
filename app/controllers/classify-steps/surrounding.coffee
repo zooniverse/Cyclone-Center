@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class Surrounding extends Step
-  property: 'surrounding'
+  property: 'coldest_surrounding_eye'
 
   template: template
   explanation: translate 'div', 'classify.details.surrounding'
@@ -25,6 +25,6 @@ class Surrounding extends Step
     @buttons.removeClass 'active'
     target.prevAll().andSelf().addClass 'active'
 
-    @classifier.classification.set @property, target.val()
+    @classifier.classification.set @property, parseFloat target.val()
 
 module.exports = Surrounding

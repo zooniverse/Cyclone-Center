@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class Center extends Step
-  property: 'center'
+  property: ['center']
 
   template: template
   explanation: translate 'div', 'classify.details.center'
@@ -57,7 +57,7 @@ class Center extends Step
 
     @crosshairs.attr 'transform', "translate(#{x}, #{y})"
 
-    @classifier.classification.set 'center', {x, y}
+    @classifier.classification.set @property[0], {x, y}
 
   onDocumentMouseUp: (e) =>
     return unless @mouseIsDown

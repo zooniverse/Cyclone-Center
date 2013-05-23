@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class Match extends Step
-  property: ['category', 'match']
+  property: ['type', 'match']
 
   template: template
   explanation: translate 'div', 'classify.details.catAndMatch'
@@ -36,8 +36,8 @@ class Match extends Step
 
     @matchButtons.removeClass 'active'
 
-    @classifier.classification.set 'category', target.val()
-    @classifier.classification.set 'match', null
+    @classifier.classification.set @property[0], category
+    @classifier.classification.set @property[1], null
 
   onClickMatch: (e) ->
     target = $(e.currentTarget)
@@ -46,6 +46,6 @@ class Match extends Step
     @matchButtons.removeClass 'active'
     target.addClass 'active'
 
-    @classifier.classification.set 'match', match
+    @classifier.classification.set @property[1], match
 
 module.exports = Match

@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class Red extends Step
-  property: 'red'
+  property: 'red_point_nearest_center'
 
   template: template
   explanation: translate 'div', 'classify.details.red'

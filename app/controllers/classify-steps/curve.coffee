@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class Curve extends Step
-  property: 'curve'
+  property: 'band_wrap'
 
   template: template
   explanation: translate 'div', 'classify.details.curve'

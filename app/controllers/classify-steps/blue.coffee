@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class Blue extends Step
-  property: 'blue'
+  property: 'coldest_band_color'
 
   template: template
   explanation: translate 'div', 'classify.details.blue'
@@ -25,6 +25,6 @@ class Blue extends Step
     @buttons.removeClass 'active'
     target.prevAll().andSelf().addClass 'active'
 
-    @classifier.classification.set @property, target.val()
+    @classifier.classification.set @property, parseFloat target.val()
 
 module.exports = Blue

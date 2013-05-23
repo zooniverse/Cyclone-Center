@@ -4,7 +4,7 @@ translate = require 't7e'
 $ = window.jQuery
 
 class Feature extends Step
-  property: 'feature'
+  property: 'banding_feature'
 
   template: template
   explanation: translate 'div', 'classify.details.feature'
@@ -25,6 +25,6 @@ class Feature extends Step
     @buttons.removeClass 'active'
     target.addClass 'active'
 
-    @classifier.classification.set @property, target.val()
+    @classifier.classification.set @property, parseFloat target.val()
 
 module.exports = Feature

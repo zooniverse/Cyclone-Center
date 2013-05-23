@@ -1,8 +1,8 @@
 <div class="feature step">
   <p class="heading">Choose the image that matches the banding feature. <span class="thickness"></span></p>
   <p>
-    <button name="feature" value="1"><img src="images/banding/none.png" /></button>
-    <button name="feature" value="2"><img src="images/banding/moderate.png" /></button>
-    <button name="feature" value="3"><img src="images/banding/major.png" /></button>
+    <button name="feature" value="0.0"><img src="images/banding/none.png" /></button>
+    <button name="feature" value="0.5"><img src="images/banding/moderate.png" /></button>
+    <button name="feature" value="1.0"><img src="images/banding/major.png" /></button>
   </p>
 </div>
