@@ -46,14 +46,28 @@ class Reveal extends Step
       title:
         text: ''
 
-      # xAxis:
-      #   labels:
-      #     rotation: -45
+      yAxis: [{
+        title:
+          text: 'Wind speed'
+          style: color: 'black'
+        labels:
+            formatter: -> "#{this.value}kts"
+            style: color: ''
+      }, {
+        opposite: true
+        title:
+          text: 'Air pressure'
+          style: color: 'blue'
+        labels:
+          formatter: -> "#{this.value}mbar"
+          style: color: 'blue'
+      }]
+
       series: [
-        {name: 'Wind'}
-        {name: 'Wind range', type: 'errorbar'}
-        {name: 'Pressure'}
-        {name: 'Pressure range', type: 'errorbar'}
+        {name: 'Wind', color: 'black'}
+        # {name: 'Wind range', type: 'errorbar', color: 'gray'}
+        {name: 'Pressure', color: 'blue', yAxis: 1}
+        # {name: 'Pressure range', type: 'errorbar', yAxis: 1, color: 'gray'}
       ]
 
       tooltip:
@@ -92,9 +106,9 @@ class Reveal extends Step
         @trail.addLatLng [lat, lng]
 
         @chart.series[0].addPoint wind.wmo, false
-        @chart.series[1].addPoint [wind.min, wind.max], false
-        @chart.series[2].addPoint pressure.wmo, false
-        @chart.series[3].addPoint [pressure.min, pressure.max], false
+        # @chart.series[1].addPoint [wind.min, wind.max], false
+        @chart.series[1].addPoint pressure.wmo, false
+        # @chart.series[3].addPoint [pressure.min, pressure.max], false
         categories.push time
 
       # @chart.axes[0].setCategories categories

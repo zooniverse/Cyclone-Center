@@ -165,6 +165,8 @@ class Classify extends Controller
       when 'red' then 'reveal'
 
   goToStep: (step) ->
+    return if step is @step
+
     @steps[@step]?.leave()
     @step = step
 
