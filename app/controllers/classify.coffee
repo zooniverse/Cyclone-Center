@@ -84,7 +84,7 @@ class Classify extends Controller
   onUserChange: (e, user) =>
     @el.toggleClass 'signed-in', user?
 
-    group = user?.preferences.cyclone_center?.storm
+    group = user?.preferences?.cyclone_center?.storm
     unless group in activeStorms
       group = activeStorms[Math.floor Math.random() * activeStorms.length]
     StormStatus::select.call {group}
