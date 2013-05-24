@@ -4,6 +4,8 @@ Api = require 'zooniverse/lib/api'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 
+CLASSIFICATIONS_TO_RETIRE = 30
+
 class StormStatus extends BaseController
   group: ''
   storm: null
@@ -37,7 +39,7 @@ class StormStatus extends BaseController
     previewSrc = @storm.metadata.preview || "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=320x160&sensor=false"
     @previewImg.attr src: previewSrc
 
-    finished = @storm.stats.complete / @storm.stats.total
+    finished = (@storm.classification_count || 0) / (@storm.stats.total * CLASSIFICATIONS_TO_RETIRE)
     @fill.css width: "#{finished * 100}%"
     @completeValue.html Math.floor finished * 100
 
