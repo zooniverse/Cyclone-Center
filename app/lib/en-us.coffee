@@ -21,7 +21,7 @@ module.exports =
       Here are the storms we're currently most interested in classifying.
     '''
 
-    analyze:'Analyze this storm'
+    analyze: 'Analyze this storm'
 
     or: 'or'
 
@@ -371,3 +371,139 @@ module.exports =
 
       reveal:
         windAndPressure: 'Wind speed and pressure'
+
+  tutorial:
+    welcome:
+      header: '''Welcome to Cyclone Center!'''
+      details: '''
+        By comparing satellite images to assess storm type and strength, you’re helping meteorologists understand the history of tropical cyclone weather patterns.
+        This tutorial will show you how to identify tropical cyclone type and strength. Let’s go!
+      '''
+
+    temperature:
+      header: '''Cloud Color & Temperature'''
+      details: '''
+        White and blue clouds are the coldest and pink and grey clouds are the warmest.
+        This is important to keep in mind as you are categorize storm type and strength.
+      '''
+
+    chooseStronger:
+      header: '''Storm Strength'''
+      details: '''
+        To determine which is stronger look for the presence of colder clouds and a more organized system.
+        The image on the right has more cold clouds and is more organized, so let’s select it as the stronger storm.
+      '''
+      instruction: '''Click the storm image on the right.'''
+
+    postStronger:
+      header: '''Storm Strength'''
+      details: '''
+        And click continue to move to the next step...'''
+      instruction: '''Click "Continue".'''
+
+    chooseEmbeddedType:
+      header: '''Cyclone Type'''
+      details: '''
+        Now let’s figure out what type of storm we’re looking at.
+        There are four main types of tropical cyclones – Eye, Embedded Center, Curved Band, and Shear.
+        Let’s checkout embedded centers first. We can choose a different type if we find this one doesn't match.
+      '''
+      instruction: '''Choose "Embedded Center".'''
+
+    notEmbedded:
+      header: '''Cyclone Type'''
+      details: '''
+        These images look similar, but not quite right. Let’s try a different storm type. Select Eye.
+      '''
+      instruction: '''Choose "Eye".'''
+
+    chooseEyeType:
+      header: '''Cyclone Type'''
+      details: '''
+        It looks like this storm is an eye. You can see the eye and the eye wall.
+        Now we just need to match the strength.
+      '''
+      instruction: '''Click "Continue".'''
+
+    chooseMatch:
+      header: '''Cyclone Type'''
+      details: '''
+        From left to right the storm images get stronger. Let’s do a side by side comparison of our storm and the third eye image.
+      '''
+      instruction: '''Click the third eye image.'''
+
+    postMatch:
+      header: '''Cyclone Type'''
+      details: '''
+        These look like a close match, and even if we're off by a bit, our classification will be compared against other volunteers classifications of the same image. Let's move on.
+      '''
+      instruction: '''Click "Continue".'''
+
+    chooseCenter:
+      header: '''Center and Eye Size'''
+      details: '''
+        Now let's click the center of the storm. For an eye storm, it's simply the center of the eye.
+      '''
+      instruction: '''Click the center of the storm.'''
+
+    chooseSize:
+      header: '''Center and Eye Size'''
+      details: '''
+        Choose the size that most closely matches the eyewall. For more help, always remember to read the details on the right.
+      '''
+      instruction: '''Choose the third circle.'''
+
+    postChooseSize:
+      header: '''Center and Eye Size'''
+      details: '''
+        That looks like a great fit. If you're unsure, remember that your classification is one of many, so just do your best!
+      '''
+      instruction: '''Click "Continue".'''
+
+    chooseSurrounding:
+      header: '''Coldest Surrounding Clouds'''
+      details: '''
+        Now we need to determine the coldest unbroken ring around the eye.
+        Moving from the eye out, we can see that the beige, orange, red, yellow, and light blue bands are all continuous.
+        The cyan band is broken, so let's choose the light blue as the coldest continuous band.
+      '''
+      instruction: '''Choose the light blue swatch.'''
+
+    postSurrounding:
+      header: '''Coldest Surrounding Clouds'''
+      details: '''Great!'''
+      instruction: '''Click "Continue".'''
+
+    chooseColdestThick:
+      header: '''Coldest Surrounding Thick Band of Clouds'''
+      details: '''
+        Now we want to do the same thing, but only for band 0.5° thick.
+        Hovering over the image will show you a box you can use to measure that thickness.
+        Choose the color that fills that box all the way around.
+        Remember: Colder color include warmer colors.
+        Here, it appears the ywlloe band is the right thickness al the way around.
+      '''
+      instruction: '''Click the yellow swatch.'''
+
+    postColdestThick:
+      header: '''Coldest Surrounding Thick Band of Clouds'''
+      details: '''
+        Excellent.
+      '''
+      instruction: '''Click "Continue".'''
+
+    chooseBandingFeature:
+      header: '''Banding Feature'''
+      details: '''
+        Now let's identify the length of the storm's spiral bands.
+        This storm doesn't have very strong banding, so let's choose the first option.
+      '''
+      instruction: '''Choose the first option.'''
+
+    goodLuck:
+      header: '''Good Luck!'''
+      details: '''
+        Now you’re ready to classify tropical cyclones! Remember to check-out the ? Buttons for more information if you have questions.
+        Classifying storms is tricky, but we know that our volunteers do a great job. Just do your best, your opinion is important.
+        Click Next storm to move to your next storm.
+      '''
