@@ -22,9 +22,7 @@ module.exports =
     '''
 
     analyze: 'Analyze this storm'
-
     or: 'or'
-
     classifyRandom: 'Classify a random storm'
 
   about:

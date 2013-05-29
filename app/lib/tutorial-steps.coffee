@@ -25,6 +25,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseStronger.header'
     details: translate 'span', 'tutorial.chooseStronger.details'
     instruction: translate 'span', 'tutorial.chooseStronger.instruction'
+    attachment: 'left middle .subject .current right middle'
     next:
       'click .subject .current': 'postStronger'
       'click .subject .older, button[value="same"]': false
@@ -34,6 +35,7 @@ module.exports =
     header: translate 'span', 'tutorial.postStronger.header'
     details: translate 'span', 'tutorial.postStronger.details'
     instruction: translate 'span', 'tutorial.postStronger.instruction'
+    attachment: 'center bottom button[name="continue"] center top'
     next:
       'mousedown button[name="continue"]': 'chooseEmbeddedType'
 
@@ -42,6 +44,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseEmbeddedType.header'
     details: translate 'span', 'tutorial.chooseEmbeddedType.details'
     instruction: translate 'span', 'tutorial.chooseEmbeddedType.instruction'
+    attachment: 'left bottom button[value="embedded"] left top'
     next:
       'mousedown button[value="embedded"]': 'chooseEyeType'
       'mousedown button:not([value="embedded"])': false
@@ -51,6 +54,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseEyeType.header'
     details: translate 'span', 'tutorial.chooseEyeType.details'
     instruction: translate 'span', 'tutorial.chooseEyeType.instruction'
+    attachment: 'left bottom button[value="eye"] left top'
     next:
       'mousedown button[value="eye"]': 'chooseMatch'
       'mousedown button:not([value="eye"])': false
@@ -60,6 +64,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseMatch.header'
     details: translate 'span', 'tutorial.chooseMatch.details'
     instruction: translate 'span', 'tutorial.chooseMatch.instruction'
+    attachment: 'left bottom button[value="eye-6.0"] left top'
     next:
       'mousedown button[value="eye-6.0"]': 'postMatch'
 
@@ -68,6 +73,7 @@ module.exports =
     header: translate 'span', 'tutorial.postMatch.header'
     details: translate 'span', 'tutorial.postMatch.details'
     instruction: translate 'span', 'tutorial.postMatch.instruction'
+    attachment: 'center bottom button[name="continue"] center top'
     next:
       'mousedown button[name="continue"]': 'chooseCenter'
 
@@ -76,6 +82,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseCenter.header'
     details: translate 'span', 'tutorial.chooseCenter.details'
     instruction: translate 'span', 'tutorial.chooseCenter.instruction'
+    attachment: 'left middle .subject .current right middle'
     next:
       'mouseup .subject': 'chooseSize'
 
@@ -84,6 +91,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseSize.header'
     details: translate 'span', 'tutorial.chooseSize.details'
     instruction: translate 'span', 'tutorial.chooseSize.instruction'
+    attachment: 'center bottom button[value="50"] center top'
     next:
       'mousedown button[value="50"]': 'postChooseSize'
 
@@ -92,6 +100,7 @@ module.exports =
     header: translate 'span', 'tutorial.postChooseSize.header'
     details: translate 'span', 'tutorial.postChooseSize.details'
     instruction: translate 'span', 'tutorial.postChooseSize.instruction'
+    attachment: 'center bottom button[name="continue"] center top'
     next:
       'mousedown button[name="continue"]': 'chooseSurrounding'
 
@@ -100,6 +109,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseSurrounding.header'
     details: translate 'span', 'tutorial.chooseSurrounding.details'
     instruction: translate 'span', 'tutorial.chooseSurrounding.instruction'
+    attachment: 'center bottom button[value="-63"] center top'
     next:
       'mousedown button[value="-63"]': 'postSurrounding'
 
@@ -108,6 +118,7 @@ module.exports =
     header: translate 'span', 'tutorial.postSurrounding.header'
     details: translate 'span', 'tutorial.postSurrounding.details'
     instruction: translate 'span', 'tutorial.postSurrounding.instruction'
+    attachment: 'center bottom button[name="continue"] center top'
     next:
       'mousedown button[name="continue"]': 'chooseColdestThick'
 
@@ -116,6 +127,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseColdestThick.header'
     details: translate 'span', 'tutorial.chooseColdestThick.details'
     instruction: translate 'span', 'tutorial.chooseColdestThick.instruction'
+    attachment: 'center bottom button[value="-53"] center top'
     next:
       'mousedown button[value="-53"]': 'postColdestThick'
 
@@ -124,6 +136,7 @@ module.exports =
     header: translate 'span', 'tutorial.postColdestThick.header'
     details: translate 'span', 'tutorial.postColdestThick.details'
     instruction: translate 'span', 'tutorial.postColdestThick.instruction'
+    attachment: 'center bottom button[name="continue"] center top'
     next:
       'mousedown button[name="continue"]': 'chooseBandingFeature'
 
@@ -132,6 +145,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseBandingFeature.header'
     details: translate 'span', 'tutorial.chooseBandingFeature.details'
     instruction: translate 'span', 'tutorial.chooseBandingFeature.instruction'
+    attachment: 'center bottom button[value="0.0"] center top'
     next:
       'mousedown button[value="0.0"]': 'postBandingFeature'
 
@@ -140,6 +154,7 @@ module.exports =
     header: translate 'span', 'tutorial.postBandingFeature.header'
     details: translate 'span', 'tutorial.postBandingFeature.details'
     instruction: translate 'span', 'tutorial.postBandingFeature.instruction'
+    attachment: 'center bottom button[name="continue"] center top'
     next:
       'mousedown button[name="continue"]': 'goodLuck'
 
@@ -148,5 +163,6 @@ module.exports =
     header: translate 'span', 'tutorial.goodLuck.header'
     details: translate 'span', 'tutorial.goodLuck.details'
     instruction: translate 'span', 'tutorial.goodLuck.instruction'
+    attachment: 'center bottom button[name="next"] center top'
     next:
       'mousedown button[name="next"]': null
