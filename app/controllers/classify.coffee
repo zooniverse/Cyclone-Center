@@ -185,7 +185,7 @@ class Classify extends Controller
     @steps[@step].enter()
 
     if @steps[@step].property
-      @continueButton.attr disabled: true
+      setTimeout (=> @continueButton.attr disabled: true), 250
 
   onClickNext: ->
     Subject.next()

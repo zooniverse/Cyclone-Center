@@ -1,10 +1,6 @@
 translate = require 't7e'
 {Step} = require 'zootorial'
 
-# NOTE: This uses a bunch of mousedown events because click events
-# don't fire when we're swapping around and disabling buttons.
-# It would be cool to fix this at some point.
-
 module.exports =
   length: 18
 
@@ -37,7 +33,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.postStronger.instruction'
     attachment: 'center bottom button[name="continue"] center top'
     next:
-      'mousedown button[name="continue"]': 'chooseEmbeddedType'
+      'click button[name="continue"]': 'chooseEmbeddedType'
 
   chooseEmbeddedType: new Step
     number: 5
@@ -46,8 +42,8 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseEmbeddedType.instruction'
     attachment: 'left bottom button[value="embedded"] left top'
     next:
-      'mousedown button[value="embedded"]': 'chooseEyeType'
-      'mousedown button:not([value="embedded"])': false
+      'click button[value="embedded"]': 'chooseEyeType'
+      'click button:not([value="embedded"])': false
 
   chooseEyeType: new Step
     number: 6
@@ -56,8 +52,8 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseEyeType.instruction'
     attachment: 'left bottom button[value="eye"] left top'
     next:
-      'mousedown button[value="eye"]': 'chooseMatch'
-      'mousedown button:not([value="eye"])': false
+      'click button[value="eye"]': 'chooseMatch'
+      'click button:not([value="eye"])': false
 
   chooseMatch: new Step
     number: 7
@@ -66,7 +62,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseMatch.instruction'
     attachment: 'left bottom button[value="eye-6.0"] left top'
     next:
-      'mousedown button[value="eye-6.0"]': 'postMatch'
+      'click button[value="eye-6.0"]': 'postMatch'
 
   postMatch: new Step
     number: 8
@@ -75,7 +71,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.postMatch.instruction'
     attachment: 'center bottom button[name="continue"] center top'
     next:
-      'mousedown button[name="continue"]': 'chooseCenter'
+      'click button[name="continue"]': 'chooseCenter'
 
   chooseCenter: new Step
     number: 9
@@ -93,7 +89,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseSize.instruction'
     attachment: 'center bottom button[value="50"] center top'
     next:
-      'mousedown button[value="50"]': 'postChooseSize'
+      'click button[value="50"]': 'postChooseSize'
 
   postChooseSize: new Step
     number: 11
@@ -102,7 +98,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.postChooseSize.instruction'
     attachment: 'center bottom button[name="continue"] center top'
     next:
-      'mousedown button[name="continue"]': 'chooseSurrounding'
+      'click button[name="continue"]': 'chooseSurrounding'
 
   chooseSurrounding: new Step
     number: 12
@@ -111,7 +107,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseSurrounding.instruction'
     attachment: 'center bottom button[value="-63"] center top'
     next:
-      'mousedown button[value="-63"]': 'postSurrounding'
+      'click button[value="-63"]': 'postSurrounding'
 
   postSurrounding: new Step
     number: 13
@@ -120,7 +116,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.postSurrounding.instruction'
     attachment: 'center bottom button[name="continue"] center top'
     next:
-      'mousedown button[name="continue"]': 'chooseColdestThick'
+      'click button[name="continue"]': 'chooseColdestThick'
 
   chooseColdestThick: new Step
     number: 14
@@ -129,7 +125,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseColdestThick.instruction'
     attachment: 'center bottom button[value="-53"] center top'
     next:
-      'mousedown button[value="-53"]': 'postColdestThick'
+      'click button[value="-53"]': 'postColdestThick'
 
   postColdestThick: new Step
     number: 15
@@ -138,7 +134,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.postColdestThick.instruction'
     attachment: 'center bottom button[name="continue"] center top'
     next:
-      'mousedown button[name="continue"]': 'chooseBandingFeature'
+      'click button[name="continue"]': 'chooseBandingFeature'
 
   chooseBandingFeature: new Step
     number: 16
@@ -147,7 +143,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseBandingFeature.instruction'
     attachment: 'center bottom button[value="0.0"] center top'
     next:
-      'mousedown button[value="0.0"]': 'postBandingFeature'
+      'click button[value="0.0"]': 'postBandingFeature'
 
   postBandingFeature: new Step
     number: 17
@@ -156,7 +152,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.postBandingFeature.instruction'
     attachment: 'center bottom button[name="continue"] center top'
     next:
-      'mousedown button[name="continue"]': 'goodLuck'
+      'click button[name="continue"]': 'goodLuck'
 
   goodLuck: new Step
     number: 18
@@ -165,4 +161,4 @@ module.exports =
     instruction: translate 'span', 'tutorial.goodLuck.instruction'
     attachment: 'center bottom button[name="next"] center top'
     next:
-      'mousedown button[name="next"]': null
+      'click button[name="next"]': null
