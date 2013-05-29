@@ -4,6 +4,8 @@ Dialog = require 'zooniverse/controllers/dialog'
 loginDialog = require 'zooniverse/controllers/login-dialog'
 signUpDialog = require 'zooniverse/controllers/signup-dialog'
 User = require 'zooniverse/models/user'
+{Tutorial} = require 'zootorial'
+tutorialSteps = require '../lib/tutorial-steps'
 Subject = require 'zooniverse/models/subject'
 Classification = require 'zooniverse/models/classification'
 StormStatus = require './storm-status'
@@ -41,6 +43,8 @@ class Classify extends Controller
 
   steps: null
   step: ''
+
+  tutorial: null
 
   classification: null
 
@@ -81,6 +85,11 @@ class Classify extends Controller
       red: (new RedStep classifier: @)
       reveal: (new RevealStep classifier: @)
 
+    @tutorial = new Tutorial
+      id: 'new_tutorial'
+      steps: tutorialSteps
+      firstStep: 'welcome'
+
   onUserChange: (e, user) =>
     @el.toggleClass 'signed-in', user?
 
@@ -88,6 +97,8 @@ class Classify extends Controller
     unless group in activeStorms
       group = activeStorms[Math.floor Math.random() * activeStorms.length]
     StormStatus::select.call {group}
+
+    @tutorial.start()
 
     Subject.next()
 

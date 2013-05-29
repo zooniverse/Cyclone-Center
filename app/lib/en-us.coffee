@@ -410,32 +410,26 @@ module.exports =
       '''
       instruction: '''Choose "Embedded Center".'''
 
-    notEmbedded:
+    chooseEyeType:
       header: '''Cyclone Type'''
       details: '''
         These images look similar, but not quite right. Let’s try a different storm type. Select Eye.
       '''
-      instruction: '''Choose "Eye".'''
-
-    chooseEyeType:
-      header: '''Cyclone Type'''
-      details: '''
-        It looks like this storm is an eye. You can see the eye and the eye wall.
-        Now we just need to match the strength.
-      '''
-      instruction: '''Click "Continue".'''
+      instruction: '''Choose "Eye" instead.'''
 
     chooseMatch:
       header: '''Cyclone Type'''
       details: '''
-        From left to right the storm images get stronger. Let’s do a side by side comparison of our storm and the third eye image.
+        From left to right the storm images get stronger.
+        The clouds in this storm seem about as organized as those in the third image.
+        Let's choose it as our closest match.
       '''
       instruction: '''Click the third eye image.'''
 
     postMatch:
       header: '''Cyclone Type'''
       details: '''
-        These look like a close match, and even if we're off by a bit, our classification will be compared against other volunteers classifications of the same image. Let's move on.
+        This looks like a close match, and even if it's off by a bit, our classifications will be compared against other volunteers' classifications of the same image. Let's move on.
       '''
       instruction: '''Click "Continue".'''
 
@@ -500,6 +494,12 @@ module.exports =
       '''
       instruction: '''Choose the first option.'''
 
+    postBandingFeature:
+      header: ''''''
+      details: '''
+      '''
+      instruction: '''Click "Continue" one more time.'''
+
     goodLuck:
       header: '''Good Luck!'''
       details: '''
@@ -507,3 +507,4 @@ module.exports =
         Classifying storms is tricky, but we know that our volunteers do a great job. Just do your best, your opinion is important.
         Click Next storm to move to your next storm.
       '''
+      instruction: '''Click "Next" to get started on your own!'''
