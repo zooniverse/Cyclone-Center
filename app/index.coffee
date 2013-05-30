@@ -16,7 +16,7 @@ Navigable = require 'navigable'
 Home = require './controllers/home'
 About = require './controllers/about'
 Classify = require './controllers/classify'
-Profile = require 'zooniverse/controllers/profile'
+Profile = require './controllers/profile'
 stack = Navigable.stack [
   {'Home': new Home}
   {'About': new About}
