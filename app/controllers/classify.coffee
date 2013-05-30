@@ -7,6 +7,7 @@ User = require 'zooniverse/models/user'
 {Tutorial} = require 'zootorial'
 tutorialSteps = require '../lib/tutorial-steps'
 Subject = require 'zooniverse/models/subject'
+getTutorialSubject = require '../lib/get-tutorial-subject'
 Classification = require 'zooniverse/models/classification'
 StormStatus = require './storm-status'
 {active: activeStorms} = require '../lib/storms'
@@ -98,9 +99,15 @@ class Classify extends Controller
       group = activeStorms[Math.floor Math.random() * activeStorms.length]
     StormStatus::select.call {group}
 
-    @tutorial.start()
+    tutorialDone = user?.project.tutorial_done
+    noSubject = not Subject.current?
+    tutorialSubject = (Subject.current?.metadata.tutorial)
 
-    Subject.next()
+    if tutorialDone and (noSubject or tutorialSubject)
+      Subject.next()
+    else
+      getTutorialSubject().select()
+      @tutorial.start()
 
   onGettingNextSubject: =>
     @el.addClass 'loading'
