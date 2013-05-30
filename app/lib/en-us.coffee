@@ -396,7 +396,8 @@ module.exports =
     postStronger:
       header: '''Storm Strength'''
       details: '''
-        And click continue to move to the next step...'''
+        And click continue to move to the next step...
+      '''
       instruction: '''Click "Continue".'''
 
     chooseEmbeddedType:
@@ -419,10 +420,10 @@ module.exports =
       header: '''Cyclone Type'''
       details: '''
         From left to right the storm images get stronger.
-        The clouds in this storm seem about as organized as those in the third image.
+        The clouds in this storm seem very organized, about as organized as those in the fifth image.
         Let's choose it as our closest match.
       '''
-      instruction: '''Click the third eye image.'''
+      instruction: '''Click the fifth eye image.'''
 
     postMatch:
       header: '''Cyclone Type'''

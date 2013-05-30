@@ -3,6 +3,9 @@ template = require '../../views/classify-steps/center-eye-size'
 translate = require 't7e'
 $ = window.jQuery
 
+SHOWN_IMAGE_SIZE = 318
+REAL_IMAGE_SIZE = 600
+
 class CenterEyeSizeStep extends CenterStep
   property: ['center', 'eyewall']
 
@@ -50,6 +53,12 @@ class CenterEyeSizeStep extends CenterStep
     target.addClass 'active'
 
     @classifier.classification.set @property[1], value
-    @circle.attr 'r', value
+
+    km = value
+    scale = SHOWN_IMAGE_SIZE / REAL_IMAGE_SIZE
+    deg = km / 111.12
+    radius = (deg / 0.02337) * scale
+
+    @circle.attr 'r', radius
 
 module.exports = CenterEyeSizeStep

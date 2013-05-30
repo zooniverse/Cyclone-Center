@@ -1,3 +1,9 @@
+$eye-wall-diameters = 15 30 50 80 120
+
+km-to-px(km, scale = (318 / 600))
+  deg = (km / 111.12)
+  unit((deg / 0.02337) * scale, px)
+
 @keyframes classify-loading
   0%
     background-color: rgba($blue, 0.25)
@@ -89,6 +95,28 @@
 
         &.white
           background: rgb(255, 255, 255)
+
+      &[name="eye"]
+        height: 50px
+        width: 50px
+
+      .circle
+        background: rgba(#fff, 0.1)
+        border: 1px solid #000
+        border-radius: 50%
+        display: inline-block
+        overflow: hidden
+        letter-spacing: -10em
+        text-indent: -10em
+        vertical-align: middle
+
+
+        for km in $eye-wall-diameters
+          &.d{km}
+            $diameter = km-to-px(km)
+            height $diameter
+            width $diameter
+            // margin ($diameter / -2) 0 0 ($diameter / -2)
 
     .step-controls
       border-bottom: 1px solid #ccc

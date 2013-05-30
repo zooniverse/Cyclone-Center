@@ -60,9 +60,9 @@ module.exports =
     header: translate 'span', 'tutorial.chooseMatch.header'
     details: translate 'span', 'tutorial.chooseMatch.details'
     instruction: translate 'span', 'tutorial.chooseMatch.instruction'
-    attachment: 'left bottom button[value="eye-6.0"] left top'
+    attachment: 'center bottom button[value="eye-8.0"] center top'
     next:
-      'click button[value="eye-6.0"]': 'postMatch'
+      'click button[value="eye-8.0"]': 'postMatch'
 
   postMatch: new Step
     number: 7
