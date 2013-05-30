@@ -87,9 +87,13 @@ class Classify extends Controller
       reveal: (new RevealStep classifier: @)
 
     @tutorial = new Tutorial
+      parent: @el
       id: 'new_tutorial'
       steps: tutorialSteps
       firstStep: 'welcome'
+
+    $(window).on 'hashchange', =>
+      setTimeout (=> @tutorial.attach()), 50
 
   onUserChange: (e, user) =>
     @el.toggleClass 'signed-in', user?
