@@ -61,6 +61,10 @@ class Classify extends Controller
     '.step-controls': 'stepControls'
     'button[name="continue"]': 'continueButton'
     '.step-details': 'detailsContainer'
+    '.talk-image': 'talkImageLink'
+    '.talk-storm': 'talkStormLink'
+    '.facebook': 'facebookLink'
+    '.twitter': 'twitterLink'
 
   constructor: ->
     super
@@ -141,6 +145,11 @@ class Classify extends Controller
       @goToStep 'catAndMatch'
 
     @classification.set 'satellite', satellite
+
+    @talkImageLink.attr href: subject.talkHref()
+    @talkStormLink.css opacity: 0.33 # TODO
+    @facebookLink.attr href: subject.facebookHref()
+    @twitterLink.attr href: subject.twitterHref()
 
   onNoMoreSubjects: =>
     @el.removeClass 'loading'
