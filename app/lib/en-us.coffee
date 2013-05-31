@@ -206,165 +206,198 @@ module.exports =
       '''
 
       catAndMatch: '''
-        <section data-page="eye">
-          <h3>Eye Storms</h3>
-          <p>Eye storms are the most easily recognized of tropical cyclones, defined by their characteristic “eye” in the center of the storm.  The eye is a warmer area in the center of the storm, surrounded by colder clouds (the “eyewall”).  In stronger storms, the eye will appear as pink or gray, but it may simply be a circular area of clouds that are warmer clouds.   Remember white and blue are the coldest clouds while pink and  gray are the warmest clouds.</p>
-          <p>Stronger eye storms typically have the following characteristics:</p>
-          <ul>
-            <li>More circular or warmer eye</li>
-            <li>Colder clouds in the eyewall</li>
-            <li>Spiral bands that wrap farther around the eyewall</li>
-          </ul>
-          <p><img src="images/field-guide/eye.jpg" data-popup="#eye-example right" /></p>
-          <div id="eye-example" class="popup-content"><img src="images/field-guide/eye.jpg" /></div>
-        </section>
+        <p>The goal with this task is to broadly categorize the storm type. There are five types to look out for:</p>
 
-        <section data-page="embedded-center">
-          <h3>Embedded Center Storms</h3>
-          <p>Embedded Center storms are recognized by a relatively round area of colder clouds near the center of a storm.  With regard to strength, these storms generally fall between Curved Bands and Eye Storms.  The weakest Embedded Center storms will often resemble Curved Bands, while the very strongest of Embedded Center storms may start to develop an eye.</p>
-          <p>Characteristics of stronger Embedded Center storms include the following:</p>
-          <ul>
-            <li>Colder clouds near the center of the storm</li>
-            <li>Center looks more circular than surrounding areas</li>
-            <li>Pronounced spiral bands</li>
-          </ul>
-          <p><img src="images/field-guide/embedded-center.jpg" data-popup="#embedded-center-example right" /></p>
-          <div id="embedded-center-example" class="popup-content"><img src="images/field-guide/embedded-center.jpg" /></div>
-        </section>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <img src="./images/matches/eye-6.0.thumb.png" width="100" height="100" />
+              </td>
+              <td>
+                <h3>Eye Storms</h3>
+                <p>These are the easiest storms to spot and the most powerful of tropical cyclones. They have a characteristic ‘eye’ in the center which is warmer than the surrounding cooler clouds called the ‘eyewall’. Sometimes the eye will be pink or gray but it can also just be a circular area of clouds warmer than those surrounding it.</p>
+              </td>
+              <td>
+                <h3>Strongest when</h3>
+                <ul>
+                  <li>They are more circular or have a warmer eye.</li>
+                  <li>Have colder clouds in the eyewall.</li>
+                  <li>Have spiral bands wrapping farther around the eyewall.</li>
+                </ul>
+              </td>
+            </tr>
 
-        <section data-page="curved-band">
-          <h3>Curved Band Storms</h3>
-          <p>Curved Band storms are often more disorganized and more difficult to identify than Eye Storms or Embedded Centers. They are generally shaped like commas and may resemble a very weak Embedded Center. However, unlike Embedded Centers, they do not have a round area of cold cloud near their center.</p>
-          <p>Storms that don’t fit any other category are often classified as Curved Bands.</p>
-          <p>Stronger Curved Band storms generally display the following characteristics:</p>
-          <ul>
-            <li>More tightly wrapped bands</li>
-            <li>Longer bands</li>
-            <li>Colder clouds along the band</li>
-          </ul>
-          <p><img src="images/field-guide/curved-band.jpg" data-popup="#curved-band-example right" /></p>
-          <div id="curved-band-example" class="popup-content"><img src="images/field-guide/curved-band.jpg" /></div>
-        </section>
+            <tr>
+              <td>
+                <img src="./images/matches/embed-4.5.thumb.png" width="100" height="100" />
+              </td>
+              <td>
+                <h3>Embedded Center Storms</h3>
+                <p>These storms have a roundish area of colder clouds near the center. They are weaker than eye and stronger than curved-band storms. Weak embedded center storms can look like curved bands, strong embedded center storms may be starting to form an eye.</p>
+              </td>
+              <td>
+                <h3>Strongest when</h3>
+                <ul>
+                  <li>Colder clouds (darker blue) near the center of the storm</li>
+                  <li>Center looks more circular than surrounding areas</li>
+                  <li>Pronounced spiral bands</li>
+                </ul>
+              </td>
+            </tr>
 
-        <section data-page="shear">
-          <h3>Shear Storms</h3>
-          <p>Shear Storms are most easily recognized by a cloud pattern which appears almost flattened on one side, with the colors squeezed very close together.  They may also appear with a pronounced swirl in the gray clouds just outside the main storm.</p>
-          <p>Shear storms can be difficult to identify, depending on how organized the clouds have become.  They are experiencing vertical shear, when winds at the top are different from the winds at the bottom, causing the storm to tilt to one side.   Because of this tilt, tall clouds are mostly displaced toward one side of the storm, away from the center.</p>
-          <p>You can identify a stronger Shear storm with the following traits:</p>
-          <ul>
-            <li>Center of gray swirl is closer to (or even within) the colored clouds</li>
-            <li>The cold area (colored) has a tight swirl itself and is better organized</li>
-          </ul>
-          <p><img src="images/field-guide/shear.jpg" data-popup="#shear-example right" /></p>
-          <div id="shear-example" class="popup-content"><img src="images/field-guide/shear.jpg" /></div>
-        </section>
+            <tr>
+              <td>
+                <img src="./images/matches/band-2.5.thumb.png" width="100" height="100" />
+              </td>
+              <td>
+                <h3>Curved Band Storms</h3>
+                <p>These can be hard to identify - they’re more disorganized than eyes or embedded centers. Look for a comma shape storm without a round area of cold clouds at the center.</p>
+              </td>
+              <td>
+                <h3>Strongest when</h3>
+                <ul>
+                  <li>They have more tightly wrapped bands.</li>
+                  <li>Longer bands</li>
+                  <li>Colder clouds</li>
+                </ul>
+              </td>
+            </tr>
 
-        <section data-page="other">
-          <h3>Other Storms</h3>
-          <p>Sometimes you’ll encounter an image that doesn’t fit very well into any of these categories.  These are a few of the possibilities that don’t fall into these storm types.</p>
-          <p><strong>Post-Tropical Storms</strong></p>
-          <p>Post-tropical storms are storms that have lost their tropical nature. They become more like mid-latitude storms.  Typically they are made up of much warmer clouds (gray and pink) and have very long tails extending far from the main storm. Very often a storm becomes Post-Tropical toward the end of its life.</p>
-          <p><img src="images/field-guide/post-tropical.jpg" data-popup="#post-tropical-example right" /></p>
-          <div id="post-tropical-example" class="popup-content"><img src="images/field-guide/post-tropical.jpg" /></div>
-          <p><strong>Edge</strong></p>
-          <p>Since Earth is curved, and the satellites used to collect these images remain fixed in position above one place on the surface, a storm is usually not directly beneath a satellite.  In fact, eventually the storm may move completely out of the satellite’s field of view.  As the storm moves over the horizon, it can appear very distorted in the image, and may even be cut off by the horizon itself.</p>
-          <p>You will be able to recognize these cases because the image may appear very skewed, and a portion may appear black.</p>
-          <p><strong>Note: If it is possible to do a classification anyway, you should do the classification as normal.  Only choose this option if it is not possible to complete a classification.</strong></p>
-          <p><img src="images/field-guide/edge.jpg" data-popup="#edge-example right" /></p>
-          <div id="edge-example" class="popup-content"><img src="images/field-guide/edge.jpg" /></div>
-          <p><strong>No Storm</strong></p>
-          <p>Early in a storm’s lifetime it may not resemble a storm at all.  In this case, the image will appear to contain a field of disorganized clouds, with no structure that can be classified.  The image below has some tall clouds, but there’s no evidence of spiral bands that would indicate the storm is becoming more organized. In this case, select “No Storm”.</p>
-          <p><img src="images/field-guide/no-storm.jpg" data-popup="#no-storm-example right" /></p>
-          <div id="no-storm-example" class="popup-content"><img src="images/field-guide/no-storm.jpg" /></div>
-        </section>
+            <tr>
+              <td>
+                <img src="./images/matches/shear-2.5.thumb.png" width="100" height="100" />
+              </td>
+              <td>
+                <h3>Shear Storms</h3>
+                <p>Most easily recognised by a flattened side with all the colors squeezed very close together. A vertical shear causes the tallest clouds to be displaced to one side of the storm.</p>
+              </td>
+              <td>
+                <h3>Strongest when</h3>
+                <ul>
+                  <li>Center of gray swirl close (or even within) the colored clouds.</li>
+                  <li>A tight swirl in the cold area (colored).</li>
+                </ul>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <img src="./images/matches/other-post-tropical.png" width="100" height="100" />
+              </td>
+              <td>
+                <h3>Other Storms</h3>
+                <p>If the storm doesn’t fit any of the other categories then it might be a post-tropical storm. These are identified by large amounts of warm clouds (gray and pink) and often have a long tail extending from the center.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <img src="./images/matches/other-limb.png" width="100" height="100" /><br />
+                <img src="./images/matches/other-no-storm.png" width="100" height="100" />
+              </td>
+              <td>
+                <h3>Other Categories</h3>
+                <p>Edge: Sometimes the images will be skewed because of the limited view of the satellite. In this case try and classify the storm as normal - if that’s not possible then mark it as ‘edge’.</p>
+                <p>No storm: Early in a storm’s lifetime it might not be possible to say anything about its shape. If there is no evidence of an organised spiral structure then mark ‘no storm’.</p>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       '''
 
+      # TODO: Split these up?
       center: '''
-        <section data-page="center-embedded-center">
-          <h3>Finding the Center</h3>
-          <p>In an Embedded Center storm the center is embedded within the coldest clouds; no eye is present.  In order to find the center follow the swirl of clouds inward to a single point, traveling along a spiral. The center is not necessarily under the coldest clouds, so be careful not to get distracted by a spot of colder colors.</p>
-          <p>In the example below, you can see the clouds spiralling inward along the black arrows.  It may be tempting to click the area of dark blue clouds, but if you follow the arrows all the way in, you’ll see that the focus of circulation is actually slightly to the southeast, shown here by the white crosshairs.</p>
-          <p><img src="images/field-guide/center-embedded-center.jpg" data-popup="#center-embedded-center-guide right" /></p>
-          <div id="center-embedded-center-guide" class="popup-content"><img src="images/field-guide/center-embedded-center.jpg" /></div>
+        <section class="for-embedded center-embedded-center">
+          <h2>Finding the Center (Embedded Center)</h2>
+          <img src="images/field-guide/center-embedded-center.jpg" class="example"/>
+          <p>In an Embedded Center storm the center is embedded within the coldest clouds; no eye is present.</p>
+          <h3>What to look for:</h3>
+          <p>Follow the swirl of clouds inward to a single point, traveling along a spiral. The center isn’t necessarily under the coldest clouds, so be careful not to get distracted by a spot of colder colors.</p>
+          <p>Here the clouds are spiraling inward along the black arrows. It may be tempting to click the area of dark blue clouds, but if you follow the arrows all the way in, you’ll see that the focus of circulation is actually slightly to the southeast, shown by the white crosshairs.</p>
         </section>
 
-        <section data-page="center-curved-band">
-          <h3>Click the center of the storm</h3>
-          <p>As with the other storm types, the center of circulation in a Curved Band storm can be found by following the spirals inward to a single point.</p>
+        <section class="for-curved center-curved-band">
+          <h2>Click the center of the storm (Curved Band)</h2>
+          <img src="images/field-guide/center-curved-band.jpg" class="example" />
+          <p>The center of circulation in a Curved Band storm can be found by following the spirals inward to a single point.</p>
+          <h3>What to look for:</h3>
           <p>Curved Band storms sometimes spiral around a wedge of warmer clouds. The center of the storm is often near where the cold spiral meets this warm wedge.</p>
-          <p><img src="images/field-guide/center-curved-band.jpg" data-popup="#center-curved-band-guide right" /></p>
-          <div id="center-curved-band-guide" class="popup-content"><img src="images/field-guide/center-curved-band.jpg" /></div>
         </section>
 
-        <section data-page="center-shear">
-          <h3>Click on the Storm Center</h3>
-          <p>Tropical cyclones are known for their strong winds. Believe it or not, these storms can actually be blown over! These tilted storms are called Shear storms because they are encountering a cold front, or other large weather system, whose winds vary, or shear, with height. This shear tilts the storm over to one side.</p>
-          <p>The center of a Shear storm is the trickiest to find because the shear prevents tall clouds from developing on one side of the cyclone. This asymmetry makes it harder to find the center.</p>
-          <p>In some cases, like the example shown here, you can still see a small swirl in the gray and pink (warmer) clouds. If you see one of these, follow the swirl as it spirals into the center.</p>
-          <p>Sometimes these shallow clouds are difficult to find on infrared images. If you have trouble with the swirl method, look at the shield of cold clouds. In Shear storms, the colors will be very close together on one side of the storm, sometimes aligned in a straight line. That’s where the cold clouds are developing, before being blown away by the shear. The center of the storm will usually be nearby.</p>
-          <p><img src="images/field-guide/center-shear.jpg" data-popup="#center-shear-guide right" /></p>
-          <div id="center-shear-guide" class="popup-content"><img src="images/field-guide/center-shear.jpg" /></div>
+        <section class="for-shear center-shear">
+          <h2>Click on the Storm Center (Shear)</h2>
+          <img src="images/field-guide/center-shear.jpg" class="example" />
+          <p>These are called Shear storms because they are encountering a cold front, or other large weather system, whose winds vary, or shear, with height. This shear tilts the storm over to one side.</p>
+          <h3>What to look for:</h3>
+          <p>The asymmetry of a Shear storm makes it tricky to find it’s center because tall clouds are prevented from developing on one side of the cyclone. Sometimes, like in this example, you can still see a small swirl in the gray and pink (warmer) clouds. If you see one of these, follow the swirl as it spirals into the center.</p>
+          <p>Shallow clouds may be difficult to find on infrared images. If you have trouble with the swirl method, look at the shield of cold clouds. In Shear storms, the colors will be very close together on one side of the storm, sometimes aligned in a straight line. That’s where the cold clouds are developing, before being blown away by the shear. The center of the storm will usually be nearby.</p>
         </section>
       '''
 
       centerEyeSize: '''
-        <h3>Click the center of the storm, then pick the size closest to the eye edge</h3>
-        <p>A cyclone’s eye forms at its center of circulation, where descending air creates a mostly cloudless and rain free area.   You can identify an eye by finding a very warm area near the center of the storm surrounded by a ring of very cold clouds.  Often you are actually seeing straight through the storm to the land or ocean below.  To pinpoint the center of the storm, simply find the center of the eye.</p>
-        <p>Storms with smaller eyes typically have  tighter and stronger circulation, and therefore a stronger storm.  You also  need to determine the eye’s size.  To do this, select the circle that best matches the size of the eye and drag it with your mouse so that it traces the eye.  If you need to change the size, click on a different-sized circle and try again.  For this purpose, you can think of the edge of the eye as the point where the colors are closest together.</p>
-        <p><img src="images/field-guide/center-eye.jpg" data-popup="#center-eye-guide right" /></p>
-        <div id="center-eye-guide" class="popup-content"><img src="images/field-guide/center-eye.jpg" /></div>
+        <h2>Click the center of the storm, then choose the size of the eye.</h2>
+        <img src="./images/field-guide/center-eye.jpg" class="example" />
+        <p>A cyclone’s eye, a mostly cloudless and rain free area, forms at its center of circulation.</p>
+        <h3>What to look for:</h3>
+        <p>Identify the eye and center of the storm:</p>
+        <p>Look for a very warm area near the center of the storm surrounded by a ring of very cold clouds. Finding the center of the storm is easy, it’s the center of the eye.</p>
+        <h3>Eye size:</h3>
+        <p>Select the circle that best matches the size of the eye and drag it with your mouse so that it traces the eye. Think of the edge of the eye as the point where the colors are closest together. If you need to change the size, click on a different-sized circle.</p>
+        <p><strong>Why it’s important:</strong> Storms with smaller eyes typically have tighter and stronger circulation, and are therefore a stronger storm.</p>
       '''
 
       surrounding: '''
-        <h3>Which colors completely surround the eye?</h3>
-        <p>For this step, you are looking for the coldest color which completely surrounds the eye of the cyclone, in an unbroken ring.  It doesn’t matter how thick or thin the ring is, or even if it’s not circular, only that it is continuous, with no breaks, all the way around.</p>
-        <p>Keep in mind that these storms can be thought of as a layer cake, with warmer layers underneath the colder ones.  For example, if you removed all of the light blue colors, you would see yellow beneath them, and orange beneath those.  In the example below, the cyan ring doesn’t quite connect all the way around, but the light blue beneath it does. Since the light blue completes a ring, that means that yellow, orange, and all the layers of the cake beneath it also wrap all the way around.  You only need to select light blue.</p>
-        <p>Cloud temperatures decrease with height, so you can identify the strongest storms by finding the coldest cloud tops.  Using the infrared imagery that you see here, that task becomes very simple.</p>
-        <p>The eye of a tropical cyclone is surrounded by a ring of tall clouds called the eyewall. By identifying which colors surround the eye of the storm, you’ll determine how tall these clouds are, which helps estimate the strength of the cyclone itself.</p>
-        <p><img src="images/field-guide/surrounding.jpg" data-popup="#surrounding-guide right" /></p>
-        <div id="surrounding-guide" class="popup-content"><img src="images/field-guide/surrounding.jpg" /></div>
+        <h2>Which colors completely surround the eye?</h2>
+        <img src="./images/field-guide/surrounding.jpg" class="example" />
+        <p>A tropical cyclone’s eye is surrounded by a ring of tall clouds called the eyewall.</p>
+        <h3>What to look for:</h3>
+        <p>Look for the coldest color completely surrounding the eye of the cyclone in an unbroken ring. It doesn’t matter how thick or thin the ring is, or even if it’s not circular, only that it is continuous all the way around.</p>
+        <p>Think of these storms as a layer cake, with warmer cloud layers underneath colder ones.  If you removed all of the light blue colors, you would see yellow beneath them, and orange beneath those. In the example below, the cyan ring doesn’t quite connect all the way around, but the light blue beneath it does. Since the light blue completes a ring, that means that yellow, orange, and all the layers of the cake beneath it also wrap all the way around. You only need to select light blue.</p>
+        <p><strong>Why it’s important:</strong> Cloud temperatures decrease with height, so stronger storms can be identified by finding the coldest cloud tops. By identifying which colors surround the eye of the storm in the eyewall, you’ll determine how tall these clouds are, helping to estimate the strength of the cyclone.</p>
       '''
 
       exceeding: '''
-        <h3>Choose the colors completely surrounding the eye that is at least 0.5° thick</h3>
-        <p>This question is very similar to the previous one, except this time, you are specifically looking for colors of a certain thickness.  Previously, you were only finding a continuous ring, no matter how thick or thin.</p>
-        <p>Click on the image and a small circle will appear that follows your mouse pointer around.  Find the coldest color that completely surrounds the eye and is also as thick as that circle at all points around the ring.  This tells us not only how tall the clouds are, but how widespread as well.  Storms with a larger area of cold clouds are typically more intense.</p>
-        <p>In the last step, we found that light blue wrapped all the way around the storm. This light blue is thick enough in most places, but not southwest of the eye. In that region we find some yellow peaking through our measuring tool. That small bit of yellow is enough to eliminate the light blue for this step.</p>
-        <p>At first glance the yellow might not seem thick enough either. However, remember how a storm is like a layer cake.  If one ring isn’t quite thick enough, imagine removing it and exposing the next warmer color below, and so forth until you find one thick enough.  There is a yellow layer underneath the blue one, so we can consider these blues as part of the yellow. In that case, the yellow is more than thick enough.</p>
-        <p><img src="images/field-guide/exceeding.jpg" data-popup="#exceeding-guide right" /></p>
-        <div id="exceeding-guide" class="popup-content"><img src="images/field-guide/exceeding.jpg" /></div>
+        <h2>Choose the colors completely surrounding the eye that is at least 0.5° thick</h2>
+        <img src="./images/field-guide/exceeding.jpg" class="example" />
+        <p>What to look for: Click on the image to make a small circular measuring tool appear.  Find the coldest color completely surrounding the eye that is also as thick as the circle at all points around the ring. The light blue wrapped all the way around the storm is thick enough in most places, but not southwest of the eye. In that region there is some yellow peaking through the measuring tool. That small bit of yellow is enough to eliminate the light blue for this step.</p>
+        <p>The yellow might not seem thick enough either. However, remember how a storm is like a layer cake. If one ring isn’t quite thick enough, imagine removing it and exposing the next warmer color below, and so forth until you find one thick enough. There is a yellow layer underneath the blue one, so we can consider these blues as part of the yellow. In that case, the yellow is more than thick enough.</p>
+        <p><strong>Why it’s important:</strong> This tells us not only how tall the clouds are, but how widespread as well. Storms with a larger area of cold clouds are typically more intense.</p>
       '''
 
       feature: '''
-        <h3>Does the band wrap less than a quarter, about a quarter, half or more?</h3>
-        <p>Strong tropical cyclones often have long spiral bands. A band is defined as a spiral arm that is orange or colder, separated from the main storm by a wedge of red or warmer. For this step, you will determine how far the band wraps around the storm.</p>
-        <p>Choose an icon from the three below the image to indicate which best matches the amount of banding you see in the storm above. You’ll determine whether the band wraps less than a quarter-way around the storm, about a quarter-way around the storm, or half-way or more around the storm. Some storms don’t have any spiral bands at all. In those cases select the leftmost icon.</p>
-        <p>The example here has a wide band along the north side of the storm. This band is relatively short and it doesn’t wrap very far around the storm’s center. In this case, you’d pick the icon on the left.</p>
-        <p><img src="images/field-guide/feature-embedded-center.jpg" data-popup="#feature-guide right" /></p>
-        <div id="feature-guide" class="popup-content"><img src="images/field-guide/feature-embedded-center.jpg" /></div>
+        <h2>Does the band wrap less than a quarter, about a quarter, half or more?</h2>
+        <img src="./images/field-guide/feature-embedded-center.jpg" class="example" />
+        <p>Strong tropical cyclones often have long spiral bands. A band is defined as a spiral arm that is orange or colder, separated from the main storm by a wedge of red or warmer clouds.</p>
+        <h3>What to look for:</h3>
+        <p>You’ll determine how far the band wraps around the storm. Choose an icon from the three below the image to indicate whether the band wraps less than a quarter way around the storm, a quarter-way around the storm, or halfway or more around the storm. If a storm doesn’t have spiral bands select the first icon.</p>
+        <p>The example here has a wide band along the north side of the storm. This band is relatively short and it doesn’t wrap very far around the storm’s center. In this case, choose the first icon.</p>
       '''
 
       blue: '''
-        <h3>Which colors wrap most of the way around the band?</h3>
-        <p>Colder, taller clouds release more energy into a tropical cyclone. We identify these taller storms in infrared satellite images by looking for colder cloud tops. Remember white and blue represent the coldest clouds and pink and grey represent the warmest clouds. As you might expect, stronger tropical cyclones will have more of these tall, cold clouds.</p>
-        <p>For this step, you are trying to find the primary color of the Curved Band itself.  That will provide information on the tropical cyclone’s strength.  Simply look at the band and pick the coldest color that extends along most of the band.   In the example here, there are some patches of light blue, and even cyan, but they are too sparse to be considered widespread, so you would click yellow.</p>
-        <p><img src="images/field-guide/color.jpg" data-popup="#color-guide right" /></p>
-        <div id="color-guide" class="popup-content"><img src="images/field-guide/color.jpg" /></div>
+        <h2>Which colors wrap most of the way around the band?</h2>
+        <img src="./images/field-guide/color.jpg" class="example" />
+        <h3>What to look for:</h3>
+        <p>You’ll identify the primary color of the Curved Band itself. Simply look at the band and choose the coldest color that extends along most of the band. In this example there are some patches of light blue, and even cyan, but they are too sparse to be considered widespread, so you would choose yellow.</p>
+        <p><strong>Why is this important:</strong> This provides information on the cyclone’s strength. Colder, taller clouds release more energy into a tropical cyclone. We identify these taller storms in infrared satellite images by looking for colder cloud tops. Remember white and blue represent the coldest clouds and pink and grey represent the warmest clouds. Stronger tropical cyclones will have more of these tall, cold clouds.</p>
       '''
 
       curve: '''
-        <h3>How far does the main band wrap?</h3>
-        <p>The primary measure of a Curved Band storm’s strength is the length of the band itself. The longer the band, the stronger the storm.  Focus on how far around the band wraps, and click on the picture that best matches it.  In this example, the band wraps around about one-half of a full circle, so we’d click the second picture below.</p>
-        <p><img src="images/field-guide/wrap.jpg" data-popup="#wrap-guide right" /></p>
-        <div id="wrap-guide" class="popup-content"><img src="images/field-guide/wrap.jpg" /></div>
+        <h2>How far does the main band wrap?</h2>
+        <img src="./images/field-guide/wrap.jpg" class="example" />
+        <p>A Curved Band storm’s strength is measured by the length of the band. The longer the band, the stronger the storm.</p>
+        <h3>What to look for:</h3>
+        <p>Focus on how far around the band wraps, and click on the picture that best matches it. In this example, the band wraps around about one-half of a full circle, so we’d choose the second picture.</p>
       '''
 
       red: '''
-        <h3>Click the red point nearest to the storm center that is associated with the main cloud feature</h3>
-        <p>In this step, you are trying to find the distance from the center that you found to the storm’s main thunderstorms.  This tells us how tilted or straight the storm is, and therefore, how strong it is.  For this step, simply click on the edge of the cold clouds that is closest to the center that you marked in the last step.</p>
-        <p>In the example here, the center (marked with a white crosshair) is just outside the main thunderstorms.  In some cases, the center will be within the cold colors, but we’ll still need to know how far the center is from the edge of the coldest clouds. Click the edge of the main storm (the nearest red point), and a second crosshair will appear.  The distance between these clicks will tell us the storm’s strength.</p>
-        <p><img src="images/field-guide/red.jpg" data-popup="#red-guide right" /></p>
-        <div id="red-guide" class="popup-content"><img src="images/field-guide/red.jpg" /></div>
+        <h2>Click the red point nearest to the storm center that is associated with the main cloud feature</h2>
+        <img src="./images/field-guide/red.jpg" class="example" />
+        <h3>What to look for:</h3>
+        <p>You’re marking the distance from the center that you marked in the last step to the storm’s main thunderstorms.  Click the red point closest to the center that you previously marked.</p>
+        <p>Here, the center (marked with a white crosshair) is just outside the main thunderstorms. Sometimes the center will be within the cold colors, but we’ll still need to know how far the center is from the edge of the coldest clouds. Click the edge of the main storm (the nearest red point), and a second crosshair will appear. The distance between these clicks will tell us the storm’s strength.</p>
+        <p><strong>Why is this important:</strong> This tells us how tilted or straight the storm is, and therefore, how strong it is.</p>
       '''
 
       reveal:

@@ -32,6 +32,11 @@ class Center extends Step
 
     $(document).on "mouseup.#{@id}", @onDocumentMouseUp
 
+    console.log @details.find 'section'
+    for section in @details.find 'section'
+      section = $(section)
+      section.toggle section.hasClass "for-#{@classifier.classification.get 'type'}"
+
   reset: ->
     super
     @crosshairs?.remove()
