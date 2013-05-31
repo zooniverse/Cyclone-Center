@@ -180,29 +180,32 @@ module.exports =
 
     details:
       stronger: '''
-        <h3>Which storm appears stronger?</h3>
-        <p>An important part of estimating the strength of a storm is knowing whether that storm is getting stronger, weaker or staying about the same. To help us with that, the first step of most classifications is to ask which of two images looks stronger. These are actually two images of the same storm taken within 24 hours.</p>
-        <p>If the image you see is from the first 24 hours of the storm (or the image 24 hours prior is missing) then you’ll skip this step.</p>
-        <p>A number of characteristics determine whether a storm is stronger, weaker or about the same.  There are two main measures of strength to look for:</p>
-        <p><strong>1. How cold are the clouds?</strong></p>
-        <p>Colder colors in infrared imagery indicate taller clouds that release more energy into a storm. Stronger tropical cyclones tend to have taller clouds and more of them. For example:</p>
+        <p>To determine which storm is stronger, look for the follow characteristics.</p>
+
+        <h2>How cold are the clouds?</h2>
+        <h3>What to look for:</h3>
         <ul>
-          <li>The presence of more colder colored clouds in an embedded center suggest a stronger storm.</li>
-          <li>Colder clouds surrounding an eye suggest a stronger storm.</li>
+          <li>In an Embedded Center, more cold clouds suggest a stronger storm.</li>
+          <li>In an Eye, colder clouds surrounding an eye suggest a stronger storm.</li>
         </ul>
-        <p><strong>2. How organized are the clouds?</strong></p>
-        <p>This question is a bit more subjective, so just give it your best shot. Some features that might indicate which storm image is stronger:</p>
+        <p><strong>Why is it important:</strong> Colder colors in infrared satellite imagery indicate taller clouds that release more energy into a storm. Stronger tropical cyclones tend to have taller clouds and more of them.</p>
+
+        <h2>How organized are the clouds?</h2>
+        <p>Cloud organization is somewhat subjective, so just give it your best shot.</p>
+        <h3>What to look for:</h3>
         <ul>
-          <li>Stronger storms have spirals that wrap farther around the storm.</li>
-          <li>The cold clouds near the center become more circular as a storm strengthens.</li>
           <li>Typically Shear and Curved Band storms are weaker than those with an Embedded Center.</li>
+          <li>Stronger storms have spirals that wrap farther around the storm.</li>
+          <li>Cold clouds near the center become more circular as a storm strengthens.</li>
           <li>Storms with an eye are almost always stronger than storms without one.</li>
-          <li>For storms with an eye, consider the shape, size and color of the eye. Eyes that are more circular, smaller and/or warmer tend to be associated with stronger tropical cyclones.</li>
+          <li>For Eye storms, consider the shape, size and color of the eye. Eyes that are more circular, smaller and/or warmer are associated with stronger tropical cyclones.</li>
         </ul>
-        <p>In some cases, the storm on the left may appear to have some of these characteristics, while the storm on the right may appear to have others.  If this is the case, they can actually cancel out, in which case we would say that they are about the same.  For example:  If the storm on the left appears better organized and more tightly-wrapped, but the storm on the right has more cold colors, you would say that they are about the same.</p>
-        <p>You can use the images below to help you gauge a storm’s relative strength.</p>
-        <p><img src="images/field-guide/strength-chart.jpg" data-popup="#strength-chart right" /></p>
-        <div id="strength-chart" class="popup-content"><img src="images/field-guide/strength-chart.jpg" /></div>
+
+        <h2>Use your best judgement:</h2>
+        <p>In some cases, the storm on the left may appear to have some of these characteristics, while the storm on the right may appear to have others. If this is the case, they can actually cancel out, in which case we would say that they are about the same. For example: If the storm on the left appears better organized and more tightly-wrapped, but the storm on the right has more cold colors, you would say that they are about the same.</p>
+        <p>Use the images below to help you gauge a storm’s relative strength.</p>
+
+        <img src="images/field-guide/strength-chart.jpg" />
       '''
 
       catAndMatch: '''
