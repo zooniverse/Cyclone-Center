@@ -119,6 +119,8 @@ class Classify extends Controller
   onSubjectSelect: (e, subject) =>
     @el.removeClass 'loading'
 
+    @classification?.destroy()
+
     @classification = new Classification {subject}
     @classification.on 'change', @onClassificationChange
 
