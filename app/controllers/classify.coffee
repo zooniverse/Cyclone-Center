@@ -119,6 +119,7 @@ class Classify extends Controller
   onSubjectSelect: (e, subject) =>
     @el.removeClass 'loading'
 
+    @tutorial.end() unless subject.metadata.tutorial
     @classification?.destroy()
 
     @classification = new Classification {subject}
