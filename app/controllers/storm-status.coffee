@@ -52,8 +52,6 @@ class StormStatus extends BaseController
     unless e.target.nodeName.toUpperCase() is 'A'
       @select()
 
-    location.hash = '/classify'
-
   # NOTE: This is also called manually from the home controller.
   select: ->
     if Subject.group is @group
@@ -69,6 +67,7 @@ class StormStatus extends BaseController
 
     @el?.addClass 'loading'
     Subject.next =>
+      location.hash = '/classify'
       @el?.removeClass 'loading'
 
   onGroupChanged: (e, group) =>
