@@ -13,7 +13,7 @@ module.exports =
     '''
 
     explanation: '''
-      Differences in analysis around the world and through time have caused uncertainties in the global cyclone tensity record.
+      Differences in analysis around the world and through time have caused uncertainties in the global cyclone intensity record.
       Scientists are enlisting the public because patterns in storm imagery are best recognized by the human eye.
     '''
 
@@ -457,7 +457,7 @@ module.exports =
       header: '''Cyclone Type'''
       details: '''
         From left to right the storm images get stronger.
-        The clouds in this storm seem very organized, about as organized as those in the fifth image.
+        The clouds in this storm seem very cold and organized, similar to those in the fifth image
         Let's choose it as our closest match.
       '''
       instruction: '''Click the fifth eye image.'''
@@ -511,7 +511,7 @@ module.exports =
         Hovering over the image will show you a box you can use to measure that thickness.
         Choose the color that fills that box all the way around.
         Remember: Colder color include warmer colors.
-        Here, it appears the ywlloe band is the right thickness al the way around.
+        Here, it appears the yellow band is the right thickness al the way around.
       '''
       instruction: '''Click the yellow swatch.'''
 
@@ -526,13 +526,14 @@ module.exports =
       header: '''Banding Feature'''
       details: '''
         Now let's identify the length of the storm's spiral bands.
-        This storm doesn't have very strong banding, so let's choose the first option.
+        This storm doesn't have very strong banding, so let's choose the second option.
       '''
       instruction: '''Choose the first option.'''
 
     postBandingFeature:
-      header: ''''''
+      header: '''Banding Feature'''
       details: '''
+        We're almost finished!
       '''
       instruction: '''Click "Continue" one more time.'''
 

@@ -141,7 +141,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseBandingFeature.header'
     details: translate 'span', 'tutorial.chooseBandingFeature.details'
     instruction: translate 'span', 'tutorial.chooseBandingFeature.instruction'
-    attachment: 'left bottom button[value="0.0"] left top'
+    attachment: 'left bottom button[value="0.5"] left top'
     next:
       'click button[value="0.0"]': 'postBandingFeature'
 
