@@ -3,6 +3,12 @@ template = require '../../views/classify-steps/exceeding'
 translate = require 't7e'
 $ = window.jQuery
 
+OLD_HALF_DEGREE_PROPORTION = 17.3 / 485
+NEW_IMAGE_SIZE = 314
+HALF_DEGREE = OLD_HALF_DEGREE_PROPORTION * NEW_IMAGE_SIZE
+BOX_SPACING = 5
+BOX_WIDTH = 2
+
 class Exceeding extends Step
   property: 'coldest_at_least_0_5_deg'
 
@@ -25,13 +31,13 @@ class Exceeding extends Step
 
     @center = @svg.create 'circle', r: 5, fill: 'black', 'stroke-width': 0
 
-    @line = @svg.create 'path', d: '''
-      M -40 -2
-      L -10 -2
-      L -10 2
-      L -40 2
+    @line = @svg.create 'path', d: """
+      M -#{HALF_DEGREE + BOX_SPACING} -#{BOX_WIDTH}
+      L -#{BOX_SPACING} -#{BOX_WIDTH}
+      L -#{BOX_SPACING} #{BOX_WIDTH}
+      L -#{HALF_DEGREE + BOX_SPACING} #{BOX_WIDTH}
       Z
-    ''', fill: 'transparent', stroke: 'black', 'stroke-width': 2
+    """, fill: 'transparent', stroke: 'black', 'stroke-width': 2
 
   enter: ->
     super
