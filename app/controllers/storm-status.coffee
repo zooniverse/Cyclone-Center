@@ -3,6 +3,7 @@ template = require '../views/storm-status'
 Api = require 'zooniverse/lib/api'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
+$ = window.jQuery
 
 CLASSIFICATIONS_TO_RETIRE = 30
 MAP_WIDTH = 225
@@ -50,25 +51,30 @@ class StormStatus extends BaseController
 
   onClick: (e) ->
     unless e.target.nodeName.toUpperCase() is 'A'
-      @select()
+      @select().then ->
+        location.hash = '/classify'
 
   # NOTE: This is also called manually from the home controller.
   select: ->
+    deferred = new $.Deferred
+
     if Subject.group is @group
       location.hash = '/classify'
-      return
+      deferred.resolve()
+    else
+      User.current?.setPreference 'cyclone_center.storm', @group, false
 
-    User.current?.setPreference 'cyclone_center.storm', @group, false
+      Subject.group = @group
+      Subject.destroyAll()
 
-    Subject.group = @group
-    Subject.destroyAll()
+      StormStatus.trigger 'select', @group
 
-    StormStatus.trigger 'select', @group
+      @el?.addClass 'loading'
+      Subject.next =>
+        @el?.removeClass 'loading'
+        deferred.resolve arguments...
 
-    @el?.addClass 'loading'
-    Subject.next =>
-      location.hash = '/classify'
-      @el?.removeClass 'loading'
+      deferred
 
   onGroupChanged: (e, group) =>
     @el.toggleClass 'active', group is @group

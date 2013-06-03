@@ -30,6 +30,7 @@ class Home extends Controller
 
   onClickRandom: ->
     # Pretend we selected a group from the home page:
-    StormStatus::select.call el: @randomButton, group: true
+    StormStatus::select.call(el: @randomButton, group: true).then ->
+      location.hash = '/classify'
 
 module.exports = Home
