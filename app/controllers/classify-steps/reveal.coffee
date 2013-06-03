@@ -7,6 +7,28 @@ Api = require 'zooniverse/lib/api'
 LEAFLET_API_KEY = '21a5504123984624a5e1a856fc00e238' # Brian's
 DEFAULT_ZOOM = 3
 
+SPEED_ESTIMATES =
+  'eye-4.0': '55-77 kts'
+  'eye-5.0': '77-102 kts'
+  'eye-6.0': '102-127 kts'
+  'eye-7.0': '127-155 kts'
+  'eye-8.0': '155+ kts'
+  'embed-3.5': '155+ kts'
+  'embed-4.0': '55-77 kts'
+  'embed-4.5': '65-90 kts'
+  'embed-5.0': '77-102 kts'
+  'embed-5.5': '90-115 kts'
+  'band-1.5': '25-30 kts'
+  'band-2.0': '25-35 kts'
+  'band-2.5': '30-45 kts'
+  'band-3.0': '35-55 kts'
+  'band-3.5': '45-65 kts'
+  'shear-1.5': '25-30 kts'
+  'shear-2.0': '25-35 kts'
+  'shear-2.5': '30-45 kts'
+  'shear-3.0': '35-55 kts'
+  'shear-3.5': '45-65 kts'
+
 class Reveal extends Step
   explanation: detailsTemplate @
 
@@ -33,7 +55,7 @@ class Reveal extends Step
     @trail.setStyle color: 'orange'
     @youAreHere = new Leaflet.CircleMarker [0, 0]
     @youAreHere.setRadius 10
-    @youAreHere.setStyle fill: false, color: 'red'
+    @youAreHere.setStyle fill: 'rgba(0, 0, 0, 0.1)', color: 'red'
 
     @map.addLayer @trail
     @map.addLayer @youAreHere
@@ -120,6 +142,10 @@ class Reveal extends Step
       coords = @classifier.classification.subject.coords
       coords[1] += 360 if coords[1] < 0
       @youAreHere.setLatLng coords
+      @youAreHere.bindPopup("""
+        <p>#{coords}</p>
+        <p>Estimated wind speed: #{SPEED_ESTIMATES[@classifier.classification.get 'match'] || '?'}</p>
+      """).openPopup()
       @map.setView @classifier.classification.subject.coords, DEFAULT_ZOOM
 
   reset: ->
