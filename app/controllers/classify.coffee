@@ -50,6 +50,7 @@ class Classify extends Controller
   classification: null
 
   events:
+    'click button[name="restart"]': 'onClickRestart'
     'click button[name="continue"], button[name="finish"]': 'onClickContinue'
     'click button[name="next"]': 'onClickNext'
     'click .not-signed-in .sign-in': -> loginDialog.show()
@@ -132,11 +133,12 @@ class Classify extends Controller
     satellite = grabRandomSatellite subject
     @currentImg.attr src: subject.location[satellite]
 
-    olderLocation = subject.location["#{satellite}-yesterday"]
 
     @el.toggleClass 'southern', subject.coords[0] < 0
 
     # return @goToStep 'red'
+
+    olderLocation = subject.location["#{satellite}-yesterday"]
 
     if olderLocation?
       @olderImg.attr src: olderLocation
@@ -166,6 +168,20 @@ class Classify extends Controller
       false
 
     @continueButton.attr {disabled}
+
+  onClickRestart: ->
+    hadStrength = @classification.get 'strength'
+
+    properties = []
+    properties = properties.concat step.property for _, step of @steps
+
+    for property in properties
+      @classification.set property, null
+
+    if hadStrength
+      @goToStep 'stronger'
+    else
+      @goToStep 'catAndMatch'
 
   onClickContinue: ->
     @goToStep @getNextStep()

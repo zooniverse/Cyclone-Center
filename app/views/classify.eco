@@ -2,6 +2,11 @@
 
 <div class="controls">
   <div class="subject">
+    <button name="restart">
+      <span class="icon">↺</span>
+      <span class="label">Restart</span>
+    </button>
+
     <img src="//placehold.it/1.png" class="older" />
     <img src="//placehold.it/1.png" class="current" />
   </div>

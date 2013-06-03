@@ -29,16 +29,41 @@ km-to-px(km, scale = (318 / 600))
       padding: 2px
       position: relative
 
+      button[name="restart"]
+        border: 0
+        bottom: 10px
+        box-shadow: none
+        font-size: 10px
+        position: absolute
+        left: 40px
+        line-height: 1
+
+        > .icon
+          display: block
+          font-size: 30px
+          font-weight: lighter
+
+        > .label
+          display: block
+
+        &:hover
+          color: #900
+
       img
         border: 2px solid transparent
         box-sizing: border-box
         display: block
         height: 318px
         margin: 0 auto
+        position: relative
         width: 318px
+        z-index: 1
 
         &.older
           display: none
+
+      svg
+        z-index: 2
 
     button
       border: 1px solid #999
