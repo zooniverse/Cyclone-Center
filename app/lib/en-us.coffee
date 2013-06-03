@@ -364,7 +364,8 @@ module.exports =
       exceeding: '''
         <h2>Choose the colors completely surrounding the eye that is at least 0.5° thick</h2>
         <img src="./images/field-guide/exceeding.jpg" class="example" />
-        <p>What to look for: Click on the image to make a small circular measuring tool appear.  Find the coldest color completely surrounding the eye that is also as thick as the circle at all points around the ring. The light blue wrapped all the way around the storm is thick enough in most places, but not southwest of the eye. In that region there is some yellow peaking through the measuring tool. That small bit of yellow is enough to eliminate the light blue for this step.</p>
+        <h3>What to look for:</h3>
+        <p>Hover over the image to make a small measuring tool appear. Find the coldest color completely surrounding the eye that also completely fills the circle at all points around the ring. The light blue wrapped all the way around the storm is thick enough in most places, but not southwest of the eye. In that region there is some yellow peaking through the measuring tool. That small bit of yellow is enough to eliminate the light blue for this step.</p>
         <p>The yellow might not seem thick enough either. However, remember how a storm is like a layer cake. If one ring isn’t quite thick enough, imagine removing it and exposing the next warmer color below, and so forth until you find one thick enough. There is a yellow layer underneath the blue one, so we can consider these blues as part of the yellow. In that case, the yellow is more than thick enough.</p>
         <p><strong>Why it’s important:</strong> This tells us not only how tall the clouds are, but how widespread as well. Storms with a larger area of cold clouds are typically more intense.</p>
       '''
