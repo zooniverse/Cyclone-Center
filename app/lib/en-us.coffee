@@ -481,7 +481,7 @@ module.exports =
       details: '''
         Choose the size that most closely matches the eyewall. For more help, always remember to read the details on the right.
       '''
-      instruction: '''Choose the third circle.'''
+      instruction: '''Choose the second circle.'''
 
     postChooseSize:
       header: '''Center and Eye Size'''

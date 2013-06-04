@@ -89,7 +89,7 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseSize.instruction'
     attachment: 'center bottom button[value="50"] center top'
     next:
-      'click button[value="50"]': 'postChooseSize'
+      'click button[value="30"]': 'postChooseSize'
 
   postChooseSize: new Step
     number: 10
