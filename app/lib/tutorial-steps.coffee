@@ -8,12 +8,14 @@ module.exports =
     number: 0
     header: translate 'span', 'tutorial.welcome.header'
     details: translate 'span', 'tutorial.welcome.details'
+    block: '.controls'
     next: 'temperature'
 
   temperature: new Step
     number: 1
     header: translate 'span', 'tutorial.temperature.header'
     details: translate 'span', 'tutorial.temperature.details'
+    block: '.controls'
     next: 'chooseStronger'
 
   chooseStronger: new Step
@@ -41,6 +43,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseEmbeddedType.details'
     instruction: translate 'span', 'tutorial.chooseEmbeddedType.instruction'
     attachment: 'left middle .categories ul right middle'
+    block: 'button[name="category"]:not([value="embedded"])'
     next:
       'click button[value="embedded"]': 'chooseEyeType'
       'click button:not([value="embedded"])': false
@@ -51,6 +54,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseEyeType.details'
     instruction: translate 'span', 'tutorial.chooseEyeType.instruction'
     attachment: 'left bottom button[value="eye"] left top'
+    block: 'button[name="category"]:not([value="eye"]), button[name="match"]'
     next:
       'click button[value="eye"]': 'chooseMatch'
       'click button:not([value="eye"])': false
@@ -61,6 +65,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseMatch.details'
     instruction: translate 'span', 'tutorial.chooseMatch.instruction'
     attachment: 'center bottom button[value="eye-8.0"] center top'
+    block: 'button[name="category"]:not([value="eye"]), button[name="match"]:not([value="eye-8.0"])'
     next:
       'click button[value="eye-8.0"]': 'postMatch'
 
