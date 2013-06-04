@@ -9,12 +9,11 @@ module.exports =
 
   home:
     intro: '''
-      Climate scientists need your help analyzing more than 30 years of tropical cyclone satellite imagery.
+      Help scientists classify over 30 years of tropical cyclone satellite imagery.
     '''
 
     explanation: '''
-      Differences in analysis around the world and through time have caused uncertainties in the global cyclone intensity record.
-      Scientists are enlisting the public because patterns in storm imagery are best recognized by the human eye.
+      The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
     '''
 
     theStorms: '''
@@ -180,7 +179,7 @@ module.exports =
 
     details:
       stronger: '''
-        <p>To determine which storm is stronger, look for the follow characteristics.</p>
+        <p>To determine which storm is stronger, look for the following characteristics.</p>
 
         <h2>How cold are the clouds?</h2>
         <h3>What to look for:</h3>
@@ -497,7 +496,7 @@ module.exports =
         Moving from the eye out, we can see that the beige, orange, red, yellow, and light blue bands are all continuous.
         The cyan band is broken, so let's choose the light blue as the coldest continuous band.
       '''
-      instruction: '''Choose the light blue swatch.'''
+      instruction: '''Choose the teal/blue swatch, 6th from the left.'''
 
     postSurrounding:
       header: '''Coldest Surrounding Clouds'''
@@ -511,9 +510,9 @@ module.exports =
         Hovering over the image will show you a box you can use to measure that thickness.
         Choose the color that fills that box all the way around.
         Remember: Colder color include warmer colors.
-        Here, it appears the yellow band is the right thickness al the way around.
+        Here, it appears the teal/blue band is thick enough all the way around the eye.
       '''
-      instruction: '''Click the yellow swatch.'''
+      instruction: '''Choose the teal/blue swatch again.'''
 
     postColdestThick:
       header: '''Coldest Surrounding Thick Band of Clouds'''
@@ -526,7 +525,7 @@ module.exports =
       header: '''Banding Feature'''
       details: '''
         Now let's identify the length of the storm's spiral bands.
-        This storm doesn't have very strong banding, so let's choose the second option.
+        This storm doesn't have very strong banding, so let's choose the first option.
       '''
       instruction: '''Choose the first option.'''
 

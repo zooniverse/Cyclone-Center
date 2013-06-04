@@ -40,7 +40,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseEmbeddedType.header'
     details: translate 'span', 'tutorial.chooseEmbeddedType.details'
     instruction: translate 'span', 'tutorial.chooseEmbeddedType.instruction'
-    attachment: 'left bottom button[value="embedded"] left top'
+    attachment: 'left middle .categories ul right middle'
     next:
       'click button[value="embedded"]': 'chooseEyeType'
       'click button:not([value="embedded"])': false
@@ -105,9 +105,9 @@ module.exports =
     header: translate 'span', 'tutorial.chooseSurrounding.header'
     details: translate 'span', 'tutorial.chooseSurrounding.details'
     instruction: translate 'span', 'tutorial.chooseSurrounding.instruction'
-    attachment: 'center bottom button[value="-63"] center top'
+    attachment: 'left middle .subject .current right middle'
     next:
-      'click button[value="-63"]': 'postSurrounding'
+      'click button[value="-69"]': 'postSurrounding'
 
   postSurrounding: new Step
     number: 12
@@ -123,9 +123,9 @@ module.exports =
     header: translate 'span', 'tutorial.chooseColdestThick.header'
     details: translate 'span', 'tutorial.chooseColdestThick.details'
     instruction: translate 'span', 'tutorial.chooseColdestThick.instruction'
-    attachment: 'center bottom button[value="-53"] center top'
+    attachment: 'left middle .subject .current right middle'
     next:
-      'click button[value="-53"]': 'postColdestThick'
+      'click button[value="-69"]': 'postColdestThick'
 
   postColdestThick: new Step
     number: 14
@@ -141,7 +141,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseBandingFeature.header'
     details: translate 'span', 'tutorial.chooseBandingFeature.details'
     instruction: translate 'span', 'tutorial.chooseBandingFeature.instruction'
-    attachment: 'left bottom button[value="0.5"] left top'
+    attachment: 'left middle .subject .current right middle'
     next:
       'click button[value="0.0"]': 'postBandingFeature'
 
