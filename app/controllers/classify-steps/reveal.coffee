@@ -110,6 +110,10 @@ class Reveal extends Step
 
     getStorm = Api.current.get "https://dev.zooniverse.org/projects/cyclone_center/groups/#{@classifier.classification.subject.group_id}"
     getStorm.then (storm) =>
+      # TODO: This is really ugly, and it's a weird place to do it.
+      @classifier.talkStormLink.attr
+        href: @classifier.classification.subject.talkHref.call(zooniverse_id: storm.zooniverse_id).replace 'subjects', 'groups'
+
       @stormNameContainer.html storm.name
 
       categories = []

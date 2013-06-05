@@ -150,7 +150,6 @@ class Classify extends Controller
     @classification.set 'satellite', satellite
 
     @talkImageLink.attr href: subject.talkHref()
-    @talkStormLink.attr href: (subject.talkHref.call zooniverse_id: subject.group_id)
     @facebookLink.attr href: subject.facebookHref()
     @twitterLink.attr href: subject.twitterHref()
 
