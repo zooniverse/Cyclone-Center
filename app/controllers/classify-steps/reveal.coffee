@@ -3,6 +3,7 @@ detailsTemplate = require '../../views/classify-steps/reveal'
 $ = window.jQuery
 Leaflet = window.L
 Api = require 'zooniverse/lib/api'
+translate = require 't7e'
 
 LEAFLET_API_KEY = '21a5504123984624a5e1a856fc00e238' # Brian's
 DEFAULT_ZOOM = 3
@@ -144,7 +145,10 @@ class Reveal extends Step
       @youAreHere.setLatLng coords
       @youAreHere.bindPopup("""
         <p>#{coords}</p>
-        <p>Estimated wind speed: #{SPEED_ESTIMATES[@classifier.classification.get 'match'] || '?'}</p>
+        <p>
+          #{translate 'span', 'classify.details.reveal.estimated'}<br />
+          #{SPEED_ESTIMATES[@classifier.classification.get 'match'] || '?'}
+        </p>
       """).openPopup()
       @map.setView @classifier.classification.subject.coords, DEFAULT_ZOOM
 

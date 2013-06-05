@@ -404,6 +404,7 @@ module.exports =
       '''
 
       reveal:
+        estimated: 'Estimated wind speed, based on your classification:'
         windAndPressure: 'Wind speed and pressure'
 
   tutorial:
