@@ -53,6 +53,7 @@ class Classify extends Controller
     'click button[name="restart"]': 'onClickRestart'
     'click button[name="continue"], button[name="finish"]': 'onClickContinue'
     'click button[name="next"]': 'onClickNext'
+    'click button[name="restart-tutorial"]': 'onClickRestartTutorial'
     'click .not-signed-in .sign-in': -> loginDialog.show()
     'click .not-signed-in .sign-up': -> signUpDialog.show()
 
@@ -228,5 +229,9 @@ class Classify extends Controller
 
   onClickNext: ->
     Subject.next()
+
+  onClickRestartTutorial: ->
+    getTutorialSubject().select()
+    @tutorial.start()
 
 module.exports = Classify
