@@ -143,16 +143,30 @@ class Reveal extends Step
         @chart.setSize @graphContainer.width(), @graphContainer.height()
         @chart.redraw()
 
-      coords = @classifier.classification.subject.coords
-      coords[1] += 360 if coords[1] < 0
-      @youAreHere.setLatLng coords
-      @youAreHere.bindPopup("""
-        <p>#{coords}</p>
+      [lat, lng] = @classifier.classification.subject.coords
+
+      displayLat = lat
+
+      lng += 360 if lng < 0
+
+      @youAreHere.setLatLng [lat, lng]
+
+      popupContent = """
         <p>
-          #{translate 'span', 'classify.details.reveal.estimated'}<br />
-          #{SPEED_ESTIMATES[@classifier.classification.get 'match'] || '?'}
+          #{Math.abs displayLat} #{if displayLat < 0 then 'S' else 'N'},
+          #{Math.abs lng} #{if lng < 0 then 'W' else 'E'}
         </p>
-      """).openPopup()
+      """
+
+      if SPEED_ESTIMATES[@classifier.classification.get 'match']? then popupContent += """
+        <p>
+          #{translate 'span', 'classify.details.reveal.estimated'}
+          #{SPEED_ESTIMATES[@classifier.classification.get 'match']}
+        </p>
+      """
+
+      @youAreHere.bindPopup(popupContent).openPopup()
+
       @map.setView @classifier.classification.subject.coords, DEFAULT_ZOOM
 
   reset: ->
