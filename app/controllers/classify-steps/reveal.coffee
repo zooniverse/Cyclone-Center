@@ -128,9 +128,12 @@ class Reveal extends Step
 
         @trail.addLatLng [lat, lng]
 
-        @chart.series[0].addPoint wind.wmo, false
+        theWind = if wind.wmo is 0 then null else wind.wmo
+        thePressure = if pressure.wmo < 850 then null else pressure.wmo
+
+        @chart.series[0].addPoint theWind, false
         # @chart.series[1].addPoint [wind.min, wind.max], false
-        @chart.series[1].addPoint pressure.wmo, false
+        @chart.series[1].addPoint thePressure, false
         # @chart.series[3].addPoint [pressure.min, pressure.max], false
         categories.push time
 
