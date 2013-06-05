@@ -158,12 +158,9 @@ class Reveal extends Step
         </p>
       """
 
-      if SPEED_ESTIMATES[@classifier.classification.get 'match']? then popupContent += """
-        <p>
-          #{translate 'span', 'classify.details.reveal.estimated'}
-          #{SPEED_ESTIMATES[@classifier.classification.get 'match']}
-        </p>
-      """
+      speedEstimate = SPEED_ESTIMATES[@classifier.classification.get 'match']
+      if speedEstimate?
+        popupContent += "<p>#{translate 'span', 'classify.details.reveal.estimated'} #{speedEstimate}</p>"
 
       @youAreHere.bindPopup(popupContent).openPopup()
 
