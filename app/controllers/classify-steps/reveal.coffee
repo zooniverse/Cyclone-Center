@@ -13,7 +13,7 @@ SPEED_ESTIMATES =
   'eye-6.0': '102-127 kts'
   'eye-7.0': '127-155 kts'
   'eye-8.0': '155+ kts'
-  'embed-3.5': '155+ kts'
+  'embed-3.5': '45-65 kts'
   'embed-4.0': '55-77 kts'
   'embed-4.5': '65-90 kts'
   'embed-5.0': '77-102 kts'
