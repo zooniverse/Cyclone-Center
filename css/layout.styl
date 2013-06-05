@@ -3,12 +3,20 @@ html
   background: url("./images/noise.png"), -moz-radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
   background: url("./images/noise.png"), -webkit-radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
   background: url("./images/noise.png"), radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
-  border-top: 5px solid #000
-  box-sizing: border-box
   color: #fff
   font: 14px $sans-serif
   min-height: 100%
   text-shadow: 0 1px 1px rgba(#000, 0.5)
+
+  &:before
+    background: #000
+    content: ""
+    height: 5px
+    left: 0
+    position: absolute
+    top: 0
+    width: 100%
+
 
 body
   margin: 0
