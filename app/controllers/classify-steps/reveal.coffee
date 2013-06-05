@@ -119,8 +119,8 @@ class Reveal extends Step
 
       for {time, lat, lng, wind, pressure} in storm.metadata.stats
         # Ignore any crazy numbers.
-        lat = lastLat if lastLat and Math.abs(lastLat - lat) > 20
-        lng = lastLng if lastLng and Math.abs(lastLng - lng) > 20
+        # lat = lastLat if lastLat and Math.abs(lastLat - lat) > 20
+        # lng = lastLng if lastLng and Math.abs(lastLng - lng) > 20
 
         lng += 360 if lng < 0 # 0 through 360 instead of -180 through +180
 
