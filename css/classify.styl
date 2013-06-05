@@ -302,12 +302,16 @@ km-to-px(km, scale = (318 / 600))
     &.active
       border-color: #000
 
-  &[data-step="reveal"] .controls .progress
-    .in-progress
+  &[data-step="reveal"]
+    button[name="restart"]
       display: none
 
-    .followup
-      display: block
+    .controls .progress
+      .in-progress
+        display: none
+
+      .followup
+        display: block
 
   .not-signed-in
     margin-left: 20px
