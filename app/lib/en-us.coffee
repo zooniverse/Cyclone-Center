@@ -287,23 +287,35 @@ module.exports =
 
             <tr>
               <td>
-                <img src="./images/matches/other-post-tropical.png" width="100" height="100" />
               </td>
               <td>
-                <h3>Other Storms</h3>
-                <p>If the storm doesn’t fit any of the other categories then it might be a post-tropical storm. These are identified by large amounts of warm clouds (gray and pink) and often have a long tail extending from the center.</p>
+                <h3>Other Categories</h3>
               </td>
             </tr>
 
             <tr>
               <td>
-                <img src="./images/matches/other-limb.png" width="100" height="100" /><br />
-                <img src="./images/matches/other-no-storm.png" width="100" height="100" />
+                <img src="./images/matches/other-post-tropical.png" width="100" height="100" />
               </td>
               <td>
-                <h3>Other Categories</h3>
-                <p>Edge: Sometimes the images will be skewed because of the limited view of the satellite. In this case try and classify the storm as normal - if that’s not possible then mark it as ‘edge’.</p>
-                <p>No storm: Early in a storm’s lifetime it might not be possible to say anything about its shape. If there is no evidence of an organised spiral structure then mark ‘no storm’.</p>
+                <p><strong>Post tropical:</strong> If the storm doesn’t fit any of the other categories then it might be a post-tropical storm. These are identified by large amounts of warm clouds (gray and pink) and often have a long tail extending from the center.</p>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <img src="./images/matches/other-limb.png" width="100" height="100" /><br />
+              </td>
+              <td>
+                <p><strong>Edge:</strong> Sometimes the images will be skewed because of the limited view of the satellite. In this case try and classify the storm as normal - if that’s not possible then mark it as ‘edge’.</p>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <img src="./images/matches/other-no-storm.png" width="100" height="100" />
+              <td>
+                <p><strong>No storm:</strong> Early in a storm’s lifetime it might not be possible to say anything about its shape. If there is no evidence of an organised spiral structure then mark ‘no storm’.</p>
               </td>
               <td></td>
             </tr>
