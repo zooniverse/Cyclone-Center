@@ -116,6 +116,10 @@ class Reveal extends Step
 
       @stormNameContainer.html storm.name
 
+      if @classifier.classification.subject.metadata.tutorial
+        @stormNameContainer.append '\n'
+        @stormNameContainer.append translate 'span.tutorial-note', 'classify.details.reveal.tutorialSubject'
+
       categories = []
 
       lastLat = null
