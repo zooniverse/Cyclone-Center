@@ -8,6 +8,12 @@ translate = require 't7e'
 LEAFLET_API_KEY = '21a5504123984624a5e1a856fc00e238' # Brian's
 DEFAULT_ZOOM = 3
 
+# Used to determine how big to draw each storm's dot
+SMALLEST_DOT = 2
+LARGEST_DOT = 20
+MIN_INTENSITY = 20
+MAX_INTENSITY = 150
+
 SPEED_ESTIMATES =
   'eye-4.0': '55-77 kts'
   'eye-5.0': '77-102 kts'
@@ -52,13 +58,12 @@ class Reveal extends Step
     @map.setView [51.505, -0.09], DEFAULT_ZOOM
     @map.addLayer new Leaflet.TileLayer "http://{s}.tile.cloudmade.com/#{LEAFLET_API_KEY}/997/256/{z}/{x}/{y}.png"
 
-    @trail = new Leaflet.Polyline []
-    @trail.setStyle color: 'orange'
+    @trail = []
+
     @youAreHere = new Leaflet.CircleMarker [0, 0]
     @youAreHere.setRadius 10
     @youAreHere.setStyle fill: 'rgba(0, 0, 0, 0.1)', color: 'red'
 
-    @map.addLayer @trail
     @map.addLayer @youAreHere
 
     @chart = new Highcharts.Chart
@@ -102,6 +107,7 @@ class Reveal extends Step
 
   enter: ->
     super
+
     @map.invalidateSize()
     @chart.setSize @graphContainer.width(), @graphContainer.height()
 
@@ -122,19 +128,13 @@ class Reveal extends Step
 
       categories = []
 
-      lastLat = null
-      lastLng = null
-
+      lastLng = NaN
       for {time, lat, lng, wind, pressure} in storm.metadata.stats
-        # Ignore any crazy numbers.
-        # lat = lastLat if lastLat and Math.abs(lastLat - lat) > 20
-        # lng = lastLng if lastLng and Math.abs(lastLng - lng) > 20
+        # Ignore any crazy data.
+        continue if Math.abs(Math.abs(lastLng) - Math.abs(lng)) > 45
+        lastLng = lng
 
         lng += 360 if lng < 0 # 0 through 360 instead of -180 through +180
-
-        [lastLat, lastLng] = [lat, lng]
-
-        @trail.addLatLng [lat, lng]
 
         theWind = if wind.wmo is 0 then null else wind.wmo
         thePressure = if pressure.wmo < 850 then null else pressure.wmo
@@ -144,6 +144,15 @@ class Reveal extends Step
         @chart.series[1].addPoint thePressure, false
         # @chart.series[3].addPoint [pressure.min, pressure.max], false
         categories.push time
+
+        @trail.push do =>
+          point = new Leaflet.CircleMarker [lat, lng]
+          point.setRadius ((LARGEST_DOT - SMALLEST_DOT) * (theWind / (MAX_INTENSITY - MIN_INTENSITY))) + SMALLEST_DOT
+          point.setStyle fill: 'black', color: 'black', stroke: false
+          @map.addLayer point
+          point
+
+        @youAreHere.bringToFront()
 
       # @chart.axes[0].setCategories categories
 
@@ -176,7 +185,10 @@ class Reveal extends Step
 
   reset: ->
     super
-    @trail.spliceLatLngs 0
+
+    @map.removeLayer point for point in @trail
+    @trail.splice 0
+
     series.setData [] for series in @chart.series
 
 module.exports = Reveal
