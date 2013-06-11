@@ -476,10 +476,10 @@ module.exports =
       header: '''Cyclone Type'''
       details: '''
         From left to right the storm images get stronger.
-        The clouds in this storm seem very cold and organized, similar to those in the fifth image
+        The clouds in this storm seem very cold and organized, similar to those in the fourth image.
         Let's choose it as our closest match.
       '''
-      instruction: '''Click the fifth eye image.'''
+      instruction: '''Click the fourth eye image.'''
 
     postMatch:
       header: '''Cyclone Type'''

@@ -64,10 +64,10 @@ module.exports =
     header: translate 'span', 'tutorial.chooseMatch.header'
     details: translate 'span', 'tutorial.chooseMatch.details'
     instruction: translate 'span', 'tutorial.chooseMatch.instruction'
-    attachment: 'center bottom button[value="eye-8.0"] center top'
-    block: 'button[name="category"]:not([value="eye"]), button[name="match"]:not([value="eye-8.0"])'
+    attachment: 'center bottom button[value="eye-7.0"] center top'
+    block: 'button[name="category"]:not([value="eye"]), button[name="match"]:not([value="eye-7.0"])'
     next:
-      'click button[value="eye-8.0"]': 'postMatch'
+      'click button[value="eye-7.0"]': 'postMatch'
 
   postMatch: new Step
     number: 7
