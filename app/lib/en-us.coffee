@@ -16,6 +16,10 @@ module.exports =
       The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
     '''
 
+    newSite: '''
+      Read all about the updated site!
+    '''
+
     theStorms: '''
       Here are the storms we're currently most interested in classifying.
     '''

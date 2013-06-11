@@ -4,6 +4,8 @@
 
 <%- translate 'h2', 'home.explanation' %>
 
+<p><%- translate 'a.new-site', 'home.newSite', href: 'http://blog.cyclonecenter.org/#TODO' %></p>
+
 <hr />
 
 <div class="storm-selection">
