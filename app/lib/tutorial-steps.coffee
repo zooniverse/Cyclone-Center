@@ -25,8 +25,8 @@ module.exports =
     instruction: translate 'span', 'tutorial.chooseStronger.instruction'
     attachment: 'left middle .subject .current right middle'
     next:
-      'click .subject .current': 'postStronger'
-      'click .subject .older, button[value="same"]': false
+      'click .subject .current, button[value="current"]': 'postStronger'
+      'click .subject .older, button[value="older"], button[value="same"]': false
 
   postStronger: new Step
     number: 3

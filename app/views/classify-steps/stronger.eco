@@ -1,6 +1,8 @@
 <div class="stronger step">
-  <p class="instruction">Click the storm image that appears <strong>stronger</strong>.</p>
+  <p class="instruction">Choose the storm image that appears <strong>stronger</strong>.</p>
   <p>
+    <button name="stronger" value="older" class="toggle">Left</button>
     <button name="stronger" value="same" class="toggle">They're about the same</button>
+    <button name="stronger" value="current" class="toggle">Right</button>
   </p>
 </div>

@@ -9,34 +9,36 @@ class Match extends Step
   explanation: translate 'div', 'classify.details.stronger'
 
   events:
-    'click .subject .older': 'onClickOlder'
-    'click .current': 'onClickCurrent'
+    'click button[name="stronger"][value="older"], .subject .older': 'onClickOlder'
     'click button[name="stronger"][value="same"]': 'onClickSame'
+    'click button[name="stronger"][value="current"], .subject .current': 'onClickCurrent'
 
   elements:
+    'button[name="stronger"][value="older"]': 'olderButton'
     'button[name="stronger"][value="same"]': 'sameButton'
+    'button[name="stronger"][value="current"]': 'currentButton'
 
   reset: ->
     super
-    @classifier.currentImg.removeClass 'active'
-    @classifier.olderImg.removeClass 'active'
+    @classifier.currentImg.add(@currentButton).removeClass 'active'
+    @classifier.olderImg.add(@olderButton).removeClass 'active'
     @sameButton.removeClass 'active'
 
   onClickOlder: ->
-    @classifier.currentImg.removeClass 'active'
-    @classifier.olderImg.addClass 'active'
+    @classifier.currentImg.add(@currentButton).removeClass 'active'
+    @classifier.olderImg.add(@olderButton).addClass 'active'
     @sameButton.removeClass 'active'
     @classifier.classification.set @property, false
 
   onClickCurrent: ->
-    @classifier.currentImg.addClass 'active'
-    @classifier.olderImg.removeClass 'active'
+    @classifier.currentImg.add(@currentButton).addClass 'active'
+    @classifier.olderImg.add(@olderButton).removeClass 'active'
     @sameButton.removeClass 'active'
     @classifier.classification.set @property, true
 
   onClickSame: ->
-    @classifier.currentImg.removeClass 'active'
-    @classifier.olderImg.removeClass 'active'
+    @classifier.currentImg.add(@currentButton).removeClass 'active'
+    @classifier.olderImg.add(@olderButton).removeClass 'active'
     @sameButton.addClass 'active'
     @classifier.classification.set @property, 'SAME'
 
