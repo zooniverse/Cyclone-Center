@@ -167,7 +167,7 @@ module.exports =
     tweet: 'Tweet this'
     next: 'Next'
 
-    restartTutorial: 'Restart tutorial'
+    restartTutorial: 'Repeat tutorial'
 
     notSignedIn: '''
       You're not logged in! Logged in volunteers can keep track of what they've worked on, and receive credit for their work in publications. It also helps us combine everyone's classifications more efficiently.
