@@ -13,6 +13,7 @@ getTutorialSubject = ->
     coords: [11.0, 153.863]
 
     metadata:
+      available_satellites: ['GMS-1']
       tutorial: true
 
 module.exports = getTutorialSubject

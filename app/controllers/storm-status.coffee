@@ -5,7 +5,6 @@ User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 $ = window.jQuery
 
-CLASSIFICATIONS_TO_RETIRE = 30
 MAP_WIDTH = 225
 MAP_HEIGHT = 160
 
@@ -42,8 +41,8 @@ class StormStatus extends BaseController
     previewSrc = @storm.metadata.preview || "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=#{MAP_WIDTH}x#{MAP_HEIGHT}&sensor=false"
     @previewImg.attr src: previewSrc
 
-    finished = (@storm.classification_count || 0) / (@storm.metadata.needed_classifications || (@storm.stats.total * CLASSIFICATIONS_TO_RETIRE))
-    @fill.css width: "#{finished * 100}%"
+    finished = @storm.metadata.provided_classifications / @storm.metadata.needed_classifications
+    @fill.css width: "#{ Math.min(finished, 1) * 100 }%"
     @completeValue.html Math.floor finished * 100
 
     @nameContainer.html @storm.name

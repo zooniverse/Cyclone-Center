@@ -32,11 +32,8 @@ noMoreSubjectsDialog = new Dialog
   '''
 
 grabRandomSatellite = (subject) ->
-  satellites = for satellite of subject.location
-    continue if !!~satellite.indexOf 'yesterday'
-    satellite
-
-  satellites[Math.floor Math.random() * satellites.length]
+  list = subject.metadata.available_satellites
+  list[Math.floor(Math.random() * list.length)]
 
 class Classify extends Controller
   className: 'classify'
