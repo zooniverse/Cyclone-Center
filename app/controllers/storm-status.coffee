@@ -42,7 +42,7 @@ class StormStatus extends BaseController
     previewSrc = @storm.metadata.preview || "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=#{MAP_WIDTH}x#{MAP_HEIGHT}&sensor=false"
     @previewImg.attr src: previewSrc
 
-    finished = (@storm.classification_count || 0) / (@storm.stats.total * CLASSIFICATIONS_TO_RETIRE)
+    finished = (@storm.classification_count || 0) / (@storm.metadata.needed_classifications || (@storm.stats.total * CLASSIFICATIONS_TO_RETIRE))
     @fill.css width: "#{finished * 100}%"
     @completeValue.html Math.floor finished * 100
 
