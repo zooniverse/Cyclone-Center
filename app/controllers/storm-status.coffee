@@ -50,7 +50,9 @@ class StormStatus extends BaseController
     @yearContainer.html parseInt middleCapture.time, 10
 
   onClick: (e) ->
-    unless e.target.nodeName.toUpperCase() is 'A'
+    target = $(e.target)
+
+    unless target.is('a') or target.parents('a').length isnt 0
       @select().then ->
         location.hash = '/classify'
 
