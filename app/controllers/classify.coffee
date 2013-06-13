@@ -112,7 +112,7 @@ class Classify extends Controller
 
     if tutorialDone and (noSubject or tutorialSubject)
       Subject.next()
-    else
+    else if (not @classification) or (not @classification?.subject.metadata.tutorial)
       getTutorialSubject().select()
       @tutorial.start()
 
