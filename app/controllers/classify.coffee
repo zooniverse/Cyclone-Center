@@ -101,20 +101,24 @@ class Classify extends Controller
   onUserChange: (e, user) =>
     @el.toggleClass 'signed-in', user?
 
-    group = user?.preferences?.cyclone_center?.storm
-    unless group in activeStorms
-      group = activeStorms[Math.floor Math.random() * activeStorms.length]
-    StormStatus::select.call {group}
-
-    tutorialDone = user?.project.tutorial_done
+    tutorialDone = !!user?.project.tutorial_done
     noClassification = not @classification?
-    tutorialSubject = Subject.current?.metadata.tutorial
+    tutorialSubject = !!Subject.current?.metadata.tutorial
 
     if tutorialDone and (noClassification or tutorialSubject)
-      Subject.next()
-    else if not tutorialSubject
-      getTutorialSubject().select()
-      @tutorial.start()
+      console?.log 'Get next subject'
+
+      group = user?.preferences?.cyclone_center?.storm
+      unless group in activeStorms
+        group = activeStorms[Math.floor Math.random() * activeStorms.length]
+      StormStatus::select.call {group}
+
+      @tutorial.end() if @tutorial.started?
+    else
+      unless @tutorial.started?
+        console?.log 'Get tutorial subject'
+        getTutorialSubject().select()
+        @tutorial.start()
 
   onGettingNextSubject: =>
     @el.addClass 'loading'
