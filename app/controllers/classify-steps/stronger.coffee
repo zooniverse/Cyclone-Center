@@ -28,18 +28,18 @@ class Match extends Step
     @classifier.currentImg.add(@currentButton).removeClass 'active'
     @classifier.olderImg.add(@olderButton).addClass 'active'
     @sameButton.removeClass 'active'
-    @classifier.classification.set @property, false
+    @classifier.classification.set @property, 'decrease'
 
   onClickCurrent: ->
     @classifier.currentImg.add(@currentButton).addClass 'active'
     @classifier.olderImg.add(@olderButton).removeClass 'active'
     @sameButton.removeClass 'active'
-    @classifier.classification.set @property, true
+    @classifier.classification.set @property, 'increase'
 
   onClickSame: ->
     @classifier.currentImg.add(@currentButton).removeClass 'active'
     @classifier.olderImg.add(@olderButton).removeClass 'active'
     @sameButton.addClass 'active'
-    @classifier.classification.set @property, 'SAME'
+    @classifier.classification.set @property, 'same'
 
 module.exports = Match
