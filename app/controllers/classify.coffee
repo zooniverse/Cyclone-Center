@@ -107,12 +107,12 @@ class Classify extends Controller
     StormStatus::select.call {group}
 
     tutorialDone = user?.project.tutorial_done
-    noSubject = not Subject.current?
-    tutorialSubject = (Subject.current?.metadata.tutorial)
+    noClassification = not @classification?
+    tutorialSubject = Subject.current?.metadata.tutorial
 
-    if tutorialDone and (noSubject or tutorialSubject)
+    if tutorialDone and (noClassification or tutorialSubject)
       Subject.next()
-    else if (not @classification) or (not @classification?.subject.metadata.tutorial)
+    else if not tutorialSubject
       getTutorialSubject().select()
       @tutorial.start()
 
