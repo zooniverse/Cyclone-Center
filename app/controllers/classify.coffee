@@ -119,6 +119,7 @@ class Classify extends Controller
         console?.log 'Get tutorial subject'
         getTutorialSubject().select()
         @tutorial.start()
+        setTimeout (=> @tutorial.attach()), 100
 
   onGettingNextSubject: =>
     @el.addClass 'loading'
