@@ -50,7 +50,6 @@ class Center extends Step
   onMouseMoveSubject: (e) ->
     return unless @mouseIsDown
 
-    subjectImg = @classifier.currentImg.get 0
     subjectOffset = @classifier.currentImg.offset()
 
     # TODO: This seems a bit unreliable. Clean it up.
@@ -61,7 +60,9 @@ class Center extends Step
 
     @crosshairs.attr 'transform', "translate(#{x}, #{y})"
 
-    @classifier.classification.set @property[0], {x, y}
+    @classifier.classification.set @property[0],
+      x: x / @classifier.currentImg.width()
+      y: y / @classifier.currentImg.height()
 
   onDocumentMouseUp: (e) =>
     return unless @mouseIsDown

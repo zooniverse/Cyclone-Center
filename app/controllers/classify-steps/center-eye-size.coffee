@@ -42,6 +42,8 @@ class CenterEyeSizeStep extends CenterStep
     return unless @mouseIsDown
 
     {x, y} = @classifier.classification.get @property[0]
+    x *= @classifier.currentImg.width()
+    y *= @classifier.currentImg.height()
     @circle.attr 'cx', x
     @circle.attr 'cy', y
 
