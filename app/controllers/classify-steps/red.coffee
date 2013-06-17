@@ -35,21 +35,29 @@ class Red extends Step
     $(document).on "mouseup.#{@id}", @onDocumentMouseUp
     @svg.el.style.display = ''
 
+    w = @classifier.currentImg.width()
+    h = @classifier.currentImg.height()
+
     center = @classifier.classification.get 'center'
+    center ?= x: 0.5, y: 0.5
+
+    cx = center.x * w
+    cy = center.y * h
+
+    @center.attr 'cx', cx
+    @center.attr 'cy', cy
+
+    @line.attr 'x1', cx
+    @line.attr 'y1', cy
+
     red = @classifier.classification.get 'red'
-    center ?= x: 160, y: 160
     red ?= center
 
-    @center.attr 'cx', center.x
-    @center.attr 'cy', center.y
+    rx = red.x * w
+    ry = red.y * h
 
-    @line.attr 'x1', center.x
-    @line.attr 'y1', center.y
-    @line.attr 'x2', red.x
-    @line.attr 'y2', red.y
-
-  reset: ->
-    super
+    @line.attr 'x2', rx
+    @line.attr 'y2', ry
 
   onMouseDownSubject: (e) ->
     e.preventDefault()
@@ -67,7 +75,9 @@ class Red extends Step
     @line.attr 'x2', x
     @line.attr 'y2', y
 
-    @classifier.classification.set @property, {x, y}
+    @classifier.classification.set @property,
+      x: x / @classifier.currentImg.width()
+      y: y / @classifier.currentImg.height()
 
   onDocumentMouseUp: (e) =>
     return unless @mouseIsDown

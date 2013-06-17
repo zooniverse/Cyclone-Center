@@ -43,10 +43,12 @@ class Exceeding extends Step
     super
 
     center = @classifier.classification.get 'center'
-    center ?= x: 160, y: 160
+    center ?= x: 0.5, y: 0.5
+    x = center.x * @classifier.currentImg.width()
+    y = center.y * @classifier.currentImg.height()
 
-    @center.attr 'cx', center.x
-    @center.attr 'cy', center.y
+    @center.attr 'cx', x
+    @center.attr 'cy', y
 
   reset: ->
     super
@@ -54,17 +56,19 @@ class Exceeding extends Step
 
   onMouseMove: (e) ->
     center = @classifier.classification.get 'center'
-    center ?= x: 160, y: 160
+    center ?= x: 0.5, y: 0.5
+    cx = center.x * @classifier.currentImg.width()
+    cy = center.y * @classifier.currentImg.height()
 
     subjectOffset = @classifier.currentImg.offset()
-    x = e.pageX - subjectOffset.left
-    y = e.pageY - subjectOffset.top
+    sx = e.pageX - subjectOffset.left
+    sy = e.pageY - subjectOffset.top
 
-    deltaX = center.x - x
-    deltaY = center.y - y
+    deltaX = cx - sx
+    deltaY = cy - sy
     angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI
 
-    @line.attr 'transform', "translate(#{x} #{y}) rotate(#{angle})"
+    @line.attr 'transform', "translate(#{sx} #{sy}) rotate(#{angle})"
 
   onClickExceeding: (e) ->
     target = $(e.currentTarget)
