@@ -187,6 +187,8 @@ module.exports =
       stronger: '''
         <p>To determine which storm is stronger, look for the following characteristics.</p>
 
+        <hr>
+
         <h2>How cold are the clouds?</h2>
         <h3>What to look for:</h3>
         <ul>
@@ -194,6 +196,8 @@ module.exports =
           <li>In an Eye, colder clouds surrounding an eye suggest a stronger storm.</li>
         </ul>
         <p><strong>Why is it important:</strong> Colder colors in infrared satellite imagery indicate taller clouds that release more energy into a storm. Stronger tropical cyclones tend to have taller clouds and more of them.</p>
+
+        <hr>
 
         <h2>How organized are the clouds?</h2>
         <p>Cloud organization is somewhat subjective, so just give it your best shot.</p>
@@ -206,6 +210,8 @@ module.exports =
           <li>For Eye storms, consider the shape, size and color of the eye. Eyes that are more circular, smaller and/or warmer are associated with stronger tropical cyclones.</li>
         </ul>
 
+        <hr>
+        
         <h2>Use your best judgement:</h2>
         <p>In some cases, the storm on the left may appear to have some of these characteristics, while the storm on the right may appear to have others. If this is the case, they can actually cancel out, in which case we would say that they are about the same. For example: If the storm on the left appears better organized and more tightly-wrapped, but the storm on the right has more cold colors, you would say that they are about the same.</p>
         <p>Use the images below to help you gauge a storm’s relative strength.</p>
