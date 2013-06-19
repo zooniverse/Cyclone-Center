@@ -175,7 +175,7 @@ class Classify extends Controller
     hadStrength = @classification.get 'strength'
 
     properties = []
-    properties = properties.concat step.property for _, step of @steps
+    properties = properties.concat step.property for _, step of @steps when step.property
 
     for property in properties
       @classification.set property, null
