@@ -45,10 +45,14 @@ class StormStatus extends BaseController
     @fill.css width: "#{ Math.min(finished, 1) * 100 }%"
     @completeValue.html Math.floor finished * 100
 
+    @el.toggleClass 'finished', finished > 0.98
+
     @nameContainer.html @storm.name
     @yearContainer.html parseInt middleCapture.time, 10
 
   onClick: (e) ->
+    return if @el.hasClass 'finished'
+
     target = $(e.target)
 
     unless target.is('a') or target.parents('a').length isnt 0
