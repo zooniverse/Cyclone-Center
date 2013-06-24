@@ -5,9 +5,6 @@ translate.load enUs
 Api = require 'zooniverse/lib/api'
 api = new Api project: 'cyclone_center'
 
-Subject = require 'zooniverse/models/subject'
-Subject.group = true # Changes from Home page
-
 Navigation = require './controllers/navigation'
 navigation = new Navigation
 navigation.el.appendTo document.body

@@ -106,17 +106,19 @@ class Classify extends Controller
     tutorialSubject = !!Subject.current?.metadata.tutorial
 
     if tutorialDone and (noClassification or tutorialSubject)
-      console?.log 'Get next subject'
 
       group = user?.preferences?.cyclone_center?.storm
-      unless group in activeStorms
+
+      if "#{group}" is 'true'
+        group = true
+      else if group not in activeStorms
         group = activeStorms[Math.floor Math.random() * activeStorms.length]
+
       StormStatus::select.call {group}
 
       @tutorial.end() if @tutorial.started?
     else
       unless @tutorial.started?
-        console?.log 'Get tutorial subject'
         getTutorialSubject().select()
         @tutorial.start()
         setTimeout (=> @tutorial.attach()), 100

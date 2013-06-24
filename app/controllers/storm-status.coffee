@@ -66,9 +66,8 @@ class StormStatus extends BaseController
     if Subject.group is @group
       location.hash = '/classify'
       deferred.resolve()
-    else
-      User.current?.setPreference 'cyclone_center.storm', @group, false
 
+    else
       Subject.group = @group
       Subject.destroyAll()
 
@@ -79,7 +78,9 @@ class StormStatus extends BaseController
         @el?.removeClass 'loading'
         deferred.resolve arguments...
 
-      deferred
+        User.current?.setPreference 'cyclone_center.storm', @group, false
+
+    deferred
 
   onGroupChanged: (e, group) =>
     @el.toggleClass 'active', group is @group
