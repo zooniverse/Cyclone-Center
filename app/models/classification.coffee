@@ -39,6 +39,7 @@ class Classification
     "/projects/cyclone_center/workflows/#{@subject.workflowId}/classifications"
 
   send: ->
-    Api.post @url(), @toJSON(), arguments...
+    alert 'Not actually sending classification. This is an old version of the site.'
+    (new $.Deferred).then(arguments...).resolve true
 
 module.exports = Classification
