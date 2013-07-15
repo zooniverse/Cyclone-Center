@@ -11,6 +11,8 @@
 <div class="storm-selection">
   <%- translate 'p', 'home.theStorms' %>
 
+  <div class="notification-preference"></div>
+
   <div class="active-storms"></div>
 
   <p class="random">

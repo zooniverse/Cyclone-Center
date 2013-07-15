@@ -78,7 +78,7 @@ class StormStatus extends BaseController
         @el?.removeClass 'loading'
         deferred.resolve arguments...
 
-        User.current?.setPreference 'cyclone_center.storm', @group, false
+        User.current?.setPreference 'storm', @group
 
     deferred
 

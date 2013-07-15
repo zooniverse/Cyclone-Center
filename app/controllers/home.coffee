@@ -1,5 +1,7 @@
 Controller = require 'zooniverse/controllers/base-controller'
 template = require '../views/home'
+PreferenceCheckbox = require './preference-checkbox'
+translate = require 't7e'
 StormStatus = require './storm-status'
 Footer = require 'zooniverse/controllers/footer'
 Subject = require 'zooniverse/models/subject'
@@ -13,11 +15,18 @@ class Home extends Controller
     'click button[name="random"]': 'onClickRandom'
 
   elements:
+    '.notification-preference': 'notificationPreferenceContainer'
     '.active-storms': 'activeStormsContainer'
     'button[name="random"]': 'randomButton'
 
   constructor: ->
     super
+
+    contactCheckbox = new PreferenceCheckbox
+      setting: 'contact'
+      label: translate 'span', 'home.stormChangeContact'
+
+    @notificationPreferenceContainer.append contactCheckbox.el
 
     for storm in activeStorms
       (new StormStatus group: storm).el.appendTo @activeStormsContainer

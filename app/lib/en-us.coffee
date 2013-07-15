@@ -28,6 +28,8 @@ module.exports =
     or: 'or'
     classifyRandom: 'Classify a random storm'
 
+    stormChangeContact: 'Check this box to be notified when these storms change!'
+
   about:
     content: '''
       <h1>About Cyclone Center</h1>
