@@ -2,7 +2,7 @@
   "name": "cyclone-center",
   "version": "0.1.0",
   "dependencies": {
-    "haw": "~0.0.7",
+    "haw": "~0.1.1",
     "jqueryify": "~1.9.1",
     "navigable": "~0.0.4",
     "publisssh": "~0.1.0",
