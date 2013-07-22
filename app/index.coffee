@@ -30,5 +30,8 @@ topBar.el.appendTo document.body
 User = require 'zooniverse/models/user'
 User.fetch()
 
-window.app = {api, navigation, stack, topBar}
+GoogleAnalytics = require 'zooniverse/lib/google-analytics'
+analytics = new GoogleAnalytics account: 'UA-1224199-33'
+
+window.app = {api, navigation, stack, topBar, analytics}
 module.exports = window.app
