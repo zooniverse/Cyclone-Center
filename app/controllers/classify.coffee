@@ -164,7 +164,8 @@ class Classify extends Controller
         <strong>Sorry</strong>, we've run out of subjects for the moment.<br />
         We'll add more soon! Why not <a href="http://talk.cyclonecenter.org/">chat on Talk</a> while you wait?
       </p>
-      <p>
+
+      <p class="action">
         <button name="close-dialog">OK</button>
       </p>
     '''
