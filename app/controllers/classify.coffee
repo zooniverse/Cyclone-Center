@@ -159,6 +159,18 @@ class Classify extends Controller
 
   onNoMoreSubjects: =>
     @el.removeClass 'loading'
+    dialog = new Dialog content: '''
+      <p>
+        <strong>Sorry</strong>, we've run out of subjects for the moment.<br />
+        We'll add more soon! Why not <a href="http://talk.cyclonecenter.org/">chat on Talk</a> while you wait?
+      </p>
+      <p>
+        <button name="close-dialog">OK</button>
+      </p>
+    '''
+
+    dialog.show()
+
     # noMoreSubjectsDialog.show()
 
   onClassificationChange: (e, key, value) =>
