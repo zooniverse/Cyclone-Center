@@ -74,11 +74,18 @@ class StormStatus extends BaseController
       StormStatus.trigger 'select', @group
 
       @el?.addClass 'loading'
-      Subject.next =>
-        @el?.removeClass 'loading'
-        deferred.resolve arguments...
 
+      deferred.always =>
+        @el?.removeClass 'loading'
+
+      next = Subject.next()
+
+      next.done =>
+        deferred.resolve arguments...
         User.current?.setPreference 'storm', @group
+
+      next.fail =>
+        deferred.reject arguments...
 
     deferred
 
