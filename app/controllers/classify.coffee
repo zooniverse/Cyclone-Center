@@ -161,8 +161,11 @@ class Classify extends Controller
     @el.removeClass 'loading'
     dialog = new Dialog content: '''
       <p>
-        <strong>Sorry</strong>, we've run out of subjects for the moment.<br />
-        We'll add more soon! Why not <a href="http://talk.cyclonecenter.org/">chat on Talk</a> while you wait?
+        <strong>Sorry</strong>, this storm has run out of subjects<br />
+        Pick another storm from the list on the homepage.</br />
+      </p>
+      <p>
+        Or you can <a href="http://talk.cyclonecenter.org/">chat on Talk</a> for a while.
       </p>
 
       <p class="action">
