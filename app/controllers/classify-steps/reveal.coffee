@@ -181,7 +181,7 @@ class Reveal extends Step
 
       @youAreHere.bindPopup(popupContent).openPopup()
 
-      @map.setView @classifier.classification.subject.coords, DEFAULT_ZOOM
+      @map.setView [lat, lng], DEFAULT_ZOOM
 
   reset: ->
     super
