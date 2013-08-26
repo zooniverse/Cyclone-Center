@@ -1,11 +1,11 @@
 module.exports =
   active: [
-    '50575c41516bcb5717020eb7' # 1997 Ivan (WP)
-    '50575731516bcb571700f134' # 1989 Harry (SP)
-    '50575734516bcb571700f1bd' # 1989 Hanitra (IO)
-    '50576343516bcb5717032dad' # 2005 Emily (NA)
+    '505763a0516bcb57170338f0' # 2005 Katrina (NA)
+    '50575c6e516bcb5717021755' # 1998 Katrina (SP)
+    '50575893516bcb57170140f0' # 1992 Alexandra (SI)
+    '50575ad5516bcb571701c0a3' # 1995 Angela (WP)
   ]
-
+  
   pending: [
     '50575ad5516bcb571701c0a3' # 1995 Angela (WP)
     '50575943516bcb57170169c2' # 1993 Prema (SP)
@@ -13,6 +13,11 @@ module.exports =
   ]
 
   completed: [
+    '50575c41516bcb5717020eb7' # 1997 Ivan (WP)
+    '50575731516bcb571700f134' # 1989 Harry (SP)
+    '50575734516bcb571700f1bd' # 1989 Hanitra (IO)
+    '50576343516bcb5717032dad' # 2005 Emily (NA)
+
     '50575903516bcb5717015ae3' # 1992 Yvette (WP)
     '50575824516bcb571701267c' # 1990 Sina (SP)
     '5057579b516bcb57170108d2' # 1989 Aliberra (IO)
