@@ -7,6 +7,16 @@
       <span class="label">Restart</span>
     </button>
 
+    <button name="favorite">
+      <span class="icon">♥</span>
+      <span class="label">Favorite</span>
+    </button>
+
+    <button name="unfavorite">
+      <span class="icon">♥</span>
+      <span class="label">Favorited</span>
+    </button>
+
     <img src="//placehold.it/1.png" class="older" />
     <img src="//placehold.it/1.png" class="current" />
   </div>

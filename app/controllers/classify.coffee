@@ -9,6 +9,7 @@ tutorialSteps = require '../lib/tutorial-steps'
 Subject = require 'zooniverse/models/subject'
 getTutorialSubject = require '../lib/get-tutorial-subject'
 Classification = require 'zooniverse/models/classification'
+Favorite = require 'zooniverse/models/favorite'
 StormStatus = require './storm-status'
 {active: activeStorms} = require '../lib/storms'
 $ = window.jQuery
@@ -51,6 +52,8 @@ class Classify extends Controller
     'click button[name="continue"], button[name="finish"]': 'onClickContinue'
     'click button[name="next"]': 'onClickNext'
     'click button[name="restart-tutorial"]': 'onClickRestartTutorial'
+    'click button[name="favorite"]': 'onClickFavorite'
+    'click button[name="unfavorite"]': 'onClickUnfavorite'
     'click .not-signed-in .sign-in': -> loginDialog.show()
     'click .not-signed-in .sign-up': -> signUpDialog.show()
 
@@ -134,6 +137,8 @@ class Classify extends Controller
 
     @classification = new Classification {subject}
     @classification.on 'change', @onClassificationChange
+
+    @favorite = new Favorite subjects: [subject]
 
     satellite = grabRandomSatellite subject
     @currentImg.attr src: subject.location[satellite]
@@ -252,5 +257,11 @@ class Classify extends Controller
   onClickRestartTutorial: ->
     getTutorialSubject().select()
     @tutorial.start()
+
+  onClickFavorite: ->
+    @favorite.send().then => @el.addClass 'favorited'
+
+  onClickUnfavorite: ->
+    @favorite.delete().then => @el.removeClass 'favorited'
 
 module.exports = Classify

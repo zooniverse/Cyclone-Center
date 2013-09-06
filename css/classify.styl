@@ -35,7 +35,9 @@ km-to-px(km, scale = (318 / 600))
       padding: 2px
       position: relative
 
-      button[name="restart"]
+      button[name="restart"],
+      button[name="favorite"],
+      button[name="unfavorite"]
         border: 0
         bottom: 10px
         box-shadow: none
@@ -54,6 +56,13 @@ km-to-px(km, scale = (318 / 600))
 
         &:hover
           color: #900
+
+      button[name="favorite"],
+      button[name="unfavorite"]
+        display: none
+
+      button[name="unfavorite"] > .icon
+        color: #c00
 
       img
         border: 2px solid transparent
@@ -295,15 +304,27 @@ km-to-px(km, scale = (318 / 600))
       border-color: #000
 
   &[data-step="reveal"]
-    button[name="restart"]
-      display: none
+    .controls
+      .subject
+        button[name="restart"]
+          display: none
 
-    .controls .progress
-      .in-progress
+        button[name="favorite"]
+          display: inline-block
+
+      .progress
+        .in-progress
+          display: none
+
+        .followup
+          display: block
+
+    &.favorited .controls .subject
+      button[name="favorite"]
         display: none
 
-      .followup
-        display: block
+      button[name="unfavorite"]
+        display: inline-block
 
     .tutorial-note
       font-size: 12px
@@ -325,7 +346,6 @@ km-to-px(km, scale = (318 / 600))
     font-weight: bold
     padding: 3px 10px
     text-shadow: none
-
 
   .not-signed-in
     .sign-in,
