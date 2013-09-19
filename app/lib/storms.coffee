@@ -1,11 +1,11 @@
 module.exports =
   active: [
-    '505763a0516bcb57170338f0' # 2005 Katrina (NA)
-    '50575c6e516bcb5717021755' # 1998 Katrina (SP)
-    '50575893516bcb57170140f0' # 1992 Alexandra (SI)
-    '50575ad5516bcb571701c0a3' # 1995 Angela (WP)
+    '50576157516bcb571702f115' # 2003 Lupit
+    '50575943516bcb57170169c2' # 1993 Prema
+    '505755bb516bcb5717009f0b' # 1986 Delifina
+    '5057635a516bcb57170330ac' # 2005 Franklin
   ]
-  
+
   pending: [
     '50575ad5516bcb571701c0a3' # 1995 Angela (WP)
     '50575943516bcb57170169c2' # 1993 Prema (SP)
