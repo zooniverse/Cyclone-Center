@@ -1,15 +1,10 @@
 module.exports =
-  active: [
-    '50576157516bcb571702f115' # 2003 Lupit
-    '50575943516bcb57170169c2' # 1993 Prema
-    '505755bb516bcb5717009f0b' # 1986 Delifina
-    '5057635a516bcb57170330ac' # 2005 Franklin
-  ]
 
-  pending: [
-    '50575ad5516bcb571701c0a3' # 1995 Angela (WP)
-    '50575943516bcb57170169c2' # 1993 Prema (SP)
-    '505755bb516bcb5717009f0b' # 1986 Delfina (IO)
+  active: [
+    '50575916516bcb5717015f4e' # 1992 Elsie
+    '505756a0516bcb571700d428' # 1988 Anne
+    '505756b3516bcb571700d7ee' # 1988 Gasitao
+    '505763d9516bcb57170342de' # 2005 Rita
   ]
 
   completed: [
@@ -32,6 +27,11 @@ module.exports =
     '50575401516bcb57170035ba' # 1982 Abigail (SP)
     '505758b1516bcb5717014841' # 1992 Irna (IO)
     '5057633b516bcb5717032cbe' # 2005 Dennis (NA)
+
+    '50576157516bcb571702f115' # 2003 Lupit
+    '50575943516bcb57170169c2' # 1993 Prema
+    '505755bb516bcb5717009f0b' # 1986 Delifina
+    '5057635a516bcb57170330ac' # 2005 Franklin
   ]
 
   skipped: [
