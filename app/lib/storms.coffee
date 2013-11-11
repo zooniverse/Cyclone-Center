@@ -1,13 +1,18 @@
 module.exports =
 
   active: [
+    '50575B78516BCB571701E415' # 1996 Dale
+    '50575334516BCB5717000591' # 1979 22P
+    '505758A2516BCB57170144C9' # 1992 Farida
+    '5057636C516BCB57170332E4' # 2005 Harvey
+  ]
+
+  completed: [
     '50575916516bcb5717015f4e' # 1992 Elsie
     '505756a0516bcb571700d428' # 1988 Anne
     '505756b3516bcb571700d7ee' # 1988 Gasitao
     '505763d9516bcb57170342de' # 2005 Rita
-  ]
 
-  completed: [
     '50575c41516bcb5717020eb7' # 1997 Ivan (WP)
     '50575731516bcb571700f134' # 1989 Harry (SP)
     '50575734516bcb571700f1bd' # 1989 Hanitra (IO)
