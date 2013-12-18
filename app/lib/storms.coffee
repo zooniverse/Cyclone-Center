@@ -1,12 +1,17 @@
 module.exports =
   active: [
+    '5057581d516bcb5717012537' # 1990 Mike
+    '505762e8516bcb5717032380' # 2005 Olaf
+    '5057582b516bcb5717012859' # 1991 Bella
+    '505763f8516bcb571703491e' # 2005 Wilma
+  ]
+
+  completed: [
     '50575bdf516bcb571701f9e0' # 1997 Nestor
     '505758aa516bcb57170146b2' # 1992 Fran
     '50575b08516bcb571701ccc1' # 1996 Itelle
     '50576375516bcb57170333e8' # 2005 Irene
-  ]
 
-  completed: [
     '50575B78516BCB571701E415' # 1996 Dale
     '50575334516BCB5717000591' # 1979 22P
     '505758A2516BCB57170144C9' # 1992 Farida
