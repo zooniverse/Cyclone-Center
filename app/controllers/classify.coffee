@@ -11,7 +11,7 @@ getTutorialSubject = require '../lib/get-tutorial-subject'
 Classification = require 'zooniverse/models/classification'
 Favorite = require 'zooniverse/models/favorite'
 StormStatus = require './storm-status'
-{active: activeStorms} = require '../lib/storms'
+featuredStorms = require '../../public/js/featured-storms'
 $ = window.jQuery
 
 StrongerStep = require './classify-steps/stronger'
@@ -114,8 +114,8 @@ class Classify extends Controller
 
       if "#{group}" is 'true'
         group = true
-      else if group not in activeStorms
-        group = activeStorms[Math.floor Math.random() * activeStorms.length]
+      else if group not in featuredStorms
+        group = featuredStorms[Math.floor Math.random() * featuredStorms.length]
 
       StormStatus::select.call {group}
 
