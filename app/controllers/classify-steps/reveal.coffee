@@ -5,7 +5,6 @@ Leaflet = window.L
 Api = require 'zooniverse/lib/api'
 translate = require 't7e'
 
-LEAFLET_API_KEY = '21a5504123984624a5e1a856fc00e238' # Brian's
 DEFAULT_ZOOM = 3
 
 # Used to determine how big to draw each storm's dot
@@ -56,7 +55,7 @@ class Reveal extends Step
 
     @map = new Leaflet.Map @mapContainer.get 0
     @map.setView [51.505, -0.09], DEFAULT_ZOOM
-    @map.addLayer new Leaflet.TileLayer "http://{s}.tile.cloudmade.com/#{LEAFLET_API_KEY}/997/256/{z}/{x}/{y}.png"
+    @map.addLayer new Leaflet.TileLayer 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
     @trail = []
 
