@@ -9,24 +9,24 @@ module.exports =
 
   home:
     intro: '''
-      Help scientists classify over 30 years of tropical cyclone satellite imagery.
+      Help scientists analyze over 30 years of tropical cyclone satellite imagery.
     '''
 
     explanation: '''
       The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
     '''
 
-    newSite: '''
-      Read all about the updated site!
+    blogButton: '''
+      Read all about it!
     '''
 
     theStorms: '''
-      Here are the storms we're currently most interested in classifying.
+      Here are the storms we're currently most interested in analyzing.
     '''
 
     analyze: 'Analyze this storm'
     or: 'or'
-    classifyRandom: 'Classify a random storm'
+    classifyRandom: 'Analyze a random storm'
 
     stormChangeContact: 'Check this box to be notified when these storms change!'
 

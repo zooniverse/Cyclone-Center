@@ -1,6 +1,13 @@
-[
-  "50575b20516bcb571701d239",
-  "5057588e516bcb5717013fca",
-  "50575c80516bcb5717021b2f",
-  "505763d5516bcb57170341fb"
-]
+[{
+  "group": "5057620a516bcb5717030916",
+  "image": "./images/storms/5057620a516bcb5717030916.png"
+},{
+  "group": "50576227516bcb5717030cf3",
+  "image": "./images/storms/50576227516bcb5717030cf3.png"
+}, {
+  "group": "50576247516bcb57170310dd",
+  "image": "./images/storms/50576247516bcb57170310dd.png"
+}, {
+  "group": "50576265516bcb5717031418",
+  "image": "./images/storms/50576265516bcb5717031418.png"
+}]

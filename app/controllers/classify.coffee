@@ -114,8 +114,8 @@ class Classify extends Controller
 
       if "#{group}" is 'true'
         group = true
-      else if group not in featuredStorms
-        group = featuredStorms[Math.floor Math.random() * featuredStorms.length]
+      else if group not in featuredStorms.map((storm) -> storm.group)
+        group = featuredStorms[Math.floor Math.random() * featuredStorms.length].group
 
       StormStatus::select.call {group}
 

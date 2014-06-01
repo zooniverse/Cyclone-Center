@@ -4,7 +4,6 @@ PreferenceCheckbox = require './preference-checkbox'
 translate = require 't7e'
 StormStatus = require './storm-status'
 Footer = require 'zooniverse/controllers/footer'
-Subject = require 'zooniverse/models/subject'
 featuredStorms = require '../../public/js/featured-storms'
 
 class Home extends Controller
@@ -29,7 +28,7 @@ class Home extends Controller
     @notificationPreferenceContainer.append contactCheckbox.el
 
     for storm in featuredStorms
-      (new StormStatus group: storm).el.appendTo @featuredStormsContainer
+      (new StormStatus storm).el.appendTo @featuredStormsContainer
 
     StormStatus.on 'select', =>
       StormStatus::onGroupChanged.apply el: @randomButton, group: true, arguments

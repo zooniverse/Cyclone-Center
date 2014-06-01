@@ -10,6 +10,8 @@ MAP_HEIGHT = 160
 
 class StormStatus extends BaseController
   group: ''
+  image: ''
+
   storm: null
 
   className: 'storm-status'
@@ -37,8 +39,12 @@ class StormStatus extends BaseController
   render: ->
     middleCapture = @storm.metadata.stats[Math.floor @storm.metadata.stats.length / 2]
 
-    {lat, lng} = middleCapture
-    previewSrc = @storm.metadata.preview || "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=#{MAP_WIDTH}x#{MAP_HEIGHT}&sensor=false"
+    previewSrc = if @image?
+      @image
+    else
+      {lat, lng} = middleCapture
+      @storm.metadata.preview || "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=#{MAP_WIDTH}x#{MAP_HEIGHT}&sensor=false"
+      
     @previewImg.attr src: previewSrc
 
     finished = @storm.metadata.provided_classifications / @storm.metadata.needed_classifications

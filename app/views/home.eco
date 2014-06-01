@@ -4,15 +4,15 @@
 
 <%- translate 'h2', 'home.explanation' %>
 
-<p><%- translate 'a.new-site', 'home.newSite', href: 'http://blog.cyclonecenter.org/2013/06/13/a-better-cyclone-center/' %></p>
+<hr />
+
+<h2><b>June 1 was the start of Hurricane Season 2014!</b></h2>
+<p><a href="http://blog.cyclonecenter.org/2014/05/22/eyes-on-cyclone-center/" target="_blank">Read all about it and the storms we have selected</a></p>
 
 <hr />
 
 <div class="storm-selection">
-  <%- translate 'p', 'home.theStorms' %>
-
   <div class="notification-preference"></div>
-
   <div class="active-storms"></div>
 
   <p class="random">
