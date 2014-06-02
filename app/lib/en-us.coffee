@@ -16,8 +16,10 @@ module.exports =
       The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
     '''
 
-    blogButton: '''
-      Read all about it!
+    hurricaneSeason: 'June 1 was the start of Hurricane Season 2014!'
+
+    blogLink: '''
+      Read all about it and the storms we have selected
     '''
 
     theStorms: '''

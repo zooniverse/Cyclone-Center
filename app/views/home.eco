@@ -1,13 +1,13 @@
-<% translate = require 't7e' %>
+<% t = require 't7e' %>
 
-<%- translate 'h1', 'home.intro' %>
+<%- t 'h1', 'home.intro' %>
 
-<%- translate 'h2', 'home.explanation' %>
+<%- t 'h2', 'home.explanation' %>
 
 <hr />
 
-<h2><b>June 1 was the start of Hurricane Season 2014!</b></h2>
-<p><a href="http://blog.cyclonecenter.org/2014/05/22/eyes-on-cyclone-center/" target="_blank">Read all about it and the storms we have selected</a></p>
+<h2><%- t 'b', 'home.hurricaneSeason' %></h2>
+<p><%- t 'a', 'home.blogLink', href: 'http://blog.cyclonecenter.org/2014/06/02/a-quiet-hurricane-season-in-the-atlantic', target: '_blank' %></p>
 
 <hr />
 
@@ -16,8 +16,8 @@
   <div class="active-storms"></div>
 
   <p class="random">
-    <%- translate 'span', 'home.or' %>
-    <button name="random"><%- translate 'span', 'home.classifyRandom' %></button>
+    <%- t 'span', 'home.or' %>
+    <button name="random"><%- t 'span', 'home.classifyRandom' %></button>
   </p>
 
   <hr />
