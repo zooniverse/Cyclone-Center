@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "haw serve",
-    "deploy-to-staging": "haw build && publisssh --local ./build --bucket zooniverse-demo --prefix cyclone-center-redux && trash ./build",
+    "deploy-to-staging": "haw build && publisssh ./build www.cyclonecenter.org/redux && trash ./build",
     "deploy-to-production": "haw build && publisssh --local ./build --bucket www.cyclonecenter.org && trash ./build"
   }
 }
