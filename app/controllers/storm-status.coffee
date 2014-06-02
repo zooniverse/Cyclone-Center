@@ -27,8 +27,9 @@ class StormStatus extends BaseController
     '.name': 'nameContainer'
     '.year': 'yearContainer'
 
-  constructor: ->
+  constructor: (storm) ->
     super
+    { @group, @image } = storm
 
     @constructor.on 'select', @onGroupChanged
 
