@@ -189,37 +189,16 @@ module.exports =
 
     details:
       stronger: '''
-        <p>To determine which storm is stronger, look for the following characteristics.</p>
+        <h2>Choose the storm image that appears stronger</h2>
+        <p>To determine which storm is stronger, consider two questions:</p>
 
-        <hr>
-
-        <h2>How cold are the clouds?</h2>
-        <h3>What to look for:</h3>
-        <ul>
-          <li>In an Embedded Center, more cold clouds suggest a stronger storm.</li>
-          <li>In an Eye, colder clouds surrounding an eye suggest a stronger storm.</li>
-        </ul>
-        <p><strong>Why is it important:</strong> Colder colors in infrared satellite imagery indicate taller clouds that release more energy into a storm. Stronger tropical cyclones tend to have taller clouds and more of them.</p>
-
-        <hr>
+        <h2>Which storm has colder clouds?</h2>
+        <p>Colder colors in infrared satellite imagery indicate taller clouds that release more energy into a storm. Stronger storms have more of these cold clouds near their centers.</p>
 
         <h2>How organized are the clouds?</h2>
-        <p>Cloud organization is somewhat subjective, so just give it your best shot.</p>
-        <h3>What to look for:</h3>
-        <ul>
-          <li>Typically Shear and Curved Band storms are weaker than those with an Embedded Center.</li>
-          <li>Stronger storms have spirals that wrap farther around the storm.</li>
-          <li>Cold clouds near the center become more circular as a storm strengthens.</li>
-          <li>Storms with an eye are almost always stronger than storms without one.</li>
-          <li>For Eye storms, consider the shape, size and color of the eye. Eyes that are more circular, smaller and/or warmer are associated with stronger tropical cyclones.</li>
-        </ul>
-
-        <hr>
+        <p>Stronger storms have tighter spirals, especially near the center where the cold clouds become more circular. For example, storms with an eye are almost always stronger than storms without one. The strongest cyclones have eyes that are more circular, smaller and/or warmer in the middle.</p>
         
-        <h2>Use your best judgement:</h2>
-        <p>In some cases, the storm on the left may appear to have some of these characteristics, while the storm on the right may appear to have others. If this is the case, they can actually cancel out, in which case we would say that they are about the same. For example: If the storm on the left appears better organized and more tightly-wrapped, but the storm on the right has more cold colors, you would say that they are about the same.</p>
-        <p>Use the images below to help you gauge a storm’s relative strength.</p>
-
+        <h2>Use the images below as a guide:</h2>
         <img src="images/field-guide/strength-chart.jpg" />
       '''
 
@@ -236,14 +215,6 @@ module.exports =
                 <h3>Eye Storms</h3>
                 <p>These are the easiest storms to spot and the most powerful of tropical cyclones. They have a characteristic ‘eye’ in the center which is warmer than the surrounding cooler clouds called the ‘eyewall’. Sometimes the eye will be pink or gray but it can also just be a circular area of clouds warmer than those surrounding it.</p>
               </td>
-              <td>
-                <h3>Strongest when</h3>
-                <ul>
-                  <li>They are more circular or have a warmer eye.</li>
-                  <li>Have colder clouds in the eyewall.</li>
-                  <li>Have spiral bands wrapping farther around the eyewall.</li>
-                </ul>
-              </td>
             </tr>
 
             <tr>
@@ -253,14 +224,6 @@ module.exports =
               <td>
                 <h3>Embedded Center Storms</h3>
                 <p>These storms have a roundish area of colder clouds near the center. They are weaker than eye and stronger than curved-band storms. Weak embedded center storms can look like curved bands, strong embedded center storms may be starting to form an eye.</p>
-              </td>
-              <td>
-                <h3>Strongest when</h3>
-                <ul>
-                  <li>Colder clouds (darker blue) near the center of the storm</li>
-                  <li>Center looks more circular than surrounding areas</li>
-                  <li>Pronounced spiral bands</li>
-                </ul>
               </td>
             </tr>
 
@@ -272,14 +235,6 @@ module.exports =
                 <h3>Curved Band Storms</h3>
                 <p>These can be hard to identify - they’re more disorganized than eyes or embedded centers. Look for a comma shape storm without a round area of cold clouds at the center.</p>
               </td>
-              <td>
-                <h3>Strongest when</h3>
-                <ul>
-                  <li>They have more tightly wrapped bands.</li>
-                  <li>Longer bands</li>
-                  <li>Colder clouds</li>
-                </ul>
-              </td>
             </tr>
 
             <tr>
@@ -289,13 +244,6 @@ module.exports =
               <td>
                 <h3>Shear Storms</h3>
                 <p>Most easily recognised by a flattened side with all the colors squeezed very close together. A vertical shear causes the tallest clouds to be displaced to one side of the storm.</p>
-              </td>
-              <td>
-                <h3>Strongest when</h3>
-                <ul>
-                  <li>Center of gray swirl close (or even within) the colored clouds.</li>
-                  <li>A tight swirl in the cold area (colored).</li>
-                </ul>
               </td>
             </tr>
 
@@ -314,7 +262,6 @@ module.exports =
               <td>
                 <p><strong>Post tropical:</strong> If the storm doesn’t fit any of the other categories then it might be a post-tropical storm. These are identified by large amounts of warm clouds (gray and pink) and often have a long tail extending from the center.</p>
               </td>
-              <td></td>
             </tr>
             <tr>
               <td>
@@ -323,7 +270,6 @@ module.exports =
               <td>
                 <p><strong>Edge:</strong> Sometimes the images will be skewed because of the limited view of the satellite. In this case try and classify the storm as normal - if that’s not possible then mark it as ‘edge’.</p>
               </td>
-              <td></td>
             </tr>
             <tr>
               <td>
@@ -331,7 +277,6 @@ module.exports =
               <td>
                 <p><strong>No storm:</strong> Early in a storm’s lifetime it might not be possible to say anything about its shape. If there is no evidence of an organised spiral structure then mark ‘no storm’.</p>
               </td>
-              <td></td>
             </tr>
           </tbody>
         </table>
