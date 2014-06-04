@@ -5,6 +5,11 @@ translate.load enUs
 Api = require 'zooniverse/lib/api'
 api = new Api project: 'cyclone_center'
 
+LanguageManager = require 'zooniverse/lib/language-manager'
+languageManager = new LanguageManager
+  translations:
+    en: label: 'English', strings: enUs
+
 Navigation = require './controllers/navigation'
 navigation = new Navigation
 navigation.el.appendTo document.body
