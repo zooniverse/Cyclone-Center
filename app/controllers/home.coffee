@@ -27,7 +27,7 @@ class Home extends Controller
 
     @notificationPreferenceContainer.append contactCheckbox.el
 
-    for storm in featuredStorms
+    for storm in featuredStorms.sort(-> Math.random() - Math.random())
       (new StormStatus storm).el.appendTo @featuredStormsContainer
 
     StormStatus.on 'select', =>
