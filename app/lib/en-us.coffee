@@ -22,6 +22,10 @@ module.exports =
       Read all about it and the storms we have selected
     '''
 
+    resultsBlogLink: '''
+      We also posted some preliminary results from the last four storms.
+    '''
+
     theStorms: '''
       Here are the storms we're currently most interested in analyzing.
     '''
