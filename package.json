@@ -7,11 +7,17 @@
     "publisssh": "~0.2.5",
     "t7e": "~0.3.1",
     "zooniverse": "~0.6.10",
-    "zootorial": "~0.3.5"
+    "zootorial": "~0.3.5",
+    "translator-seed": "^0.1.1"
   },
   "scripts": {
     "start": "haw serve",
+
+    "deploy-locale": "seed-translation --project cyclone_center --env production",
+
     "deploy-to-staging": "haw build && publisssh ./build zooniverse-static/www.cyclonecenter.org/redux && trash ./build",
-    "deploy-to-production": "haw build && publisssh --local ./build --bucket zooniverse-static/www.cyclonecenter.org && trash ./build"
+    "deploy-to-production": "haw build && publisssh --local ./build --bucket zooniverse-static/www.cyclonecenter.org && trash ./build",
+
+    "deploy": "npm run deploy-locale && npm run deploy-to-production"
   }
 }
