@@ -9,6 +9,17 @@
 <h2><%- t 'b', 'home.hurricaneSeason' %></h2>
 <p><%- t 'span', 'home.latestBlogPost' %>: <a href="http://blog.cyclonecenter.org/2014/07/24/kulab-says-please-classify-me/">Kulab says "Please Classify Me!"</a></p>
 
+<h2>2005 Campaign</h2>
+<div class="progress-metrics">
+  <span class="provided_classifications">-</span>
+  /
+  <span class="needed_classifications">-</span>
+</div>
+<div class="progress-bar-container">
+  <div class="progress-bar"></div>
+</div>
+<div class="footnote">Updates every 5 mins</div>
+
 <hr />
 
 <div class="storm-selection">
