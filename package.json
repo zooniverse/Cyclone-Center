@@ -2,7 +2,7 @@
   "name": "cyclone-center",
   "version": "0.1.0",
   "dependencies": {
-    "haw": "~0.4.9",
+    "haw": "~0.5.0",
     "navigable": "~0.0.8",
     "publisssh": "~0.2.5",
     "t7e": "~0.3.1",
