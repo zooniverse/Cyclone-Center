@@ -7,8 +7,7 @@
 <hr />
 
 <h2><%- t 'b', 'home.hurricaneSeason' %></h2>
-<p><%- t 'a', 'home.blogLink', href: 'http://blog.cyclonecenter.org/2014/06/02/a-quiet-hurricane-season-in-the-atlantic', target: '_blank' %></p>
-<p><%- t 'a', 'home.resultsBlogLink', href: 'http://blog.cyclonecenter.org/2014/06/10/early-results-for-charley-and-frances/', target: '_blank' %></p>
+<p><%- t 'span', 'home.latestBlogPost' %>: <a href="http://blog.cyclonecenter.org/2014/07/24/kulab-says-please-classify-me/">Kulab says "Please Classify Me!"</a></p>
 
 <hr />
 

@@ -18,13 +18,7 @@ module.exports =
 
     hurricaneSeason: 'June 1 was the start of Hurricane Season 2014!'
 
-    blogLink: '''
-      Read all about it and the storms we have selected
-    '''
-
-    resultsBlogLink: '''
-      We also posted some preliminary results from the last four storms.
-    '''
+    latestBlogPost: "Latest Blog Post"
 
     theStorms: '''
       Here are the storms we're currently most interested in analyzing.
