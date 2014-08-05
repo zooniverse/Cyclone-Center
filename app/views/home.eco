@@ -4,12 +4,28 @@
 
 <%- t 'h2', 'home.explanation' %>
 
-<hr />
+<hr>
 
-<h2><%- t 'b', 'home.hurricaneSeason' %></h2>
-<p><%- t 'span', 'home.latestBlogPost' %>: <a href="http://blog.cyclonecenter.org/2014/07/24/kulab-says-please-classify-me/">Kulab says "Please Classify Me!"</a></p>
+<h2><%- t 'b', 'home.latestBlogPost' %></h2>
+<h3><a href="http://blog.cyclonecenter.org/2014/07/24/kulab-says-please-classify-me/">Kulab says "Please Classify Me!"</a></h3>
 
-<hr />
+<hr>
+
+<h2><%- t 'b', 'home.campaignTitle' %></h2>
+<%- t 'p', 'home.campaignDescription' %>
+
+<div class="progress-metrics">
+  <b><span class="provided_classifications">-</span></b>
+  of
+  <b><span class="needed_classifications">-</span></b>
+  are complete.
+</div>
+<div class="progress-bar-container">
+  <div class="progress-bar"></div>
+</div>
+<div class="footnote">Updates every 5 mins</div>
+
+<hr>
 
 <div class="storm-selection">
   <div class="notification-preference"></div>
@@ -17,8 +33,8 @@
 
   <p class="random">
     <%- t 'span', 'home.or' %>
-    <button name="random"><%- t 'span', 'home.classifyRandom' %></button>
+    <button name="random" disabled><%- t 'span', 'home.classifyRandom' %></button>
   </p>
 
-  <hr />
+  <hr>
 </div>
