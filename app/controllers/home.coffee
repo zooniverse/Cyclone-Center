@@ -13,6 +13,7 @@ formatNumber = (n) ->
 class Home extends Controller
   className: 'home'
   template: template
+  group: true
 
   events:
     'click button[name="random"]': 'onClickRandom'
@@ -50,11 +51,14 @@ class Home extends Controller
 
   onClickRandom: ->
     # Pretend we selected a group from the home page:
-    StormStatus::select.call(el: @randomButton, group: true).then ->
+    StormStatus::select.call(el: @randomButton, group: @group).then ->
       location.hash = '/classify'
 
   updateCampaignProgress: ->
-    $.getJSON 'http://zooniverse-demo.s3.amazonaws.com/2005-storm-status.json', ({ needed_classifications, provided_classifications }) =>
+    $.getJSON 'http://zooniverse-demo.s3.amazonaws.com/2005-storm-status.json', ({ needed_classifications, provided_classifications, storms }) =>
+      @group = storms[Math.floor Math.random() * storms.length]
+      @randomButton.attr 'disabled', false
+
       percentComplete = Math.floor((provided_classifications / needed_classifications).toFixed(2) * 100)
 
       @providedClassifications.html formatNumber provided_classifications

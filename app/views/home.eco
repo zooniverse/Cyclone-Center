@@ -33,7 +33,7 @@
 
   <p class="random">
     <%- t 'span', 'home.or' %>
-    <button name="random"><%- t 'span', 'home.classifyRandom' %></button>
+    <button name="random" disabled><%- t 'span', 'home.classifyRandom' %></button>
   </p>
 
   <hr>
