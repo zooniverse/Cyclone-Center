@@ -16,7 +16,7 @@
     "deploy-locale": "seed-translation --project cyclone_center --env production",
 
     "deploy-to-staging": "haw build && publisssh ./build zooniverse-static/www.cyclonecenter.org/redux && trash ./build",
-    "deploy-to-production": "haw build && publisssh --local ./build --bucket zooniverse-static/www.cyclonecenter.org && trash ./build",
+    "deploy-to-production": "haw build && publisssh ./build zooniverse-static/www.cyclonecenter.org && rm -rf ./build",
 
     "deploy": "npm run deploy-locale && npm run deploy-to-production"
   }
