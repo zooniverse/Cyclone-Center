@@ -10,6 +10,10 @@ languageManager = new LanguageManager
   translations:
     en: label: 'English', strings: enUs
 
+languageManager.on 'change-language', (e, code, strings) ->
+  translate.load strings
+  translate.refresh()
+
 Navigation = require './controllers/navigation'
 navigation = new Navigation
 navigation.el.appendTo document.body
