@@ -4,17 +4,17 @@
   <div class="subject">
     <button name="restart">
       <span class="icon">↺</span>
-      <span class="label">Restart</span>
+      <%- translate 'span.label', 'classify.restart' %>
     </button>
 
     <button name="favorite">
       <span class="icon">♥</span>
-      <span class="label">Favorite</span>
+      <%- translate 'span.label', 'classify.favorite' %>
     </button>
 
     <button name="unfavorite">
       <span class="icon">♥</span>
-      <span class="label">Favorited</span>
+      <%- translate 'span.label', 'classify.favorited' %>
     </button>
 
     <img src="//placehold.it/1.png" class="older" />

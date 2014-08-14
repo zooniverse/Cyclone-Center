@@ -1,5 +1,4 @@
 CenterStep = require './center'
-template = require '../../views/classify-steps/center-eye-size'
 translate = require 't7e'
 $ = window.jQuery
 
@@ -9,8 +8,8 @@ REAL_IMAGE_SIZE = 600
 class CenterEyeSizeStep extends CenterStep
   property: ['center', 'eyewall']
 
-  template: template
-  explanation: translate 'div', 'classify.details.centerEyeSize'
+  template: require '../../views/classify-steps/center-eye-size'
+  explanation: translate 'div', 'classify.steps.centerEyeSize.explanation'
 
   circle: null
 

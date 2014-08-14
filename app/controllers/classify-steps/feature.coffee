@@ -1,13 +1,12 @@
 Step = require './base-step'
-template = require '../../views/classify-steps/feature'
 translate = require 't7e'
 $ = window.jQuery
 
 class Feature extends Step
   property: 'banding_feature'
 
-  template: template
-  explanation: translate 'div', 'classify.details.feature'
+  template: require '../../views/classify-steps/feature'
+  explanation: translate 'div', 'classify.steps.feature.explanation'
 
   events:
     'click button[name="feature"]': 'onClickButton'

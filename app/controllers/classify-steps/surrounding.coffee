@@ -1,13 +1,12 @@
 Step = require './base-step'
-template = require '../../views/classify-steps/surrounding'
 translate = require 't7e'
 $ = window.jQuery
 
 class Surrounding extends Step
   property: 'coldest_surrounding_eye'
 
-  template: template
-  explanation: translate 'div', 'classify.details.surrounding'
+  template: require '../../views/classify-steps/surrounding'
+  explanation: translate 'div', 'classify.steps.surrounding.explanation'
 
   events:
     'click button[name="surrounding"]': 'onClickColor'

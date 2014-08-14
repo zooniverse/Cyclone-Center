@@ -1,6 +1,8 @@
+<% t = require 't7e' %>
+
 <div class="exceeding step">
-  <p class="heading">Choose the colors completely surrounding the eye at least 0.5° thick.</p>
-  <p>Drag your mouse over the image to reveal a measuring tool.</p>
+  <%- t 'p.heading', 'classify.exceedingHeading' %>
+  <%- t 'p', 'classify.exceedingInstruction' %>
   <p>
     <button name="exceeding" value="9"><span class="swatch beige"></span></button>
     <button name="exceeding" value="-30"><span class="swatch red"></span></button>

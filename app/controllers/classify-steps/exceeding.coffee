@@ -1,5 +1,4 @@
 Step = require './base-step'
-template = require '../../views/classify-steps/exceeding'
 translate = require 't7e'
 $ = window.jQuery
 
@@ -12,8 +11,8 @@ BOX_WIDTH = 2
 class Exceeding extends Step
   property: 'coldest_at_least_0_5_deg'
 
-  template: template
-  explanation: translate 'div', 'classify.details.exceeding'
+  template: require '../../views/classify-steps/exceeding'
+  explanation: translate 'div', 'classify.steps.exceeding.explanation'
 
   hasDrawing: true
   center: null

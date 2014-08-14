@@ -1,12 +1,11 @@
 Step = require './base-step'
-template = require '../../views/classify-steps/stronger'
 translate = require 't7e'
 
 class Match extends Step
   property: 'strength'
 
-  template: template
-  explanation: translate 'div', 'classify.details.stronger'
+  template: require '../../views/classify-steps/stronger'
+  explanation: translate 'div', 'classify.steps.stronger.explanation'
 
   events:
     'click button[name="stronger"][value="older"], .subject .older': 'onClickOlder'

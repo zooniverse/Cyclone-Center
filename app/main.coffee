@@ -42,5 +42,4 @@ User.fetch()
 GoogleAnalytics = require 'zooniverse/lib/google-analytics'
 analytics = new GoogleAnalytics account: 'UA-1224199-33'
 
-window.app = {api, navigation, stack, topBar, analytics}
-module.exports = window.app
+module.exports = window.app = { api, navigation, stack, topBar, analytics }

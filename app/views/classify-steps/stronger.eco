@@ -1,8 +1,16 @@
+<% t = require 't7e' %>
+
 <div class="stronger step">
-  <p class="instruction">Choose the storm image that appears <strong>stronger</strong>.</p>
+  <%- t 'p.instruction', 'classify.steps.stronger.instruction' %>
   <p>
-    <button name="stronger" value="older" class="toggle">Left</button>
-    <button name="stronger" value="same" class="toggle">They're about the same</button>
-    <button name="stronger" value="current" class="toggle">Right</button>
+    <%- t 'button.toggle', 'classify.strengths.older', { name: 'stronger', value: 'older' } %>
+    <%- t 'button.toggle', 'classify.strengths.same', { name: 'strogner', value: 'same' } %>
+    <%- t 'button.toggle', 'classify.strengths.current', { name: 'stronger', value: 'current' } %>
   </p>
 </div>
+
+<!--
+<button name="stronger" value="older" class="toggle">Left</button>
+<button name="stronger" value="same" class="toggle">They're about the same</button>
+<button name="stronger" value="current" class="toggle">Right</button>
+-->

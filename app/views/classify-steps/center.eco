@@ -1,3 +1,5 @@
+<% t = require 't7e' %>
+
 <div class="center step">
-  <p class="heading">Click the <strong>center</strong> of the storm.</p>
+  <%- t 'p.heading', 'classify.centerHeading' %>
 </div>

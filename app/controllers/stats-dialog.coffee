@@ -3,14 +3,14 @@ Api = require 'zooniverse/lib/api'
 Map  = require 'zooniverse/lib/map'
 BarGraph  = require 'zooniverse/lib/bar_graph'
 
-template = require 'views/stats_dialog'
-
 class StatsDialog extends Dialog
   stormId: ''
   storm: null
 
   content: 'Loading...'
   openImmediately: true
+
+  template: require 'views/stats-dialog'
 
   constructor: ->
     super
@@ -39,8 +39,6 @@ class StatsDialog extends Dialog
         $(@).children().eq(index).removeClass 'hover'
         dialog.map.labels[index - 1].setRadius 5
 
-    console.log "/projects/cyclone_center/groups/#{@stormId}"
-
     Api.get "/projects/cyclone_center/groups/#{@stormId}", (raw) =>
       console.log raw
       @storm.name = raw.metadata.name
@@ -51,7 +49,7 @@ class StatsDialog extends Dialog
         @storm.winds.push stat.wind.wmo || stat.wind.max
         @storm.pressures.push stat.pressure.wmo || stat.pressure.max
 
-      @content = template @storm
+      @content = @template @storm
       @render()
       @addData()
 

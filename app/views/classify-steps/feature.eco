@@ -1,5 +1,7 @@
+<% t = require 't7e' %>
+
 <div class="feature step">
-  <p class="heading">Choose the image that matches the banding feature. <span class="thickness"></span></p>
+  <%- t 'p.heading', 'classify.featureHeading' %>
   <p>
     <button name="feature" value="0.0"><img src="images/banding/none.png" /></button>
     <button name="feature" value="0.5"><img src="images/banding/moderate.png" /></button>
