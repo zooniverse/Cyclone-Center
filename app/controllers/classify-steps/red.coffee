@@ -1,13 +1,12 @@
 Step = require './base-step'
-template = require '../../views/classify-steps/red'
 translate = require 't7e'
 $ = window.jQuery
 
 class Red extends Step
   property: 'red_point_nearest_center'
 
-  template: template
-  explanation: translate 'div', 'classify.details.red'
+  template: require '../../views/classify-steps/red'
+  explanation: translate 'div', 'classify.steps.red.explanation'
 
   hasDrawing: true
   center: null

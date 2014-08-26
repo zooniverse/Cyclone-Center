@@ -1,13 +1,12 @@
 Step = require './base-step'
-template = require '../../views/classify-steps/curve'
 translate = require 't7e'
 $ = window.jQuery
 
 class Curve extends Step
   property: 'band_wrap'
 
-  template: template
-  explanation: translate 'div', 'classify.details.curve'
+  template: require '../../views/classify-steps/curve'
+  explanation: translate 'div', 'classify.steps.curve.explanation'
 
   events:
     'click button[name="curve"]': 'onClickButton'

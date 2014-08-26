@@ -1,7 +1,0 @@
-{
-  "port": 8080,
-
-  "libs": [
-    "node_modules/zooniverse/vendor/base64.js"
-  ]
-}

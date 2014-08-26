@@ -1,13 +1,12 @@
 Step = require './base-step'
-template = require '../../views/classify-steps/center'
 translate = require 't7e'
 $ = window.jQuery
 
 class Center extends Step
   property: ['center']
 
-  template: template
-  explanation: translate 'div', 'classify.details.center'
+  template: require '../../views/classify-steps/center'
+  explanation: translate 'div', 'classify.steps.center.explanation'
 
   hasDrawing: true
   crosshairs: null

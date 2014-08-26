@@ -1,5 +1,7 @@
+<% t = require 't7e' %>
+
 <div class="curve step">
-  <p class="heading">How far does the main band wrap?</p>
+  <%- t 'p.heading', 'classify.steps.curve.heading' %>
   <p>
     <button name="curve" value="0.2"><img src="images/curve/0.2.png" /></button>
     <button name="curve" value="0.4"><img src="images/curve/0.4.png" /></button>

@@ -1,13 +1,12 @@
 Step = require './base-step'
-template = require '../../views/classify-steps/blue'
 translate = require 't7e'
 $ = window.jQuery
 
 class Blue extends Step
   property: 'coldest_band_color'
 
-  template: template
-  explanation: translate 'div', 'classify.details.blue'
+  template: require '../../views/classify-steps/blue'
+  explanation: translate 'div', 'classify.steps.blue.explanation'
 
   events:
     'click button[name="blue"]': 'onClickButton'

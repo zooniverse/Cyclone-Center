@@ -4,17 +4,17 @@
   <div class="subject">
     <button name="restart">
       <span class="icon">↺</span>
-      <span class="label">Restart</span>
+      <%- translate 'span.label', 'classify.restart' %>
     </button>
 
     <button name="favorite">
       <span class="icon">♥</span>
-      <span class="label">Favorite</span>
+      <%- translate 'span.label', 'classify.favorite' %>
     </button>
 
     <button name="unfavorite">
       <span class="icon">♥</span>
-      <span class="label">Favorited</span>
+      <%- translate 'span.label', 'classify.favorited' %>
     </button>
 
     <img src="//placehold.it/1.png" class="older" />
@@ -25,7 +25,7 @@
 
   <div class="progress">
     <div class="in-progress">
-      <button name="continue"><%- translate 'classify.continue' %></button>
+      <button name="continue"><%- translate 'span', 'classify.continue' %></button>
     </div>
 
     <div class="followup">
@@ -39,7 +39,7 @@
         <a href="#/TWITTER" class="twitter"><%- translate 'span', 'classify.tweet' %></a>
       </div>
 
-      <button name="next"><%- translate 'classify.next' %></button>
+      <button name="next"><%- translate 'span', 'classify.next' %></button>
     </div>
   </div>
 </div>
