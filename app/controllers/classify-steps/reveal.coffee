@@ -123,7 +123,7 @@ class Reveal extends Step
 
       if @classifier.classification.subject.metadata.tutorial
         @stormNameContainer.append '\n'
-        @stormNameContainer.append translate 'span.tutorial-note', 'classify.details.reveal.tutorialSubject'
+        @stormNameContainer.append translate 'span.tutorial-note', 'classify.steps.reveal.tutorialSubject'
 
       categories = []
 
@@ -176,7 +176,7 @@ class Reveal extends Step
 
       speedEstimate = SPEED_ESTIMATES[@classifier.classification.get 'match']
       if speedEstimate?
-        popupContent += "<p>#{translate 'span', 'classify.details.reveal.estimated'} #{speedEstimate}</p>"
+        popupContent += "<p>#{translate 'span', 'classify.steps.reveal.estimated'} #{speedEstimate}</p>"
 
       @youAreHere.bindPopup(popupContent).openPopup()
 
