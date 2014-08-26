@@ -4,6 +4,6 @@
 
 <div class="map"></div>
 
-<%- translate 'h2', 'classify.details.reveal.windAndPressure' %>
+<%- translate 'h2', 'classify.steps.reveal.windAndPressure' %>
 
 <div class="graph"></div>
