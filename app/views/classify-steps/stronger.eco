@@ -4,7 +4,7 @@
   <%- t 'p.instruction', 'classify.steps.stronger.instruction' %>
   <p>
     <%- t 'button.toggle', 'classify.strengths.older', { name: 'stronger', value: 'older' } %>
-    <%- t 'button.toggle', 'classify.strengths.same', { name: 'strogner', value: 'same' } %>
+    <%- t 'button.toggle', 'classify.strengths.same', { name: 'stronger', value: 'same' } %>
     <%- t 'button.toggle', 'classify.strengths.current', { name: 'stronger', value: 'current' } %>
   </p>
 </div>
