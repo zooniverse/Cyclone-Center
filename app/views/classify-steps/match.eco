@@ -5,12 +5,11 @@
     <%- t 'p.heading', 'classify.steps.catAndMatch.instruction' %>
 
     <ul>
-      <li><%- 'button.toggle', 'classify.categories.eye', { name: 'category', value: 'eye' } %></li>
-      <li><%- 'button.toggle', 'classify.categories.embedded', { name: 'category', value: 'embedded' } %></li>
-      <li><%- 'button.toggle', 'classify.categories.curved', { name: 'category', value: 'curved' } %></li>
-      <li><%- 'button.toggle', 'classify.categories.shear', { name: 'category', value: 'shear' } %></li>
-      <li><%- 'button.toggle', 'classify.categories.other', { name: 'category', value: 'other' } %></li>
-      <!-- <li><button name="category" value="other" class="toggle">Other</button></li> -->
+      <li><%- t 'button.toggle', 'classify.categories.eye', { name: 'category', value: 'eye' } %></li>
+      <li><%- t 'button.toggle', 'classify.categories.embedded', { name: 'category', value: 'embedded' } %></li>
+      <li><%- t 'button.toggle', 'classify.categories.curved', { name: 'category', value: 'curved' } %></li>
+      <li><%- t 'button.toggle', 'classify.categories.shear', { name: 'category', value: 'shear' } %></li>
+      <li><%- t 'button.toggle', 'classify.categories.other', { name: 'category', value: 'other' } %></li>
     </ul>
   </div>
 
@@ -48,9 +47,9 @@
     </ul>
 
     <ul data-category="other">
-      <li><button name="match" value="post-tropical"><img src="images/matches/other-post-tropical.png" /><%- t 'span.caption', 'classify.match.postTropical' %></button></li>
-      <li><button name="match" value="limb"><img src="images/matches/other-limb.png" /><%- t 'span.caption', 'classify.match.edge' %></button></li>
-      <li><button name="match" value="no-storm"><img src="images/matches/other-no-storm.png" /><%- t 'span.caption', 'classify.match.noStorm' %></button></li>
+      <li><button name="match" value="post-tropical"><img src="images/matches/other-post-tropical.png" /><%- t 'span.caption', 'classify.matches.postTropical' %></button></li>
+      <li><button name="match" value="limb"><img src="images/matches/other-limb.png" /><%- t 'span.caption', 'classify.matches.edge' %></button></li>
+      <li><button name="match" value="no-storm"><img src="images/matches/other-no-storm.png" /><%- t 'span.caption', 'classify.matches.noStorm' %></button></li>
     </ul>
   </div>
 </div>

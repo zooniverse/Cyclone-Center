@@ -1,5 +1,5 @@
 <% t = require 't7e' %>
 
 <div class="center step">
-  <%- t 'p.heading', 'classify.centerHeading' %>
+  <%- t 'p.heading', 'classify.steps.center.heading' %>
 </div>

@@ -25,7 +25,7 @@
 
   <div class="progress">
     <div class="in-progress">
-      <button name="continue"><%- translate 'classify.continue' %></button>
+      <button name="continue"><%- translate 'span', 'classify.continue' %></button>
     </div>
 
     <div class="followup">
@@ -39,7 +39,7 @@
         <a href="#/TWITTER" class="twitter"><%- translate 'span', 'classify.tweet' %></a>
       </div>
 
-      <button name="next"><%- translate 'classify.next' %></button>
+      <button name="next"><%- translate 'span', 'classify.next' %></button>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <% t = require 't7e' %>
 
 <div class="eye step">
-  <%- t 'p.heading', 'classify.centerEyeSizeHeading' %>
+  <%- t 'p.heading', 'classify.steps.centerEyeSize.heading' %>
   <p>
     <button name="eye" value="15" class="toggle"><span class="circle d15">15</span></button>
     <button name="eye" value="30" class="toggle"><span class="circle d30">30</span></button>

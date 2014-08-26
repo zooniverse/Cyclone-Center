@@ -1,7 +1,7 @@
 <% t = require 't7e' %>
 
 <div class="feature step">
-  <%- t 'p.heading', 'classify.featureHeading' %>
+  <%- t 'p.heading', 'classify.steps.feature.heading' %>
   <p>
     <button name="feature" value="0.0"><img src="images/banding/none.png" /></button>
     <button name="feature" value="0.5"><img src="images/banding/moderate.png" /></button>

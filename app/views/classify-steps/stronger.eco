@@ -8,9 +8,3 @@
     <%- t 'button.toggle', 'classify.strengths.current', { name: 'stronger', value: 'current' } %>
   </p>
 </div>
-
-<!--
-<button name="stronger" value="older" class="toggle">Left</button>
-<button name="stronger" value="same" class="toggle">They're about the same</button>
-<button name="stronger" value="current" class="toggle">Right</button>
--->
