@@ -204,7 +204,7 @@ module.exports =
     strengths:
       older: 'Left'
       same: "They're about the same"
-      current: 'Current'
+      current: 'Right'
 
     steps:
       stronger:
