@@ -1,7 +1,7 @@
 <% t = require 't7e' %>
 
 <div class="blue step">
-  <%- t 'p.heading', 'classify.blue.heading' %>
+  <%- t 'p.heading', 'classify.steps.blue.heading' %>
   <p>
     <button name="blue" value="9"><span class="swatch beige"></span></button>
     <button name="blue" value="-30"><span class="swatch red"></span></button>
