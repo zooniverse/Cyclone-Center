@@ -56,7 +56,7 @@ class Home extends Controller
 
   updateCampaignProgress: ->
     $.getJSON 'http://zooniverse-demo.s3.amazonaws.com/2005-storm-status.json', ({ needed_classifications, provided_classifications, storms }) =>
-      @group = storms[Math.floor Math.random() * storms.length]
+      # @group = storms[Math.floor Math.random() * storms.length]
       @randomButton.attr 'disabled', false
 
       percentComplete = Math.floor((provided_classifications / needed_classifications).toFixed(2) * 100)
