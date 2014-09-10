@@ -14,10 +14,17 @@ km-to-px(km, scale = (318 / 600))
 .page > .classify
   $min-top = 40px
 
+  display: flex
   margin-left: auto
   margin-right: auto
   position: relative
   width: 1200px
+  
+  > .left
+    width: 700px
+
+  > .right
+    width: 500px
 
   .controls
     background: #eee
@@ -170,8 +177,6 @@ km-to-px(km, scale = (318 / 600))
         padding: 5px 20px
 
       .matches.step
-        overflow: hidden
-
         ul
           clearfix()
           margin: 0
@@ -242,6 +247,7 @@ km-to-px(km, scale = (318 / 600))
             img
               box-shadow: 0 1px 3px rgba(#000, 0.25)
               display: block
+              max-width: 100%
 
             .caption
               background: rgba(#fff, 0.75)
@@ -362,13 +368,8 @@ km-to-px(km, scale = (318 / 600))
     display: none
 
   .step-details
-    bottom: 0
-    left: 660px
-    overflow-y: scroll
+    box-sizing: border-box
     padding: 30px
-    position: absolute
-    right: 0
-    top: $min-top
 
     @media (max-width: 1000px)
       &
@@ -419,13 +420,3 @@ km-to-px(km, scale = (318 / 600))
       background: #fff
       margin-bottom: 40px
       padding-top: 40px
-
-.tutorial
-  text-shadow: none
-  width: 470px
-
-  .progress .steps
-    display: none
-
-.zootorial-blocker
-  opacity: 0.01

@@ -15,9 +15,12 @@ languageManager.on 'change-language', (e, code, strings) ->
   translate.load strings
   translate.refresh()
 
+$app = $('#app')
+$footerContainer = $('#footer-container')
+
 Navigation = require './controllers/navigation'
 navigation = new Navigation
-navigation.el.appendTo document.body
+navigation.el.prependTo document.body
 
 Navigable = require 'navigable'
 Home = require './controllers/home'
@@ -30,12 +33,15 @@ stack = Navigable.stack [
   {'Classify': new Classify}
   {'Profile': new Profile}
 ]
-
-document.body.appendChild stack.el
+$(stack.el).appendTo $app
 
 TopBar = require 'zooniverse/controllers/top-bar'
 topBar = new TopBar
-topBar.el.appendTo document.body
+topBar.el.prependTo $app
+
+Footer = require 'zooniverse/controllers/footer'
+footer = new Footer
+footer.el.appendTo $footerContainer
 
 User = require 'zooniverse/models/user'
 User.fetch()

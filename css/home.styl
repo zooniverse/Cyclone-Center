@@ -1,199 +1,68 @@
-@keyframes wait-for-next
-  0%
-    background-position: 0 0
-
-  100%
-    background-position: 50px 0
-
 .page > .home
-  margin: 50px auto
-  text-align: center
-  width: 1000px
-
-  .random
-    margin: 2em 0
-
-    button[name="random"]
-      background: #fff
-      color: $blue
-      border: 3px solid transparent
-      box-shadow: 0 2px 2px -2px #000
-      display: inline-block
-      font-weight: bold
-      margin: 0 5px
-      padding: 3px 10px
-      text-shadow: none
-
-      &.loading
-        animation: 1s wait-for-next linear infinite
-        background-image: linear-gradient(left top, transparent 25%, rgba($blue, 0.25) 25%, rgba($blue, 0.25) 50%, transparent 50%, transparent 75%, rgba($blue, 0.25) 75%)
-        background-size: 25px 25px
-
-      &.active
-        border-color: #fc0
-
-.new-site
-  @extends .page > .home .random button[name="random"]
-  font-size: 20px
-  margin: 20px 0
-  padding: 5px 20px
-
-  &:hover
-    color: $blue
-
-.zooniverse-footer
-  text-align: left
-
-  .zooniverse-footer-project
-    padding: 2px 0
-    
-  a
-    border: 0
-
-.storm-status
-  background: #fff
-  border: 1px solid #fff
-  box-shadow: 0 3px 3px -3px #000
-  box-sizing: border-box
-  color: #000
-  cursor: pointer
-  display: inline-block
-  margin: 10px
-  position: relative
-  text-align: left
+  color: #fcfcfc
+  font-family: "Lato", sans-serif
+  font-size: 14px
   text-shadow: none
-  width: 225px
 
-  &:hover
-    border-color: #000
+  .section-split
+    display: flex
 
-  &.active
-    background: #ff0
-    border-color: #ff0
-    cursor: default
+  .section
+    box-sizing: border-box
+    min-height: 550px
+    padding: 160px 100px
+    width: 50%
 
-  &.finished
-    opacity: 0.33
+  .project-name-section
+    background-image: url(./images/project-name-background.jpg)
+    background-repeat: no-repeat
+    background-size: cover
 
-  .loader
-    animation: 1s wait-for-next linear infinite
-    background: linear-gradient(left top, transparent 25%, $blue 25%, $blue 50%, transparent 50%, transparent 75%, $blue 75%)
-    background-size: 25px 25px
-    bottom: 0
-    display: none
-    left: 0
-    opacity: 0.25
-    position: absolute
-    right: 0
-    top: 0
-
-  &.loading .loader
-    display: block
-
-  .preview
-    background: rgba($blue, 0.5)
-    display: block
-    height: 160px
-    max-width: 100%
-    width: 223px
-
-  .progress
-    .track
-      background: #000
-      height: 5px
+    .project-name
+      color: white
+      font-size: 80px
+      font-weight: 300
+      line-height: 88px
       position: relative
 
-      .fill
-        background: green
-        height: 100%
-        left: 0
-        position: absolute
-        top: 0
-        width: 50%
 
-        .complete
-          background: #000
-          border-radius: 20px
-          bottom: 10px
-          color: #fff
-          font-size: 10px
-          font-weight: bold
-          line-height: 1
-          margin-right: -20px
-          padding: 3px 5px
-          position: absolute
-          right: 0
-          text-align: center
-          width: 25px
+  .project-introduction
+    background: #ff8400
+    color: white
 
-          &:after
-            border: 5px solid transparent
-            border-top-color: black
-            content: ""
-            left: 50%
-            margin-left: -5px
-            position: absolute
-            top: 100%
-
-  .info
-    padding: 5px
-
-    .name
-      font-weight: bold
-
-    .year
-      float: right
-
-  .actions
-    border-top: 1px solid #ccc
-    display: table
-    width: 100%
-
-    .action
-      border: 0
-      border-left: 1px solid #ccc
-      display: table-cell
-      text-align: center
-      text-decoration: none
-
-      &:first-child
-        border-left: 0
-
-      img
-        margin: 5px 0
-        vertical-align: middle
-
-    button
-      color: $blue
-      font-size: 12px
-      font-weight: bold
-      height: 2em
-      width: 100%
-
-.progress-bar-container
-  background: lighten($blue, 25%)
-  border-radius: 10px
-  box-shadow: inset 0 0 3px rgba(black, 0.6)
-  height: 15px
-  margin: 10px auto
-  overflow: hidden
-  position: relative
-  width: 70%
-
-  .progress-bar
+  .project-updates
     background: white
-    border-radius: 10px
-    box-shadow: 0 0 10px rgba(black, 0.6)
-    height: 100%
-    left: 0
-    position: absolute
-    top: 0
+    color: #333
 
-.footnote
-  font-size: 0.9em
-  opacity: 0.8
+  .project-blog
+    background-image: url(./images/blog-background.jpg)
+    background-repeat: none
+    background-size: cover
 
+  .section-break
+    background: #373737
+    color: #c8c8c8
+    font-size: 16px
+    padding: 20px 0
+    text-align: center
 
+  .action-buttons a
+    @extends #_STANDARD_BUTTON
+    font-weight: 300
+    font-size: 18px
 
+  .call-to-action
+    background: #ff8400
+    padding: 25px 0
+    text-align: center
 
+  .get-involved
+    font-size: 32px
+    font-weight: 100
+    margin: 30px 0
 
+  .get-started
+    @extends #_STANDARD_BUTTON
+    font-size: 16px
+    font-weight: 300
+    margin: 5px 0

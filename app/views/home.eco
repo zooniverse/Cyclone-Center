@@ -1,40 +1,50 @@
+<!--https://www.flickr.com/photos/gsfc/6076866493/in/photolist-afZwGe-afXbUE-8BXxRZ-dqTJua-drru93-8xAk3F-dp5zGj-ah6o55-8xs7E7-dt1Q9p-agA6u7-dphzd9-agws2k-agbAmF-8xsdYo-ai3n2d-a2GUx5-cXZyZ9-8Bfpuh-dqcpDW-4JX1zF-agMhDz-ejEBrT-agLepw-d1xJyL-d9xPGQ-9PniSt-agzC2s-agTq8E-ajUDof-m9tgSV-8vVL9d-8zRDxu-doQSr3-9oWCdq-8CUqxa-5WoVQy-doZzt8-doZbj7-dqcp3b-4n2tL-ox8hJD-d2H8Mm-afMPMk-ds9yrY-eGUBn9-aJeUVx-oH7QHi-5mifxS-dqwxwT/ -->
+
+
+
 <% t = require 't7e' %>
 
-<%- t 'h1', 'home.intro' %>
+<div class="section-split">
+  <div class="section project-name-section">
+    <div class="project-name">Cyclone<br>Center</div>
+  </div>
+  <div class="section project-introduction">
+    <h2>What is Cyclone Center?</h2>
+    <p>
+      Ne dicant blandit ius. An putent aperiri eripuit eum, qui aeterno incorrupte id. Ea dicit platonem nec, eos inani scripserit ex. Has ea affert legere vidisse. Qui ea justo alienum, congue saperet ne sit, ad habemus menandri has. Id nam laoreet luptatum detraxit, ea mei facer aliquam.
+    </p>
 
-<%- t 'h2', 'home.explanation' %>
+    <p>Are you ready to start investigating?</p>
 
-<hr>
-
-<h2><%- t 'b', 'home.latestBlogPost' %></h2>
-<h3><a href="http://blog.cyclonecenter.org/2014/08/04/cyclonecenter-participation-for-july-2014/">CycloneCenter Participation for July 2014</a></h3>
-
-<hr>
-
-<h2><%- t 'b', 'home.campaignTitle' %></h2>
-<%- t 'p', 'home.campaignDescription' %>
-
-<div class="progress-metrics">
-  <b><span class="provided_classifications">-</span></b>
-  of
-  <b><span class="needed_classifications">-</span></b>
-  are complete.
+    <div class="action-buttons">
+      <a href="#/classify" class="get-started">Get Started</a>
+      <a href="#/about" class="learn-more">Learn More</a>
+    </div>
+  </div>
 </div>
-<div class="progress-bar-container">
-  <div class="progress-bar"></div>
+
+<div class="section-break">
+  The Cyclone Center Blog
 </div>
-<div class="footnote">Updates every 5 mins</div>
 
-<hr>
+<div class="section-split">
+  <div class="section project-blog">
+    <p>The Cyclone Center Blog</p>
+    <div id="latest-post"></div>
 
-<div class="storm-selection">
-  <div class="notification-preference"></div>
-  <div class="active-storms"></div>
+    <p>Previous Posts</p>
+    <div id="previous-posts"></div>
 
-  <p class="random">
-    <%- t 'span', 'home.or' %>
-    <button name="random" disabled><%- t 'span', 'home.classifyRandom' %></button>
-  </p>
+  </div>
+  <div class="section project-updates">
+    <h2>What is Cyclone Center?</h2>
+    <p>
+      Ne dicant blandit ius. An putent aperiri eripuit eum, qui aeterno incorrupte id. Ea dicit platonem nec, eos inani scripserit ex. Has ea affert legere vidisse. Qui ea justo alienum, congue saperet ne sit, ad habemus menandri has. Id nam laoreet luptatum detraxit, ea mei facer aliquam.
+    </p>
+  </div>
+</div>
 
-  <hr>
+<div class="call-to-action">
+  <div class="get-involved">Heard enough? Ready to get involved?</div>
+  <a href="#/classify" class="get-started">Get Started</a>
 </div>

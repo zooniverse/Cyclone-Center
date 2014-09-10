@@ -5,32 +5,12 @@
 @import "../node_modules/zootorial/zootorial.css"
 @import "../node_modules/zootorial/default-theme.css"
 
-$blue = #027da9
-$sans-serif = "Helvetica Neue", Arial, sans-serif
-
-button
-  background: transparent
-  border: 0
-  color: inherit
-  cursor: pointer
-  font: inherit
-  margin: 0
-  padding: 0
-  text-shadow: inherit
-
-  &::-moz-focus-inner
-    border: 0
-    padding: 0
-
-  &:disabled
-    opacity: 0.33
-    pointer-events: none
-
-  img
-    max-width: 100%
-
+@import "./common"
 @import "./layout"
+
 @import "./home"
 @import "./about"
-@import "./classify"
 @import "./profile"
+
+@import "./classify"
+@import "./tutorial"

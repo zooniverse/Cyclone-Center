@@ -1,22 +1,7 @@
 html
-  background: $blue url("./images/noise.png")
-  background: url("./images/noise.png"), -moz-radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
-  background: url("./images/noise.png"), -webkit-radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
-  background: url("./images/noise.png"), radial-gradient(circle farthest-side, lighten($blue, 20%), $blue) fixed
-  color: #fff
-  font: 14px $sans-serif
-  min-height: 100%
-  text-shadow: 0 1px 1px rgba(#000, 0.5)
-
-  &:before
-    background: #000
-    // content: "" // For some reason, this trashes Safari.
-    height: 5px
-    left: 0
-    position: absolute
-    top: 0
-    width: 100%
-
+  background: #373737
+  color: white
+  font-family: "Lato", sans-serif
 
 body
   margin: 0
@@ -36,36 +21,56 @@ body
     font-weight: 300
 
   a
-    border-bottom: 1px solid
     color: inherit
     text-decoration: none
 
     &:hover
-      color: yellow
+      color: $orange
 
   ul
     padding-left: 14px
 
-  & > nav
-    margin: 0 auto
-    width: 1000px
+.site-navigation
+  a
+    color: inherit
+    border-bottom: 0
+    display: inline-block
+    padding: 15px 10px
 
-    a
-      color: inherit
-      border-bottom: 0
-      display: inline-block
-      padding: 15px 10px
+    &.logo
+      font-size: 20px
 
-      &.logo
-        font-size: 20px
-        margin-left: -10px
+#app > .page
+  & > .page-nav
+    display: none
 
-  & > .page
-    & > .page-nav
-      display: none
+  & > .page-subpages > .page
+    display: none
 
-    & > .page-subpages > .page
-      display: none
+    &.active
+      display: block
 
-      &.active
-        display: block
+#footer-container
+  background: #2c2c2c
+  border-top: 1px solid #222
+
+.zooniverse-footer
+  color: #999
+  font-weight: 300
+  margin: 0 auto
+  max-width: 1000px
+  padding: 50px 0
+
+  .zooniverse-logo-container
+    float: none
+
+    .zooniverse-logo
+      margin: 0 0 15px 0
+      max-height: 100px
+      width: 100%
+
+  .zooniverse-footer-content
+    width: 100%
+
+  .zooniverse-footer-project
+    line-height: 1.45em

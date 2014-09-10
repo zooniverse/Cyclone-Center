@@ -1,11 +1,10 @@
-<% translate = require 't7e' %>
+<% t = require 't7e' %>
 
-<nav>
+<div class="site-navigation">
   <a href="#/home" class="logo">Cyclone Center</a>
-  <a href="#/home"><%- translate 'span', 'navigation.home' %></a>
-  <a href="#/about"><%- translate 'span', 'navigation.about' %></a>
-  <a href="#/classify"><%- translate 'span', 'navigation.classify' %></a>
-  <a href="#/profile"><%- translate 'span', 'navigation.profile' %></a>
-  <a href="http://talk.cyclonecenter.org/"><%- translate 'span', 'navigation.talk' %></a>
-  <a href="http://blog.cyclonecenter.org"><%- translate 'span', 'navigation.blog' %></a>
-</nav>
+  <a href="#/classify"><%- t 'span', 'navigation.classify' %></a>
+  <a href="#/about"><%- t 'span', 'navigation.about' %></a>
+  <a href="#/profile"><%- t 'span', 'navigation.profile' %></a>
+  <a href="http://talk.cyclonecenter.org/"><%- t 'span', 'navigation.talk' %></a>
+  <a href="http://blog.cyclonecenter.org"><%- t 'span', 'navigation.blog' %></a>
+</div>

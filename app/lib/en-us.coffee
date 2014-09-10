@@ -1,8 +1,8 @@
 module.exports =
   navigation:
     home: 'Home'
+    classify: 'Investigate'
     about: 'About'
-    classify: 'Classify'
     profile: 'Profile'
     talk: 'Discuss'
     blog: 'Blog'

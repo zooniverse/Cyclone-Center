@@ -1,30 +1,21 @@
-.tutorial.dialog-underlay
-  .dialog
-    transition left 0.25s ease-out, top 0.25s ease-out 0.1s
-    border 3px solid $blue
-    z-index 999
+.zootorial-dialog
+  color: #666
+  text-shadow: none
 
-    .dialog-closer
-      position absolute
-      right 0
-      top 0
+  .dialog-content
+    line-height: 1.5em
 
-    > footer
-      display block
+    .buttons,
+    .instruction
+      background: $orange
+      text-shadow: none
 
-    .dialog-arrow
-      &[data-direction="top"]
-        border-bottom-color $blue
+      button
+        box-shadow: none
+        padding: 6px 15px
 
-      &[data-direction="right"]
-        border-left-color $blue
+    .progress
+      display: none
 
-      &[data-direction="bottom"]
-        border-top-color $blue
-
-      &[data-direction="left"]
-        border-right-color $blue
-
-  &.next-on-action
-    .dialog > footer
-      display none
+.zootorial-blocker
+  opacity: 0.01
