@@ -1,0 +1,40 @@
+.classify .user-progress
+  padding: 20px 0
+  text-align: center
+  width: 100%
+
+  .container
+    margin: 0 auto
+    width: 500px
+
+  .progress-bar-container
+    background: #999
+    border-radius: 8px
+    height: 10px
+    margin: 10px 0
+    position: relative
+
+    &:before
+      background: $orange
+      border-radius: 8px
+      content: ""
+      height: 10px
+      left: 0
+      position: absolute
+      top: 0
+      width: 10px
+
+    .progress-bar
+      background: $orange
+      border-radius: 8px
+      height: 10px
+      transition: all 1s ease-in-out
+      width: 0
+
+  button
+    background: #4c4c4c
+    border: 0
+    border-radius: 3px
+    color: white
+    cursor: pointer
+    padding: 5px 10px

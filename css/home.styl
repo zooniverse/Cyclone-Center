@@ -4,14 +4,24 @@
   font-size: 14px
   text-shadow: none
 
+  .subtle-heading
+    color: #fff
+    font-style: italic
+    font-weight: 100
+    padding: 15px 0
+
   .section-split
     display: flex
 
-  .section
-    box-sizing: border-box
-    min-height: 550px
+    > *
+      box-sizing: border-box
+      min-height: 550px
+      padding: 0 100px
+      width: 50%
+
+  .project-name-section,
+  .project-introduction
     padding: 160px 100px
-    width: 50%
 
   .project-name-section
     background-image: url(./images/project-name-background.jpg)
@@ -25,35 +35,46 @@
       line-height: 88px
       position: relative
 
-
   .project-introduction
-    background: #ff8400
+    background: $orange
     color: white
+
+    .action-buttons
+      margin: 35px 0 0 0
+
+      a
+        @extends #_STANDARD_BUTTON
+        font-weight: 300
+        font-size: 18px
 
   .project-updates
     background: white
     color: #333
+    padding: 40px 100px
 
   .project-blog
     background-image: url(./images/blog-background.jpg)
     background-repeat: none
     background-size: cover
+    padding: 40px 100px
 
-  .section-break
-    background: #373737
-    color: #c8c8c8
-    font-size: 16px
-    padding: 20px 0
-    text-align: center
+    .huge-title
+      font-size: 60px
+      font-weight: 300
+      margin: 0 0 20px 0
 
-  .action-buttons a
-    @extends #_STANDARD_BUTTON
-    font-weight: 300
-    font-size: 18px
+    .previous-posts
+      font-size: 20px
+      font-weight: 100
+      padding: 10px 0
+      text-decoration: underline
+
+      a
+        display: block
 
   .call-to-action
-    background: #ff8400
-    padding: 25px 0
+    background: $orange
+    padding: 25px 0 45px 0
     text-align: center
 
   .get-involved
@@ -66,3 +87,21 @@
     font-size: 16px
     font-weight: 300
     margin: 5px 0
+
+  .project-stats
+    display: flex
+    justify-content: center
+    padding: 25px 0
+
+    > *
+      color: #999
+      font-size: 16px
+      max-width: 250px
+      padding: 0 30px
+      text-align: center
+
+      .stat
+        color: white
+        font-size: 32px
+        padding: 0 0 4px 0
+

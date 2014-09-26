@@ -11,6 +11,7 @@ getTutorialSubject = require '../lib/get-tutorial-subject'
 Classification = require 'zooniverse/models/classification'
 Favorite = require 'zooniverse/models/favorite'
 StormStatus = require './storm-status'
+ProgressBar = require './progress-bar'
 featuredStorms = require '../../public/js/featured-storms'
 $ = window.jQuery
 
@@ -97,6 +98,9 @@ class Classify extends Controller
       steps: tutorialSteps
       firstStep: 'welcome'
 
+    @progress = new ProgressBar
+    $(@progress.el).prependTo @el
+
     $(window).on 'hashchange', =>
       if location.hash is '#/classify'
         setTimeout (=> @tutorial.attach()), 50
@@ -109,16 +113,7 @@ class Classify extends Controller
     tutorialSubject = !!Subject.current?.metadata.tutorial
 
     if tutorialDone and (noClassification or tutorialSubject)
-
-      group = user?.preferences?.cyclone_center?.storm
-
-      if "#{group}" is 'true'
-        group = true
-      else if group not in featuredStorms.map((storm) -> storm.group)
-        group = featuredStorms[Math.floor Math.random() * featuredStorms.length].group
-
-      StormStatus::select.call {group}
-
+      Subject.next()
       @tutorial.end() if @tutorial.started?
     else
       unless @tutorial.started?

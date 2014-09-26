@@ -15,6 +15,7 @@ km-to-px(km, scale = (318 / 600))
   $min-top = 40px
 
   display: flex
+  flex-wrap: wrap
   margin-left: auto
   margin-right: auto
   position: relative
@@ -30,10 +31,8 @@ km-to-px(km, scale = (318 / 600))
     background: #eee
     box-shadow: 0 2px 4px -1px rgba(#000, 0.5)
     color: #000
-    margin-left: 20px
     text-align: center
     text-shadow: 0 1px #fff
-    width: 640px
 
     .subject
       background-image: linear-gradient(bottom, rgba(#000, 0.25), rgba(#000, 0), transparent)
@@ -342,16 +341,24 @@ km-to-px(km, scale = (318 / 600))
     margin-left: 20px
     width: 640px
 
-  .restart-tutorial
-    font-size: 10px
-    text-align: right
-
-  button[name="restart-tutorial"]
-    background: #fff
-    color: $blue
+  .other-actions
+    font-size: 12px
     font-weight: bold
-    padding: 3px 10px
-    text-shadow: none
+    padding: 8px 0
+
+    button
+      background: none
+      border: 0
+      color: white
+      cursor: pointer
+      outline: none
+      padding: 3px 10px
+
+      &:hover
+        text-decoration: underline
+
+      &:first-child
+        padding-left: 0
 
   .not-signed-in
     .sign-in,

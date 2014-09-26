@@ -45,9 +45,9 @@
     </div>
   </div>
 
-  <p class="restart-tutorial">
+  <div class="other-actions">
     <button name="restart-tutorial"><%- translate 'span', 'classify.restartTutorial' %></button>
-  </p>
+  </div>
 
   <p class="not-signed-in">
     <%- translate 'span', 'classify.notSignedIn' %>

@@ -5,11 +5,13 @@ translate.load enUs
 Api = require 'zooniverse/lib/api'
 api = new Api project: 'cyclone_center'
 
+Subject = require 'zooniverse/models/subject'
+Subject.group = true
+
 LanguageManager = require 'zooniverse/lib/language-manager'
 languageManager = new LanguageManager
   translations:
     en: label: 'English', strings: enUs
-    pl: label: 'Polski'
 
 languageManager.on 'change-language', (e, code, strings) ->
   translate.load strings
@@ -37,7 +39,7 @@ $(stack.el).appendTo $app
 
 TopBar = require 'zooniverse/controllers/top-bar'
 topBar = new TopBar
-topBar.el.prependTo $app
+topBar.el.appendTo navigation.el
 
 Footer = require 'zooniverse/controllers/footer'
 footer = new Footer

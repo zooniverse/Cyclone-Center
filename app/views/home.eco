@@ -1,17 +1,15 @@
 <!--https://www.flickr.com/photos/gsfc/6076866493/in/photolist-afZwGe-afXbUE-8BXxRZ-dqTJua-drru93-8xAk3F-dp5zGj-ah6o55-8xs7E7-dt1Q9p-agA6u7-dphzd9-agws2k-agbAmF-8xsdYo-ai3n2d-a2GUx5-cXZyZ9-8Bfpuh-dqcpDW-4JX1zF-agMhDz-ejEBrT-agLepw-d1xJyL-d9xPGQ-9PniSt-agzC2s-agTq8E-ajUDof-m9tgSV-8vVL9d-8zRDxu-doQSr3-9oWCdq-8CUqxa-5WoVQy-doZzt8-doZbj7-dqcp3b-4n2tL-ox8hJD-d2H8Mm-afMPMk-ds9yrY-eGUBn9-aJeUVx-oH7QHi-5mifxS-dqwxwT/ -->
 
-
-
 <% t = require 't7e' %>
 
 <div class="section-split">
-  <div class="section project-name-section">
+  <div class="project-name-section">
     <div class="project-name">Cyclone<br>Center</div>
   </div>
-  <div class="section project-introduction">
+  <div class="project-introduction">
     <h2>What is Cyclone Center?</h2>
     <p>
-      Ne dicant blandit ius. An putent aperiri eripuit eum, qui aeterno incorrupte id. Ea dicit platonem nec, eos inani scripserit ex. Has ea affert legere vidisse. Qui ea justo alienum, congue saperet ne sit, ad habemus menandri has. Id nam laoreet luptatum detraxit, ea mei facer aliquam.
+      The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
     </p>
 
     <p>Are you ready to start investigating?</p>
@@ -23,28 +21,38 @@
   </div>
 </div>
 
-<div class="section-break">
-  The Cyclone Center Blog
+<div class="project-stats">
+  <div class="project-stat">
+    <span id="user-count" class="stat">-</span><br>
+    Active Users
+  </div>
+  <div class="project-stat">
+    <span id="classification-count" class="stat">-</span><br>
+    Observations
+  </div>
+  <div class="project-stat">
+    <span id="storms-complete" class="stat">-</span><br>
+    Storms Complete
+  </div>
 </div>
 
 <div class="section-split">
-  <div class="section project-blog">
-    <p>The Cyclone Center Blog</p>
-    <div id="latest-post"></div>
-
-    <p>Previous Posts</p>
-    <div id="previous-posts"></div>
-
-  </div>
-  <div class="section project-updates">
+  <div class="project-updates">
     <h2>What is Cyclone Center?</h2>
     <p>
       Ne dicant blandit ius. An putent aperiri eripuit eum, qui aeterno incorrupte id. Ea dicit platonem nec, eos inani scripserit ex. Has ea affert legere vidisse. Qui ea justo alienum, congue saperet ne sit, ad habemus menandri has. Id nam laoreet luptatum detraxit, ea mei facer aliquam.
     </p>
   </div>
+  <div class="project-blog">
+    <div class="subtle-heading">The Cyclone Center Blog</div>
+    <div id="latest-post" class="huge-title">Loading latest post...</div>
+
+    <div class="subtle-heading">Previous Posts</div>
+    <div id="previous-posts" class="previous-posts">Loading previous posts...</div>
+  </div>
 </div>
 
 <div class="call-to-action">
-  <div class="get-involved">Heard enough? Ready to get involved?</div>
+  <div class="get-involved">Ready to get involved?</div>
   <a href="#/classify" class="get-started">Get Started</a>
 </div>

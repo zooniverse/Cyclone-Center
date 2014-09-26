@@ -1,9 +1,10 @@
-template = require '../views/navigation'
+BaseController = require 'zooniverse/controllers/base-controller'
 
-class Navigation
-  el: null
+class Navigation extends BaseController
+  className: 'site-navigation'
+  template: require '../views/navigation'
 
   constructor: ->
-    @el = $($.trim template @)
+    super
 
 module.exports = Navigation
