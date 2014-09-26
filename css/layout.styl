@@ -46,8 +46,9 @@ body
       box-sizing: border-box
       margin: 0 10px 0 0
       padding: 6px 18px
+      border: 2px solid transparent
 
-      &:hover:not(.logo)
+      &:hover:not(.logo), &.active:not(.logo)
         border: 2px solid $orange
 
       &.logo

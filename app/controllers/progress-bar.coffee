@@ -17,7 +17,7 @@ class UserProgress extends BaseController
     Subject.on 'select', @onNextSubject
 
   onNextSubject: =>
-    progress = Math.min (Classification.sentThisSession / REQUESTED_CLASSIFICATIONS), 1
+    progress = Math.min (Classification.sentThisSession / @requestedClassifications), 1
     @progressBar.css
       'width': "#{ progress * 100 }%"
 
