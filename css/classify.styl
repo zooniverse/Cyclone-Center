@@ -19,29 +19,27 @@ km-to-px(km, scale = (318 / 600))
   margin-left: auto
   margin-right: auto
   position: relative
-  width: 1200px
+  max-width: 1200px
   
-  > .left
-    width: 700px
-
+  > .left // TODO:rename these to ui / guide or something not r/l
+    width: 100%
+    max-width: 700px
+    margin: 0 auto
   > .right
-    width: 500px
+    width: 100%
+    max-width: 920px
+    margin: 0 auto
 
   .controls
-    background: #eee
-    box-shadow: 0 2px 4px -1px rgba(#000, 0.5)
-    color: #000
     text-align: center
-    text-shadow: 0 1px #fff
 
     .subject
-      background-image: linear-gradient(bottom, rgba(#000, 0.25), rgba(#000, 0), transparent)
       cursor: crosshair
       overflow: hidden
       padding: 2px
       position: relative
+      text-align: center
 
-      button[name="restart"],
       button[name="favorite"],
       button[name="unfavorite"]
         border: 0
@@ -51,6 +49,10 @@ km-to-px(km, scale = (318 / 600))
         position: absolute
         left: 40px
         line-height: 1
+        background: transparent
+        border: 2px solid #fff
+        color: #fff
+        outline: none
 
         > .icon
           display: block
@@ -73,13 +75,12 @@ km-to-px(km, scale = (318 / 600))
       img
         border: 2px solid transparent
         box-sizing: border-box
-        display: block
+        display: inline-block
         height: 318px
         margin: 0 auto
         position: relative
         width: 318px
         z-index: 1
-
         &.older
           display: none
 
@@ -87,19 +88,18 @@ km-to-px(km, scale = (318 / 600))
         z-index: 2
 
     button
-      border: 1px solid #999
-      box-shadow:
-        0 1px 0px #fff inset,
-        0 1px 0px #fff
-      font-weight: bold
+      border: none
+      border-radius: 5px;
       padding: 5px 20px
+
+      &[name='continue']
+        @extend #_CLASSIFIER_BUTTON
+        background: $green
+        cursor: pointer;
+        width: 25%
 
       &:active,
       &.active
-        background: #ccc
-        box-shadow:
-          0 2px 3px rgba(#000, 0.25) inset,
-          0 1px 0px #fff
         text-shadow: none
 
       img
@@ -107,7 +107,6 @@ km-to-px(km, scale = (318 / 600))
 
       .swatch
         background: gray
-        box-shadow: 0 1px 1px rgba(#000, 0.25)
         display: block
         height: 30px
         letter-spacing: -10em
@@ -165,15 +164,22 @@ km-to-px(km, scale = (318 / 600))
             // margin ($diameter / -2) 0 0 ($diameter / -2)
 
     .step-controls
-      border-bottom: 1px solid #ccc
-      border-top: 1px solid #fff
+      margin-bottom: 10px;
       position: relative
 
       button
         padding: 5px // For swatch/image buttons (the majority of buttons here)
+        background: transparent;
+        outline: none
+        &.active
+          background: $blue;
 
       .stronger.step button
-        padding: 5px 20px
+        padding: 10px 20px
+        border: 2px solid #fff
+        color: #fff
+        &.active
+          border-color: $blue
 
       .matches.step
         ul
@@ -195,27 +201,21 @@ km-to-px(km, scale = (318 / 600))
 
         .categories
           ul
-            border-top: 1px solid #ccc
-
+            li
+              text-align: center
             button
-              border: 1px solid #ccc
-              border-bottom: 0
-              border-left-color: #fff
-              border-top: 0
-              box-shadow: 0 1px 0 #fff inset
-              height: 45px
-              position: relative
+              @extend #_CLASSIFIER_BUTTON
+              width: 90%
 
               &.active
-                background: #ccc
+                background: $blue
                 border-left-color: #bbb
-                box-shadow: 0 1px 10px #999 inset
                 color: inherit
 
                 &:after
                   border: 15px solid transparent
                   border-bottom: 0
-                  border-top-color: #ccc
+                  border-top-color: $blue
                   content: ""
                   height: 0
                   left: 50%
@@ -225,8 +225,6 @@ km-to-px(km, scale = (318 / 600))
                   width: 0
 
         [data-category]
-          background: #ccc
-          box-shadow: 0 3px 10px rgba(#000, 0.33) inset
           display: none
           padding: 5px
 
@@ -238,13 +236,12 @@ km-to-px(km, scale = (318 / 600))
             box-shadow: none
             padding: 0
             position: relative
-
+            outline: none
             &.active
-              border-color: #fff
-              box-shadow: 0 1px 3px rgba(#000, 0.25)
+              border-color: $blue
+              border-radius: 5px
 
             img
-              box-shadow: 0 1px 3px rgba(#000, 0.25)
               display: block
               max-width: 100%
 
@@ -257,15 +254,13 @@ km-to-px(km, scale = (318 / 600))
               text-align: center
 
     .progress
-      border-bottom: 1px solid #ccc
-      border-top: 1px solid #fff
-
       .in-progress
         padding: 10px
 
       .followup
         display: none
         overflow: hidden
+        padding: 20px;
 
         .talk
         .social
@@ -290,6 +285,8 @@ km-to-px(km, scale = (318 / 600))
           float: right
 
         button[name="next"]
+          @extend #_CLASSIFIER_BUTTON
+          background: $blue
           margin-top: 15px
           width: 25%
 
@@ -299,14 +296,14 @@ km-to-px(km, scale = (318 / 600))
   // The "stronger" step gets side-by-side subject images.
   &[data-step="stronger"] .controls .subject img
     cursor: pointer
-    float: left
+    float: none
     margin: 0
 
     &.older
-      display: block
+      display: inline-block
 
     &.active
-      border-color: #000
+      border-color: $blue
 
   &[data-step="reveal"]
     .controls
@@ -344,7 +341,7 @@ km-to-px(km, scale = (318 / 600))
   .other-actions
     font-size: 12px
     font-weight: bold
-    padding: 8px 0
+    padding: 10px
 
     button
       background: none

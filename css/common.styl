@@ -1,5 +1,7 @@
 $blue = #027da9
 $orange = #ff8400
+$navy = #00305c
+$green = #3A9C5B
 
 $sans-serif = "Lato", Arial, sans-serif
 
@@ -8,24 +10,6 @@ p
 
 li
   line-height: 1.5em
-
-#_STANDARD_BUTTON
-  background: #00305c
-  border-radius: 4px
-  color: #f0f0f0
-  display: inline-block
-  font-family: "Lato", sans-serif
-  margin: 0 2px
-  padding: 14px 30px
-  text-align: center
-  text-decoration: none
-
-  &:hover
-    background: lighten(#00305c, 10%)
-
-  &.orange
-    background: $orange
-    color: white
 
 .sub-section-menu
   list-style: none
@@ -41,4 +25,34 @@ li
       border: 2px solid transparent
 
       &:hover, &.active
-        border: 2px solid $orange
+        border: 2px solid $orange  
+
+#_STANDARD_BUTTON
+  background: $navy
+  border-radius: 4px
+  display: inline-block
+  font-family: "Lato", sans-serif
+  outline: none
+  margin: 0 2px
+  padding: 14px 30px
+  text-align: center
+  text-decoration: none
+
+  &:hover
+    background: lighten($navy, 10%)
+
+  &.orange
+    background: $orange
+    color: white
+
+#_CLASSIFIER_BUTTON
+  border: none
+  display: inline-block
+  outline: none
+  color: #fff
+  height: 45px
+  outline: none
+  border-radius: 5px
+  background-color: $orange
+  box-shadow: none
+  position: relative
