@@ -15,7 +15,8 @@ class Navigation extends BaseController
   onHashChange: =>
     @links
       .removeClass('active')
-      .filter("[href='#{location.hash}']")
+      .filter (i) ->
+        !window.location.hash.indexOf $(@).attr 'href'
       .addClass('active')
 
 module.exports = Navigation

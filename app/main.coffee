@@ -24,17 +24,12 @@ Navigation = require './controllers/navigation'
 navigation = new Navigation
 navigation.el.prependTo document.body
 
-Navigable = require 'navigable'
-Home = require './controllers/home'
-About = require './controllers/about'
-Classify = require './controllers/classify'
-Profile = require './controllers/profile'
-stack = Navigable.stack [
-  {'Home': new Home}
-  {'About': new About}
-  {'Classify': new Classify}
-  {'Profile': new Profile}
-]
+StackOfPages = require 'stack-of-pages'
+stack = new StackOfPages
+  '#/home': require './controllers/home'
+  '#/about/*': require './controllers/about'
+  '#/classify': require './controllers/classify'
+  '#/profile': require './controllers/profile'
 $(stack.el).appendTo $app
 
 TopBar = require 'zooniverse/controllers/top-bar'

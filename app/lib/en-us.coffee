@@ -32,133 +32,135 @@ module.exports =
     stormChangeContact: 'Check this box to be notified when these storms change!'
 
   about:
-    content: '''
-      <h1>About Cyclone Center</h1>
-      <p>CycloneCenter.org is a web-based interface that enables the public to help analyze the intensities of past tropical cyclones around the globe.  The global intensity record contains uncertainties caused by differences in analysis procedures around the world and through time. Patterns in storm imagery are best recognized by the human eye, so scientists are enlisting the public. Interested volunteers will be shown one of nearly 300,000 satellite images. They will answer questions about that image as part of a simplified technique for estimating the maximum surface wind speed of tropical cyclones. This public collaboration will perform more than a million classifications in just a few months—something it would take a team of scientists more than a decade to accomplish. The end product will be a new global tropical cyclone dataset that provides 3-hourly tropical cyclone intensity estimates, confidence intervals, and a wealth of other metadata that could not be realistically obtained in any other fashion.</p>
+    header: 'About'
+    overview:
+      navigation: 'About Cyclone Center'
+      content: '''
+        <p>CycloneCenter.org is a web-based interface that enables the public to help analyze the intensities of past tropical cyclones around the globe.  The global intensity record contains uncertainties caused by differences in analysis procedures around the world and through time. Patterns in storm imagery are best recognized by the human eye, so scientists are enlisting the public. Interested volunteers will be shown one of nearly 300,000 satellite images. They will answer questions about that image as part of a simplified technique for estimating the maximum surface wind speed of tropical cyclones. This public collaboration will perform more than a million classifications in just a few months—something it would take a team of scientists more than a decade to accomplish. The end product will be a new global tropical cyclone dataset that provides 3-hourly tropical cyclone intensity estimates, confidence intervals, and a wealth of other metadata that could not be realistically obtained in any other fashion.</p>
+      '''
 
-      <hr />
+    introduction: 
+      navigation: 'Introduction to Images'
+      content:'''
+        <p><img src="images/about/diagram.jpg" data-popup="#image-diagram" width="100" class="hang-left" /></p>
+        <p>The images you see on Cyclone Center were observed by infrared sensors on weather satellites. These sensors provide an estimate of the temperature at the tops of clouds. Cloud top temperatures are very important because they give us an idea of how tall the clouds are. Temperature decreases with height in the lower atmosphere (up to 10 miles), so cold clouds are taller than warm clouds. Taller clouds are responsible for the heavy rain and thunderstorms that drive tropical cyclones.</p>
+        <p>In the Cyclone Center images, the cloud top temperatures are represented by a range of colors. The scale on this image to the left shows the temperatures in degrees Celsius that correspond with each color.</p>
+        <p>Black and gray are the warmest, indicating temperatures from 9°C (48°F) to 30°C (86°F). Often these will be the temperatures we experience at the land or ocean surface, but they can also be associated with very shallow clouds. Shades of pink go down to -30°C (-22°F). In our images, these are almost always associated with shallow clouds. Red, orange, and yellow come next, and they indicate medium-level clouds.</p>
+        <p>In most images, the coldest clouds you see will be shades of blue. Sometimes you’ll even see a cloud that’s so cold it shows up as white. These clouds are colder than -85°C (-121°F). Coastlines and political borders are also drawn in white, so make sure the white clouds are surrounded by dark blue. Otherwise, you might just be looking at a small island.</p>
+        <p>Sometimes there is a problem with parts of the satellite data. These missing data will show up as black lines in the images. Just ignore them and carry on with the analysis when you see them.</p>
 
-      <h2>Introduction to Cyclone Center Images</h2>
+        <div id="image-diagram">
+          <img src="images/about/diagram.jpg" />
+        </div>
 
-      <p><img src="images/about/diagram.jpg" data-popup="#image-diagram" width="100" class="hang-left" /></p>
-      <p>The images you see on Cyclone Center were observed by infrared sensors on weather satellites. These sensors provide an estimate of the temperature at the tops of clouds. Cloud top temperatures are very important because they give us an idea of how tall the clouds are. Temperature decreases with height in the lower atmosphere (up to 10 miles), so cold clouds are taller than warm clouds. Taller clouds are responsible for the heavy rain and thunderstorms that drive tropical cyclones.</p>
-      <p>In the Cyclone Center images, the cloud top temperatures are represented by a range of colors. The scale on this image to the left shows the temperatures in degrees Celsius that correspond with each color.</p>
-      <p>Black and gray are the warmest, indicating temperatures from 9°C (48°F) to 30°C (86°F). Often these will be the temperatures we experience at the land or ocean surface, but they can also be associated with very shallow clouds. Shades of pink go down to -30°C (-22°F). In our images, these are almost always associated with shallow clouds. Red, orange, and yellow come next, and they indicate medium-level clouds.</p>
-      <p>In most images, the coldest clouds you see will be shades of blue. Sometimes you’ll even see a cloud that’s so cold it shows up as white. These clouds are colder than -85°C (-121°F). Coastlines and political borders are also drawn in white, so make sure the white clouds are surrounded by dark blue. Otherwise, you might just be looking at a small island.</p>
-      <p>Sometimes there is a problem with parts of the satellite data. These missing data will show up as black lines in the images. Just ignore them and carry on with the analysis when you see them.</p>
+        <hr />
 
-      <div id="image-diagram">
-        <img src="images/about/diagram.jpg" />
-      </div>
+        <h2>The <span data-popup="#mr-dvorak bottom cameo">Dvorak</span> Technique</h2>
 
-      <hr />
+        <p>Prior to the 1960s, tropical cyclones were rarely observed unless they moved close to populated areas, happened to move near an unfortunate ship or occurred in the North Atlantic or Western Pacific (where routine aircraft flights monitored tropical weather systems). Fortunately, geostationary satellites were developed and launched during the 1960s. These satellites orbit the earth at very high altitudes (~22,300 miles or 35,900 km), allowing them to orbit at the same speed as the earth rotates. This allows for the satellite to always “see” the same large area and thus continuously monitor the oceans for tropical cyclone activity.</p>
+        <p>Despite this important advance, scientists and forecasters still had little hope of determining how strong the winds were (“intensity”) in a tropical cyclone from just looking at a picture of it. Only a very small fraction of tropical cyclones were measured directly by specially designed aircraft. However, it soon became apparent to a gentleman named Vernon Dvorak that the intensity of a tropical cyclone could be skillfully approximated by simply analyzing the cloud patterns and temperatures from a single satellite image. Dvorak developed and improved his method (now called the “Dvorak Technique”) in the 1970s and early 1980s.</p>
+        <p>The technique consists of a set of 10 steps, which can be simplified to produce the answers to four important questions:</p>
+        <ol>
+          <li>Where is the center of the system?</li>
+          <li>What type of cloud pattern best describes the system?</li>
+          <li>How organized or intense is the cloud pattern?</li>
+          <li>Does the system look stronger or weaker than 24 hours ago?</li>
+        </ol>
+        <p>Sometimes the answers to these questions are not clear, making the application of the Dvorak technique subjective. Tropical cyclone analysts and forecasters must be trained to successfully apply the many rules and constraints that the technique makes. Even then, experts frequently disagree, which has led to numerous inconsistencies in the tropical cyclone record.</p>
+        <p>The Dvorak technique was adopted by many of the world’s tropical cyclone forecast centers and remains today as one of the most important tools for estimating tropical cyclone intensity. In this project, you are using a version of the Dvorak technique for classifying tropical cyclones that have formed since the late 1970s. We hope that the application of thousands of classifiers will help resolve the differences in the global tropical cyclone record and improve our understanding of how the nature of these storms may have changed through time.</p>
+      '''
 
-      <h2>The <span data-popup="#mr-dvorak bottom cameo">Dvorak</span> Technique</h2>
+    organizations:
+      navigation: 'Organizations'
+      content:'''
+        <div class="team-member">
+          <img src="images/about/organizations/cisc.png" />
+          <h4>Cooperative Institute for Climate and Satellites</h4>
+          <p>The Cooperative Institute for Climate and Satellites (CICS), established under a cooperative agreement with the National Oceanic and Atmospheric Administration (NOAA) in 2009, is a consortium of research institutions that focuses on enhancing the collective interdisciplinary understanding of the state and evolution of the full Earth System. The CICS consortium is led by the University of Maryland, College Park and North Carolina State University on behalf of the University of North Carolina (UNC) System. CICS-NC is hosted by NC State University.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/organizations/noaa.png" />
+          <h4>NOAA'S National Climatic Data Center (NCDC)</h4>
+          <p>NCDC maintains the world's largest climate data archive and provides climatological services and data to every sector of the United States economy and to users worldwide. The archive contains paleoclimatic data to centuries-old journals to data less than an hour old. The Center's mission is to preserve these data and make them available to the general public, business, industry, government and researchers.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/organizations/asheville.png" />
+          <h4>University of North Carolina at Asheville</h4>
+          <p>UNC Asheville, the only designated public liberal arts university in North Carolina, offers more than 30 majors ranging from chemistry, atmospheric sciences and environmental studies to art, new media and international studies. The university is known for its award-winning undergraduate research and humanities programs.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/organizations/zooniverse.png" />
+          <h4>The Zooniverse</h4>
+          <p>The Zooniverse and the suite of projects it contains is produced, maintained and developed by the Citizen Science Alliance. The member institutions of the CSA work with many academic and other partners around the world to produce projects that use the efforts and ability of volunteers to help scientists and researchers deal with the flood of data that confronts them.</p>
+        </div>
+      '''
 
-      <p>Prior to the 1960s, tropical cyclones were rarely observed unless they moved close to populated areas, happened to move near an unfortunate ship or occurred in the North Atlantic or Western Pacific (where routine aircraft flights monitored tropical weather systems). Fortunately, geostationary satellites were developed and launched during the 1960s. These satellites orbit the earth at very high altitudes (~22,300 miles or 35,900 km), allowing them to orbit at the same speed as the earth rotates. This allows for the satellite to always “see” the same large area and thus continuously monitor the oceans for tropical cyclone activity.</p>
-      <p>Despite this important advance, scientists and forecasters still had little hope of determining how strong the winds were (“intensity”) in a tropical cyclone from just looking at a picture of it. Only a very small fraction of tropical cyclones were measured directly by specially designed aircraft. However, it soon became apparent to a gentleman named Vernon Dvorak that the intensity of a tropical cyclone could be skillfully approximated by simply analyzing the cloud patterns and temperatures from a single satellite image. Dvorak developed and improved his method (now called the “Dvorak Technique”) in the 1970s and early 1980s.</p>
-      <p>The technique consists of a set of 10 steps, which can be simplified to produce the answers to four important questions:</p>
-      <ol>
-        <li>Where is the center of the system?</li>
-        <li>What type of cloud pattern best describes the system?</li>
-        <li>How organized or intense is the cloud pattern?</li>
-        <li>Does the system look stronger or weaker than 24 hours ago?</li>
-      </ol>
-      <p>Sometimes the answers to these questions are not clear, making the application of the Dvorak technique subjective. Tropical cyclone analysts and forecasters must be trained to successfully apply the many rules and constraints that the technique makes. Even then, experts frequently disagree, which has led to numerous inconsistencies in the tropical cyclone record.</p>
-      <p>The Dvorak technique was adopted by many of the world’s tropical cyclone forecast centers and remains today as one of the most important tools for estimating tropical cyclone intensity. In this project, you are using a version of the Dvorak technique for classifying tropical cyclones that have formed since the late 1970s. We hope that the application of thousands of classifiers will help resolve the differences in the global tropical cyclone record and improve our understanding of how the nature of these storms may have changed through time.</p>
+    team:
+      navigation: 'Team'
+      content:'''
+        <h3>Science team</h3>
 
-      <hr />
+        <div class="team-member">
+          <img src="images/about/science-team/chris.jpg" />
+          <h4>Chris Hennon</h4>
+          <p>Chris Hennon is an associate professor of atmospheric sciences at the University of North Carolina at Asheville.  Specializing in tropical cyclone formation, Chris came to Asheville after spending two years as a visiting scientist at the U.S. National Hurricane Center in Miami, Florida.  Chris enjoys golf, racquetball, and chess in his free time.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/science-team/ken.jpg" />
+          <h4>Ken Knapp</h4>
+          <p>Ken Knapp is a meteorologist at NOAA’s National Climatic Data Center in Asheville, NC. His research interests include using satellite data to observe hurricanes, clouds, and other climate variables. His career took a tropical turn in 2005 when an NCDC customer requested satellite imagery of all tropical cyclones, rejuvenating an interest in hurricanes that began with his 7th grade science fair project.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/science-team/carl.jpg" />
+          <h4>Carl Schreck</h4>
+          <p>Carl Schreck is a research meteorologist at the Cooperative Institute for Climate and Satellites (CICS-NC). He is exploring tropical weather patterns to better understand and predict how hurricanes and other tropical cyclones form. Carl’s fascination with hurricanes began when Hurricane Fran struck his hometown of Raleigh, NC in 1996.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/science-team/scott.jpg" />
+          <h4>Scott Stevens</h4>
+          <p>Scott Stevens is a research associate at the Cooperative Institute for Climate and Satellites (CICS-NC). He is working on the development of a new rainfall dataset using NOAA’s network of NEXRAD radars, specializing in data analysis and organization.  He is a private pilot and enjoys baseball and traveling in his spare time.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/science-team/paula.jpg" />
+          <h4>Paula Hennon</h4>
+          <p>Paula Hennon is a tropical meteorologist and research scholar at the Cooperative Institute for Climate and Satellites (CICS-NC). Her research interests are tropical cyclone clouds and the resulting ocean wind, wave and temperature interactions. She is happiest with her head in the clouds and her feet (or her horse’s hoofs) in the sand.</p>
+        </div>
 
-      <h2>The team</h2>
+        <hr />
 
-      <h3>Organizations</h3>
+        <h3>Development team</h3>
 
-      <div class="team-member">
-        <img src="images/about/organizations/cisc.png" />
-        <h4>Cooperative Institute for Climate and Satellites</h4>
-        <p>The Cooperative Institute for Climate and Satellites (CICS), established under a cooperative agreement with the National Oceanic and Atmospheric Administration (NOAA) in 2009, is a consortium of research institutions that focuses on enhancing the collective interdisciplinary understanding of the state and evolution of the full Earth System. The CICS consortium is led by the University of Maryland, College Park and North Carolina State University on behalf of the University of North Carolina (UNC) System. CICS-NC is hosted by NC State University.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/organizations/noaa.png" />
-        <h4>NOAA'S National Climatic Data Center (NCDC)</h4>
-        <p>NCDC maintains the world's largest climate data archive and provides climatological services and data to every sector of the United States economy and to users worldwide. The archive contains paleoclimatic data to centuries-old journals to data less than an hour old. The Center's mission is to preserve these data and make them available to the general public, business, industry, government and researchers.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/organizations/asheville.png" />
-        <h4>University of North Carolina at Asheville</h4>
-        <p>UNC Asheville, the only designated public liberal arts university in North Carolina, offers more than 30 majors ranging from chemistry, atmospheric sciences and environmental studies to art, new media and international studies. The university is known for its award-winning undergraduate research and humanities programs.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/organizations/zooniverse.png" />
-        <h4>The Zooniverse</h4>
-        <p>The Zooniverse and the suite of projects it contains is produced, maintained and developed by the Citizen Science Alliance. The member institutions of the CSA work with many academic and other partners around the world to produce projects that use the efforts and ability of volunteers to help scientists and researchers deal with the flood of data that confronts them.</p>
-      </div>
-
-      <hr />
-
-      <h3>Science team</h3>
-
-      <div class="team-member">
-        <img src="images/about/science-team/chris.jpg" />
-        <h4>Chris Hennon</h4>
-        <p>Chris Hennon is an associate professor of atmospheric sciences at the University of North Carolina at Asheville.  Specializing in tropical cyclone formation, Chris came to Asheville after spending two years as a visiting scientist at the U.S. National Hurricane Center in Miami, Florida.  Chris enjoys golf, racquetball, and chess in his free time.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/science-team/ken.jpg" />
-        <h4>Ken Knapp</h4>
-        <p>Ken Knapp is a meteorologist at NOAA’s National Climatic Data Center in Asheville, NC. His research interests include using satellite data to observe hurricanes, clouds, and other climate variables. His career took a tropical turn in 2005 when an NCDC customer requested satellite imagery of all tropical cyclones, rejuvenating an interest in hurricanes that began with his 7th grade science fair project.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/science-team/carl.jpg" />
-        <h4>Carl Schreck</h4>
-        <p>Carl Schreck is a research meteorologist at the Cooperative Institute for Climate and Satellites (CICS-NC). He is exploring tropical weather patterns to better understand and predict how hurricanes and other tropical cyclones form. Carl’s fascination with hurricanes began when Hurricane Fran struck his hometown of Raleigh, NC in 1996.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/science-team/scott.jpg" />
-        <h4>Scott Stevens</h4>
-        <p>Scott Stevens is a research associate at the Cooperative Institute for Climate and Satellites (CICS-NC). He is working on the development of a new rainfall dataset using NOAA’s network of NEXRAD radars, specializing in data analysis and organization.  He is a private pilot and enjoys baseball and traveling in his spare time.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/science-team/paula.jpg" />
-        <h4>Paula Hennon</h4>
-        <p>Paula Hennon is a tropical meteorologist and research scholar at the Cooperative Institute for Climate and Satellites (CICS-NC). Her research interests are tropical cyclone clouds and the resulting ocean wind, wave and temperature interactions. She is happiest with her head in the clouds and her feet (or her horse’s hoofs) in the sand.</p>
-      </div>
-
-      <hr />
-
-      <h3>Development team</h3>
-
-      <div class="team-member">
-        <img src="images/about/dev-team/kelly.jpg" />
-        <h4>Kelly Borden</h4>
-        <p>Kelly is an archaeologist by training but an educator by passion. While working at the Museum of Science and Industry and the Adler Planetarium she became an enthusiastic science educator eager to bring science to the masses. When not pondering the wonders of science, Kelly can often be found baking or spending time with her herd of cats – Murray, Ada, & Kepler.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/dev-team/brian.jpg" />
-        <h4>Brian Carstensen</h4>
-        <p>Brian is a web developer working on the Zooniverse family of projects at the Adler Planearium. Brian has a degree in graphic design from Columbia College in Chicago, and worked in that field for a number of years before finding a niche in web development.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/dev-team/chris.jpg" />
-        <h4>Chris Lintott</h4>
-        <p>Chris Lintott leads the Zooniverse team, and in his copious spare time is a researcher at the University of Oxford specialising in galaxy formation and evolution. A keen popularizer of science, he is best known as co-presenter of the BBC's long running Sky at Night program. He's currently drinking a lot of sherry.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/dev-team/david.jpg" />
-        <h4>David Miller</h4>
-        <p>As a visual communicator, David is passionate about tellings stories through clear, clean, and effective design. Before joining the Zooniverse team as Visual Designer, David worked for The Raindance Film Festival, the News 21 Initiative's Apart From War, Syracuse Magazine, and as a freelance designer for his small business, Miller Visual. David is a graduate of the S.I. Newhouse School of Public Communications at Syracuse University, where he studied Visual & Interactive Communications.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/dev-team/michael.jpg" />
-        <h4>Michael Parrish</h4>
-        <p>Michael has a degree in Computer Science and has been working with The Zooniverse for the past three years as a Software Developer. Aside from web development; new technologies, science, AI, reptiles, and coffee tend to occupy his attention.</p>
-      </div>
-      <div class="team-member">
-        <img src="images/about/dev-team/arfon.jpg" />
-        <h4>Arfon Smith</h4>
-        <p>As an undergraduate, Arfon studied Chemistry at the University of Sheffield before completing his Ph.D. in Astrochemistry at The University of Nottingham in 2006. He worked as a senior developer at the Wellcome Trust Sanger Institute (Human Genome Project) in Cambridge before joining the Galaxy Zoo team in Oxford. Over the past 3 years he has been responsible for leading the development of a platform for citizen science called Zooniverse. In August of 2011 he took up the position of Director of Citizen Science at the Adler Planetarium where he continues to lead the software and infrastructure development for the Zooniverse.</p>
-      </div>
-    '''
+        <div class="team-member">
+          <img src="images/about/dev-team/kelly.jpg" />
+          <h4>Kelly Borden</h4>
+          <p>Kelly is an archaeologist by training but an educator by passion. While working at the Museum of Science and Industry and the Adler Planetarium she became an enthusiastic science educator eager to bring science to the masses. When not pondering the wonders of science, Kelly can often be found baking or spending time with her herd of cats – Murray, Ada, & Kepler.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/dev-team/brian.jpg" />
+          <h4>Brian Carstensen</h4>
+          <p>Brian is a web developer working on the Zooniverse family of projects at the Adler Planearium. Brian has a degree in graphic design from Columbia College in Chicago, and worked in that field for a number of years before finding a niche in web development.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/dev-team/chris.jpg" />
+          <h4>Chris Lintott</h4>
+          <p>Chris Lintott leads the Zooniverse team, and in his copious spare time is a researcher at the University of Oxford specialising in galaxy formation and evolution. A keen popularizer of science, he is best known as co-presenter of the BBC's long running Sky at Night program. He's currently drinking a lot of sherry.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/dev-team/david.jpg" />
+          <h4>David Miller</h4>
+          <p>As a visual communicator, David is passionate about tellings stories through clear, clean, and effective design. Before joining the Zooniverse team as Visual Designer, David worked for The Raindance Film Festival, the News 21 Initiative's Apart From War, Syracuse Magazine, and as a freelance designer for his small business, Miller Visual. David is a graduate of the S.I. Newhouse School of Public Communications at Syracuse University, where he studied Visual & Interactive Communications.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/dev-team/michael.jpg" />
+          <h4>Michael Parrish</h4>
+          <p>Michael has a degree in Computer Science and has been working with The Zooniverse for the past three years as a Software Developer. Aside from web development; new technologies, science, AI, reptiles, and coffee tend to occupy his attention.</p>
+        </div>
+        <div class="team-member">
+          <img src="images/about/dev-team/arfon.jpg" />
+          <h4>Arfon Smith</h4>
+          <p>As an undergraduate, Arfon studied Chemistry at the University of Sheffield before completing his Ph.D. in Astrochemistry at The University of Nottingham in 2006. He worked as a senior developer at the Wellcome Trust Sanger Institute (Human Genome Project) in Cambridge before joining the Galaxy Zoo team in Oxford. Over the past 3 years he has been responsible for leading the development of a platform for citizen science called Zooniverse. In August of 2011 he took up the position of Director of Citizen Science at the Adler Planetarium where he continues to lead the software and infrastructure development for the Zooniverse.</p>
+        </div>
+      '''
 
   classify:
     favorite: 'Favorite'

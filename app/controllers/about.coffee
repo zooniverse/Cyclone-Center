@@ -1,14 +1,30 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 translate = require 't7e'
 Dialog = require 'zooniverse/controllers/dialog'
+StackOfPages = require 'stack-of-pages'
 
 class About extends BaseController
   className: 'about'
-  template: translate 'div', 'about.content'
+  template: require '../views/about'
+  elements:
+    '.sub-section-menu li a': 'menuLinks'
 
   constructor: ->
     super
     @createPopups()
+    
+    aboutStack = new StackOfPages
+      '#/about': require('../views/about/overview')()
+      '#/about/introduction': require('../views/about/introduction')()
+      '#/about/organizations': require('../views/about/organizations')()
+      '#/about/team': require('../views/about/team')()
+
+    @el.find('#about-stack').append aboutStack.el
+    @el.on StackOfPages::activateEvent, @activate
+
+  activate: ({ originalEvent: { detail }}) =>
+    @menuLinks.removeClass 'active'
+    @menuLinks.filter("[href=\"#{ detail.hash }\"]").addClass 'active'
 
   createPopups: =>
     dialogTriggers = @el.find '[data-popup]'

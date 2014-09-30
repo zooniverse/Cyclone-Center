@@ -6,7 +6,6 @@ WP_API_URL = 'https://public-api.wordpress.com/rest/v1/sites/blog.cyclonecenter.
 
 class Home extends Controller
   className: 'home'
-
   template: require '../views/home'
   previousPostsTemplate: require '../views/previous-posts'
 
