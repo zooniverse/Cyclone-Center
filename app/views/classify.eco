@@ -3,10 +3,6 @@
 <div class="left">
   <div class="controls">
     <div class="subject">
-      <button name="restart">
-        <span class="icon">↺</span>
-        <%- translate 'span.label', 'classify.restart' %>
-      </button>
 
       <button name="favorite">
         <span class="icon">♥</span>
@@ -20,6 +16,7 @@
 
       <img src="//placehold.it/1.png" class="older" />
       <img src="//placehold.it/1.png" class="current" />
+
     </div>
 
     <div class="step-controls"></div>
@@ -47,6 +44,10 @@
 
   <div class="other-actions">
     <button name="restart-tutorial"><%- translate 'span', 'classify.restartTutorial' %></button>
+    <button name="restart">
+      <span class="icon">↺</span>
+      <%- translate 'span.label', 'classify.restart' %>
+    </button>
   </div>
 
   <p class="not-signed-in">
