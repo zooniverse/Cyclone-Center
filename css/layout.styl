@@ -89,11 +89,18 @@ body
 
   .zooniverse-logo-container
     float: none
+    overflow: hidden
+    &:hover
+      transition: transform 0.8s
+      transform: rotate(720deg);
 
     .zooniverse-logo
-      margin: 0 0 15px 0
+      margin: 0
       max-height: 100px
       width: 100%
+
+  .zooniverse-footer-heading
+    margin-top: 25px
 
   .zooniverse-footer-content
     width: 100%
