@@ -25,8 +25,12 @@
 
   .project-name-section,
   .project-name-section,
-  .project-introduction
+  .project-introduction,
+  .project-updates,
+  .project-blog
     padding: 160px 100px
+    @media screen and (max-width: 800px)
+      padding: 160px 10px
 
   .project-name-section
     background-image: url(./images/project-name-background.jpg)
@@ -49,24 +53,26 @@
 
       a
         @extends #_STANDARD_BUTTON
+        margin: 5px
         font-weight: 300
         font-size: 18px
 
   .project-updates
     background: white
     color: #333
-    padding: 40px 100px
 
   .project-blog
     background-image: url(./images/blog-background.jpg)
     background-repeat: none
     background-size: cover
-    padding: 40px 100px
 
     .huge-title
-      font-size: 60px
+      font-size: 50px
       font-weight: 300
       margin: 0 0 20px 0
+      word-wrap: break-word
+      @media screen and (max-width: 1000px)
+        font-size: 40px
 
     .previous-posts
       font-size: 20px
