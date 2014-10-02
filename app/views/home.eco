@@ -6,7 +6,7 @@
   <div class="project-name-section">
     <div class="project-name">Cyclone<br>Center</div>
   </div>
-  <div class="project-introduction">
+  <div class="project-introduction font-smoothing">
     <h2>What is Cyclone Center?</h2>
     <p>
       The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
@@ -37,7 +37,7 @@
 </div>
 
 <div class="section-split">
-  <div class="project-updates">
+  <div class="project-updates font-smoothing">
     <h2>What is Cyclone Center?</h2>
     <p>
       Ne dicant blandit ius. An putent aperiri eripuit eum, qui aeterno incorrupte id. Ea dicit platonem nec, eos inani scripserit ex. Has ea affert legere vidisse. Qui ea justo alienum, congue saperet ne sit, ad habemus menandri has. Id nam laoreet luptatum detraxit, ea mei facer aliquam.
