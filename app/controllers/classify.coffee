@@ -50,6 +50,7 @@ class Classify extends Controller
 
   events:
     'click button[name="restart"]': 'onClickRestart'
+    'click button[name="go-to-guide"]': 'onClickGoToGuide'
     'click button[name="continue"], button[name="finish"]': 'onClickContinue'
     'click button[name="next"]': 'onClickNext'
     'click button[name="restart-tutorial"]': 'onClickRestartTutorial'
@@ -202,6 +203,11 @@ class Classify extends Controller
       @goToStep 'stronger'
     else
       @goToStep 'catAndMatch'
+
+  onClickGoToGuide: ->
+    $ ->
+      $('html, body').animate
+        scrollTop: $('.step-details').offset().top, 2000
 
   onClickContinue: ->
     @goToStep @getNextStep()

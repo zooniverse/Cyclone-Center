@@ -167,6 +167,7 @@ module.exports =
     continue: 'Continue'
     finish: 'Finish'
     restart: 'Restart'
+    guide: 'Guide'
     favorite: 'Favorite'
     favorited: 'Favorited'
     talkSubject: 'Discuss the image'

@@ -8,6 +8,9 @@ class UserProgress extends BaseController
 
   requestedClassifications: 4
 
+  events:
+    'click button[name="close"]': 'onClickClose'
+
   elements:
     '#progress-bar': 'progressBar'
 
@@ -20,5 +23,8 @@ class UserProgress extends BaseController
     progress = Math.min (Classification.sentThisSession / @requestedClassifications), 1
     @progressBar.css
       'width': "#{ progress * 100 }%"
+
+  onClickClose: ->
+    @el.hide()   
 
 module.exports = UserProgress

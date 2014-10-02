@@ -48,6 +48,10 @@
       <span class="icon">↺</span>
       <%- translate 'span.label', 'classify.restart' %>
     </button>
+    <button name="go-to-guide">
+      <span class="icon">&darr;</span>
+      <%- translate 'span.label', 'classify.guide' %>
+    </button>
   </div>
 
   <p class="not-signed-in">
