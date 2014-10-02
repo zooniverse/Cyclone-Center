@@ -1,7 +1,7 @@
 <% t = require 't7e' %>
 
 <div class="menu">
-  <a href="#/home" class="logo">Cyclone Center</a>
+  <a href="#/" class="logo">Cyclone Center</a>
   <a href="#/classify"><%- t 'span', 'navigation.classify' %></a>
   <a href="#/about"><%- t 'span', 'navigation.about' %></a>
   <a href="#/profile"><%- t 'span', 'navigation.profile' %></a>

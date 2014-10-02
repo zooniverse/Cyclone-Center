@@ -26,7 +26,7 @@ navigation.el.prependTo document.body
 
 StackOfPages = require 'stack-of-pages'
 stack = new StackOfPages
-  '#/home': require './controllers/home'
+  '#/': require './controllers/home'
   '#/about/*': require './controllers/about'
   '#/classify': require './controllers/classify'
   '#/profile': require './controllers/profile'
