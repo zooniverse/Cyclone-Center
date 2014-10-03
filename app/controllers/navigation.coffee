@@ -6,6 +6,11 @@ class Navigation extends BaseController
 
   elements:
     '.menu a': 'links'
+    '.menu-list li': 'menuList'
+
+  events:
+    'click .hamburger-menu': 'onClickHamburger'
+    'click a': 'onChangePage'  
 
   constructor: ->
     super
@@ -18,5 +23,13 @@ class Navigation extends BaseController
       .filter (i) ->
         !window.location.hash.indexOf $(@).attr 'href'
       .addClass('active')
+
+  onClickHamburger: =>  
+    @menuList.slideToggle(200)
+
+  onChangePage: =>
+    if window.innerWidth < 625
+      @menuList.slideUp(200)
+      
 
 module.exports = Navigation

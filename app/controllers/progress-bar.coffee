@@ -24,7 +24,7 @@ class UserProgress extends BaseController
     @progressBar.css
       'width': "#{ progress * 100 }%"
 
-  onClickClose: ->
+  onClickClose: =>
     @el.hide()   
 
 module.exports = UserProgress

@@ -1,12 +1,13 @@
 <% translate = require 't7e' %>
-
-<div class="content">
-	<header class="about-header">
+<header class="about-header">
+	<div class="content">
 		<div class="about-header-copy">
 			<%- translate 'h1', 'about.header' %>
 			<%- translate 'h3', 'about.subHeader' %>
 		</div>
-	</header>
+	</div>
+</header>
+<div class="content">	
 	<ul class="sub-section-menu">
 	  <li><%- translate 'a', 'about.overview.navigation', href: '#/about' %></li>
 	  <li><%- translate 'a', 'about.introduction.navigation', href: '#/about/introduction' %></li>

@@ -41,6 +41,33 @@ body
   position: relative
 
   .menu
+    .menu-list
+      display: inline-block !important
+      list-style: none
+      vertical-align: middle
+      margin: 0
+      padding: 0
+
+      li
+        float: left
+
+      @media screen and (max-width: 675px) 
+        text-align: center
+        width: 100%
+
+        li
+          width: 100%
+          display: none
+
+    .hamburger-menu
+      font-size: 20px
+      display: none
+      cursor: pointer 
+      margin: 0 0 0 10px
+
+      @media screen and (max-width: 675px)
+        display: inline-block  
+
     a
       color: inherit
       border-radius: 15px
@@ -50,11 +77,20 @@ body
       margin: 0 10px 0 0
       border: 2px solid transparent
 
+      @media screen and (max-width: 675px)
+        border: none
+
       &:hover:not(.logo), &.active:not(.logo)
         border: 2px solid $orange
 
+        @media screen and (max-width: 675px)
+          border: none
+
       &.logo
-        font-size: 20px
+        font-size: 20px   
+
+    @media screen and (max-width: 675px)
+      width: 100%
 
   .zooniverse-top-bar
     background: none
