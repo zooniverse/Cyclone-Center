@@ -28,13 +28,13 @@
 
       <div class="followup">
         <div class="talk">
-          <a href="#/TALK_IMAGE" class="talk-image"><%- translate 'span', 'classify.talkSubject' %></a>
-          <a href="#/TALK_STORM" class="talk-storm"><%- translate 'span', 'classify.talkGroup' %></a>
+          <a href="#/TALK_IMAGE" target="_blank" class="talk-image"><%- translate 'span', 'classify.talkSubject' %></a>
+          <a href="#/TALK_STORM" target="_blank" class="talk-storm"><%- translate 'span', 'classify.talkGroup' %></a>
         </div>
 
         <div class="social">
-          <a href="#/FACEBOOK" class="facebook"><%- translate 'span', 'classify.share' %></a>
-          <a href="#/TWITTER" class="twitter"><%- translate 'span', 'classify.tweet' %></a>
+          <a href="#/FACEBOOK" target="_blank" class="facebook"><%- translate 'span', 'classify.share' %></a>
+          <a href="#/TWITTER" target="_blank" class="twitter"><%- translate 'span', 'classify.tweet' %></a>
         </div>
 
         <button name="next"><%- translate 'span', 'classify.next' %></button>
