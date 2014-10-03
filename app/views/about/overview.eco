@@ -1,2 +1,3 @@
 <% translate = require 't7e' %>
+<%- translate 'h2', 'about.overview.header' %>
 <%- translate 'div', 'about.overview.content' %>

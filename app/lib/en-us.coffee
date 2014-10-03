@@ -33,16 +33,18 @@ module.exports =
 
   about:
     header: 'About'
+    subHeader: 'Learn a little more about what the heck Cyclone Center is.'
     overview:
+      header: 'Lorem Ipsum Header'
       navigation: 'About Cyclone Center'
       content: '''
         <p>CycloneCenter.org is a web-based interface that enables the public to help analyze the intensities of past tropical cyclones around the globe.  The global intensity record contains uncertainties caused by differences in analysis procedures around the world and through time. Patterns in storm imagery are best recognized by the human eye, so scientists are enlisting the public. Interested volunteers will be shown one of nearly 300,000 satellite images. They will answer questions about that image as part of a simplified technique for estimating the maximum surface wind speed of tropical cyclones. This public collaboration will perform more than a million classifications in just a few months—something it would take a team of scientists more than a decade to accomplish. The end product will be a new global tropical cyclone dataset that provides 3-hourly tropical cyclone intensity estimates, confidence intervals, and a wealth of other metadata that could not be realistically obtained in any other fashion.</p>
       '''
 
     introduction: 
-      navigation: 'Introduction to Images'
+      header: 'Lorem Ipsum Header'
+      navigation: 'The Images'
       content:'''
-        <p><img src="images/about/diagram.jpg" data-popup="#image-diagram" width="100" class="hang-left" /></p>
         <p>The images you see on Cyclone Center were observed by infrared sensors on weather satellites. These sensors provide an estimate of the temperature at the tops of clouds. Cloud top temperatures are very important because they give us an idea of how tall the clouds are. Temperature decreases with height in the lower atmosphere (up to 10 miles), so cold clouds are taller than warm clouds. Taller clouds are responsible for the heavy rain and thunderstorms that drive tropical cyclones.</p>
         <p>In the Cyclone Center images, the cloud top temperatures are represented by a range of colors. The scale on this image to the left shows the temperatures in degrees Celsius that correspond with each color.</p>
         <p>Black and gray are the warmest, indicating temperatures from 9°C (48°F) to 30°C (86°F). Often these will be the temperatures we experience at the land or ocean surface, but they can also be associated with very shallow clouds. Shades of pink go down to -30°C (-22°F). In our images, these are almost always associated with shallow clouds. Red, orange, and yellow come next, and they indicate medium-level clouds.</p>
@@ -52,8 +54,6 @@ module.exports =
         <div id="image-diagram">
           <img src="images/about/diagram.jpg" />
         </div>
-
-        <hr />
 
         <h2>The <span data-popup="#mr-dvorak bottom cameo">Dvorak</span> Technique</h2>
 
@@ -71,6 +71,7 @@ module.exports =
       '''
 
     organizations:
+      header: 'Lorem Ipsum Header'
       navigation: 'Organizations'
       content:'''
         <div class="team-member">
@@ -96,6 +97,7 @@ module.exports =
       '''
 
     team:
+      header: 'Lorem Ipsum Header'
       navigation: 'Team'
       content:'''
         <h3>Science team</h3>

@@ -205,9 +205,8 @@ class Classify extends Controller
       @goToStep 'catAndMatch'
 
   onClickGoToGuide: ->
-    $ ->
-      $('html, body').animate
-        scrollTop: $('.step-details').offset().top, 2000
+    $('html, body').animate
+      scrollTop: $('.step-details').offset().top, 1000
 
   onClickContinue: ->
     @goToStep @getNextStep()
