@@ -4,19 +4,24 @@
   width: 100%
 
   .container
+    position: relative
     margin: 0 auto
     max-width: 500px
     padding: 0 5px
+    background: #3B3B3B
+    border-radius: 5px
+    padding: 5px 10px
+    font-weight: 300
 
   .progress-bar-container
-    background: #999
     border-radius: 8px
     height: 10px
+    background: #000
     margin: 10px 0
     position: relative
 
     &:before
-      background: $orange
+      background: $blue
       border-radius: 8px
       content: ""
       height: 10px
@@ -33,9 +38,11 @@
       width: 0
 
   button
-    background: #4c4c4c
+    top: 0
+    right: 0
+    position: absolute
+    background: transparent
     border: 0
     border-radius: 3px
     color: white
     cursor: pointer
-    padding: 5px 10px

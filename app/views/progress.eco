@@ -1,9 +1,9 @@
 <div class="container">
+  <button name="close">Close &times;</button>
+
   <p>We ask each visitor to observe <%- @requestedClassifications %> storms. This allows us to get the most value from your time and effort. You are more than welcome to do more! Each observation takes about 2-3 minutes.</p>
 
   <div class="progress-bar-container">
     <div id="progress-bar" class="progress-bar"></div>
   </div>
-
-  <button name="close">Close</button>
 </div>

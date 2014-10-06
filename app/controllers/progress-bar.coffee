@@ -13,10 +13,10 @@ class UserProgress extends BaseController
 
   elements:
     '#progress-bar': 'progressBar'
+    '.container': 'container'
 
   constructor: ->
     super
-
     Subject.on 'select', @onNextSubject
 
   onNextSubject: =>
@@ -25,6 +25,6 @@ class UserProgress extends BaseController
       'width': "#{ progress * 100 }%"
 
   onClickClose: =>
-    @el.hide()   
+    @container.slideUp(350)
 
 module.exports = UserProgress
