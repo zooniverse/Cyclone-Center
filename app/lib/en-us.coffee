@@ -174,6 +174,7 @@ module.exports =
     next: 'Next'
 
     restartTutorial: 'Repeat tutorial'
+    slideTutorial: 'Site Intro'
 
     notSignedIn: '''
       You're not logged in! Logged in volunteers can keep track of what they've worked on, and receive credit for their work in publications. It also helps us combine everyone's classifications more efficiently.

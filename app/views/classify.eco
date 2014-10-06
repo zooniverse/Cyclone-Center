@@ -43,6 +43,7 @@
   </div>
 
   <div class="other-actions">
+    <button name="slide-tutorial"><%- translate 'span', 'classify.slideTutorial' %></button>
     <button name="restart-tutorial"><%- translate 'span', 'classify.restartTutorial' %></button>
     <button name="restart">
       <span class="icon">↺</span>

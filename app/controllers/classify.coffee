@@ -5,6 +5,8 @@ loginDialog = require 'zooniverse/controllers/login-dialog'
 signUpDialog = require 'zooniverse/controllers/signup-dialog'
 User = require 'zooniverse/models/user'
 {Tutorial} = require 'zootorial'
+SlideTutorial = require 'slide-tutorial'
+slideTutorialSlides = require '../lib/slide-tutorial-slides'
 tutorialSteps = require '../lib/tutorial-steps'
 Subject = require 'zooniverse/models/subject'
 getTutorialSubject = require '../lib/get-tutorial-subject'
@@ -52,6 +54,7 @@ class Classify extends Controller
     'click button[name="restart"]': 'onClickRestart'
     'click button[name="go-to-guide"]': 'onClickGoToGuide'
     'click button[name="continue"], button[name="finish"]': 'onClickContinue'
+    'click button[name="slide-tutorial"]': 'onClickSlideTutorial'
     'click button[name="next"]': 'onClickNext'
     'click button[name="restart-tutorial"]': 'onClickRestartTutorial'
     'click button[name="favorite"]': 'onClickFavorite'
@@ -99,6 +102,9 @@ class Classify extends Controller
       steps: tutorialSteps
       firstStep: 'welcome'
 
+    @siteIntro = new SlideTutorial
+      slides: slideTutorialSlides
+
     @progress = new ProgressBar
     $(@progress.el).prependTo @el
 
@@ -124,6 +130,9 @@ class Classify extends Controller
 
   onGettingNextSubject: =>
     @el.addClass 'loading'
+
+  onClickSlideTutorial: =>
+    @siteIntro.start()
 
   onSubjectSelect: (e, subject) =>
     @el.removeClass 'loading'
