@@ -8,6 +8,7 @@ module.exports =
     number: 0
     header: translate 'span', 'tutorial.welcome.header'
     details: translate 'span', 'tutorial.welcome.details'
+    attachment: 'middle middle .left middle middle'
     block: '.controls'
     next: 'temperature'
 

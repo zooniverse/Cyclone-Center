@@ -1,6 +1,6 @@
 <% translate = require 't7e' %>
 
-<div class="left">
+<div class="interface">
   <div class="controls">
     <div class="subject">
 
@@ -63,6 +63,6 @@
   </p>
 </div>
 
-<div class="right">
+<div class="guide">
   <div class="step-details"></div>
 </div>
