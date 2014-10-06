@@ -4,6 +4,9 @@
   font-size: 14px
   text-shadow: none
 
+  h2
+    font-size: 24px
+
   .subtle-heading
     color: #fff
     font-style: italic
@@ -18,10 +21,12 @@
       min-height: 750px
       padding: 0 100px
       width: 50%
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: 900px)
       display: block
+      
       > *
         width: 100%
+        min-height: 500px
 
   .project-name-section,
   .project-name-section,
@@ -31,8 +36,10 @@
     padding: 220px 100px
     p
       max-width: 650px
-    @media screen and (max-width: 800px)
-      padding: 220px 10px
+    @media screen and (max-width: 900px)
+      padding: 220px 20px
+    @media screen and (max-width: 400px)
+      padding: 110px 20px  
 
   .project-name-section
     background-image: url(./images/project-name-background.jpg)
@@ -46,6 +53,10 @@
       line-height: 88px
       position: relative
 
+      span
+        font-size: 15px
+        line-height: 15px
+
   .project-introduction
     background: $orange
     color: white
@@ -58,6 +69,9 @@
         margin: 5px
         font-weight: 300
         font-size: 18px
+
+      @media screen and (max-width: 400px)
+        text-align: center
 
   .project-updates
     background: white

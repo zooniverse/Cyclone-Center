@@ -4,7 +4,10 @@
 
 <div class="section-split">
   <div class="project-name-section">
-    <div class="project-name">Cyclone<br>Center</div>
+    <div class="project-name">
+      <span>Welcome to</span><br>
+      Cyclone<br>Center
+    </div>
   </div>
   <div class="project-introduction font-smoothing">
     <h2>What is Cyclone Center?</h2>
