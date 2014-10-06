@@ -122,11 +122,6 @@ module.exports =
           <h4>Scott Stevens</h4>
           <p>Scott Stevens is a research associate at the Cooperative Institute for Climate and Satellites (CICS-NC). He is working on the development of a new rainfall dataset using NOAA’s network of NEXRAD radars, specializing in data analysis and organization.  He is a private pilot and enjoys baseball and traveling in his spare time.</p>
         </div>
-        <div class="team-member">
-          <img src="images/about/science-team/paula.jpg" />
-          <h4>Paula Hennon</h4>
-          <p>Paula Hennon is a tropical meteorologist and research scholar at the Cooperative Institute for Climate and Satellites (CICS-NC). Her research interests are tropical cyclone clouds and the resulting ocean wind, wave and temperature interactions. She is happiest with her head in the clouds and her feet (or her horse’s hoofs) in the sand.</p>
-        </div>
 
         <hr />
 
