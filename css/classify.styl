@@ -178,6 +178,14 @@ km-to-px(km, scale = (318 / 600))
         padding: 10px 20px
         border: 2px solid #fff
         color: #fff
+        &.stronger-top-bottom
+          display: none
+        @media screen and (max-width: 643px) // when subject images stack vertically
+          &.stronger-left-right
+            display: none
+          &.stronger-top-bottom
+            display: inline-block
+
         &.active
           border-color: $blue
 
