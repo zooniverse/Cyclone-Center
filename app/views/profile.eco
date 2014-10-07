@@ -1,0 +1,9 @@
+<% translate = require 't7e' %>
+
+<div id="greeting"></div>
+<div class="user-stats">
+  <div><%- translate 'profile.imageCount' %><span id="classification-count"></span></div>
+  <div><%- translate 'profile.favoriteCount' %><span id="favorite-count"></span></div>
+</div>
+
+<%- require('zooniverse/views/profile')() %>

@@ -41,7 +41,7 @@ module.exports =
         <p>CycloneCenter.org is a web-based interface that enables the public to help analyze the intensities of past tropical cyclones around the globe.  The global intensity record contains uncertainties caused by differences in analysis procedures around the world and through time. Patterns in storm imagery are best recognized by the human eye, so scientists are enlisting the public. Interested volunteers will be shown one of nearly 300,000 satellite images. They will answer questions about that image as part of a simplified technique for estimating the maximum surface wind speed of tropical cyclones. This public collaboration will perform more than a million classifications in just a few months—something it would take a team of scientists more than a decade to accomplish. The end product will be a new global tropical cyclone dataset that provides 3-hourly tropical cyclone intensity estimates, confidence intervals, and a wealth of other metadata that could not be realistically obtained in any other fashion.</p>
       '''
 
-    introduction: 
+    introduction:
       header: 'Lorem Ipsum Header'
       navigation: 'The Images'
       content:'''
@@ -158,6 +158,13 @@ module.exports =
           <p>As an undergraduate, Arfon studied Chemistry at the University of Sheffield before completing his Ph.D. in Astrochemistry at The University of Nottingham in 2006. He worked as a senior developer at the Wellcome Trust Sanger Institute (Human Genome Project) in Cambridge before joining the Galaxy Zoo team in Oxford. Over the past 3 years he has been responsible for leading the development of a platform for citizen science called Zooniverse. In August of 2011 he took up the position of Director of Citizen Science at the Adler Planetarium where he continues to lead the software and infrastructure development for the Zooniverse.</p>
         </div>
       '''
+
+  profile:
+    hello: 'Hello'
+    imageCount: 'Images Marked: '
+    favoriteCount: 'Favorite Count: '
+    recents: 'Recents'
+    favorites: 'Favorites'
 
   classify:
     favorite: 'Favorite'

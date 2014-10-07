@@ -3,30 +3,20 @@
   max-width: 1000px
   padding: 10px
 
-  .sign-in-form
-    button
-      cursor: pointer
-    .action
-      margin-top: 0
-      button[type='submit']
-        @extend #_CLASSIFIER_BUTTON
-    .no-account
-      button[name='sign-up']
-        background: none
-        border: none
-        font-size: 14px
-        color: $orange
+  #greeting
+    text-align: center
+    font-size: 27px
+    color: $orange
 
+  .user-stats
+    text-align: center
+    font-size: 17px
+    border-bottom: 1px solid rgba(0,0,0,.2)
+    margin: 0 0 2em 0
+    padding: 0 0 2em 0
 
-  .label
-    bottom: 15px
-    font-size: 16px
-    font-weight: bold
-    left: 20px
-    position: absolute
-    text-shadow: 0 0 1px #000,
-                 0 0 3px #000,
-                 0 0 10px #000
+    > *
+      padding: 10px
 
 
   nav button,
