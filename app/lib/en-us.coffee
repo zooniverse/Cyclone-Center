@@ -561,3 +561,9 @@ module.exports =
         Click Next storm to move to your next storm.
       '''
       instruction: '''Click "Next" to get started on your own!'''
+
+  progress:
+    25: "Congratulations! You’ve just identified your first storm. Could you do at least 3 more?"
+    50: "Two storms down, two to go! You’re doing great; keep it up!"
+    75: "All right! You’re almost there! Just one storm left!"
+    100: "Great job, stormwatcher! You’ve observed 4 storms and already helped our project tremendously. Now that you’re a pro, why not keep going?"
