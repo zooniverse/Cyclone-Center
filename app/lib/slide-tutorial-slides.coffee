@@ -7,7 +7,7 @@ module?.exports = [
   {
     image: './images/site-intro/stronger-storm.gif',
     title: 'Pick the stronger storm',
-    content: 'You’ll be given two radar images and asked to select the stronger storm. After that, you’ll be asked additional questions about the image on the right. Please note that the image you are asked to classify may not always be the stronger storm.'
+    content: 'You’ll be given two radar images and asked to select the stronger storm. After that, you’ll be asked additional questions about the <strong>image on the right.</strong> Please note that <strong>this may not always be the stronger storm.</strong>'
   },
   {
     image: 'http://placehold.it/400X200&text=slide%203',
