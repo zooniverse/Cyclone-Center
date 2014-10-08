@@ -19,17 +19,22 @@ km-to-px(km, scale = (318 / 600))
   margin-left: auto
   margin-right: auto
   position: relative
-  max-width: 1200px
-  
-  > .interface
-    width: 100%
-    max-width: 700px
-    margin: 0 auto
+
+  .classify-header
+    display: none
+
   > .guide
     width: 100%
-    max-width: 920px
-    margin: 0 auto
-    background: #3b3b3b
+    background: #fff
+    color: $dark-gray
+
+  > .guide-header
+    background: #ff8c04
+    width: 100%
+    margin: 0
+    padding: 21px 20px
+    font-size: 24px
+    line-height: 28px
 
   .controls
     text-align: center
@@ -40,6 +45,11 @@ km-to-px(km, scale = (318 / 600))
       padding: 2px
       position: relative
       text-align: center
+      border-left: solid thin black;
+      border-right: solid thin black;
+      border-bottom: solid thin black;
+      border-top-left-radius: 6px
+      border-top-right-radius: 6px
 
       button[name="favorite"],
       button[name="unfavorite"]
@@ -78,7 +88,7 @@ km-to-px(km, scale = (318 / 600))
         box-sizing: border-box
         display: inline-block
         height: 318px
-        margin: 0 auto
+        margin: 25px auto
         position: relative
         width: 318px
         z-index: 1
@@ -164,15 +174,23 @@ km-to-px(km, scale = (318 / 600))
             // margin ($diameter / -2) 0 0 ($diameter / -2)
 
     .step-controls
-      margin-bottom: 10px;
+      margin-bottom: 10px
       position: relative
+      background: #3b3b3b
+      padding: 20px
+      border-bottom: solid thin black
+      border-right: solid thin black
+      border-left: solid thin black
+      border-bottom-left-radius: 6px
+      border-bottom-right-radius: 6px
 
       button
         padding: 5px // For swatch/image buttons (the majority of buttons here)
-        background: transparent;
+        background: transparent
         outline: none
         &.active
-          background: $blue;
+          background: $blue
+
 
       .stronger.step button
         padding: 10px 20px
@@ -193,12 +211,12 @@ km-to-px(km, scale = (318 / 600))
         ul
           clearfix()
           margin: 0
-          padding: 0
 
           li
             display: block
             float: left
-            width: 20%
+            width: 100px
+            padding: 5px 0
 
             button
               display: block
@@ -208,6 +226,15 @@ km-to-px(km, scale = (318 / 600))
               width: 100%
 
         .categories
+          display: flex;
+          justify-content: space-between;
+
+          .heading
+            width: 250px
+            font-size: 15px
+            line-height: 24px
+            text-align: left
+
           ul
             li
               text-align: center
@@ -231,10 +258,12 @@ km-to-px(km, scale = (318 / 600))
                   position: absolute
                   top: 100%
                   width: 0
+        .matches
+          display: flex;
+          justify-content: flex-end;
 
         [data-category]
           display: none
-          padding: 5px
 
           &.active
             display: block
@@ -381,7 +410,7 @@ km-to-px(km, scale = (318 / 600))
 
   .step-details
     box-sizing: border-box
-    padding: 30px
+    padding: 90px 20px
 
     @media (max-width: 1000px)
       &
@@ -391,7 +420,7 @@ km-to-px(km, scale = (318 / 600))
       margin: 1em 0 0.2em 0
 
     p, li
-      line-height: 1.45em
+      line-height: 28px
 
     p
       margin: 0.2em 0 1em 0
@@ -402,16 +431,32 @@ km-to-px(km, scale = (318 / 600))
     table
       width: 100%
 
+      tr
+        margin-bottom: 30px
+
     td
       vertical-align: top
-      width: 1%
 
       h3
-        margin-top: 0
+        margin: 0
+        line-height: 28px
 
       img
         max-width: 1000%
-        width: 100px
+        width: 175px
+        padding-bottom: 30px
+
+      &:first-child
+        width: 25%
+
+        @media screen and (max-width: 750px)
+          width: 50%
+
+      &:last-child
+        width: 75%
+
+        @media screen and (max-width: 750px)
+          width: 50%
 
     .example
       display: block

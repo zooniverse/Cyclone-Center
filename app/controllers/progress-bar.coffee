@@ -38,5 +38,6 @@ class UserProgress extends BaseController
 
   onClickClose: =>
     @container.slideUp(350)
+    $('.classify-header').slideDown(150)
 
 module.exports = UserProgress

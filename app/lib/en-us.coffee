@@ -167,6 +167,7 @@ module.exports =
     favorites: 'Favorites'
 
   classify:
+    header: 'This is your task! Analyze each storm, then do something else.'
     favorite: 'Favorite'
     continue: 'Continue'
     finish: 'Finish'
@@ -236,13 +237,11 @@ module.exports =
       catAndMatch:
         instruction: 'Pick the cyclone type, then choose the closest match.'
         explanation: '''
-          <p>The goal with this task is to broadly categorize the storm type. There are five types to look out for:</p>
-
           <table>
             <tbody>
               <tr>
                 <td>
-                  <img src="./images/matches/eye-6.0.thumb.png" width="100" height="100" />
+                  <img src="./images/matches/eye-6.0.thumb.png" width="175" height="175" />
                 </td>
                 <td>
                   <h3>Eye Storms</h3>
@@ -252,7 +251,7 @@ module.exports =
 
               <tr>
                 <td>
-                  <img src="./images/matches/embed-4.5.thumb.png" width="100" height="100" />
+                  <img src="./images/matches/embed-4.5.thumb.png" width="175" height="175" />
                 </td>
                 <td>
                   <h3>Embedded Center Storms</h3>
@@ -262,7 +261,7 @@ module.exports =
 
               <tr>
                 <td>
-                  <img src="./images/matches/band-2.5.thumb.png" width="100" height="100" />
+                  <img src="./images/matches/band-2.5.thumb.png" width="175" height="175" />
                 </td>
                 <td>
                   <h3>Curved Band Storms</h3>
@@ -272,7 +271,7 @@ module.exports =
 
               <tr>
                 <td>
-                  <img src="./images/matches/shear-2.5.thumb.png" width="100" height="100" />
+                  <img src="./images/matches/shear-2.5.thumb.png" width="175" height="175" />
                 </td>
                 <td>
                   <h3>Shear Storms</h3>
@@ -290,7 +289,7 @@ module.exports =
 
               <tr>
                 <td>
-                  <img src="./images/matches/other-post-tropical.png" width="100" height="100" />
+                  <img src="./images/matches/other-post-tropical.png" width="175" height="175" />
                 </td>
                 <td>
                   <p><strong>Post tropical:</strong> If the storm doesn’t fit any of the other categories then it might be a post-tropical storm. These are identified by large amounts of warm clouds (gray and pink) and often have a long tail extending from the center.</p>
@@ -298,7 +297,7 @@ module.exports =
               </tr>
               <tr>
                 <td>
-                  <img src="./images/matches/other-limb.png" width="100" height="100" /><br />
+                  <img src="./images/matches/other-limb.png" width="175" height="175" /><br />
                 </td>
                 <td>
                   <p><strong>Edge:</strong> Sometimes the images will be skewed because of the limited view of the satellite. In this case try and classify the storm as normal - if that’s not possible then mark it as ‘edge’.</p>
@@ -306,7 +305,7 @@ module.exports =
               </tr>
               <tr>
                 <td>
-                  <img src="./images/matches/other-no-storm.png" width="100" height="100" />
+                  <img src="./images/matches/other-no-storm.png" width="175" height="175" />
                 <td>
                   <p><strong>No storm:</strong> Early in a storm’s lifetime it might not be possible to say anything about its shape. If there is no evidence of an organised spiral structure then mark ‘no storm’.</p>
                 </td>
