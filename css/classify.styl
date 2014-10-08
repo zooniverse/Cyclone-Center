@@ -147,15 +147,14 @@ km-to-px(km, scale = (318 / 600))
         width: 50px
 
       .circle
-        background: rgba(#fff, 0.1)
-        border: 1px solid #000
+        background: $orange
+        border: 1px solid $orange
         border-radius: 50%
         display: inline-block
         overflow: hidden
         letter-spacing: -10em
         text-indent: -10em
         vertical-align: middle
-
 
         for km in $eye-wall-diameters
           &.d{km}
