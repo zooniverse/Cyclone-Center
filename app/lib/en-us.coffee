@@ -180,7 +180,7 @@ module.exports =
     tweet: 'Tweet this'
     next: 'Next'
 
-    restartTutorial: 'Repeat tutorial'
+    restartTutorial: 'Tutorial'
     slideTutorial: 'Site Intro'
 
     notSignedIn: '''

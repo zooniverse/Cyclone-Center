@@ -109,24 +109,28 @@ class Classify extends Controller
     $(@progress.el).prependTo @el
 
     $(window).on 'hashchange', =>
-      if location.hash is '#/classify'
-        setTimeout (=> @tutorial.attach()), 50
+      @introIfFirstVisit() if @onClassifyPage()
+
+  onClassifyPage: ->
+    location.hash is '#/classify'
+
+  firstVisit: (user) ->
+    return true unless user
+    not user.preferences?.cyclone_center?.seen_tutorial
+
+  setTutorialSeen: (user, bool) ->
+    user?.setPreference('seen_tutorial', bool) if User.current
 
   onUserChange: (e, user) =>
     @el.toggleClass 'signed-in', user?
+    Subject.next()
+    @introIfFirstVisit() if @onClassifyPage()
 
-    tutorialDone = !!user?.project.tutorial_done
-    noClassification = not @classification?
-    tutorialSubject = !!Subject.current?.metadata.tutorial
-
-    if tutorialDone and (noClassification or tutorialSubject)
-      Subject.next()
-      @tutorial.end() if @tutorial.started?
-    else
-      unless @tutorial.started?
-        getTutorialSubject().select()
-        @tutorial.start()
-        setTimeout (=> @tutorial.attach()), 100
+  introIfFirstVisit: ->
+    user = User.current ? false
+    if @firstVisit(user)
+      @siteIntro.start()
+      @setTutorialSeen(user, true)
 
   onGettingNextSubject: =>
     @el.addClass 'loading'
@@ -137,7 +141,6 @@ class Classify extends Controller
   onSubjectSelect: (e, subject) =>
     @el.removeClass 'loading'
 
-    @tutorial.end() unless subject.metadata.tutorial
     @classification?.destroy()
 
     @classification = new Classification {subject}
@@ -147,7 +150,6 @@ class Classify extends Controller
 
     satellite = grabRandomSatellite subject
     @currentImg.attr src: subject.location[satellite]
-
 
     @el.toggleClass 'southern', subject.coords[0] < 0
 
