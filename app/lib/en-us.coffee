@@ -161,8 +161,8 @@ module.exports =
 
   profile:
     hello: 'Hello'
-    imageCount: 'Images Marked: '
-    favoriteCount: 'Favorite Count: '
+    imageCount: 'Images Marked'
+    favoriteCount: 'Favorite Count'
     recents: 'Recents'
     favorites: 'Favorites'
 

@@ -9,6 +9,7 @@ class Profile extends ZooniverseProfile
   favoriteTemplate: profileItemTemplate
 
   elements:
+    '#profile-status': 'profileStatus'
     '#greeting': 'greeting'
     '#classification-count': 'classificationCount'
     '#favorite-count': 'favoriteCount'
@@ -16,12 +17,17 @@ class Profile extends ZooniverseProfile
 
   constructor: ->
     super
-    setTimeout =>
-      user = User.current
+    User.on 'change', (e, user) =>
       if user
-        @greeting.html "#{ translate 'span', 'profile.hello'}, #{User.current.name}!"
-        @classificationCount.html user.project.classification_count || 0
-        @favoriteCount.html user.project.favorite_count || 0
-    , 1000
+        @profileStatus.show()
+        @greeting.html "#{ translate 'span', 'profile.hello'}, #{ user.name }!"
+        @classificationCount.html "#{ translate 'profile.imageCount' }: #{ user.project.classification_count || 0 }"
+        @favoriteCount.html "#{ translate 'profile.favoriteCount' }: #{ user.project.favorite_count || 0 }"
+
+    User.on 'logging-out', =>
+      @profileStatus.children().empty()
+      @profileStatus.hide()
+
+
 
  module.exports = Profile
