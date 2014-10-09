@@ -32,18 +32,27 @@ module.exports =
     stormChangeContact: 'Check this box to be notified when these storms change!'
 
   about:
-    header: 'About'
-    subHeader: 'Learn a little more about what the heck Cyclone Center is.'
+    header: 'About Cyclone Center'
+    subHeader: 'The what, why, how, and who of Cyclone Center.'
     overview:
-      header: 'Lorem Ipsum Header'
+      header: 'Scientists and Volunteers Team Up to Solve Storms'
       navigation: 'About Cyclone Center'
       content: '''
-        <p>CycloneCenter.org is a web-based interface that enables the public to help analyze the intensities of past tropical cyclones around the globe.  The global intensity record contains uncertainties caused by differences in analysis procedures around the world and through time. Patterns in storm imagery are best recognized by the human eye, so scientists are enlisting the public. Interested volunteers will be shown one of nearly 300,000 satellite images. They will answer questions about that image as part of a simplified technique for estimating the maximum surface wind speed of tropical cyclones. The end product will be a new global tropical cyclone dataset that provides 3-hourly tropical cyclone intensity estimates, confidence intervals, and a wealth of other metadata that could not be realistically obtained in any other fashion.</p>
+        <h2 class="about-non-italic-header">We don't understand all the mysteries of tropical cyclones</h2>
+        <p>In particular, research is inconsistent about the wind speeds of these storms, making it difficult to understand how climate change has affected the nature and strength of cyclones.</p>
+        <h2 class="about-non-italic-header">Infrared satellite images may hold the answers.</h2>
+        <p>We have nearly 300,000 satellite images of tropical cyclones since 1978. When these images are classified with the "Dvorak technique," we can extract critical information about the storms.</p>
+        <h2 class="about-non-italic-header">Human eyes are best for finding information in these images.</h2>
+        <p>By answering a few simple questions, volunteers can apply a modified Dvorak technique to interpret satellite images even more effectively than the best computers.</p>
+        <h2 class="about-non-italic-header">You can help us learn, and predict future cyclone behavior.</h2>
+        <p>The work of Cyclone Center volunteers will help us create a new database of information about cyclones, which will help climatologists better estimate the intensity of future storms.</p>
+        <p>Are you ready to help?</p>
+        <div class="center"><a href="#/classify">Get started investigating!</a></div>
       '''
 
     introduction:
-      header: 'Lorem Ipsum Header'
-      navigation: 'The Images'
+      header: 'Snapshots of Cyclones'
+      navigation: 'How It Works'
       content:'''
         <p>The images you see on Cyclone Center were observed by infrared sensors on weather satellites. These sensors provide an estimate of the temperature at the tops of clouds. Cloud top temperatures are very important because they give us an idea of how tall the clouds are. Temperature decreases with height in the lower atmosphere (up to 10 miles), so cold clouds are taller than warm clouds. Taller clouds are responsible for the heavy rain and thunderstorms that drive tropical cyclones.</p>
         <p>In the Cyclone Center images, the cloud top temperatures are represented by a range of colors. The scale on the image below shows the temperatures in degrees Celsius that correspond with each color.</p>
@@ -71,7 +80,7 @@ module.exports =
       '''
 
     organizations:
-      header: 'Lorem Ipsum Header'
+      header: 'Organizations Partnering in Cyclone Center'
       navigation: 'Organizations'
       content:'''
         <div class="team-member">
@@ -97,7 +106,7 @@ module.exports =
       '''
 
     team:
-      header: 'Lorem Ipsum Header'
+      header: 'Meet the Cyclone Center Team'
       navigation: 'Team'
       content:'''
         <h3>Science team</h3>
