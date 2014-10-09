@@ -13,6 +13,7 @@ getTutorialSubject = require '../lib/get-tutorial-subject'
 Classification = require 'zooniverse/models/classification'
 Favorite = require 'zooniverse/models/favorite'
 StormStatus = require './storm-status'
+StackOfPages = require 'stack-of-pages'
 ProgressBar = require './progress-bar'
 featuredStorms = require '../../public/js/featured-storms'
 $ = window.jQuery
@@ -108,7 +109,7 @@ class Classify extends Controller
     @progress = new ProgressBar
     $(@progress.el).prependTo @el
 
-    $(window).on 'hashchange', =>
+    @el.on StackOfPages::activateEvent, =>
       @introIfFirstVisit() if @onClassifyPage()
 
   onClassifyPage: ->
@@ -116,10 +117,7 @@ class Classify extends Controller
 
   firstVisit: (user) ->
     return true unless user
-    not user.preferences?.cyclone_center?.seen_tutorial
-
-  setTutorialSeen: (user, bool) ->
-    user?.setPreference('seen_tutorial', bool) if User.current
+    !user?.project?.classification_count
 
   onUserChange: (e, user) =>
     @el.toggleClass 'signed-in', user?
@@ -128,9 +126,7 @@ class Classify extends Controller
 
   introIfFirstVisit: ->
     user = User.current ? false
-    if @firstVisit(user)
-      @siteIntro.start()
-      @setTutorialSeen(user, true)
+    @siteIntro.start() if @firstVisit(user)
 
   onGettingNextSubject: =>
     @el.addClass 'loading'
