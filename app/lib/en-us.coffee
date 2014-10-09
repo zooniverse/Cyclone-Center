@@ -246,81 +246,76 @@ module.exports =
       catAndMatch:
         instruction: 'Pick the cyclone type, then choose the closest match.'
         explanation: '''
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <img src="./images/matches/eye-6.0.thumb.png" width="175" height="175" />
-                </td>
-                <td>
-                  <h3>Eye Storms</h3>
-                  <p>These are the easiest storms to spot and the most powerful of tropical cyclones. They have a characteristic ‘eye’ in the center which is warmer than the surrounding cooler clouds called the ‘eyewall’. Sometimes the eye will be pink or gray but it can also just be a circular area of clouds warmer than those surrounding it.</p>
-                </td>
-              </tr>
+          <div class="guide-group">
+            <div class="guide-image">
+              <img src="./images/matches/eye-6.0.thumb.png" width="175" height="175" />
+            </div>
+            <div class="guide-description">
+              <h3>Eye Storms</h3>
+              <p>These are the easiest storms to spot and the most powerful of tropical cyclones. They have a characteristic ‘eye’ in the center which is warmer than the surrounding cooler clouds called the ‘eyewall’. Sometimes the eye will be pink or gray but it can also just be a circular area of clouds warmer than those surrounding it.</p>
+            </div>
+          </div>
 
-              <tr>
-                <td>
-                  <img src="./images/matches/embed-4.5.thumb.png" width="175" height="175" />
-                </td>
-                <td>
-                  <h3>Embedded Center Storms</h3>
-                  <p>These storms have a roundish area of colder clouds near the center. They are weaker than eye and stronger than curved-band storms. Weak embedded center storms can look like curved bands, strong embedded center storms may be starting to form an eye.</p>
-                </td>
-              </tr>
+          <div class="guide-group">
+            <div class="guide-image">
+              <img src="./images/matches/embed-4.5.thumb.png" width="175" height="175" />
+            </div>
+            <div class="guide-description">
+              <h3>Embedded Center Storms</h3>
+              <p>These storms have a roundish area of colder clouds near the center. They are weaker than eye and stronger than curved-band storms. Weak embedded center storms can look like curved bands, strong embedded center storms may be starting to form an eye.</p>
+            </div>
+          </div>
 
-              <tr>
-                <td>
-                  <img src="./images/matches/band-2.5.thumb.png" width="175" height="175" />
-                </td>
-                <td>
-                  <h3>Curved Band Storms</h3>
-                  <p>These can be hard to identify - they’re more disorganized than eyes or embedded centers. Look for a comma shape storm without a round area of cold clouds at the center.</p>
-                </td>
-              </tr>
+          <div class="guide-group">
+            <div class="guide-image">
+              <img src="./images/matches/band-2.5.thumb.png" width="175" height="175" />
+            </div>
+            <div class="guide-description">
+              <h3>Curved Band Storms</h3>
+              <p>These can be hard to identify - they’re more disorganized than eyes or embedded centers. Look for a comma shape storm without a round area of cold clouds at the center.</p>
+            </div>
+          </div>
 
-              <tr>
-                <td>
-                  <img src="./images/matches/shear-2.5.thumb.png" width="175" height="175" />
-                </td>
-                <td>
-                  <h3>Shear Storms</h3>
-                  <p>Most easily recognised by a flattened side with all the colors squeezed very close together. A vertical shear causes the tallest clouds to be displaced to one side of the storm.</p>
-                </td>
-              </tr>
+          <div class="guide-group">
+            <div class="guide-image">
+              <img src="./images/matches/shear-2.5.thumb.png" width="175" height="175" />
+            </div>
+            <div class="guide-description">
+              <h3>Shear Storms</h3>
+              <p>Most easily recognised by a flattened side with all the colors squeezed very close together. A vertical shear causes the tallest clouds to be displaced to one side of the storm.</p>
+            </div>
+          </div>
 
-              <tr>
-                <td>
-                </td>
-                <td>
-                  <h3>Other Categories</h3>
-                </td>
-              </tr>
+          <div class="guide-group">
+            <h3>Other Categories</h3>
+          </div>
 
-              <tr>
-                <td>
-                  <img src="./images/matches/other-post-tropical.png" width="175" height="175" />
-                </td>
-                <td>
-                  <p><strong>Post tropical:</strong> If the storm doesn’t fit any of the other categories then it might be a post-tropical storm. These are identified by large amounts of warm clouds (gray and pink) and often have a long tail extending from the center.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="./images/matches/other-limb.png" width="175" height="175" /><br />
-                </td>
-                <td>
-                  <p><strong>Edge:</strong> Sometimes the images will be skewed because of the limited view of the satellite. In this case try and classify the storm as normal - if that’s not possible then mark it as ‘edge’.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="./images/matches/other-no-storm.png" width="175" height="175" />
-                <td>
-                  <p><strong>No storm:</strong> Early in a storm’s lifetime it might not be possible to say anything about its shape. If there is no evidence of an organised spiral structure then mark ‘no storm’.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="guide-group">
+            <div class="guide-image">
+              <img src="./images/matches/other-post-tropical.png" width="175" height="175" />
+            </div>
+            <div class="guide-description">
+              <p><strong>Post tropical:</strong> If the storm doesn’t fit any of the other categories then it might be a post-tropical storm. These are identified by large amounts of warm clouds (gray and pink) and often have a long tail extending from the center.</p>
+            </div>
+          </div>
+
+          <div class="guide-group">
+            <div class="guide-image">
+              <img src="./images/matches/other-limb.png" width="175" height="175" /><br />
+            </div>
+            <div class="guide-description">
+              <p><strong>Edge:</strong> Sometimes the images will be skewed because of the limited view of the satellite. In this case try and classify the storm as normal - if that’s not possible then mark it as ‘edge’.</p>
+            </div>
+          </div>
+
+          <div class="guide-group">
+            <div class="guide-image">
+              <img src="./images/matches/other-no-storm.png" width="175" height="175" />
+            </div>
+            <div class="guide-description">
+              <p><strong>No storm:</strong> Early in a storm’s lifetime it might not be possible to say anything about its shape. If there is no evidence of an organised spiral structure then mark ‘no storm’.</p>
+            </div>
+          </div>
         '''
 
       center:
