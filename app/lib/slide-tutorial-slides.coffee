@@ -15,7 +15,7 @@ module?.exports = [
     content: 'If you need help identifying the storm type, scroll down for a guide. Once you have picked a storm type, you’ll answer a few more questions about the nature, size, and strength of the storm.'
   },
   {
-    image: 'http://placehold.it/400X200&text=slide%203',
+    image: './images/site-intro/tutorial.gif',
     title: 'Give it a shot',
     content: 'Don’t worry if you’re unsure—each image will be shown to many people, and your best guess is far more helpful to us than nothing! If you need step-by-step guidance, you can also click the “tutorial” link for a walkthrough.'
   },
