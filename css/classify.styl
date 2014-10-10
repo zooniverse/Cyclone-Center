@@ -419,6 +419,10 @@ km-to-px(km, scale = (318 / 600))
   &.signed-in .not-signed-in
     display: none
 
+  &:not(.signed-in)
+    .controls .subject button[name='favorite']
+      display: none
+
   .step-details
     box-sizing: border-box
     padding: 90px 0
@@ -481,10 +485,6 @@ km-to-px(km, scale = (318 / 600))
       @media screen and (max-width: 764px)
         display: block
         width: 100%
-
-
-
-
 
     .example
       display: block
