@@ -1,3 +1,5 @@
 <% translate = require 't7e' %>
-<%- translate 'h2', 'about.introduction.header' %>
-<%- translate 'div', 'about.introduction.content' %>
+<div class="content">
+  <%- translate 'h2', 'about.introduction.header' %>
+  <%- translate 'div', 'about.introduction.content' %>
+</div>

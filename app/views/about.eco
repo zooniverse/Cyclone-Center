@@ -7,16 +7,17 @@
 		</div>
 	</div>
 </header>
-<div class="content">	
+<div class="content">
 	<ul class="sub-section-menu">
+
 	  <li><%- translate 'a', 'about.overview.navigation', href: '#/about' %></li>
 	  <li><%- translate 'a', 'about.introduction.navigation', href: '#/about/introduction' %></li>
 	  <li><%- translate 'a', 'about.organizations.navigation', href: '#/about/organizations' %></li>
 	  <li><%- translate 'a', 'about.team.navigation', href: '#/about/team' %></li>
 	</ul>
-
-	<div id="about-stack"></div>
 </div>
+<div id="about-stack"></div>
+
 
 
 

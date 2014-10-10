@@ -19,15 +19,20 @@
 
   #about-stack
     color: $dark-gray
-    max-width: 940px
-    padding: 0 20px 100px
+    // padding: 0 20px 100px
 
     h2
       font-size: 24px
       line-height: 28px
       font-weight: bold
       font-style: italic
-      margin: 0 0 20px
+      margin: 0 auto 20px
+      max-width: 940px;
+      width: 100%;
+      // padding: 0 20px
+
+      @media screen and (max-width: 940)
+        padding: 0 20px
 
     .about-non-italic-header
       font-size: 26px
@@ -51,6 +56,44 @@
     a
       @extends #_STANDARD_BUTTON
       color: white
+
+    section
+      div.content
+        display: flex
+        padding: 82px 0px
+
+        div
+          margin: auto 0;
+
+        @media screen and (max-width: 764px)
+          display: block
+          padding: 0 20px
+
+      img
+        max-width: 300px
+        width: 100%
+        margin: 0 20px 0 0
+        padding: 0 0 0 20px
+
+        @media screen and (max-width: 764px)
+          display: block
+          margin: 0 auto 20px
+          padding: 0
+
+      &:nth-child(even)
+        background-color: #f6f6f6
+
+        img
+          order: 2
+          margin: 0 0 0 20px
+          padding: 0 20px 0 0
+
+          @media screen and (max-width: 764px)
+            display: block
+            margin: 0 auto 20px
+            padding: 0
+
+
 
 [data-popup]
   cursor: pointer
