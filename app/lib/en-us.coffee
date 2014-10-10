@@ -35,45 +35,37 @@ module.exports =
     header: 'About Cyclone Center'
     subHeader: 'The what, why, how, and who of Cyclone Center.'
     overview:
-      header: 'Scientists and Volunteers Team Up to Solve Storms'
+      header: '<div class="about-top-header">Scientists and Volunteers Team Up to Solve Storms</div>'
       navigation: 'About Cyclone Center'
       content: '''
         <section>
-          <div class="content">
-            <img src="http://placehold.it/300x300">
-            <div>
-              <h2 class="about-non-italic-header">We don't understand all the mysteries of tropical cyclones</h2>
-              <p>In particular, research is inconsistent about the wind speeds of these storms, making it difficult to understand how climate change has affected the nature and strength of cyclones.</p>
-            </div>
+          <img src="http://placehold.it/300x300">
+          <div>
+            <h2 class="about-non-italic-header">We don't understand all the mysteries of tropical cyclones</h2>
+            <p>In particular, research is inconsistent about the wind speeds of these storms, making it difficult to understand how climate change has affected the nature and strength of cyclones.</p>
           </div>
         </section>
         <section>
-          <div class="content">
-            <img src="http://placehold.it/300x300">
-            <div>
-              <h2 class="about-non-italic-header">Infrared satellite images may hold the answers.</h2>
-              <p>We have nearly 300,000 satellite images of tropical cyclones since 1978. When these images are classified with the "Dvorak technique," we can extract critical information about the storms.</p>
-            </div>
+          <img src="http://placehold.it/300x300">
+          <div>
+            <h2 class="about-non-italic-header">Infrared satellite images may hold the answers.</h2>
+            <p>We have nearly 300,000 satellite images of tropical cyclones since 1978. When these images are classified with the "Dvorak technique," we can extract critical information about the storms.</p>
           </div>
         </section>
         <section>
-          <div class="content">
-            <img src="http://placehold.it/300x300">
-            <div>
-              <h2 class="about-non-italic-header">Human eyes are best for finding information in these images.</h2>
-              <p>By answering a few simple questions, volunteers can apply a modified Dvorak technique to interpret satellite images even more effectively than the best computers.</p>
-            </div>
+          <img src="http://placehold.it/300x300">
+          <div>
+            <h2 class="about-non-italic-header">Human eyes are best for finding information in these images.</h2>
+            <p>By answering a few simple questions, volunteers can apply a modified Dvorak technique to interpret satellite images even more effectively than the best computers.</p>
           </div>
         </section>
         <section>
-          <div class="content">
-            <img src="http://placehold.it/300x300">
-            <div>
-              <h2 class="about-non-italic-header">You can help us learn, and predict future cyclone behavior.</h2>
-              <p>The work of Cyclone Center volunteers will help us create a new database of information about cyclones, which will help climatologists better estimate the intensity of future storms.</p>
-              <p>Are you ready to help?</p>
-              <div class="center"><a href="#/classify">Get started investigating!</a></div>
-            </div>
+          <img src="http://placehold.it/300x300">
+          <div>
+            <h2 class="about-non-italic-header">You can help us learn, and predict future cyclone behavior.</h2>
+            <p>The work of Cyclone Center volunteers will help us create a new database of information about cyclones, which will help climatologists better estimate the intensity of future storms.</p>
+            <p>Are you ready to help?</p>
+            <div class="center"><a href="#/classify">Get started investigating!</a></div>
           </div>
         </section>
       '''

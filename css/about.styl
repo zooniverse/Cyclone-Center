@@ -17,9 +17,11 @@
       h3
         font-size: 18px
 
+        @media screen and (max-width: 400px)
+          font-size: 16px
+
   #about-stack
     color: $dark-gray
-    // padding: 0 20px 100px
 
     h2
       font-size: 24px
@@ -29,10 +31,13 @@
       margin: 0 auto 20px
       max-width: 940px;
       width: 100%;
-      // padding: 0 20px
 
-      @media screen and (max-width: 940)
+    .about-top-header
+      padding: 0 10px
+
+      @media screen and (max-width: 940px)
         padding: 0 20px
+
 
     .about-non-italic-header
       font-size: 26px
@@ -57,17 +62,22 @@
       @extends #_STANDARD_BUTTON
       color: white
 
+    .about-touch-padding
+      @media screen and (max-width: 940px)
+        padding: 0 20px 100px
+
     section
-      div.content
-        display: flex
-        padding: 82px 0px
+      margin: 0 auto
+      max-width: 940px
+      display: flex
+      padding: 82px 0px
 
-        div
-          margin: auto 0;
+      div
+        margin: auto 0;
 
-        @media screen and (max-width: 764px)
-          display: block
-          padding: 0 20px
+      @media screen and (max-width: 764px)
+        display: block
+        padding: 0 20px
 
       img
         max-width: 300px
@@ -77,8 +87,8 @@
 
         @media screen and (max-width: 764px)
           display: block
-          margin: 0 auto 20px
-          padding: 0
+          margin: 0 auto
+          padding: 20px 0
 
       &:nth-child(even)
         background-color: #f6f6f6
@@ -90,8 +100,11 @@
 
           @media screen and (max-width: 764px)
             display: block
-            margin: 0 auto 20px
-            padding: 0
+            margin: 0 auto
+            padding: 20px 0
+
+        @media screen and (max-width: 764px)
+          padding: 0 0 100px
 
 
 

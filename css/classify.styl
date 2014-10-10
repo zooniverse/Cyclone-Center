@@ -75,14 +75,14 @@ km-to-px(km, scale = (318 / 600))
           display: block
 
         &:hover
-          color: #900
+          color: $orange
 
       button[name="favorite"],
       button[name="unfavorite"]
         display: none
 
       button[name="unfavorite"] > .icon
-        color: #c00
+        color: $orange
 
       img
         border: 2px solid transparent
@@ -315,13 +315,13 @@ km-to-px(km, scale = (318 / 600))
             border: 0
             color: inherit
             display: block
-            font-size: 12px
+            font-size: 13px
             margin: 5px
             padding: 3px 10px
-            text-decoration: underline
 
             &:hover
               color: inherit
+              text-decoration: underline
 
         .talk
           float: left
@@ -384,7 +384,6 @@ km-to-px(km, scale = (318 / 600))
     width: 640px
 
   .other-actions
-    font-size: 12px
     font-weight: bold
     padding: 10px
 
@@ -398,6 +397,8 @@ km-to-px(km, scale = (318 / 600))
       cursor: pointer
       outline: none
       padding: 3px 10px
+      font-size: 13px
+
 
       &:hover
         text-decoration: underline

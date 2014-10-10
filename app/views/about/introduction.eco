@@ -1,5 +1,7 @@
 <% translate = require 't7e' %>
 <div class="content">
-  <%- translate 'h2', 'about.introduction.header' %>
-  <%- translate 'div', 'about.introduction.content' %>
+  <div class="about-touch-padding">
+    <%- translate 'h2', 'about.introduction.header' %>
+    <%- translate 'div', 'about.introduction.content' %>
+  </div>
 </div>
