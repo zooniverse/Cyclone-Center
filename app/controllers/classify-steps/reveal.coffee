@@ -1,5 +1,6 @@
 Step = require './base-step'
 detailsTemplate = require '../../views/classify-steps/reveal'
+revealMsg = require '../../views/classify-steps/reveal-msg'
 $ = window.jQuery
 Leaflet = window.L
 Api = require 'zooniverse/lib/api'
@@ -36,6 +37,7 @@ SPEED_ESTIMATES =
   'shear-3.5': '45-65 kts'
 
 class Reveal extends Step
+  template: revealMsg
   explanation: detailsTemplate @
 
   map: null

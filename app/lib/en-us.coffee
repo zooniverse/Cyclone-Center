@@ -457,6 +457,7 @@ module.exports =
         '''
 
       reveal:
+        heading: 'Scroll down to learn more about this cyclone, or click next to move onto the next storm.'
         tutorialSubject: '(Tutorial image)'
         estimated: 'Possible wind speed, based on your classification:'
         windAndPressure: 'Wind speed and pressure'
