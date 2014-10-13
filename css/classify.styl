@@ -29,6 +29,19 @@ km-to-px(km, scale = (318 / 600))
     background: #fff
     color: $dark-gray
 
+    .scroll-up
+      text-align: center
+      margin: 0 0 20px 0
+
+      img
+        background-color: $navy
+        padding: 13px 10px
+        border-radius: 25px
+        cursor: pointer
+
+        &:hover
+          background: lighten($navy, 10%)
+
   > .guide-header
     background: #ff8c04
     width: 100%
@@ -38,7 +51,7 @@ km-to-px(km, scale = (318 / 600))
     line-height: 28px
 
   .interface
-    min-height: 700px
+    min-height: 715px
 
   .controls
     text-align: center
@@ -183,7 +196,6 @@ km-to-px(km, scale = (318 / 600))
       position: relative
       background: #3b3b3b
       padding: 20px
-      // min-height: 180px
       border-bottom: solid thin black
       border-right: solid thin black
       border-left: solid thin black
@@ -408,6 +420,15 @@ km-to-px(km, scale = (318 / 600))
       &:first-child
         padding-left: 0
 
+      .icon.slide
+        width: 12px
+        margin: 0 5px 5px
+        vertical-align: middle
+
+      .icon.tutorial
+        margin: 0 5px 5px
+        vertical-align: middle
+
   .not-signed-in
     .sign-in,
     .sign-up
@@ -465,7 +486,6 @@ km-to-px(km, scale = (318 / 600))
       img
         max-width: 100%
         width: 175px
-        // padding-bottom: 30px
 
       @media screen and (max-width: 764px)
         display: block

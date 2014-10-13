@@ -62,6 +62,7 @@ class Classify extends Controller
     'click button[name="unfavorite"]': 'onClickUnfavorite'
     'click .not-signed-in .sign-in': -> loginDialog.show()
     'click .not-signed-in .sign-up': -> signUpDialog.show()
+    'click .scroll-up': 'onClickScrollUp'
 
   elements:
     '.subject .older': 'olderImg'
@@ -213,10 +214,14 @@ class Classify extends Controller
 
   onClickGoToGuide: ->
     $('html, body').animate
-      scrollTop: $('.step-details').offset().top, 1000
+      scrollTop: $('.step-details').offset().top - 200, 500
 
   onClickContinue: ->
     @goToStep @getNextStep()
+
+  onClickScrollUp: ->
+    $('html, body').animate
+      scrollTop: $('html, body').offset().top, 500
 
   getNextStep: ->
     category = @classification.get @steps.catAndMatch.property[0]

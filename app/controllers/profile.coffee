@@ -21,8 +21,8 @@ class Profile extends ZooniverseProfile
       if user
         @profileStatus.show()
         @greeting.html "#{ translate 'span', 'profile.hello'}, #{ user.name }!"
-        @classificationCount.html "#{ translate 'profile.imageCount' }: #{ user.project.classification_count || 0 }"
-        @favoriteCount.html "#{ translate 'profile.favoriteCount' }: #{ user.project.favorite_count || 0 }"
+        @classificationCount.html "<p>#{ user.project.classification_count || 0 }</p> <p>#{ translate 'profile.imageCount' }</p"
+        @favoriteCount.html "<p>#{ user.project.favorite_count || 0 }</p> <p>#{ translate 'profile.favoriteCount' }</p>"
 
     User.on 'logging-out', =>
       @profileStatus.children().empty()

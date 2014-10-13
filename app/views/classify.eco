@@ -6,12 +6,12 @@
       <div class="subject">
 
         <button name="favorite">
-          <span class="icon">♥</span>
+          <span class="icon favorite">♥</span>
           <%- translate 'span.label', 'classify.favorite' %>
         </button>
 
         <button name="unfavorite">
-          <span class="icon">♥</span>
+          <span class="icon favorite">♥</span>
           <%- translate 'span.label', 'classify.favorited' %>
         </button>
 
@@ -44,8 +44,8 @@
     </div>
 
     <div class="other-actions">
-      <button name="slide-tutorial"><%- translate 'span', 'classify.slideTutorial' %></button>
-      <button name="restart-tutorial"><%- translate 'span', 'classify.restartTutorial' %></button>
+      <button name="slide-tutorial"><img class="icon slide" src="./images/guide.svg" alt=""><%- translate 'span', 'classify.slideTutorial' %></button>
+      <button name="restart-tutorial"><img class="icon tutorial" src="./images/tut.svg" alt=""><%- translate 'span', 'classify.restartTutorial' %></button>
       <button name="restart">
         <span class="icon">↺</span>
         <%- translate 'span.label', 'classify.restart' %>
@@ -68,5 +68,6 @@
 <div class="guide">
   <div class="content">
     <div class="step-details"></div>
+    <div class="scroll-up"><img src="./images/return-top.svg" alt="Return to top"></div>
   </div>
 </div>
