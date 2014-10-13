@@ -1,6 +1,6 @@
 module?.exports = [
   {
-    image: 'http://placehold.it/400X200&text=slide%201',
+    image: './images/site-intro/welcome.jpg',
     title: 'Welcome!',
     content: 'Welcome to Cyclone Center! With this project, we’re trying to learn more about how tropical cyclones form and change. By answering a few simple questions about these satellite images, you’ll help climatologists to predict future storm behavior.'
   },
@@ -20,7 +20,7 @@ module?.exports = [
     content: 'Don’t worry if you’re unsure—each image will be shown to many people, and your best guess is far more helpful to us than nothing! If you need step-by-step guidance, you can also click the “tutorial” link for a walkthrough.'
   },
   {
-    image: 'http://placehold.it/400X200&text=slide%203',
+    image: './images/site-intro/final.jpg',
     title: 'Discuss and read more!',
     content: 'Want to learn more, or discuss what you’ve seen? Chat with other Cyclone Center volunteers on our Talk page, or check out the Cyclone Center blog for more information. Happy classifying!'
   }
