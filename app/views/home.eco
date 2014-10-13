@@ -5,16 +5,16 @@
 <div class="section-split">
   <div class="project-name-section">
     <div class="project-name">
-      <%- t 'span', 'home.projectHeaderSuper'%><br>
-      <%- t 'home.projectHeader' %>
+      <%- t 'span.super', 'home.projectHeaderSuper'%><br>
+      <%- t 'span', 'home.projectHeader' %>
     </div>
   </div>
   <div class="project-introduction font-smoothing">
     <%- t 'h2', 'home.intro.header' %>
-    <%- t 'home.intro.content' %>
+    <%- t 'div', 'home.intro.content' %>
     <div class="action-buttons">
-      <a href="#/classify" class="get-started"><%- t 'home.getStarted' %></a>
-      <a href="#/about" class="learn-more"><%- t 'home.learnMore' %></a>
+      <a href="#/classify" class="get-started"><%- t 'span', 'home.getStarted' %></a>
+      <a href="#/about" class="learn-more"><%- t 'span', 'home.learnMore' %></a>
     </div>
   </div>
 </div>
@@ -22,34 +22,34 @@
 <div class="project-stats">
   <div class="project-stat">
     <span id="user-count" class="stat">-</span><br>
-    <%- t 'home.stats.activeUsers' %>
+    <%- t 'span', 'home.stats.activeUsers' %>
   </div>
   <div class="project-stat">
     <span id="classification-count" class="stat">-</span><br>
-    <%- t 'home.stats.observations' %>
+    <%- t 'span', 'home.stats.observations' %>
   </div>
   <div class="project-stat">
     <span id="storms-complete" class="stat">-</span><br>
-    <%- t 'home.stats.stormsComplete' %>
+    <%- t 'span', 'home.stats.stormsComplete' %>
   </div>
 </div>
 
 <div class="section-split">
   <div class="project-updates font-smoothing">
     <div id="latest-talk-posts">
-      <%- t 'home.talk.latestTalk' %>
+      <%- t 'span', 'home.talk.latestTalk' %>
     </div>
   </div>
   <div class="project-blog">
-    <div class="subtle-heading"><%- t 'home.blog.header' %></div>
-    <div id="latest-post" class="huge-title"><%- t 'home.blog.loadingLatestPost' %></div>
+    <%- t 'div.subtle-heading', 'home.blog.header' %>
+    <div id="latest-post" class="huge-title"><%- t 'span', 'home.blog.loadingLatestPost' %></div>
 
-    <div class="subtle-heading"><%- t 'home.blog.previousPostTitle' %></div>
-    <div id="previous-posts" class="previous-posts"><%- t 'home.blog.loadingPreviousPost' %></div>
+    <%- t 'div.subtle-heading', 'home.blog.previousPostTitle' %>
+    <div id="previous-posts" class="previous-posts"><%- t 'span', 'home.blog.loadingPreviousPost' %></div>
   </div>
 </div>
 
 <div class="call-to-action">
-  <div class="get-involved"><%- t 'home.getInvolved' %></div>
-  <a href="#/classify" class="get-started"><%- t 'home.getStarted' %></a>
+  <%- t 'div.get-involved', 'home.getInvolved' %>
+  <a href="#/classify" class="get-started"><%- t 'span', 'home.getStarted' %></a>
 </div>

@@ -14,12 +14,16 @@
       h1
         font-size: 48px
 
+        @media screen and (max-width: 400px)
+          font-size: 44px
+
       h3
         font-size: 18px
         font-weight: normal
 
         @media screen and (max-width: 450px)
           font-size: 16px
+          line-height: 18px
 
     span
       font-size: 12px
@@ -31,6 +35,9 @@
 
       @media screen and (max-width: 842px)
         top: 260px
+
+      @media screen and (max-width: 400px)
+        top: 290px
 
   #about-stack
     color: $dark-gray

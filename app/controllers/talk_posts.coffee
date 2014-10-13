@@ -25,7 +25,7 @@ class TalkPosts extends Controller
       <img src='#{firstLocation}' class='talk-post-thumbnail'/>
         <div class='talk-post-content'>
           <span class='talk-post-username'>#{user_name}</span> \"#{body}\" </br>
-          <a href='#{@talkSubjectUrl(name)}'> #{ translate 'home.talk.viewDiscussion' }</a>
+          <a href='#{@talkSubjectUrl(name)}'> #{ translate 'span', 'home.talk.viewDiscussion' }</a>
         </div>
       </div>"
 

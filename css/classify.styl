@@ -51,7 +51,7 @@ km-to-px(km, scale = (318 / 600))
     line-height: 28px
 
   .interface
-    min-height: 715px
+    min-height: 775px
 
   .controls
     text-align: center
@@ -65,6 +65,9 @@ km-to-px(km, scale = (318 / 600))
       border: solid thin black
       border-top-left-radius: 6px
       border-top-right-radius: 6px
+
+      @media screen and (max-width: 400px)
+        padding: 0
 
       button[name="favorite"],
       button[name="unfavorite"]
@@ -413,6 +416,9 @@ km-to-px(km, scale = (318 / 600))
       padding: 3px 10px
       font-size: 13px
 
+      @media screen and (max-width: 400px)
+        padding: 3px 5px
+
 
       &:hover
         text-decoration: underline
@@ -434,6 +440,8 @@ km-to-px(km, scale = (318 / 600))
     .sign-up
       cursor: pointer
       text-decoration: underline
+    @media screen and (max-width: 940px)
+      padding: 0 20px
 
   &.southern .controls button img
     -ms-filter:  "FlipH"
