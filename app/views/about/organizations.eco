@@ -2,6 +2,6 @@
 <div class="content">
   <div class="about-touch-padding">
     <%- translate 'h2', 'about.organizations.header' %>
-    <%- translate 'div', 'about.organizations.content' %>
+    <%- translate 'div.about-content-padding', 'about.organizations.content' %>
   </div>
 </div>

@@ -6,12 +6,13 @@
 			<%- translate 'h3', 'about.subHeader' %>
 		</div>
 	</div>
+	<%- translate 'span', 'about.credit' %>
 </header>
 <div class="content">
 	<ul class="sub-section-menu">
 
 	  <li><%- translate 'a', 'about.overview.navigation', href: '#/about' %></li>
-	  <li><%- translate 'a', 'about.introduction.navigation', href: '#/about/introduction' %></li>
+	  <li><%- translate 'a', 'about.howItWorks.navigation', href: '#/about/how-it-works' %></li>
 	  <li><%- translate 'a', 'about.organizations.navigation', href: '#/about/organizations' %></li>
 	  <li><%- translate 'a', 'about.team.navigation', href: '#/about/team' %></li>
 	</ul>

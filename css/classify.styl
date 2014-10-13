@@ -37,6 +37,9 @@ km-to-px(km, scale = (318 / 600))
     font-size: 24px
     line-height: 28px
 
+  .interface
+    min-height: 700px
+
   .controls
     text-align: center
 
@@ -46,9 +49,7 @@ km-to-px(km, scale = (318 / 600))
       padding: 2px
       position: relative
       text-align: center
-      border-left: solid thin black;
-      border-right: solid thin black;
-      border-bottom: solid thin black;
+      border: solid thin black
       border-top-left-radius: 6px
       border-top-right-radius: 6px
 
@@ -182,6 +183,7 @@ km-to-px(km, scale = (318 / 600))
       position: relative
       background: #3b3b3b
       padding: 20px
+      // min-height: 180px
       border-bottom: solid thin black
       border-right: solid thin black
       border-left: solid thin black
@@ -267,8 +269,8 @@ km-to-px(km, scale = (318 / 600))
                   top: 100%
                   width: 0
         .matches
-          display: flex;
-          justify-content: flex-end;
+          display: flex
+          justify-content: flex-end
 
         [data-category]
           display: none

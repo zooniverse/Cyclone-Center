@@ -34,6 +34,7 @@ module.exports =
   about:
     header: 'About Cyclone Center'
     subHeader: 'The what, why, how, and who of Cyclone Center.'
+    credit: 'Image credit: WP:WPTC/M, NASA'
     overview:
       header: '<div class="about-top-header">Scientists and Volunteers Team Up to Solve Storms</div>'
       navigation: 'About Cyclone Center'
@@ -71,14 +72,19 @@ module.exports =
             <div>
               <h2 class="about-non-italic-header">You can help us learn, and predict future cyclone behavior.</h2>
               <p>The work of Cyclone Center volunteers will help us create a new database of information about cyclones, which will help climatologists better estimate the intensity of future storms.</p>
-              <p>Are you ready to help?</p>
-              <div class="center"><a href="#/classify">Get started investigating!</a></div>
+
             </div>
+          </div>
+        </section>
+        <section>
+          <div class="about-container center about-col">
+            <h2 class="about-non-italic-header">Are you ready to help?</h2>
+            <a href="#/classify">Get started investigating!</a>
           </div>
         </section>
       '''
 
-    introduction:
+    howItWorks:
       header: 'Snapshots of Cyclones'
       navigation: 'How It Works'
       content:'''

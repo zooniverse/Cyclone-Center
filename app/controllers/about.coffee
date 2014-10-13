@@ -12,10 +12,10 @@ class About extends BaseController
   constructor: ->
     super
     @createPopups()
-    
+
     aboutStack = new StackOfPages
       '#/about': require('../views/about/overview')()
-      '#/about/introduction': require('../views/about/introduction')()
+      '#/about/how-it-works': require('../views/about/how-it-works')()
       '#/about/organizations': require('../views/about/organizations')()
       '#/about/team': require('../views/about/team')()
 

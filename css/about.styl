@@ -16,9 +16,21 @@
 
       h3
         font-size: 18px
+        font-weight: normal
 
-        @media screen and (max-width: 400px)
+        @media screen and (max-width: 450px)
           font-size: 16px
+
+    span
+      font-size: 12px
+      line-height: 28px
+      color: rgba(255, 255, 255, 0.5)
+      position: absolute
+      top: 235px
+      right: 10px
+
+      @media screen and (max-width: 842px)
+        top: 260px
 
   #about-stack
     color: $dark-gray
@@ -33,11 +45,7 @@
       width: 100%;
 
     .about-top-header
-      padding: 0 10px
-
-      @media screen and (max-width: 940px)
-        padding: 0 20px
-
+      padding: 0 20px
 
     .about-non-italic-header
       font-size: 26px
@@ -61,6 +69,7 @@
     a
       @extends #_STANDARD_BUTTON
       color: white
+      margin: 0 auto;
 
     .about-touch-padding
       @media screen and (max-width: 940px)
@@ -77,15 +86,19 @@
         div
           margin: auto 0;
 
+        @media screen and (max-width: 940px)
+          padding: 0 20px
+
         @media screen and (max-width: 764px)
           display: block
-          padding: 0 20px
+
+      .about-col
+        flex-direction: column
 
       img
         max-width: 300px
         width: 100%
         margin: 0 20px 0 0
-        padding: 0 0 0 20px
 
         @media screen and (max-width: 764px)
           display: block
@@ -98,7 +111,6 @@
         img
           order: 2
           margin: 0 0 0 20px
-          padding: 0 20px 0 0
 
           @media screen and (max-width: 764px)
             display: block
@@ -108,6 +120,8 @@
         @media screen and (max-width: 764px)
           padding: 0 0 100px
 
+    .about-content-padding
+      padding-bottom: 100px
 
 
 [data-popup]
