@@ -52,16 +52,17 @@ module.exports =
       content: '''
         <section>
           <div class="about-container">
-            <img src="http://placehold.it/300x300">
+            <img src="./images/about/about-example1.jpg" alt="Storm example">
             <div>
               <h2 class="about-non-italic-header">We don't understand all the mysteries of tropical cyclones</h2>
               <p>In particular, research is inconsistent about the wind speeds of these storms, making it difficult to understand how climate change has affected the nature and strength of cyclones.</p>
+              <p class="image-credit">Image credit: NASA JPL</p>
             </div>
           </div>
         </section>
         <section>
           <div class="about-container">
-            <img src="http://placehold.it/300x300">
+            <img src="./images/about/about-example2.png" alt="Storm example">
             <div>
               <h2 class="about-non-italic-header">Infrared satellite images may hold the answers.</h2>
               <p>We have nearly 300,000 satellite images of tropical cyclones since 1978. When these images are classified with the "Dvorak technique," we can extract critical information about the storms.</p>
@@ -70,7 +71,7 @@ module.exports =
         </section>
         <section>
           <div class="about-container">
-            <img src="http://placehold.it/300x300">
+            <img src="./images/about/about-eye.png" alt="Stylized eye using storm imagery">
             <div>
               <h2 class="about-non-italic-header">Human eyes are best for finding information in these images.</h2>
               <p>By answering a few simple questions, volunteers can apply a modified Dvorak technique to interpret satellite images even more effectively than the best computers.</p>
@@ -78,13 +79,9 @@ module.exports =
           </div>
         </section>
         <section>
-          <div class="about-container">
-            <img src="http://placehold.it/300x300">
-            <div>
-              <h2 class="about-non-italic-header">You can help us learn, and predict future cyclone behavior.</h2>
-              <p>The work of Cyclone Center volunteers will help us create a new database of information about cyclones, which will help climatologists better estimate the intensity of future storms.</p>
-
-            </div>
+          <div class="about-container center about-col">
+            <h2 class="about-non-italic-header">You can help us learn, and predict future cyclone behavior.</h2>
+            <p>The work of Cyclone Center volunteers will help us create a new database of information about cyclones, which will help climatologists better estimate the intensity of future storms.</p>
           </div>
         </section>
         <section>
