@@ -5,21 +5,16 @@
 <div class="section-split">
   <div class="project-name-section">
     <div class="project-name">
-      <span>Welcome to</span><br>
-      Cyclone<br>Center
+      <%- t 'span', 'home.projectHeaderSuper'%><br>
+      <%- t 'home.projectHeader' %>
     </div>
   </div>
   <div class="project-introduction font-smoothing">
-    <h2>What is Cyclone Center?</h2>
-    <p>
-      The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
-    </p>
-
-    <p>Are you ready to start investigating?</p>
-
+    <%- t 'h2', 'home.intro.header' %>
+    <%- t 'home.intro.content' %>
     <div class="action-buttons">
-      <a href="#/classify" class="get-started">Get Started</a>
-      <a href="#/about" class="learn-more">Learn More</a>
+      <a href="#/classify" class="get-started"><%- t 'home.getStarted' %></a>
+      <a href="#/about" class="learn-more"><%- t 'home.learnMore' %></a>
     </div>
   </div>
 </div>
@@ -27,34 +22,34 @@
 <div class="project-stats">
   <div class="project-stat">
     <span id="user-count" class="stat">-</span><br>
-    Active Users
+    <%- t 'home.stats.activeUsers' %>
   </div>
   <div class="project-stat">
     <span id="classification-count" class="stat">-</span><br>
-    Observations
+    <%- t 'home.stats.observations' %>
   </div>
   <div class="project-stat">
     <span id="storms-complete" class="stat">-</span><br>
-    Storms Complete
+    <%- t 'home.stats.stormsComplete' %>
   </div>
 </div>
 
 <div class="section-split">
   <div class="project-updates font-smoothing">
     <div id="latest-talk-posts">
-      Loading latest talk discussions...
+      <%- t 'home.talk.latestTalk' %>
     </div>
   </div>
   <div class="project-blog">
-    <div class="subtle-heading">The Cyclone Center Blog</div>
-    <div id="latest-post" class="huge-title">Loading latest post...</div>
+    <div class="subtle-heading"><%- t 'home.blog.header' %></div>
+    <div id="latest-post" class="huge-title"><%- t 'home.blog.loadingLatestPost' %></div>
 
-    <div class="subtle-heading">Previous Posts</div>
-    <div id="previous-posts" class="previous-posts">Loading previous posts...</div>
+    <div class="subtle-heading"><%- t 'home.blog.previousPostTitle' %></div>
+    <div id="previous-posts" class="previous-posts"><%- t 'home.blog.loadingPreviousPost' %></div>
   </div>
 </div>
 
 <div class="call-to-action">
-  <div class="get-involved">Ready to get involved?</div>
-  <a href="#/classify" class="get-started">Get Started</a>
+  <div class="get-involved"><%- t 'home.getInvolved' %></div>
+  <a href="#/classify" class="get-started"><%- t 'home.getStarted' %></a>
 </div>

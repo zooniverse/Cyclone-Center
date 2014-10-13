@@ -8,28 +8,39 @@ module.exports =
     blog: 'Blog'
 
   home:
-    intro: '''
-      Help scientists analyze over 30 years of tropical cyclone satellite imagery.
-    '''
+    projectHeader: 'Cyclone<br>Center'
+    projectHeaderSuper: 'Welcome to'
 
-    explanation: '''
-      The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
-    '''
+    intro:
+      header: 'What is Cyclone Center?'
+      content:'''
+        <p>
+        The climatology of tropical cyclones is limited by uncertainties in the historical record. Patterns in storms imagery are best recognized by the human eye, so we need your help analyzing these storms.
+        </p>
 
-    campaignTitle: '2005 Campaign'
-    campaignDescription: 'Help us complete all tropical cyclones imagery from 2005.'
+        <p>Are you ready to start investigating?</p>
+      '''
 
-    latestBlogPost: "Latest Blog Post"
+    getStarted: 'Get Started'
+    learnMore: 'Learn More'
 
-    theStorms: '''
-      Here are the storms we're currently most interested in analyzing.
-    '''
+    stats:
+      activeUsers: 'Active Users'
+      observations: 'Observations'
+      stormsComplete: 'Storms Complete'
 
-    analyze: 'Analyze this storm'
-    or: 'or'
-    classifyRandom: 'Analyze a random storm'
+    talk:
+      header: 'Popular Discussions from Talk'
+      latestTalk: 'Loading latest talk discussions...'
+      viewDiscussion: 'View the discussion'
 
-    stormChangeContact: 'Check this box to be notified when these storms change!'
+    blog:
+      header: 'The Cyclone Center Blog'
+      loadingLatestPost: 'Loading latest post...'
+      previousPostTitle: 'Previous Posts'
+      loadingPreviousPost: 'Loading previous posts...'
+
+    getInvolved: 'Tropical cyclones are still a mystery.<br>We need your help to decipher them.'
 
   about:
     header: 'About Cyclone Center'

@@ -1,9 +1,10 @@
 Controller = require 'zooniverse/controllers/base-controller'
 Api = require 'zooniverse/lib/api'
+translate = require 't7e'
 
 class TalkPosts extends Controller
   className: 'talk-posts'
-  template: "<h2>Popular Discussions from Talk</h2>"
+  template: translate 'h2', 'home.talk.header'
 
   constructor: ->
     super
@@ -24,7 +25,7 @@ class TalkPosts extends Controller
       <img src='#{firstLocation}' class='talk-post-thumbnail'/>
         <div class='talk-post-content'>
           <span class='talk-post-username'>#{user_name}</span> \"#{body}\" </br>
-          <a href='#{@talkSubjectUrl(name)}'> View the discussion</a>
+          <a href='#{@talkSubjectUrl(name)}'> #{ translate 'home.talk.viewDiscussion' }</a>
         </div>
       </div>"
 
