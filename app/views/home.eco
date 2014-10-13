@@ -41,10 +41,9 @@
 
 <div class="section-split">
   <div class="project-updates font-smoothing">
-    <h2>What is Cyclone Center?</h2>
-    <p>
-      Ne dicant blandit ius. An putent aperiri eripuit eum, qui aeterno incorrupte id. Ea dicit platonem nec, eos inani scripserit ex. Has ea affert legere vidisse. Qui ea justo alienum, congue saperet ne sit, ad habemus menandri has. Id nam laoreet luptatum detraxit, ea mei facer aliquam.
-    </p>
+    <div id="latest-talk-posts">
+      Loading latest talk discussions...
+    </div>
   </div>
   <div class="project-blog">
     <div class="subtle-heading">The Cyclone Center Blog</div>
