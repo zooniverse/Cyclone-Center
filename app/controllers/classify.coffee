@@ -70,6 +70,7 @@ class Classify extends Controller
     '.step-controls': 'stepControls'
     'button[name="continue"]': 'continueButton'
     '.step-details': 'detailsContainer'
+    '.classify-header': 'classifyHeader'
     '.talk-image': 'talkImageLink'
     '.talk-storm': 'talkStormLink'
     '.facebook': 'facebookLink'
@@ -108,7 +109,7 @@ class Classify extends Controller
       slides: slideTutorialSlides
 
     @progress = new ProgressBar
-    $(@progress.el).prependTo @el
+    @el.prepend @progress.el
 
     @el.on StackOfPages::activateEvent, =>
       @introIfFirstVisit() if @onClassifyPage()
@@ -124,10 +125,17 @@ class Classify extends Controller
     @el.toggleClass 'signed-in', user?
     Subject.next()
     @introIfFirstVisit() if @onClassifyPage()
+    @progressIfFirstVisit(user)
 
   introIfFirstVisit: ->
     user = User.current ? false
     @siteIntro.start() if @firstVisit(user)
+
+  progressIfFirstVisit: (user) ->
+    firstVisit = @firstVisit(user)
+
+    @progress.el.toggle(firstVisit)
+    @classifyHeader.toggle(not firstVisit)
 
   onGettingNextSubject: =>
     @el.addClass 'loading'
