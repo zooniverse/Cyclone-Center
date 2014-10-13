@@ -1,5 +1,6 @@
 Controller = require 'zooniverse/controllers/base-controller'
 Api = require 'zooniverse/lib/api'
+TalkPosts = require './talk_posts'
 { formatNumber } = require '../lib/utils'
 
 WP_API_URL = 'https://public-api.wordpress.com/rest/v1/sites/blog.cyclonecenter.org/posts/?number=4&fields=title,URL'
@@ -15,6 +16,7 @@ class Home extends Controller
     '#storms-complete': 'stormsComplete'
     '#latest-post': 'latestPost'
     '#previous-posts': 'previousPosts'
+    '#latest-talk-posts': 'latestTalkPosts'
 
   constructor: ->
     super
@@ -29,5 +31,8 @@ class Home extends Controller
     $.getJSON WP_API_URL, ({ posts: [latestPost, previousPosts...] }) =>
       @latestPost.html "<a href=\"#{ latestPost.URL }\" target=\"_blank\">#{ latestPost.title }</a>"
       @previousPosts.html @previousPostsTemplate({ previousPosts })
+
+    @talkPosts = new TalkPosts
+    @latestTalkPosts.html @talkPosts.el
 
 module.exports = Home
