@@ -225,7 +225,7 @@ module.exports =
     5: "Want to learn more, or discuss what you’ve seen? Chat with other Cyclone Center volunteers on our Talk page, or check out the Cyclone Center blog for more information. Happy stormwatching!"
 
   classify:
-    header: 'This is your task! Analyze each storm, then do something else.'
+    header: 'Investigations&mdash;Classify the cyclone by answering the questions below.'
     favorite: 'Favorite'
     continue: 'Continue'
     finish: 'Finish'
