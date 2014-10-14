@@ -44,8 +44,8 @@
     </div>
 
     <div class="other-actions">
-      <button name="slide-tutorial"><img class="icon slide" src="./images/guide.svg" alt=""><%- translate 'span', 'classify.slideTutorial' %></button>
-      <button name="restart-tutorial"><img class="icon tutorial" src="./images/tut.svg" alt=""><%- translate 'span', 'classify.restartTutorial' %></button>
+      <button name="slide-tutorial"><img class="icon slide" src="./images/guide.svg" alt=""><%- translate 'span.label', 'classify.slideTutorial' %></button>
+      <button name="restart-tutorial"><img class="icon tutorial" src="./images/tut.svg" alt=""><%- translate 'span.label', 'classify.restartTutorial' %></button>
       <button name="restart">
         <span class="icon">↺</span>
         <%- translate 'span.label', 'classify.restart' %>
