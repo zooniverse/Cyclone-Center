@@ -4,7 +4,7 @@ module.exports =
     classify: 'Investigate'
     about: 'About'
     profile: 'Profile'
-    talk: 'Discuss'
+    talk: 'Talk'
     blog: 'Blog'
 
   home:
@@ -30,7 +30,7 @@ module.exports =
       stormsComplete: 'Storms Complete'
 
     talk:
-      header: 'Popular Discussions from Talk'
+      header: 'Recent Discussions from Talk'
       latestTalk: 'Loading latest talk discussions...'
       viewDiscussion: 'View the discussion'
 

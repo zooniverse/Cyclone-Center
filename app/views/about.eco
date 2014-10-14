@@ -4,13 +4,12 @@
 		<div class="about-header-copy">
 			<%- translate 'h1', 'about.header' %>
 			<%- translate 'h3', 'about.subHeader' %>
+			<%- translate 'span', 'about.credit' %>
 		</div>
 	</div>
-	<%- translate 'span', 'about.credit' %>
 </header>
 <div class="content">
 	<ul class="sub-section-menu">
-
 	  <li><%- translate 'a', 'about.overview.navigation', href: '#/about' %></li>
 	  <li><%- translate 'a', 'about.howItWorks.navigation', href: '#/about/how-it-works' %></li>
 	  <li><%- translate 'a', 'about.organizations.navigation', href: '#/about/organizations' %></li>
