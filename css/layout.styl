@@ -40,6 +40,9 @@ body
   justify-content: space-between
   position: relative
 
+  @media screen and (max-width: 995px)
+    justify-content: unset
+
   .menu
     .menu-list
       display: inline-block !important
@@ -54,7 +57,7 @@ body
         @media screen and (min-width: 675px)
           display: inline-block !important
 
-      @media screen and (max-width: 675px) 
+      @media screen and (max-width: 675px)
         text-align: center
         width: 100%
 
@@ -65,11 +68,11 @@ body
     .hamburger-menu
       font-size: 20px
       display: none
-      cursor: pointer 
+      cursor: pointer
       margin: 0 0 0 10px
 
       @media screen and (max-width: 675px)
-        display: inline-block  
+        display: inline-block
 
     a
       color: inherit
@@ -90,7 +93,7 @@ body
           border: none
 
       &.logo
-        font-size: 20px   
+        font-size: 20px
 
     @media screen and (max-width: 675px)
       width: 100%
