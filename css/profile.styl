@@ -3,6 +3,41 @@
   max-width: 1000px
   padding: 10px
 
+  .sign-in-form
+    transition: width 0.5s
+    font-weight: 300
+
+    button
+      color: #fff
+      cursor: pointer
+      border: none
+
+    header
+      font-size: 36px
+
+    .action button
+      background-color: $orange
+      padding: 10px 20px
+      box-shadow: none
+      color: inherit
+      font-weight: inherit
+
+    input
+      box-shadow: none
+      border: 2px solid $dark-gray
+      outline: none
+      &:focus
+        border-color: $orange
+
+    @media screen and (max-width: 720px)
+      width 80%
+
+    .no-account
+      font-weight: inherit
+      button[name="sign-up"]
+        background: none
+        font-size: 14px
+
   #profile-status
     text-align: center
     display: none
