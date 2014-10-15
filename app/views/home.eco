@@ -5,7 +5,7 @@
 <div class="section-split">
   <div class="project-name-section">
     <div class="project-name">
-      <%- t 'span.super', 'home.projectHeaderSuper'%><br>
+      <%- t 'span.super', 'home.projectHeaderSuper'%>
       <%- t 'span', 'home.projectHeader' %>
     </div>
   </div>
