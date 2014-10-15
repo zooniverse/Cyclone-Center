@@ -30,7 +30,7 @@ module.exports =
       stormsComplete: 'Storms Complete'
 
     talk:
-      header: 'Recent Discussions from Talk'
+      header: 'Recent Storm Comments from Talk'
       latestTalk: 'Loading latest talk discussions...'
       viewDiscussion: 'View the discussion'
 
@@ -229,7 +229,7 @@ module.exports =
     favorite: 'Favorite'
     continue: 'Continue'
     finish: 'Finish'
-    restart: 'Restart'
+    restart: 'Restart Image'
     guide: 'Guide'
     favorite: 'Favorite'
     favorited: 'Favorited'

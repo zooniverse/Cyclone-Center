@@ -22,11 +22,13 @@ class TalkPosts extends Controller
     firstLocation = location[Object.keys(location)[0]]
 
     "<div class='talk-post'>
-      <img src='#{firstLocation}' class='talk-post-thumbnail'/>
+      <a href='#{@talkSubjectUrl(name)}'> 
+        <img src='#{firstLocation}' class='talk-post-thumbnail'/>
         <div class='talk-post-content'>
           <span class='talk-post-username'>#{user_name}</span> \"#{body}\" </br>
-          <a href='#{@talkSubjectUrl(name)}'> #{ translate 'span', 'home.talk.viewDiscussion' }</a>
+          <div class='link-to-talk'>#{ translate 'span', 'home.talk.viewDiscussion' }</div>
         </div>
-      </div>"
+      </a>
+    </div>"
 
 module?.exports = TalkPosts

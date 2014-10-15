@@ -413,7 +413,7 @@ km-to-px(km, scale = (318 / 600))
       color: white
       cursor: pointer
       outline: none
-      padding: 3px 10px
+      padding: 3px 16px
       font-size: 13px
 
       @media screen and (max-width: 400px)
@@ -426,6 +426,10 @@ km-to-px(km, scale = (318 / 600))
 
       &:first-child
         padding-left: 0
+
+      &[name="go-to-guide"]
+        background: #4a4a4a
+        border-radius: 3px
 
       .icon.slide
         max-width: 12px

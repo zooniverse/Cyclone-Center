@@ -1,6 +1,6 @@
 Controller = require 'zooniverse/controllers/base-controller'
 Api = require 'zooniverse/lib/api'
-TalkPosts = require './talk_posts'
+TalkPosts = require './talk-posts'
 { formatNumber } = require '../lib/utils'
 
 WP_API_URL = 'https://public-api.wordpress.com/rest/v1/sites/blog.cyclonecenter.org/posts/?number=4&fields=title,URL'

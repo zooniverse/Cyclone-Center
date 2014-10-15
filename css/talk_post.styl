@@ -3,7 +3,12 @@
     width: 100%
     overflow: auto
     margin-bottom: 5px
+    padding: 15px
     display: table
+    box-sizing: border-box
+
+    &:hover
+      background: #f2f2f2
 
     .talk-post-thumbnail
       max-width: 200px
@@ -26,6 +31,12 @@
       .talk-post-username
         color: #000
 
-      a
+      .link-to-talk
         color: $orange
-        font-size: 14px
+        margin: 7px 0 0 0
+
+    a
+      clearfix()
+      color: $orange
+      display: block
+      font-size: 14px
