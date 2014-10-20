@@ -136,6 +136,11 @@ module.exports =
           <p>NCDC maintains the world's largest climate data archive and provides climatological services and data to every sector of the United States economy and to users worldwide. The archive contains paleoclimatic data to centuries-old journals to data less than an hour old. The Center's mission is to preserve these data and make them available to the general public, business, industry, government and researchers.</p>
         </div>
         <div class="team-member">
+          <img src="images/about/organizations/rpi.png" alt="RPI logo" />
+          <h4>Risk Prediction Initiative</h4>
+          <p>The Risk Prediction Initiative (RPI2.0) funds academic research relevant to the insurance and (re)insurance industry and assists in translating this research into usable and actionable results for our member companies. Our experienced management team combines expert knowledge of climate-related natural disasters with a background in risk management. We help scientists refocus their interests on needs and time-scales relevant to the (re)insurance industry, in addition to stimulating and supporting high-level research on natural hazards such as hurricanes, typhoons and tornadoes. We are located within the Bermuda Institute of Ocean Science and as a result we have long standing relationships with many leading scientists, allowing our members direct access to the scientific community. We offer our members unique access to scientific, engineering and economic knowledge aimed at answering business relevant questions.</p>
+        </div>
+        <div class="team-member">
           <img src="images/about/organizations/asheville.png" alt="UNC-Asheville logo" />
           <h4>University of North Carolina at Asheville</h4>
           <p>UNC Asheville, the only designated public liberal arts university in North Carolina, offers more than 30 majors ranging from chemistry, atmospheric sciences and environmental studies to art, new media and international studies. The university is known for its award-winning undergraduate research and humanities programs.</p>
