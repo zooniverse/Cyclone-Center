@@ -126,22 +126,22 @@ module.exports =
       navigation: 'Organizations'
       content:'''
         <div class="team-member">
-          <img src="images/about/organizations/cisc.png" />
+          <img src="images/about/organizations/cisc.png" alt="CISC logo" />
           <h4>Cooperative Institute for Climate and Satellites</h4>
           <p>The Cooperative Institute for Climate and Satellites (CICS), established under a cooperative agreement with the National Oceanic and Atmospheric Administration (NOAA) in 2009, is a consortium of research institutions that focuses on enhancing the collective interdisciplinary understanding of the state and evolution of the full Earth System. The CICS consortium is led by the University of Maryland, College Park and North Carolina State University on behalf of the University of North Carolina (UNC) System. CICS-NC is hosted by NC State University.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/organizations/noaa.png" />
+          <img src="images/about/organizations/noaa.png" alt="NOAA logo" />
           <h4>NOAA'S National Climatic Data Center (NCDC)</h4>
           <p>NCDC maintains the world's largest climate data archive and provides climatological services and data to every sector of the United States economy and to users worldwide. The archive contains paleoclimatic data to centuries-old journals to data less than an hour old. The Center's mission is to preserve these data and make them available to the general public, business, industry, government and researchers.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/organizations/asheville.png" />
+          <img src="images/about/organizations/asheville.png" alt="UNC-Asheville logo" />
           <h4>University of North Carolina at Asheville</h4>
           <p>UNC Asheville, the only designated public liberal arts university in North Carolina, offers more than 30 majors ranging from chemistry, atmospheric sciences and environmental studies to art, new media and international studies. The university is known for its award-winning undergraduate research and humanities programs.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/organizations/zooniverse.png" />
+          <img src="images/about/organizations/zooniverse.png" alt="Zooniverse logo" />
           <h4>The Zooniverse</h4>
           <p>The Zooniverse and the suite of projects it contains is produced, maintained and developed by the Citizen Science Alliance. The member institutions of the CSA work with many academic and other partners around the world to produce projects that use the efforts and ability of volunteers to help scientists and researchers deal with the flood of data that confronts them.</p>
         </div>
@@ -154,22 +154,22 @@ module.exports =
         <h3>Science team</h3>
 
         <div class="team-member">
-          <img src="images/about/science-team/chris.jpg" />
+          <img src="images/about/science-team/chris.jpg" alt="Chris Hennon" />
           <h4>Chris Hennon</h4>
           <p>Chris Hennon is an associate professor of atmospheric sciences at the University of North Carolina at Asheville.  Specializing in tropical cyclone formation, Chris came to Asheville after spending two years as a visiting scientist at the U.S. National Hurricane Center in Miami, Florida.  Chris enjoys golf, racquetball, and chess in his free time.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/science-team/ken.jpg" />
+          <img src="images/about/science-team/ken.jpg" alt="Ken Knapps" />
           <h4>Ken Knapp</h4>
           <p>Ken Knapp is a meteorologist at NOAA’s National Climatic Data Center in Asheville, NC. His research interests include using satellite data to observe hurricanes, clouds, and other climate variables. His career took a tropical turn in 2005 when an NCDC customer requested satellite imagery of all tropical cyclones, rejuvenating an interest in hurricanes that began with his 7th grade science fair project.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/science-team/carl.jpg" />
+          <img src="images/about/science-team/carl.jpg" alt="Carl Schreck" />
           <h4>Carl Schreck</h4>
           <p>Carl Schreck is a research meteorologist at the Cooperative Institute for Climate and Satellites (CICS-NC). He is exploring tropical weather patterns to better understand and predict how hurricanes and other tropical cyclones form. Carl’s fascination with hurricanes began when Hurricane Fran struck his hometown of Raleigh, NC in 1996.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/science-team/scott.jpg" />
+          <img src="images/about/science-team/scott.jpg" alt="Scott Stevens" />
           <h4>Scott Stevens</h4>
           <p>Scott Stevens is a research associate at the Cooperative Institute for Climate and Satellites (CICS-NC). He is working on the development of a new rainfall dataset using NOAA’s network of NEXRAD radars, specializing in data analysis and organization.  He is a private pilot and enjoys baseball and traveling in his spare time.</p>
         </div>
@@ -179,32 +179,32 @@ module.exports =
         <h3>Development team</h3>
 
         <div class="team-member">
-          <img src="images/about/dev-team/kelly.jpg" />
+          <img src="images/about/dev-team/kelly.jpg" alt="Kelly Borden" />
           <h4>Kelly Borden</h4>
           <p>Kelly is an archaeologist by training but an educator by passion. While working at the Museum of Science and Industry and the Adler Planetarium she became an enthusiastic science educator eager to bring science to the masses. When not pondering the wonders of science, Kelly can often be found baking or spending time with her herd of cats – Murray, Ada, & Kepler.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/dev-team/brian.jpg" />
+          <img src="images/about/dev-team/brian.jpg" alt="Brian Carstensen" />
           <h4>Brian Carstensen</h4>
           <p>Brian is a web developer working on the Zooniverse family of projects at the Adler Planearium. Brian has a degree in graphic design from Columbia College in Chicago, and worked in that field for a number of years before finding a niche in web development.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/dev-team/chris.jpg" />
+          <img src="images/about/dev-team/chris.jpg" alt="Chris Lintott" />
           <h4>Chris Lintott</h4>
           <p>Chris Lintott leads the Zooniverse team, and in his copious spare time is a researcher at the University of Oxford specialising in galaxy formation and evolution. A keen popularizer of science, he is best known as co-presenter of the BBC's long running Sky at Night program. He's currently drinking a lot of sherry.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/dev-team/david.jpg" />
+          <img src="images/about/dev-team/david.jpg" alt="David Miller" />
           <h4>David Miller</h4>
           <p>As a visual communicator, David is passionate about tellings stories through clear, clean, and effective design. Before joining the Zooniverse team as Visual Designer, David worked for The Raindance Film Festival, the News 21 Initiative's Apart From War, Syracuse Magazine, and as a freelance designer for his small business, Miller Visual. David is a graduate of the S.I. Newhouse School of Public Communications at Syracuse University, where he studied Visual & Interactive Communications.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/dev-team/michael.jpg" />
+          <img src="images/about/dev-team/michael.jpg" alt="Michael Parrish" />
           <h4>Michael Parrish</h4>
           <p>Michael has a degree in Computer Science and has been working with The Zooniverse for the past three years as a Software Developer. Aside from web development; new technologies, science, AI, reptiles, and coffee tend to occupy his attention.</p>
         </div>
         <div class="team-member">
-          <img src="images/about/dev-team/arfon.jpg" />
+          <img src="images/about/dev-team/arfon.jpg" alt="Arfon Smith" />
           <h4>Arfon Smith</h4>
           <p>As an undergraduate, Arfon studied Chemistry at the University of Sheffield before completing his Ph.D. in Astrochemistry at The University of Nottingham in 2006. He worked as a senior developer at the Wellcome Trust Sanger Institute (Human Genome Project) in Cambridge before joining the Galaxy Zoo team in Oxford. Over the past 3 years he has been responsible for leading the development of a platform for citizen science called Zooniverse. In August of 2011 he took up the position of Director of Citizen Science at the Adler Planetarium where he continues to lead the software and infrastructure development for the Zooniverse.</p>
         </div>
