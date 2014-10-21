@@ -8,14 +8,14 @@ module.exports =
     number: 0
     header: translate 'span', 'tutorial.welcome.header'
     details: translate 'span', 'tutorial.welcome.details'
-    block: '.controls'
+    block: '.controls, button[name="restart"]'
     next: 'temperature'
 
   temperature: new Step
     number: 1
     header: translate 'span', 'tutorial.temperature.header'
     details: translate 'span', 'tutorial.temperature.details'
-    block: '.controls'
+    block: '.controls, button[name="restart"]'
     next: 'chooseStronger'
 
   chooseStronger: new Step
@@ -24,6 +24,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseStronger.details'
     instruction: translate 'span', 'tutorial.chooseStronger.instruction'
     attachment: 'left middle .subject .current right middle'
+    block: 'button[name="restart"]'
     next:
       'click .subject .current, button[value="current"]': 'postStronger'
       'click .subject .older, button[value="older"], button[value="same"]': false
@@ -34,6 +35,7 @@ module.exports =
     details: translate 'span', 'tutorial.postStronger.details'
     instruction: translate 'span', 'tutorial.postStronger.instruction'
     attachment: 'center bottom button[name="continue"] center top'
+    block: 'button[name="restart"]'
     next:
       'click button[name="continue"]': 'chooseEmbeddedType'
 
@@ -43,7 +45,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseEmbeddedType.details'
     instruction: translate 'span', 'tutorial.chooseEmbeddedType.instruction'
     attachment: 'left middle .subject .current right middle'
-    block: 'button[name="category"]:not([value="embedded"])'
+    block: 'button[name="category"]:not([value="embedded"]), button[name="restart"]'
     next:
       'click button[value="embedded"]': 'chooseEyeType'
       'click button:not([value="embedded"])': false
@@ -54,7 +56,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseEyeType.details'
     instruction: translate 'span', 'tutorial.chooseEyeType.instruction'
     attachment: 'left bottom button[value="eye"] left top'
-    block: 'button[name="category"]:not([value="eye"]), button[name="match"]'
+    block: 'button[name="category"]:not([value="eye"]), button[name="match"], button[name="restart"]'
     next:
       'click button[value="eye"]': 'chooseMatch'
       'click button:not([value="eye"])': false
@@ -75,6 +77,7 @@ module.exports =
     details: translate 'span', 'tutorial.postMatch.details'
     instruction: translate 'span', 'tutorial.postMatch.instruction'
     attachment: 'center bottom button[name="continue"] center top'
+    block: 'button[name="restart"]'
     next:
       'click button[name="continue"]': 'chooseCenter'
 
@@ -84,6 +87,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseCenter.details'
     instruction: translate 'span', 'tutorial.chooseCenter.instruction'
     attachment: 'left middle .subject .current right middle'
+    block: 'button[name="restart"]'
     next:
       'mouseup .subject': 'chooseSize'
 
@@ -93,6 +97,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseSize.details'
     instruction: translate 'span', 'tutorial.chooseSize.instruction'
     attachment: 'center bottom button[value="50"] center top'
+    block: 'button[name="restart"]'
     next:
       'click button[value="30"]': 'postChooseSize'
 
@@ -102,6 +107,7 @@ module.exports =
     details: translate 'span', 'tutorial.postChooseSize.details'
     instruction: translate 'span', 'tutorial.postChooseSize.instruction'
     attachment: 'center bottom button[name="continue"] center top'
+    block: 'button[name="restart"]'
     next:
       'click button[name="continue"]': 'chooseSurrounding'
 
@@ -111,6 +117,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseSurrounding.details'
     instruction: translate 'span', 'tutorial.chooseSurrounding.instruction'
     attachment: 'left middle .subject .current right middle'
+    block: 'button[name="restart"]'
     next:
       'click button[value="-69"]': 'postSurrounding'
 
@@ -120,6 +127,7 @@ module.exports =
     details: translate 'span', 'tutorial.postSurrounding.details'
     instruction: translate 'span', 'tutorial.postSurrounding.instruction'
     attachment: 'center bottom button[name="continue"] center top'
+    block: 'button[name="restart"]'
     next:
       'click button[name="continue"]': 'chooseColdestThick'
 
@@ -129,6 +137,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseColdestThick.details'
     instruction: translate 'span', 'tutorial.chooseColdestThick.instruction'
     attachment: 'left middle .subject .current right middle'
+    block: 'button[name="restart"]'
     next:
       'click button[value="-69"]': 'postColdestThick'
 
@@ -138,6 +147,7 @@ module.exports =
     details: translate 'span', 'tutorial.postColdestThick.details'
     instruction: translate 'span', 'tutorial.postColdestThick.instruction'
     attachment: 'center bottom button[name="continue"] center top'
+    block: 'button[name="restart"]'
     next:
       'click button[name="continue"]': 'chooseBandingFeature'
 
@@ -147,6 +157,7 @@ module.exports =
     details: translate 'span', 'tutorial.chooseBandingFeature.details'
     instruction: translate 'span', 'tutorial.chooseBandingFeature.instruction'
     attachment: 'left middle .subject .current right middle'
+    block: 'button[name="restart"]'
     next:
       'click button[value="0.0"]': 'postBandingFeature'
 
@@ -156,6 +167,7 @@ module.exports =
     details: translate 'span', 'tutorial.postBandingFeature.details'
     instruction: translate 'span', 'tutorial.postBandingFeature.instruction'
     attachment: 'center bottom button[name="continue"] center top'
+    block: 'button[name="restart"]'
     next:
       'click button[name="continue"]': 'goodLuck'
 
@@ -165,5 +177,6 @@ module.exports =
     details: translate 'span', 'tutorial.goodLuck.details'
     instruction: translate 'span', 'tutorial.goodLuck.instruction'
     attachment: 'center bottom button[name="next"] center top'
+    block: 'button[name="restart"]'
     next:
       'click button[name="next"]': null
