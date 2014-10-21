@@ -42,7 +42,7 @@ module.exports =
     header: translate 'span', 'tutorial.chooseEmbeddedType.header'
     details: translate 'span', 'tutorial.chooseEmbeddedType.details'
     instruction: translate 'span', 'tutorial.chooseEmbeddedType.instruction'
-    attachment: 'left middle .categories ul right middle'
+    attachment: 'left middle .subject .current right middle'
     block: 'button[name="category"]:not([value="embedded"])'
     next:
       'click button[value="embedded"]': 'chooseEyeType'
