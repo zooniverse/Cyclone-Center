@@ -560,7 +560,7 @@ module.exports =
     chooseSize:
       header: '''Center and Eye Size'''
       details: '''
-        Choose the size that most closely matches the eyewall. For more help, always remember to read the details on the right.
+        Choose the size that most closely matches the eyewall. For more help, you can always check the guide below.
       '''
       instruction: '''Choose the second circle.'''
 
