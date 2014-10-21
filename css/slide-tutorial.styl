@@ -1,0 +1,40 @@
+.slide-tutorial
+  z-index: 100
+  color: $dark-gray
+  background: rgba(0, 0, 0, 0.8);
+  button
+    cursor: pointer
+  .slide-tutorial-container
+    border-radius: 5px
+    max-width: 560px
+    transition: width .7s
+    .slide-tutorial-slide-bottom
+      min-height: 160px;
+    .slide-tutorial-dots 
+      .slide-tutorial-dot
+        background: #d1d1d1
+        cursor: pointer
+        margin: 4px
+        &.active
+          background: $orange
+    .slide-tutorial-close-button
+      background: transparent
+      font-size: 16px
+      color: #fff
+      border: none
+  .slide-tutorial-next-button
+    @extend #_CLASSIFIER_BUTTON
+    width: 150px
+    font-size: 14px
+    -webkit-font-smoothing: antialiased
+  h1
+    font-size: 30px
+
+  @media screen and (max-width: 520px)
+    .slide-tutorial-container
+      margin-top: 25px
+      .slide-tutorial-slide-bottom
+        min-height: 100px
+        p
+          line-height: 1.2em
+          font-size: 14px

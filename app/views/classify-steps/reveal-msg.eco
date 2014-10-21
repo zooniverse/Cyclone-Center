@@ -1,0 +1,3 @@
+<% translate = require 't7e' %>
+
+<%- translate 'classify.steps.reveal.heading' %>

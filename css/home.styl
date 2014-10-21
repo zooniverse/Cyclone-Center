@@ -1,38 +1,144 @@
-#home
-  full-size()
-  background linear-gradient($black, transparent)
-  color $white
+.home
+  color: #fcfcfc
+  font-family: "Lato", sans-serif
+  font-size: 14px
+  text-shadow: none
 
-  header
-    font-size 14px
-    line-height 1.4
-    margin 90px auto
-    text-shadow 0 1px 1px rgba(black, 0.5)
-    width 1000px
+  h2
+    font-size: 24px
 
-    h1
-      border-bottom 1px solid rgba($white, 0.5)
-      margin-bottom 20px
+  .subtle-heading
+    color: #fff
+    font-style: italic
+    font-weight: 100
+    padding: 15px 0
 
-      img
-        margin 0 0 -10px -20px
-        max-width 50%
+  .section-split
+    display: flex
+
+    > *
+      box-sizing: border-box
+      padding: 0 100px
+      width: 50%
+    @media screen and (max-width: 900px)
+      display: block
+
+      > *
+        width: 100%
+        min-height: 500px
+
+  .project-name-section,
+  .project-introduction,
+  .project-updates,
+  .project-blog
+    padding: 150px 100px
+    p
+      max-width: 650px
+    @media screen and (max-width: 900px)
+      padding: 220px 20px
+    @media screen and (max-width: 400px)
+      padding: 110px 20px
+
+  .project-name-section
+    background-image: url(./images/project-name-background.jpg)
+    background-repeat: no-repeat
+    background-size: cover
+
+    .project-name
+      color: white
+      font-size: 80px
+      font-weight: 300
+      line-height: 88px
+      position: relative
+      margin: 20px 0
+
+      span.super
+        float: left
+        font-size: 15px
+        line-height: 24px
+        width: 100%
+        margin: 0 0 10px 5px
+
+  .project-introduction
+    background: $orange
+    color: white
 
     h2
-      font-size 18px
-      font-weight bold
+      margin: 20px 0
 
-    p
-      margin 1.5em 0
+    .action-buttons
+      margin: 35px 0 0 0
 
-    a.classify
-      standard-button()
-      background: $orange
-      border 0
-      box-shadow 0 1px 1px rgba(white, 0.25) inset, 0 -1px 1px rgba(black, 0.25) inset, 0 3px 5px rgba(black, 0.5)
-      color $white
-      font-size 18px
-      font-weight bold
-      margin-top 25px
-      padding 15px 25px
-      text-shadow 0 1px 1px rgba($black, 0.5)
+      a
+        @extends #_STANDARD_BUTTON
+        margin: 5px
+        font-weight: 300
+        font-size: 18px
+        &:hover
+          color: inherit
+
+      @media screen and (max-width: 400px)
+        text-align: center
+
+  .project-updates
+    background: white
+    color: #333
+
+  .project-blog
+    background-image: url(./images/blog-background.jpg)
+    background-repeat: none
+    background-size: cover
+
+    .huge-title
+      font-size: 50px
+      font-weight: 300
+      margin: 0 0 20px 0
+      word-wrap: break-word
+      @media screen and (max-width: 1000px)
+        font-size: 40px
+
+    .previous-posts
+      font-size: 20px
+      font-weight: 100
+      padding: 10px 0
+      text-decoration: underline
+
+      a
+        display: block
+
+  .call-to-action
+    background: $orange
+    padding: 25px 0 45px 0
+    text-align: center
+
+  .get-involved
+    font-size: 32px
+    font-weight: 300
+    margin: 30px 0
+
+  .get-started
+    @extends #_STANDARD_BUTTON
+    font-size: 16px
+    font-weight: 300
+    margin: 5px 0
+
+  .project-stats
+    display: flex
+    justify-content: center
+    padding: 25px 0
+
+    > *
+      color: #999
+      font-size: 16px
+      max-width: 250px
+      padding: 0 30px
+      text-align: center
+
+      .stat
+        color: white
+        font-size: 32px
+        padding: 0 0 4px 0
+
+        @media screen and (max-width: 400px)
+          font-size: 27px
+

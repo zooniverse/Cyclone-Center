@@ -1,93 +1,96 @@
-$open-sans-condensed = "Open Sans Condensed", "Arial Narrow", sans-serif
+$blue = #027da9
+$orange = #ff8400
+$navy = #00305c
+$green = #3A9C5B
+$dark-gray = #565555
 
-strong
-  font-weight bold
+$sans-serif = "Lato", Arial, sans-serif
 
-// Button reset
-button
-  appearance(none)
-  background transparent
-  border 0
-  cursor pointer
-  margin 0
-  padding 0
+p
+  font-size: 17px
+  line-height: 28px
+  margin: 0 0 14px
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
 
-  &::-moz-focus-inner
-    border 0
-    padding 0
+.font-smoothing
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
 
-  &:disabled
-    cursor default
-    pointer-events none
+.center
+  text-align: center
 
-standard-button()
-  // Note: .toggle, .toggle.selected, .default
-  box-sizing(border-box)
-  background $gray-light
-  border 1px solid #b2b2b2
-  border-radius 3px
-  box-shadow inset 0px 1px 0px #ffffff
-  color $black
-  display inline-block
-  font-family "Open Sans", sans-serif
-  font-weight 700
-  font-size 12px
-  line-height 11px
-  margin-left 0.75em
-  padding 0.5em 2em
-  position relative
-  text-decoration none
-  text-shadow 0 1px 0px $white
-  vertical-align middle
+li
+  line-height: 1.5em
 
-  &:first-child
-    margin-left 0
+.content
+  margin: 0 auto
+  max-width: 940px
+  width: 100%
 
+.sub-section-menu
+  list-style: none
+  padding: 40px 10px
+  margin: 0
+  clearfix()
+
+  li
+    float: left
+    margin: 10px 0
+
+    a
+      color: $dark-gray
+      border-radius: 18px
+      box-sizing: border-box
+      margin: 0 10px 0 0
+      padding: 6px 18px
+      border: 2px solid transparent
+      font-size: 17px
+
+      &:hover, &.active
+        border: 2px solid $navy
+        color: $dark-gray
+
+    @media screen and (max-width: 400px)
+      clear: left
+
+#_STANDARD_BUTTON
+  background: $navy
+  border-radius: 4px
+  display: inline-block
+  font-family: "Lato", sans-serif
+  outline: none
+  margin: 0 2px
+  padding: 14px 30px
+  text-align: center
+  text-decoration: none
   &:hover
-    border-color rgba($black, 0.5)
+    background: lighten($navy, 10%)
+    color: white
 
-  &.toggle.selected
-    color $orange
+  &.orange
+    background: $orange
+    color: white
 
-  &.default
-    background $blue
-    color $white
-    text-shadow 0 1px 0px #006084
-    box-shadow inset 0px 1px 0px #00a8e6
-    border 1px solid #016387
+#_CLASSIFIER_BUTTON
+  border: none
+  display: inline-block
+  outline: none
+  color: #fff
+  height: 45px
+  outline: none
+  border-radius: 5px
+  background-color: $orange
+  box-shadow: none
+  position: relative
 
-    &:hover
-      border-color rgba($black, 0.75)
+.zooniverse-dialog .underlay .container .dialog
+  @media screen and (max-width: 400px)
+    max-width: 66%
 
-  &.toggle.selected,
-  &:active
-    box-shadow 0 0.125ex 0.25ex rgba($blacker, 0.5) inset
-
-  &:disabled
-    box-shadow none
-    opacity 0.5
-
-panel()
-  background $white
-  border-radius 5px
-  box-shadow 0 5px 10px rgba($black, 0.33)
-  color $black
-  margin 55px 30px 30px
-  position relative
-  z-index 2
-
-  h2
-    font 20px "Open Sans Condensed", sans-serif
-
-  h3
-    font 16px "Open Sans Condensed", sans-serif
-
-  h4
-    font-weight bold
-
-full-size()
-  bottom 0
-  left 0
-  position absolute
-  top 0
-  right 0
+::selection
+  color: #fff
+  background: $blue
+::-moz-selection
+  color: #fff
+  background: $blue

@@ -1,0 +1,13 @@
+<% t = require 't7e' %>
+
+<div class="menu">
+	<span class="hamburger-menu">&#9776;</span>
+	<a href="#/" class="logo">Cyclone Center</a>
+	<ul class="menu-list">  
+	  <li><a href="#/classify"><%- t 'span', 'navigation.classify' %></a></li>
+	  <li><a href="#/about"><%- t 'span', 'navigation.about' %></a></li>
+	  <li><a href="#/profile"><%- t 'span', 'navigation.profile' %></a></li>
+	  <li><a href="http://talk.cyclonecenter.org/"><%- t 'span', 'navigation.talk' %></a></li>
+	  <li><a href="http://blog.cyclonecenter.org"><%- t 'span', 'navigation.blog' %></a></li>
+	</ul>
+</div>

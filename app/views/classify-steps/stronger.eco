@@ -1,0 +1,14 @@
+<% t = require 't7e' %>
+
+<div class="stronger step">
+  <%- t 'p.instruction', 'classify.steps.stronger.instruction' %>
+  <p>
+    <%- t 'button.toggle', 'classify.strengths.olderTop', { name: 'stronger', value: 'older', class: 'stronger-top-bottom' } %>
+    <%- t 'button.toggle', 'classify.strengths.older', { name: 'stronger', value: 'older', class: 'stronger-left-right'} %>
+
+    <%- t 'button.toggle', 'classify.strengths.same', { name: 'stronger', value: 'same' } %>
+
+    <%- t 'button.toggle', 'classify.strengths.current', { name: 'stronger', value: 'current', class: 'stronger-left-right' } %>
+    <%- t 'button.toggle', 'classify.strengths.currentBottom', { name: 'stronger', value: 'current', class: 'stronger-top-bottom' } %>
+  </p>
+</div>

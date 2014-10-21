@@ -1,0 +1,73 @@
+<% translate = require 't7e' %>
+<div class="content">
+  <h2 class="classify-header"><%- translate 'classify.header' %></h2>
+  <div class="interface">
+    <div class="controls">
+      <div class="subject">
+
+        <button name="favorite">
+          <span class="icon favorite">♥</span>
+          <%- translate 'span.label', 'classify.favorite' %>
+        </button>
+
+        <button name="unfavorite">
+          <span class="icon favorite">♥</span>
+          <%- translate 'span.label', 'classify.favorited' %>
+        </button>
+
+        <img src="//placehold.it/1.png" class="older" />
+        <img src="//placehold.it/1.png" class="current" />
+
+      </div>
+
+      <div class="step-controls"></div>
+
+      <div class="progress">
+        <div class="in-progress">
+          <button name="continue"><%- translate 'span', 'classify.continue' %></button>
+        </div>
+
+        <div class="followup">
+          <div class="talk">
+            <a href="#/TALK_IMAGE" target="_blank" class="talk-image"><%- translate 'span', 'classify.talkSubject' %></a>
+            <a href="#/TALK_STORM" target="_blank" class="talk-storm"><%- translate 'span', 'classify.talkGroup' %></a>
+          </div>
+
+          <div class="social">
+            <a href="#/FACEBOOK" target="_blank" class="facebook"><%- translate 'span', 'classify.share' %></a>
+            <a href="#/TWITTER" target="_blank" class="twitter"><%- translate 'span', 'classify.tweet' %></a>
+          </div>
+
+          <button name="next"><%- translate 'span', 'classify.next' %></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="other-actions">
+      <button name="slide-tutorial"><img class="icon slide" src="./images/guide.svg" alt=""><%- translate 'span.label', 'classify.slideTutorial' %></button>
+      <button name="restart-tutorial"><img class="icon tutorial" src="./images/tut.svg" alt=""><%- translate 'span.label', 'classify.restartTutorial' %></button>
+      <button name="restart">
+        <span class="icon">↺</span>
+        <%- translate 'span.label', 'classify.restart' %>
+      </button>
+      <button name="go-to-guide">
+        <span class="icon">&darr;</span>
+        <%- translate 'span.label', 'classify.guide' %>
+      </button>
+    </div>
+
+    <p class="not-signed-in">
+      <%- translate 'span', 'classify.notSignedIn' %>
+      <%- translate 'span.sign-in', 'classify.pleaseSignIn' %>
+      <%- translate 'span', 'classify.or' %>
+      <%- translate 'span.sign-up', 'classify.signUp' %>
+    </p>
+  </div>
+</div>
+<h2 class="guide-header font-smoothing"><div class="content">Cyclone Field Guide<div></h2>
+<div class="guide">
+  <div class="content">
+    <div class="step-details"></div>
+    <div class="scroll-up"><img src="./images/return-top.svg" alt="Return to top"></div>
+  </div>
+</div>

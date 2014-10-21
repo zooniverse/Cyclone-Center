@@ -1,0 +1,5 @@
+<% t = require 't7e' %>
+
+<div class="red step">
+  <%- t 'p.heading', 'classify.steps.red.heading' %>
+</div>

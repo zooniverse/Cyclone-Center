@@ -1,0 +1,23 @@
+<% translate = require 't7e' %>
+<header class="about-header">
+	<div class="content">
+		<div class="about-header-copy">
+			<%- translate 'h1', 'about.header' %>
+			<%- translate 'h3', 'about.subHeader' %>
+			<%- translate 'span', 'about.credit' %>
+		</div>
+	</div>
+</header>
+<div class="content">
+	<ul class="sub-section-menu">
+	  <li><%- translate 'a', 'about.overview.navigation', href: '#/about' %></li>
+	  <li><%- translate 'a', 'about.howItWorks.navigation', href: '#/about/how-it-works' %></li>
+	  <li><%- translate 'a', 'about.organizations.navigation', href: '#/about/organizations' %></li>
+	  <li><%- translate 'a', 'about.team.navigation', href: '#/about/team' %></li>
+	</ul>
+</div>
+<div id="about-stack"></div>
+
+
+
+

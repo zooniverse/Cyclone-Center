@@ -1,0 +1,17 @@
+<% t = require 't7e' %>
+
+<div class="exceeding step">
+  <%- t 'p.heading', 'classify.steps.exceeding.heading' %>
+  <%- t 'p', 'classify.steps.exceeding.instruction' %>
+  <p>
+    <button name="exceeding" value="9"><span class="swatch beige"></span></button>
+    <button name="exceeding" value="-30"><span class="swatch red"></span></button>
+    <button name="exceeding" value="-41"><span class="swatch orange"></span></button>
+    <button name="exceeding" value="-53"><span class="swatch yellow"></span></button>
+    <button name="exceeding" value="-63"><span class="swatch light-blue"></span></button>
+    <button name="exceeding" value="-69"><span class="swatch teal"></span></button>
+    <button name="exceeding" value="-75"><span class="swatch blue"></span></button>
+    <button name="exceeding" value="-80"><span class="swatch dark-blue"></span></button>
+    <button name="exceeding" value="-86"><span class="swatch white"></span></button>
+  </p>
+</div>

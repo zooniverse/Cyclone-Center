@@ -1,0 +1,11 @@
+<% t = require 't7e' %>
+
+<div class="curve step">
+  <%- t 'p.heading', 'classify.steps.curve.heading' %>
+  <p>
+    <button name="curve" value="0.2"><img src="images/curve/0.2.png" /></button>
+    <button name="curve" value="0.4"><img src="images/curve/0.4.png" /></button>
+    <button name="curve" value="0.6"><img src="images/curve/0.6.png" /></button>
+    <button name="curve" value="0.8"><img src="images/curve/0.8.png" /></button>
+  </p>
+</div>

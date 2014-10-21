@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+var http = require('http');
+var https = require('https');
+
+var FEATURED_STORMS_URL = 'http://localhost:8080/js/featured-storms.json';
+var STORM_URL_PREFIX = 'https://api.zooniverse.org/projects/cyclone_center/groups/';
+
+function get(url, callback) {
+  var protocolText = url.split(':')[0];
+  var protocol = protocolText === 'http' ? http : https;
+
+  protocol.get(url, function(res) {
+    var body = '';
+
+    res.on('data', function(data) {
+      body += data;
+    });
+
+    res.on('end', function() {
+      callback(JSON.parse(body));
+    });
+  });
+}
+
+get(FEATURED_STORMS_URL, function(stormIds) {
+  var provided = 0;
+  var needed = 0;
+  var pending = stormIds.length;
+
+  stormIds.forEach(function(stormId) {
+    get(STORM_URL_PREFIX + stormId, function(storm) {
+      provided += storm.metadata.provided_classifications;
+      needed += storm.metadata.needed_classifications;
+      pending -= 1;
+
+      if (pending === 0) {
+        var complete = Math.round((provided / needed) * 100);
+        console.log('Currently featured storms are ' + complete + '% complete.');
+
+        if (complete > 90) {
+          console.log('Probably about time to switch them out!');
+        }
+      }
+    });
+  });
+});

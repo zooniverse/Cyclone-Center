@@ -1,93 +1,81 @@
-#profile
-  .login-form
-    panel()
-    float right
-    font-size 13px
-    padding 30px 20px
-    text-align center
-    width 400px
+.zooniverse-profile
+  margin: 50px auto
+  max-width: 1000px
+  padding: 10px
 
-    p
-      margin-bottom 1em
+  .sign-in-form
+    transition: width 0.5s
+    font-weight: 300
 
-    form
-      display inline-block
-
-      label
-        display block
-        margin-bottom 1em
-
-        > span
-          // There's a child input, which makes this kinda weird.
-          display inline-block
-          width 10em
-
-      button
-        standard-button()
-
-    .picker
-      margin-top 1em
-
-      button
-        border-bottom 1px solid $gray
-
-    &.signed-in
-      display none
-
-      & + .panel
-        display block
-
-  .panel
-    panel()
-    display none
-    float right
-    text-align center
+    button
+      color: #fff
+      cursor: pointer
+      border: none
 
     header
-      padding 20px
+      font-size: 36px
 
-    .favorites
-      border-top 1px solid $gray
-      max-height 500px
-      overflow-y auto
-      padding 10px 20px 20px
+    .action button
+      background-color: $orange
+      padding: 10px 20px
+      box-shadow: none
+      color: inherit
+      font-weight: inherit
 
-      .none
-        display none
+    input
+      box-shadow: none
+      border: 2px solid $dark-gray
+      outline: none
+      &:focus
+        border-color: $orange
 
-      ul
-        li
-          clearfix()
-          margin-top 10px
-          position relative
-          text-align left
+    @media screen and (max-width: 720px)
+      width 80%
 
-          button[name="remove-favorite"]
-            @standard-button()
-            border-radius 50%
-            display none
-            height 16px
-            padding 0
-            position absolute
-            left -5px
-            top -5px
-            width 16px
+    .no-account
+      font-weight: inherit
+      button[name="sign-up"]
+        background: none
+        font-size: 14px
 
-          button[name="reveal"]
-            standardButton()
+  #profile-status
+    text-align: center
+    display: none
+    margin: 0 0 2em 0
+    padding: 0 0 2em 0
+    border-bottom: 1px solid rgba(0,0,0,.2)
 
-          img
-            height 60px
-            float left
-            width 60px
-            margin-right 10px
+    #greeting
+      font-size: 27px
+      color: $orange
+      display: block
 
-          .description
-            font-size 13px
-            float left
+    > *
+      padding: 10px 20px
+      display: inline-block
 
-          &:hover button[name="remove-favorite"]
-            display block
+      p
+        font-size: 24px
+        margin: 0
 
-    .recents
-      display none
+  nav button,
+  .zooniverse-paginator .controls button
+    background: #505050
+    border: 0
+    border-radius: 4px
+    box-shadow: none
+    color: white
+    cursor: pointer
+    font-size: 14px
+    margin: 0 8px 0 0
+    padding: 5px 12px
+    text-shadow: none
+    outline: none
+
+    &.active,
+    &:hover
+      background: $orange
+
+  .zooniverse-paginator .controls button
+    border-radius: 10px
+    width: auto

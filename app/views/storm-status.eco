@@ -1,0 +1,24 @@
+<% translate = require 't7e' %>
+
+<div class="loader"></div>
+
+<img class="preview" />
+
+<div class="progress">
+  <div class="track">
+    <div class="fill">
+      <div class="complete"><span class="value">&mdash;</span>%</div>
+    </div>
+  </div>
+</div>
+
+<div class="info">
+  <span class="name">&mdash;</span>
+  <span class="year">&mdash;</span>
+</div>
+
+<div class="actions">
+  <a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=<%= encodeURIComponent location.href %>&p[title]=Help classify on Cyclone Center!" target="_blank" class="facebook action"><img src="./images/social/facebook.png" /></a>
+  <a href="http://twitter.com/home?status=<%= encodeURIComponent "Help classify on Cyclone Center! #{location.href}" %>" target="_blank" class="twitter action"><img src="./images/social/twitter.png" /></a>
+  <span class="action"><button name="select"><%- translate 'span', 'home.analyze' %></button></span>
+</div>

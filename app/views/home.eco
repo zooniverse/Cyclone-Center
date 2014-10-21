@@ -1,0 +1,55 @@
+<!--https://www.flickr.com/photos/gsfc/6076866493/in/photolist-afZwGe-afXbUE-8BXxRZ-dqTJua-drru93-8xAk3F-dp5zGj-ah6o55-8xs7E7-dt1Q9p-agA6u7-dphzd9-agws2k-agbAmF-8xsdYo-ai3n2d-a2GUx5-cXZyZ9-8Bfpuh-dqcpDW-4JX1zF-agMhDz-ejEBrT-agLepw-d1xJyL-d9xPGQ-9PniSt-agzC2s-agTq8E-ajUDof-m9tgSV-8vVL9d-8zRDxu-doQSr3-9oWCdq-8CUqxa-5WoVQy-doZzt8-doZbj7-dqcp3b-4n2tL-ox8hJD-d2H8Mm-afMPMk-ds9yrY-eGUBn9-aJeUVx-oH7QHi-5mifxS-dqwxwT/ -->
+
+<% t = require 't7e' %>
+
+<div class="section-split">
+  <div class="project-name-section">
+    <div class="project-name">
+      <%- t 'span.super', 'home.projectHeaderSuper'%>
+      <%- t 'span', 'home.projectHeader' %>
+    </div>
+  </div>
+  <div class="project-introduction font-smoothing">
+    <%- t 'h2', 'home.intro.header' %>
+    <%- t 'div', 'home.intro.content' %>
+    <div class="action-buttons">
+      <a href="#/classify" class="get-started"><%- t 'span', 'home.getStarted' %></a>
+      <a href="#/about" class="learn-more"><%- t 'span', 'home.learnMore' %></a>
+    </div>
+  </div>
+</div>
+
+<div class="project-stats">
+  <div class="project-stat">
+    <span id="user-count" class="stat">-</span><br>
+    <%- t 'span', 'home.stats.activeUsers' %>
+  </div>
+  <div class="project-stat">
+    <span id="classification-count" class="stat">-</span><br>
+    <%- t 'span', 'home.stats.observations' %>
+  </div>
+  <div class="project-stat">
+    <span id="storms-complete" class="stat">-</span><br>
+    <%- t 'span', 'home.stats.stormsComplete' %>
+  </div>
+</div>
+
+<div class="section-split">
+  <div class="project-updates font-smoothing">
+    <div id="latest-talk-posts">
+      <%- t 'span', 'home.talk.latestTalk' %>
+    </div>
+  </div>
+  <div class="project-blog">
+    <%- t 'div.subtle-heading', 'home.blog.header' %>
+    <div id="latest-post" class="huge-title"><%- t 'span', 'home.blog.loadingLatestPost' %></div>
+
+    <%- t 'div.subtle-heading', 'home.blog.previousPostTitle' %>
+    <div id="previous-posts" class="previous-posts"><%- t 'span', 'home.blog.loadingPreviousPost' %></div>
+  </div>
+</div>
+
+<div class="call-to-action">
+  <%- t 'div.get-involved', 'home.getInvolved' %>
+  <a href="#/classify" class="get-started"><%- t 'span', 'home.getStarted' %></a>
+</div>

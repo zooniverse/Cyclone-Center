@@ -1,0 +1,14 @@
+<% Favorite = require 'zooniverse/models/favorite' %>
+
+<div class="item">
+  <% if @ instanceof Favorite: %>
+    <button name="unfavorite" value="<%= @id %>">&times;</button>
+  <% end %>
+
+  <a href="<%= @subjects[0]?.talkHref() || '#/SUBJECT_ERROR' %>">
+    <% location = @subjects[0]?.location %>
+    <% thumbSrc = (value for key, value of location when not !!~key.indexOf 'yesterday')[0] %>
+    <img src="<%= thumbSrc || '' %>" />
+    <span class="label"><%= @subjects[0]?.metadata.name || '?' %></span>
+  </a>
+</div>

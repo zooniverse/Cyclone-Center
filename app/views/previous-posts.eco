@@ -1,0 +1,3 @@
+<% for post in @previousPosts: %>
+  <a href="<%- post.URL %>" target="_blank"><%- post.title %></a><br>
+<% end %>
