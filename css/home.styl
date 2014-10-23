@@ -6,11 +6,12 @@
 
   h2
     font-size: 24px
+    font-weight: 700
 
   .subtle-heading
     color: #fff
     font-style: italic
-    font-weight: 100
+    font-weight: 300
     padding: 15px 0
 
   .section-split
@@ -88,6 +89,21 @@
     background-image: url(./images/blog-background.jpg)
     background-repeat: none
     background-size: cover
+    position: relative
+
+    &:before
+      background: linear-gradient(0deg, rgba(black, 0.2), rgba(black, 0.2))
+      content: " "
+      height: 100%
+      left: 0
+      position: absolute
+      top: 0
+      width: 100%
+      z-index: 0
+
+    > *
+      position: relative
+      z-index: 1
 
     .huge-title
       font-size: 50px
@@ -99,12 +115,14 @@
 
     .previous-posts
       font-size: 20px
-      font-weight: 100
+      font-weight: 300
       padding: 10px 0
-      text-decoration: underline
 
       a
-        display: block
+        margin: 0 0 20px 0
+
+    a
+      display: block
 
   .call-to-action
     background: $orange
