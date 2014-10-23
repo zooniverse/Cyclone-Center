@@ -15,7 +15,6 @@ Favorite = require 'zooniverse/models/favorite'
 StormStatus = require './storm-status'
 StackOfPages = require 'stack-of-pages'
 ProgressBar = require './progress-bar'
-featuredStorms = require '../../public/js/featured-storms'
 $ = window.jQuery
 
 StrongerStep = require './classify-steps/stronger'
