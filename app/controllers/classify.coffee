@@ -110,13 +110,13 @@ class Classify extends Controller
     @progress = new ProgressBar
     @el.prepend @progress.el
 
-    @el.on StackOfPages::activateEvent, =>
-      @introIfFirstVisit() if @onClassifyPage()
+    @el.on StackOfPages::activateEvent, @introIfFirstVisit
 
   onClassifyPage: ->
     location.hash is '#/classify'
 
   firstVisit: (user) ->
+    return false if user is false
     return true unless user
     !user?.project?.classification_count
 
@@ -126,9 +126,8 @@ class Classify extends Controller
     @introIfFirstVisit() if @onClassifyPage()
     @progressIfFirstVisit(user)
 
-  introIfFirstVisit: ->
-    user = User.current ? false
-    @siteIntro.start() if @firstVisit(user)
+  introIfFirstVisit: =>
+    @siteIntro.start() if @firstVisit User.current
 
   progressIfFirstVisit: (user) ->
     firstVisit = @firstVisit(user)
