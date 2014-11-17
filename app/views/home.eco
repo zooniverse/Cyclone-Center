@@ -7,6 +7,7 @@
     <div class="project-name">
       <%- t 'span.super', 'home.projectHeaderSuper'%>
       <%- t 'span', 'home.projectHeader' %>
+      <%- t 'span.tagline', 'home.projectTag' %>
     </div>
   </div>
   <div class="project-introduction font-smoothing">

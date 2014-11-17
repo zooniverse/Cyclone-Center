@@ -270,6 +270,7 @@ class Classify extends Controller
       setTimeout (=> @continueButton.attr disabled: true), 250
 
   onClickNext: ->
+    @el.removeClass 'favorited'
     Subject.next()
 
   onClickRestartTutorial: ->

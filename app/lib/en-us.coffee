@@ -10,6 +10,7 @@ module.exports =
   home:
     projectHeader: 'Cyclone<br>Center'
     projectHeaderSuper: 'Welcome to'
+    projectTag: 'Tropical cyclones are still a mystery.<br />We need your help to decipher them.'
 
     intro:
       header: 'What is Cyclone Center?'
@@ -40,7 +41,7 @@ module.exports =
       previousPostTitle: 'Previous Posts'
       loadingPreviousPost: 'Loading previous posts...'
 
-    getInvolved: 'Tropical cyclones are still a mystery.<br>We need your help to decipher them.'
+    getInvolved: 'Ready to get involved?'
 
   about:
     header: 'About Cyclone Center'
