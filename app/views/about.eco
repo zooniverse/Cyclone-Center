@@ -14,6 +14,7 @@
 	  <li><%- translate 'a', 'about.howItWorks.navigation', href: '#/about/how-it-works' %></li>
 	  <li><%- translate 'a', 'about.organizations.navigation', href: '#/about/organizations' %></li>
 	  <li><%- translate 'a', 'about.team.navigation', href: '#/about/team' %></li>
+	  <li><%- translate 'a', 'about.youtubeLink', href: 'https://www.youtube.com/channel/UCrc4tyEYPhQxYw3zop7xatA', target: '_blank' %></li>
 	</ul>
 </div>
 <div id="about-stack"></div>

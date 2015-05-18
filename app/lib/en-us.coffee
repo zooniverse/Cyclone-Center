@@ -47,6 +47,8 @@ module.exports =
     header: 'About Cyclone Center'
     subHeader: 'The what, why, how, and who of Cyclone Center.'
     credit: 'Image credit: WP:WPTC/M, NASA'
+    youtubeLink: 'Youtube'
+
     overview:
       header: '<div class="about-top-header">Scientists and Volunteers Team Up to Solve Storms</div>'
       navigation: 'About Cyclone Center'
