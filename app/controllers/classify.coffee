@@ -39,6 +39,11 @@ grabRandomSatellite = (subject) ->
   list = subject.metadata.available_satellites
   list[Math.floor(Math.random() * list.length)]
 
+satelliteTalkHref = (subject, satellite) ->
+  subjectTalkHref = subject.talkHref()
+  satelliteTalkHref = subjectTalkHref.replace '#', "?satellite=#{ satellite }/#"
+  return satelliteTalkHref
+
 class Classify extends Controller
   className: 'classify'
   template: template
@@ -168,7 +173,7 @@ class Classify extends Controller
 
     @classification.set 'satellite', satellite
 
-    @talkImageLink.attr href: subject.talkHref()
+    @talkImageLink.attr href: satelliteTalkHref subject, satellite
     @facebookLink.attr href: subject.facebookHref()
     @twitterLink.attr href: subject.twitterHref()
 
