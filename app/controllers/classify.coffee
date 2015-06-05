@@ -41,7 +41,7 @@ grabRandomSatellite = (subject) ->
 
 satelliteTalkHref = (subject, satellite) ->
   subjectTalkHref = subject.talkHref()
-  satelliteTalkHref = subjectTalkHref.replace '#', "?satellite=#{ satellite }/#"
+  satelliteTalkHref = subjectTalkHref.replace '#', "?satellite=#{ satellite }#"
   return satelliteTalkHref
 
 class Classify extends Controller
