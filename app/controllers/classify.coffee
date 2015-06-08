@@ -39,7 +39,7 @@ grabRandomSatellite = (subject) ->
   list = subject.metadata.available_satellites
   list[Math.floor(Math.random() * list.length)]
 
-satelliteTalkHref = (subject, satellite) ->
+createSatelliteTalkHref = (subject, satellite) ->
   subjectTalkHref = subject.talkHref()
   satelliteTalkHref = subjectTalkHref.replace '#', "?satellite=#{ satellite }#"
   return satelliteTalkHref
@@ -161,8 +161,6 @@ class Classify extends Controller
 
     @el.toggleClass 'southern', subject.coords[0] < 0
 
-    # return @goToStep 'reveal'
-
     olderLocation = subject.location["#{satellite}-yesterday"]
 
     if olderLocation?
@@ -173,7 +171,7 @@ class Classify extends Controller
 
     @classification.set 'satellite', satellite
 
-    @talkImageLink.attr href: satelliteTalkHref subject, satellite
+    @talkImageLink.attr href: createSatelliteTalkHref subject, satellite
     @facebookLink.attr href: subject.facebookHref()
     @twitterLink.attr href: subject.twitterHref()
 
@@ -194,8 +192,6 @@ class Classify extends Controller
     '''
 
     dialog.show()
-
-    # noMoreSubjectsDialog.show()
 
   onClassificationChange: (e, key, value) =>
     requiredProperty = @steps[@step].property
