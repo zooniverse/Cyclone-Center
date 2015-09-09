@@ -1,6 +1,8 @@
 <% translate = require 't7e' %>
+
 <div class="content">
-  <h2 class="classify-header"><%- translate 'classify.header' %></h2>
+  <%- translate 'h2.classify-header', 'classify.header' %>
+
   <div class="interface">
     <div class="controls">
       <div class="subject">

@@ -1,29 +1,30 @@
 t = require 't7e'
 
-module?.exports = [
-  {
-    image: './images/site-intro/welcome.jpg',
-    title: 'Welcome!',
-    content: t 'span', 'siteIntro.1'
-  },
-  {
-    image: './images/site-intro/stronger-storm.gif',
-    title: 'Pick the stronger storm',
-    content: t 'span', 'siteIntro.2'
-  },
-  {
-    image: './images/site-intro/additional-questions.gif',
-    title: 'Answer additional questions',
-    content: t 'span', 'siteIntro.3'
-  },
-  {
-    image: './images/site-intro/tutorial.gif',
-    title: 'Give it a shot',
-    content: t 'span', 'siteIntro.4'
-  },
-  {
-    image: './images/site-intro/final.jpg',
-    title: 'Discuss and read more!',
-    content: t 'span', 'siteIntro.5'
-  }
-]
+module?.exports = ->
+  [
+    {
+      image: './images/site-intro/welcome.jpg'
+      title: t 'span', 'siteIntro.1.title'
+      content: t 'span', 'siteIntro.1.content'
+    },
+    {
+      image: './images/site-intro/stronger-storm.gif'
+      title: t 'span', 'siteIntro.2.title'
+      content: t 'span', 'siteIntro.2.content'
+    },
+    {
+      image: './images/site-intro/additional-questions.gif'
+      title: t 'span', 'siteIntro.3.title'
+      content: t 'span', 'siteIntro.3.content'
+    },
+    {
+      image: './images/site-intro/tutorial.gif'
+      title: t 'span', 'siteIntro.4.title'
+      content: t 'span', 'siteIntro.4.content'
+    },
+    {
+      image: './images/site-intro/final.jpg'
+      title: t 'span', 'siteIntro.5.title'
+      content: t 'span', 'siteIntro.5.content'
+    }
+  ]
