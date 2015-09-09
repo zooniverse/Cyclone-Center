@@ -1,9 +1,9 @@
-<% translate = require 't7e' %>
+<% t = require 't7e' %>
 
 <h1 class="storm-name"></h1>
 
 <div class="map"></div>
 
-<%- translate 'h2', 'classify.steps.reveal.windAndPressure' %>
+<%- t 'h2', 'classify.steps.reveal.windAndPressure' %>
 
 <div class="graph"></div>

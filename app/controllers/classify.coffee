@@ -4,6 +4,7 @@ Dialog = require 'zooniverse/controllers/dialog'
 loginDialog = require 'zooniverse/controllers/login-dialog'
 signUpDialog = require 'zooniverse/controllers/signup-dialog'
 User = require 'zooniverse/models/user'
+t7e = require 't7e'
 {Tutorial} = require 'zootorial'
 SlideTutorial = require 'slide-tutorial'
 slideTutorialSlides = require '../lib/slide-tutorial-slides'
@@ -110,7 +111,7 @@ class Classify extends Controller
       firstStep: 'welcome'
 
     @siteIntro = new SlideTutorial
-      slides: slideTutorialSlides
+      slides: slideTutorialSlides()
 
     @progress = new ProgressBar
     @el.prepend @progress.el
@@ -132,7 +133,7 @@ class Classify extends Controller
     @progressIfFirstVisit(user)
 
   introIfFirstVisit: =>
-    @siteIntro.start() if @firstVisit User.current
+    @startSlideTutorial() if @firstVisit User.current
 
   progressIfFirstVisit: (user) ->
     firstVisit = @firstVisit(user)
@@ -140,11 +141,15 @@ class Classify extends Controller
     @progress.el.toggle(firstVisit)
     @classifyHeader.toggle(not firstVisit)
 
+  startSlideTutorial: =>
+    @siteIntro.slides = slideTutorialSlides()
+    @siteIntro.start()
+
   onGettingNextSubject: =>
     @el.addClass 'loading'
 
   onClickSlideTutorial: =>
-    @siteIntro.start()
+    @startSlideTutorial()
 
   onSubjectSelect: (e, subject) =>
     @el.removeClass 'loading'
