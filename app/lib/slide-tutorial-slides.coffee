@@ -4,7 +4,7 @@ module?.exports = ->
   [
     {
       image: './images/site-intro/welcome.jpg'
-      title: t 'span', 'siteIntro.1.tite'
+      title: t 'span', 'siteIntro.1.title'
       content: t 'span', 'siteIntro.1.content'
     },
     {
