@@ -241,6 +241,8 @@ module.exports =
     5:
       title: 'Discuss and read more!'
       content: "Want to learn more, or discuss what you’ve seen? Chat with other Cyclone Center volunteers on our Talk page, or check out the Cyclone Center blog for more information. Happy stormwatching!"
+    nextButtonText: 'Next'
+    finishButtonText: 'Finish'
 
   classify:
     header: 'Investigations&mdash;Classify the cyclone by answering the questions below.'
@@ -259,7 +261,8 @@ module.exports =
 
     restartTutorial: 'Tutorial'
     slideTutorial: 'Site Intro'
-
+    cycloneFieldGuide: 'Cyclone Field Guide'
+    
     notSignedIn: '''
       You're not logged in! Logged in volunteers can keep track of what they've worked on, and receive credit for their work in publications. It also helps us combine everyone's classifications more efficiently.
     '''

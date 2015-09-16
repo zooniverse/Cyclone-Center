@@ -66,7 +66,7 @@
     </p>
   </div>
 </div>
-<h2 class="guide-header font-smoothing"><div class="content">Cyclone Field Guide<div></h2>
+<h2 class="guide-header font-smoothing"><%- translate 'div.content', 'classify.cycloneFieldGuide' %></h2>
 <div class="guide">
   <div class="content">
     <div class="step-details"></div>
