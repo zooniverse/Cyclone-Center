@@ -241,6 +241,8 @@ module.exports =
     5:
       title: 'Discuss and read more!'
       content: "Want to learn more, or discuss what you’ve seen? Chat with other Cyclone Center volunteers on our Talk page, or check out the Cyclone Center blog for more information. Happy stormwatching!"
+    nextButtonText: 'Next'
+    finishButtonText: 'Finish'
 
   classify:
     header: 'Investigations&mdash;Classify the cyclone by answering the questions below.'
@@ -259,7 +261,8 @@ module.exports =
 
     restartTutorial: 'Tutorial'
     slideTutorial: 'Site Intro'
-
+    cycloneFieldGuide: 'Cyclone Field Guide'
+    
     notSignedIn: '''
       You're not logged in! Logged in volunteers can keep track of what they've worked on, and receive credit for their work in publications. It also helps us combine everyone's classifications more efficiently.
     '''
@@ -641,6 +644,7 @@ module.exports =
       instruction: '''Click "Next" to get started on your own!'''
 
   progress:
+    start: "Welcome, new stormwatcher! You can help us best by observing at least 4 storms. It’s quick, easy, and fun. When you’re ready, you can get started below!"
     25: "Congratulations! You’ve just identified your first storm. Could you do at least 3 more?"
     50: "Two storms down, two to go! You’re doing great; keep it up!"
     75: "All right! You’re almost there! Just one storm left!"
