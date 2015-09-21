@@ -1,6 +1,6 @@
 t = require 't7e'
 
-module?.exports =
+module?.exports = ->
   [
     {
       image: './images/site-intro/welcome.jpg'

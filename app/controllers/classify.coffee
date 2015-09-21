@@ -111,7 +111,7 @@ class Classify extends Controller
       firstStep: 'welcome'
 
     @siteIntro = new SlideTutorial
-      slides: slideTutorialSlides
+      slides: slideTutorialSlides()
       nextButtonText: translate('span', 'siteIntro.nextButtonText')
       finishButtonText: translate('span', 'siteIntro.finishButtonText')
 

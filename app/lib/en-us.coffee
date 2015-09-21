@@ -644,6 +644,7 @@ module.exports =
       instruction: '''Click "Next" to get started on your own!'''
 
   progress:
+    start: "Welcome, new stormwatcher! You can help us best by observing at least 4 storms. It’s quick, easy, and fun. When you’re ready, you can get started below!"
     25: "Congratulations! You’ve just identified your first storm. Could you do at least 3 more?"
     50: "Two storms down, two to go! You’re doing great; keep it up!"
     75: "All right! You’re almost there! Just one storm left!"
