@@ -13,6 +13,8 @@ Subject = require 'zooniverse/models/subject'
 getTutorialSubject = require '../lib/get-tutorial-subject'
 Classification = require 'zooniverse/models/classification'
 Favorite = require 'zooniverse/models/favorite'
+LanguageManager = require 'zooniverse/lib/language-manager'
+
 StormStatus = require './storm-status'
 StackOfPages = require 'stack-of-pages'
 ProgressBar = require './progress-bar'
@@ -114,6 +116,11 @@ class Classify extends Controller
       slides: slideTutorialSlides()
       nextButtonText: translate('span', 'siteIntro.nextButtonText')
       finishButtonText: translate('span', 'siteIntro.finishButtonText')
+
+    LanguageManager.on 'change-language', =>
+      @siteIntro.slides = slideTutorialSlides()
+      @siteIntro.nextButtonText = translate('span', 'siteIntro.nextButtonText')
+      @siteIntro.finishButtonText = translate('span', 'siteIntro.finishButtonText')
 
     @progress = new ProgressBar
     @el.prepend @progress.el
