@@ -13,7 +13,7 @@ languageManager = new LanguageManager
   translations:
     en: label: 'English', strings: enUs
     it: label: 'Italiano'
-    zh_tw: label: '繁體中文'
+    zh_tw: label: '繁體中文', , strings: './translations/zh-tw.json'
 
 languageManager.on 'change-language', (e, code, strings) ->
   translate.load strings

@@ -118,7 +118,6 @@ class Classify extends Controller
       finishButtonText: translate('span', 'siteIntro.finishButtonText')
 
     LanguageManager.on 'change-language', =>
-      @siteIntro.slides = slideTutorialSlides()
       @siteIntro.nextButtonText = translate('span', 'siteIntro.nextButtonText')
       @siteIntro.finishButtonText = translate('span', 'siteIntro.finishButtonText')
 
