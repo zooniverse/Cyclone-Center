@@ -1,23 +1,8 @@
-translate = require 't7e'
-enUs = require './lib/en-us'
-translate.load enUs
-
 Api = require 'zooniverse/lib/api'
 api = new Api project: 'cyclone_center'
 
 Subject = require 'zooniverse/models/subject'
 Subject.group = true
-
-LanguageManager = require 'zooniverse/lib/language-manager'
-languageManager = new LanguageManager
-  translations:
-    en: label: 'English', strings: enUs
-    it: label: 'Italiano'
-    zh_tw: label: '繁體中文', strings: './translations/zh-tw.json'
-
-languageManager.on 'change-language', (e, code, strings) ->
-  translate.load strings
-  translate.refresh()
 
 $app = $('#app')
 $footerContainer = $('#footer-container')
@@ -44,6 +29,21 @@ footer.el.appendTo $footerContainer
 
 User = require 'zooniverse/models/user'
 User.fetch()
+
+translate = require 't7e'
+enUs = require './lib/en-us'
+translate.load enUs
+
+LanguageManager = require 'zooniverse/lib/language-manager'
+languageManager = new LanguageManager
+  translations:
+    en: label: 'English', strings: enUs
+    it: label: 'Italiano'
+    zh_tw: label: '繁體中文', strings: './translations/zh-tw.json'
+
+languageManager.on 'change-language', (e, code, strings) ->
+  translate.load strings
+  translate.refresh()
 
 GoogleAnalytics = require 'zooniverse/lib/google-analytics'
 analytics = new GoogleAnalytics account: 'UA-1224199-33'
