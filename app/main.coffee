@@ -1,8 +1,14 @@
+translate = require 't7e'
+enUs = require './lib/en-us'
+translate.load enUs
+
 Api = require 'zooniverse/lib/api'
 api = new Api project: 'cyclone_center'
 
 Subject = require 'zooniverse/models/subject'
 Subject.group = true
+
+
 
 $app = $('#app')
 $footerContainer = $('#footer-container')
@@ -19,21 +25,6 @@ stack = new StackOfPages
   '#/profile': require './controllers/profile'
 $(stack.el).appendTo $app
 
-TopBar = require 'zooniverse/controllers/top-bar'
-topBar = new TopBar
-topBar.el.appendTo navigation.el
-
-Footer = require 'zooniverse/controllers/footer'
-footer = new Footer
-footer.el.appendTo $footerContainer
-
-User = require 'zooniverse/models/user'
-User.fetch()
-
-translate = require 't7e'
-enUs = require './lib/en-us'
-translate.load enUs
-
 LanguageManager = require 'zooniverse/lib/language-manager'
 languageManager = new LanguageManager
   translations:
@@ -44,6 +35,17 @@ languageManager = new LanguageManager
 languageManager.on 'change-language', (e, code, strings) ->
   translate.load strings
   translate.refresh()
+
+TopBar = require 'zooniverse/controllers/top-bar'
+topBar = new TopBar
+topBar.el.appendTo navigation.el
+
+Footer = require 'zooniverse/controllers/footer'
+footer = new Footer
+footer.el.appendTo $footerContainer
+
+User = require 'zooniverse/models/user'
+User.fetch()
 
 GoogleAnalytics = require 'zooniverse/lib/google-analytics'
 analytics = new GoogleAnalytics account: 'UA-1224199-33'
