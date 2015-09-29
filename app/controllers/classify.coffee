@@ -289,6 +289,7 @@ class Classify extends Controller
   onClickRestartTutorial: ->
     getTutorialSubject().select()
     @tutorial.start()
+    translate.refresh()
 
   onClickFavorite: ->
     @favorite.send().then => @el.addClass 'favorited'

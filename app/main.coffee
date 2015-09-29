@@ -8,8 +8,6 @@ api = new Api project: 'cyclone_center'
 Subject = require 'zooniverse/models/subject'
 Subject.group = true
 
-
-
 $app = $('#app')
 $footerContainer = $('#footer-container')
 
