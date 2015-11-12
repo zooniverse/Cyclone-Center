@@ -1,29 +1,34 @@
 t = require 't7e'
+imageOne = t('span', 'siteIntro.one.image')
+imageTwo = t('span', 'siteIntro.two.image')
+imageThree = t('span', 'siteIntro.three.image')
+imageFour = t('span', 'siteIntro.four.image')
+imageFive = t('span', 'siteIntro.five.image')
 
 module?.exports = ->
   [
     {
-      image: './images/site-intro/welcome.jpg'
+      image: $(imageOne).html()
       title: t('span', 'siteIntro.one.title')
       content: t('span', 'siteIntro.one.content')
     },
     {
-      image: './images/site-intro/stronger-storm.gif'
+      image: $(imageTwo).html()
       title: t('span', 'siteIntro.two.title')
       content: t('span', 'siteIntro.two.content')
     },
     {
-      image: './images/site-intro/additional-questions.gif'
+      image: $(imageThree).html()
       title: t('span', 'siteIntro.three.title')
       content: t('span', 'siteIntro.three.content')
     },
     {
-      image: './images/site-intro/tutorial.gif'
+      image: $(imageFour).html()
       title: t('span', 'siteIntro.four.title')
       content: t('span', 'siteIntro.four.content')
     },
     {
-      image: './images/site-intro/final.jpg'
+      image: $(imageFive).html()
       title: t('span', 'siteIntro.five.title')
       content: t('span', 'siteIntro.five.content')
     }
