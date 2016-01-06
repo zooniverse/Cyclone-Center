@@ -120,6 +120,8 @@ class Classify extends Controller
     LanguageManager.on 'change-language', =>
       @siteIntro.nextButtonText = translate('span', 'siteIntro.nextButtonText')
       @siteIntro.finishButtonText = translate('span', 'siteIntro.finishButtonText')
+      @siteIntro.slides = slideTutorialSlides()
+      @siteIntro._createSlides()
 
     @progress = new ProgressBar
     @el.prepend @progress.el
