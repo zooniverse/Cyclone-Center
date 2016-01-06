@@ -1,11 +1,12 @@
 t = require 't7e'
-imageOne = t('span', 'siteIntro.one.image')
-imageTwo = t('span', 'siteIntro.two.image')
-imageThree = t('span', 'siteIntro.three.image')
-imageFour = t('span', 'siteIntro.four.image')
-imageFive = t('span', 'siteIntro.five.image')
 
 module?.exports = ->
+  imageOne = t('span', 'siteIntro.one.image')
+  imageTwo = t('span', 'siteIntro.two.image')
+  imageThree = t('span', 'siteIntro.three.image')
+  imageFour = t('span', 'siteIntro.four.image')
+  imageFive = t('span', 'siteIntro.five.image')
+
   [
     {
       image: $(imageOne).html()
