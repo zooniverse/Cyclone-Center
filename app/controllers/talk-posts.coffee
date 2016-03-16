@@ -15,7 +15,7 @@ class TalkPosts extends Controller
       @el.append posts[0...numPosts].map(@formattedPost)
 
   talkSubjectUrl: (subjectName) ->
-    "http://talk.cyclonecenter.org/#/subjects/#{subjectName}"
+    "https://talk.cyclonecenter.org/#/subjects/#{subjectName}"
 
   formattedPost: (subjectData) =>
     {comment: {body, user_name}, focus: {location, name}} = subjectData

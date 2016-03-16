@@ -7,7 +7,7 @@
 	  <li><a href="#/classify"><%- t 'span', 'navigation.classify' %></a></li>
 	  <li><a href="#/about"><%- t 'span', 'navigation.about' %></a></li>
 	  <li><a href="#/profile"><%- t 'span', 'navigation.profile' %></a></li>
-	  <li><a href="http://talk.cyclonecenter.org/"><%- t 'span', 'navigation.talk' %></a></li>
+	  <li><a href="https://talk.cyclonecenter.org/"><%- t 'span', 'navigation.talk' %></a></li>
 	  <li><a href="http://blog.cyclonecenter.org"><%- t 'span', 'navigation.blog' %></a></li>
 	</ul>
 </div>

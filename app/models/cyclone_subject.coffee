@@ -72,7 +72,7 @@ class CycloneSubject extends Subject
     subject
 
   talkHref: ->
-    "http://talk.cyclonecenter.org/objects/#{@zooniverseId}"
+    "https://talk.cyclonecenter.org/objects/#{@zooniverseId}"
 
 module.exports = CycloneSubject
 module.exports.randomPropertyFrom = randomPropertyFrom # For convenience

@@ -19,6 +19,6 @@
 
 <div class="actions">
   <a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=<%= encodeURIComponent location.href %>&p[title]=Help classify on Cyclone Center!" target="_blank" class="facebook action"><img src="./images/social/facebook.png" /></a>
-  <a href="http://twitter.com/home?status=<%= encodeURIComponent "Help classify on Cyclone Center! #{location.href}" %>" target="_blank" class="twitter action"><img src="./images/social/twitter.png" /></a>
+  <a href="https://twitter.com/home?status=<%= encodeURIComponent "Help classify on Cyclone Center! #{location.href}" %>" target="_blank" class="twitter action"><img src="./images/social/twitter.png" /></a>
   <span class="action"><button name="select"><%- translate 'span', 'home.analyze' %></button></span>
 </div>

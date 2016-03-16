@@ -44,8 +44,8 @@ class StormStatus extends BaseController
       @image
     else
       {lat, lng} = middleCapture
-      @storm.metadata.preview || "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=#{MAP_WIDTH}x#{MAP_HEIGHT}&sensor=false"
-      
+      @storm.metadata.preview || "https://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=3&size=#{MAP_WIDTH}x#{MAP_HEIGHT}&sensor=false"
+
     @previewImg.attr src: previewSrc
 
     finished = @storm.metadata.provided_classifications / @storm.metadata.needed_classifications

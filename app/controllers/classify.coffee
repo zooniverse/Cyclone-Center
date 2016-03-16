@@ -197,7 +197,7 @@ class Classify extends Controller
         Pick another storm from the list on the homepage.</br />
       </p>
       <p>
-        Or you can <a href="http://talk.cyclonecenter.org/">chat on Talk</a> for a while.
+        Or you can <a href="https://talk.cyclonecenter.org/">chat on Talk</a> for a while.
       </p>
 
       <p class="action">
