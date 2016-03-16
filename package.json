@@ -4,7 +4,7 @@
   "dependencies": {
     "haw": "~0.5.0",
     "stack-of-pages": "git://github.com/chrissnyder/stack-of-pages.git",
-    "publisssh": "~0.2.5",
+    "publisssh": "~0.2.6",
     "t7e": "~0.3.1",
     "zooniverse": "~0.7.1",
     "zootorial": "~0.3.5",
