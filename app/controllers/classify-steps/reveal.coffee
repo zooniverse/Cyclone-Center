@@ -57,7 +57,7 @@ class Reveal extends Step
 
     @map = new Leaflet.Map @mapContainer.get 0
     @map.setView [51.505, -0.09], DEFAULT_ZOOM
-    @map.addLayer new Leaflet.TileLayer 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    @map.addLayer new Leaflet.TileLayer 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
     @trail = []
 
