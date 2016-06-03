@@ -3,7 +3,10 @@ enUs = require './lib/en-us'
 translate.load enUs
 
 Api = require 'zooniverse/lib/api'
-api = new Api project: 'cyclone_center'
+api = if window.location.hostname is 'www.cyclonecenter.org'
+  new Api project: 'cyclone_center', host: 'https://www.cyclonecenter.org', path: '/_ouroboros_api/proxy'
+else
+  new Api project: 'cyclone_center'
 
 Subject = require 'zooniverse/models/subject'
 Subject.group = true
